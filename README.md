@@ -19,6 +19,8 @@ VTFR-Intelligent-Learning-System/
 ├── .gitignore            # Tells Git which files to ignore (like .env and __pycache__)
 │
 ├── .env.example          # Template for your local environment variables
+├── docs/                 # Project documentation (specifications, workflows, architectures)
+│   └── project_overview.md
 └── output/               # Folder where generated JSON questions are saved
 ```
 
