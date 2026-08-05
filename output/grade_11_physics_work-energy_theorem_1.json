@@ -1,0 +1,172 @@
+{
+  "calculationDraft": "Correct: A 50 kg block is pulled up a 10 m incline with a force of 300 N. Work done = Force * displacement * cos(\u03b8) = 300 N * 10 m * cos(30\u00b0) = 300 * 10 * 0.866 = 2598 J. Distractor A: Student incorrectly calculates cos(30\u00b0) as 0.5, resulting in 1500 J. Distractor B: Student forgets to apply the cosine of the angle, resulting in 3000 J. Distractor C: Student calculates work done as Force * displacement without considering the angle, but then incorrectly applies the cosine, resulting in 300 * 10 * 0.707 = 2121 J.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 11",
+  "subject": "Physics",
+  "chapter": "Mechanics",
+  "topic": "Work-Energy Theorem",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "questionText": "A 50 kg block is pulled up a 10 m incline with a force of 300 N at an angle of 30\u00b0 to the horizontal. How much work is done in pulling the block up the incline?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "2121 J",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "2598 J",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "3000 J",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "1500 J",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula to calculate the work done when a force is applied at an angle to the displacement?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Work = Force * displacement * sin(\u03b8)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Work = Force / displacement",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Work = Force * displacement * cos(\u03b8)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Work = Force * displacement",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given the force of 300 N, displacement of 10 m, and angle of 30\u00b0, what is the work done in pulling the block up the incline using the formula from step 1?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "3000 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2000 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2598 J",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2500 J",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: A 20 kg block is pulled up a 5 m incline with a force of 100 N. Work done = Force * displacement * cos(\u03b8) = 100 N * 5 m * cos(0\u00b0) = 100 * 5 * 1 = 500 J. Distractor A: Student incorrectly calculates cos(0\u00b0) as 0, resulting in 0 J. Distractor B: Student forgets to apply the cosine of the angle, but since the angle is 0\u00b0, the result is still correct, 500 J. Distractor C: Student calculates work done as Force * displacement without considering the angle, resulting in 500 J, which is correct in this case but demonstrates a lack of understanding of the formula.",
+      "questionId": "4e2f4c1d-4c4f-4444-8e8e-0e0e0e0e0e0e",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A 20 kg block is pulled up a 5 m incline with a force of 100 N at an angle of 0\u00b0 to the horizontal. How much work is done in pulling the block up the incline?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "0 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "500 J",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "600 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "400 J",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the value of cos(0\u00b0) in the work formula?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "1",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "0.5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Using the value of cos(0\u00b0) from step 1, calculate the work done.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "400 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "500 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "700 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "600 J",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

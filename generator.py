@@ -5,8 +5,8 @@ import uuid
 import random
 from dotenv import load_dotenv
 from openai import OpenAI
-from config.config import SYLLABUS
-from templates import prompt_templates
+from config import SYLLABUS
+import prompt_templates
 
 
 load_dotenv()
