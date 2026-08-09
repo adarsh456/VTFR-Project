@@ -1,0 +1,226 @@
+{
+  "calculationDraft": "Step 1: Identify the coefficients of the quadratic equation x^2 + 5x + 6 = 0. Step 2: Apply the quadratic formula x = [-b \u00b1 sqrt(b^2 - 4ac)] / 2a where a = 1, b = 5, and c = 6.",
+  "questionId": "VTFR-ALG-001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Quadratic Equations",
+  "questionText": "Solve the quadratic equation x^2 + 5x + 6 = 0 using the quadratic formula.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x = -2 or x = -3",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x = -1 or x = -6",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x = 2 or x = 3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x = 1 or x = 6",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Identify the coefficients a, b, and c in the given quadratic equation x^2 + 5x + 6 = 0.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "a = 1, b = 5, c = 6",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "a = 1, b = 6, c = 5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "a = 6, b = 5, c = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "a = 5, b = 1, c = 6",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Apply the quadratic formula x = [-b \u00b1 sqrt(b^2 - 4ac)] / 2a.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = [-5 \u00b1 sqrt(5^2 - 4*1*6)] / 2*1",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = [-5 \u00b1 sqrt(5^2 + 4*1*6)] / 2*1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = [-5 \u00b1 sqrt(6^2 - 4*1*5)] / 2*1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = [-6 \u00b1 sqrt(5^2 - 4*1*6)] / 2*1",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Simplify the expression under the square root and solve for x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = [-5 \u00b1 sqrt(25 - 24)] / 2 = [-5 \u00b1 sqrt(1)] / 2 = [-5 \u00b1 1] / 2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = [-5 \u00b1 sqrt(25 + 24)] / 2 = [-5 \u00b1 sqrt(49)] / 2 = [-5 \u00b1 7] / 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = [-5 \u00b1 sqrt(36 - 20)] / 2 = [-5 \u00b1 sqrt(16)] / 2 = [-5 \u00b1 4] / 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = [-5 \u00b1 sqrt(36 - 24)] / 2 = [-5 \u00b1 sqrt(12)] / 2",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Step 1: Factor the quadratic equation x^2 + 4x + 4 = 0.",
+      "questionId": "VTFR-ALG-ALT-001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the quadratic equation x^2 + 4x + 4 = 0 by factoring.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = -1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Factor the given quadratic equation x^2 + 4x + 4 = 0.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x + 2)(x + 2) = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x + 1)(x + 4) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 2)(x - 2) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x - 1)(x - 4) = 0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Step 1: Solve the quadratic equation x^2 - 7x + 12 = 0 by factoring.",
+      "questionId": "VTFR-ALG-ALT-002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the quadratic equation x^2 - 7x + 12 = 0 by factoring.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = 3 or x = 4",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 1 or x = 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = 5 or x = 6",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 7 or x = 8",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Factor the given quadratic equation x^2 - 7x + 12 = 0.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x - 3)(x - 4) = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x + 3)(x + 4) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 1)(x - 12) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x + 1)(x + 12) = 0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

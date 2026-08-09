@@ -1,0 +1,172 @@
+{
+  "calculationDraft": "Correct: \u222b(x^3 * e^x) dx = x^3 * e^x - \u222b(3x^2 * e^x) dx. Using integration by parts again: \u222b(3x^2 * e^x) dx = 3x^2 * e^x - \u222b(6x * e^x) dx. Once more: \u222b(6x * e^x) dx = 6x * e^x - \u222b(6 * e^x) dx. Finally, \u222b(6 * e^x) dx = 6e^x. Combining: \u222b(x^3 * e^x) dx = x^3 * e^x - (3x^2 * e^x - (6x * e^x - 6e^x)) = x^3 * e^x - 3x^2 * e^x + 6x * e^x - 6e^x + C. Distractor A (Computational Error): Incorrectly applying integration by parts formula, leading to x^3 * e^x - 3x^2 * e^x + 5x * e^x - 5e^x + C. Distractor B (Conceptual Misconception): Forgetting to apply integration by parts more than once, resulting in x^3 * e^x - 3x^2 * e^x + C. Distractor C (Trap): Correctly applying integration by parts but failing to simplify fully, leading to x^3 * e^x - 3x^2 * e^x + 6x * e^x - 6e^x.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Integration by Parts",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Hard",
+  "questionText": "Find the indefinite integral of x^3 * e^x using integration by parts.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x^3 * e^x - 3x^2 * e^x + 5x * e^x - 5e^x + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x^2 * e^x - 2x * e^x + 2e^x + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x^3 * e^x - 3x^2 * e^x + 6x * e^x - 6e^x + C",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x^3 * e^x - 3x^2 * e^x + C",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the first step in integrating x^3 * e^x using integration by parts, considering u = x^3 and dv = e^x dx?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "du = x^2 dx, v = e^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "du = 3x^2 dx, v = e^x",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "du = 3x dx, v = e^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "du = 2x dx, v = e^x",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "After applying integration by parts once, what is the next integral to evaluate: \u222b(3x^2 * e^x) dx, using integration by parts again?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Let u = 3x, dv = x^2 * e^x dx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Let u = x^2, dv = 3e^x dx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Let u = x, dv = 3x * e^x dx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Let u = 3x^2, dv = e^x dx",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: \u222b(x * e^x) dx = x * e^x - \u222b(e^x) dx = x * e^x - e^x + C. Distractor A: Forgetting the constant of integration, x * e^x - e^x. Distractor B: Incorrectly applying integration by parts, x * e^x + e^x + C. Distractor C: Partially correct but missing a term, x * e^x + C.",
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d7e39",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the indefinite integral of x * e^x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x * e^x - e^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x * e^x + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x * e^x + e^x + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x * e^x - e^x + C",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "To integrate x * e^x, what are the appropriate choices for u and dv in the integration by parts formula?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "u = x, dv = x * e^x dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "u = x^2, dv = e^x dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "u = x, dv = e^x dx",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "u = e^x, dv = x dx",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After choosing u and dv, what is the resulting integral after the first application of integration by parts?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "\u222b(x^2 * e^x) dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "\u222b(e^x) dx",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "\u222b(x * e^x) dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "\u222b(e^x) dx + C",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

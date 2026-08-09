@@ -1,0 +1,41 @@
+{
+  "questionId": " UUID-1234567890",
+  "questionType": "image_mcq",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "RAY OPTICS",
+  "topic": "LENS COMBINATION",
+  "questionText": "Two lenses with focal lengths of 10 cm and 20 cm are placed 5 cm apart. What is the effective focal length of the combination?",
+  "questionLatex": "",
+  "diagramType": "none",
+  "diagramData": {
+    "focal_length_1": 10,
+    "focal_length_2": 20,
+    "separation": 5
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "7.14 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "15 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "8.57 cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "12.5 cm",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "8.57 cm",
+  "correctExplanation": "The effective focal length of the combination can be calculated using the formula 1/F = 1/f1 + 1/f2 - d/(f1*f2), where d is the separation between the lenses.",
+  "questionImagePath": ""
+}

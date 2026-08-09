@@ -1,0 +1,44 @@
+{
+  "questionId": "9f4f5b6c-4c9c-4335-81a1-3a2a2c3b3c3b",
+  "questionType": "image_mcq",
+  "grade": "Grade 6",
+  "subject": "Mathematics",
+  "chapter": "Coordinate Geometry",
+  "topic": "Plotting 2D Functions and Curves",
+  "questionText": "In the graph shown, identify the curve represented by the equation y = 2x^2 + 3x - 1.",
+  "questionLatex": "",
+  "diagramType": "graph",
+  "diagramData": {
+    "expression": "2*x**2 + 3*x - 1",
+    "x_range": [
+      -5,
+      5
+    ],
+    "label": "y = 2x^2 + 3x - 1"
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Straight Line",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Circle",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Parabola",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Ellipse",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "Parabola",
+  "correctExplanation": "The given equation y = 2x^2 + 3x - 1 represents a parabola because it is in the form y = ax^2 + bx + c, where a, b, and c are constants.",
+  "questionImagePath": "generated_question\\image_questions\\grade_6_mathematics_plotting_2d_functions_and_curves_1.png"
+}

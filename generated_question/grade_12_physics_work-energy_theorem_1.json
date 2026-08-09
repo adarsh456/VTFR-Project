@@ -1,0 +1,356 @@
+{
+  "calculationDraft": "To find the final velocity of the block, we apply the Work-Energy Theorem: W = \u0394KE. Given that the block starts from rest, the initial kinetic energy is 0, and thus the work done equals the final kinetic energy of the block.",
+  "questionId": "VTFR-PHY-001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Mechanics",
+  "topic": "Work-Energy Theorem",
+  "questionText": "A block of mass 5 kg is pulled up a frictionless inclined plane of length 10 m and height 3 m by a force of 20 N parallel to the incline. If the block starts from rest, what is its velocity at the top of the incline?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "4 m/s",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "6 m/s",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "8 m/s",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "10 m/s",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Calculate the work done on the block by the force as it moves up the incline.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Work = Force * distance = 20 N * 10 m = 200 J",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Work = Force * height = 20 N * 3 m = 60 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Work = Force / distance = 20 N / 10 m = 2 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Work = Force - distance = 20 N - 10 m = 10 J",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Apply the Work-Energy Theorem to find the final kinetic energy of the block.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "\u0394KE = W - PE = 200 J - (5 kg * 9.8 m/s^2 * 3 m) = 200 J - 147 J = 53 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "\u0394KE = W = 200 J",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "\u0394KE = W + PE = 200 J + (5 kg * 9.8 m/s^2 * 3 m) = 200 J + 147 J = 347 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "\u0394KE = W / 2 = 200 J / 2 = 100 J",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Use the kinetic energy equation to solve for the final velocity of the block.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "KE = 0.5 * m * v^2 => v = sqrt(2*KE/m) = sqrt(2*200/5) = sqrt(80) = 8.94 m/s, round to 9 m/s",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "KE = 0.5 * m * v^2 => v = sqrt(2*200/5) = sqrt(80) = 8.94 m/s, round to 6 m/s",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "KE = 0.5 * m * v^2 => v = sqrt(2*200/5) = sqrt(80) = 8.94 m/s, round to 10 m/s",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "KE = m * v^2 => v = sqrt(KE/m) = sqrt(200/5) = sqrt(40) = 6.32 m/s",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For an object moving on a horizontal, frictionless surface, the work done by the external force equals the change in kinetic energy.",
+      "questionId": "VTFR-PHY-ALT-001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A force of 10 N acts on a 2 kg block, causing it to accelerate from rest on a horizontal, frictionless surface. If the block travels 5 m, what is its final velocity?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "5 m/s",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "10 m/s",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "15 m/s",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "20 m/s",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Calculate the work done by the force on the block.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Work = Force * distance = 10 N * 5 m = 50 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Work = Force / distance = 10 N / 5 m = 2 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Work = Force + distance = 10 N + 5 m = 15 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Work = Force - distance = 10 N - 5 m = 5 J",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply the Work-Energy Theorem to find the final kinetic energy of the block.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "\u0394KE = W = 50 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "\u0394KE = W / 2 = 50 J / 2 = 25 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "\u0394KE = W + 10 J = 50 J + 10 J = 60 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "\u0394KE = W - 10 J = 50 J - 10 J = 40 J",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 3,
+          "stepText": "Use the kinetic energy equation to solve for the final velocity of the block.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "KE = 0.5 * m * v^2 => v = sqrt(2*KE/m) = sqrt(2*50/2) = sqrt(50) = 7.07 m/s, round to 5 m/s",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "KE = m * v^2 => v = sqrt(KE/m) = sqrt(50/2) = sqrt(25) = 5 m/s",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "KE = 0.5 * m * v => v = 2*KE/m = 2*50/2 = 50 m/s",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "KE = m * v => v = KE/m = 50/2 = 25 m/s",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "For an object moving up an incline, the work done against gravity must be considered in addition to the work done by the external force.",
+      "questionId": "VTFR-PHY-ALT-002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A 1 kg block is pulled up a frictionless incline of length 3 m and height 1.5 m by a force of 5 N parallel to the incline. If the block starts from rest, what is its velocity at the top of the incline?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "3 m/s",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4 m/s",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "5 m/s",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "6 m/s",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Calculate the work done by the force on the block.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Work = Force * distance = 5 N * 3 m = 15 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Work = Force / distance = 5 N / 3 m = 1.67 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Work = Force + distance = 5 N + 3 m = 8 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Work = Force - distance = 5 N - 3 m = 2 J",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Calculate the work done against gravity.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Work against gravity = m * g * h = 1 kg * 9.8 m/s^2 * 1.5 m = 14.7 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Work against gravity = m * g / h = 1 kg * 9.8 m/s^2 / 1.5 m = 6.53 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Work against gravity = m * g + h = 1 kg * 9.8 m/s^2 + 1.5 m = 11.3 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Work against gravity = m * g - h = 1 kg * 9.8 m/s^2 - 1.5 m = 8.3 J",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 3,
+          "stepText": "Apply the Work-Energy Theorem to find the final kinetic energy of the block.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "\u0394KE = W - Work against gravity = 15 J - 14.7 J = 0.3 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "\u0394KE = W + Work against gravity = 15 J + 14.7 J = 29.7 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "\u0394KE = W / 2 - Work against gravity / 2 = 15 J / 2 - 14.7 J / 2 = 0.15 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "\u0394KE = W / 2 + Work against gravity / 2 = 15 J / 2 + 14.7 J / 2 = 14.85 J",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 4,
+          "stepText": "Use the kinetic energy equation to solve for the final velocity of the block.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "KE = 0.5 * m * v^2 => v = sqrt(2*KE/m) = sqrt(2*0.3/1) = sqrt(0.6) = 0.77 m/s, round to 3 m/s",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "KE = 0.5 * m * v^2 => v = sqrt(2*KE/m) = sqrt(2*0.3/1) = sqrt(0.6) = 0.77 m/s, round to 4 m/s",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "KE = m * v^2 => v = sqrt(KE/m) = sqrt(0.3/1) = sqrt(0.3) = 0.55 m/s, round to 3 m/s",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "KE = m * v => v = KE/m = 0.3/1 = 0.3 m/s",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

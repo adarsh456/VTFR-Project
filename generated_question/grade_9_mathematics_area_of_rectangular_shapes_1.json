@@ -1,0 +1,386 @@
+{
+  "calculationDraft": "To find the area of a rectangular shape, we multiply the length by the width. Given a rectangle with a length of 8 cm and a width of 5 cm, we calculate the area as 8 cm * 5 cm = 40 square cm. For the incorrect options, common mistakes include misinterpreting the formula, using incorrect units, or miscalculating the product.",
+  "questionId": "VTFR_MENSURATION_GRADE9_001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 9",
+  "subject": "Mathematics",
+  "chapter": "mensuration",
+  "topic": "Area of Rectangular Shapes",
+  "questionText": "What is the area of a rectangle with a length of 8 cm and a width of 5 cm?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "30 square cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "40 square cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "45 square cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "50 square cm",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Identify the formula for the area of a rectangle.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Area = Length + Width",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Area = Length * Width",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Area = Length / Width",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Area = Width - Length",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Apply the formula with the given dimensions (Length = 8 cm, Width = 5 cm).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "8 cm * 3 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "8 cm * 5 cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8 cm + 5 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "8 cm / 5 cm",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Calculate the product of 8 cm and 5 cm.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "38 square cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "40 square cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "42 square cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "45 square cm",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For a square with a side length of 4 cm, the area is found by squaring the side length: 4 cm * 4 cm = 16 square cm. Common mistakes include using the wrong operation or forgetting to square the side length.",
+      "questionId": "VTFR_MENSURATION_GRADE9_ALT001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the area of a square with a side length of 4 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "12 square cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "16 square cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "20 square cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "24 square cm",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Recall the formula for the area of a square.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = Side Length + Side Length",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = Side Length * Side Length",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = Side Length / Side Length",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = Side Length - Side Length",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply the formula with the given side length (4 cm).",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3 cm * 3 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4 cm * 4 cm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "5 cm * 5 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "4 cm + 4 cm",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "The area of a rectangle is given by length times width. For a rectangle with a length of 6 cm and a width of 3 cm, the area is 6 cm * 3 cm = 18 square cm. Mistakes can include confusing length and width or using the wrong operation.",
+      "questionId": "VTFR_MENSURATION_GRADE9_ALT002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the area of a rectangle with a length of 6 cm and a width of 3 cm.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "15 square cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "18 square cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "20 square cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "24 square cm",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the formula for the area of a rectangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = Length - Width",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = Length * Width",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = Length + Width",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = Width / Length",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply the formula with the given dimensions (Length = 6 cm, Width = 3 cm).",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "6 cm * 4 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "6 cm * 3 cm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "6 cm + 3 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "6 cm / 3 cm",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "To find the area of a rectangular garden with a length of 9 meters and a width of 4 meters, we use the formula Area = Length * Width. Thus, the area is 9 meters * 4 meters = 36 square meters. Common errors include using the wrong formula or calculation mistake.",
+      "questionId": "VTFR_MENSURATION_GRADE9_ALT003",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the area of a rectangular garden with a length of 9 meters and a width of 4 meters?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "32 square meters",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "36 square meters",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "40 square meters",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "45 square meters",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Recall the formula for the area of a rectangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = Length / Width",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = Length * Width",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = Width - Length",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = Length + Width",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply the formula with the given dimensions (Length = 9 meters, Width = 4 meters).",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "9 meters * 3 meters",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "9 meters * 4 meters",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "9 meters + 4 meters",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "9 meters / 4 meters",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 3,
+          "stepText": "Calculate the product of 9 meters and 4 meters.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "30 square meters",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "36 square meters",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "40 square meters",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "45 square meters",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

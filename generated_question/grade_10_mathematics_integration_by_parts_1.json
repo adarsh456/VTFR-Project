@@ -1,0 +1,254 @@
+{
+  "calculationDraft": "To find the integral of x^2 * sin(x) using integration by parts, let u = x^2 and dv = sin(x)dx. Then du = 2xdx and v = -cos(x). The integral becomes -x^2*cos(x) + \u222b2x*cos(x)dx. For the remaining integral, let u = 2x and dv = cos(x)dx, then du = 2dx and v = sin(x). This gives \u222b2x*cos(x)dx = 2x*sin(x) - \u222b2*sin(x)dx = 2x*sin(x) + 2*cos(x). Combining, the final integral is -x^2*cos(x) + 2x*sin(x) + 2*cos(x) + C. Correct: -x^2*cos(x) + 2x*sin(x) + 2*cos(x) + C. Distractor A (Computational Error): Forgetting the constant of integration, -x^2*cos(x) + 2x*sin(x) + 2*cos(x). Distractor B (Conceptual Misconception): Incorrectly applying the formula, x^2*sin(x) - 2x*cos(x) - 2*sin(x) + C. Distractor C (Partially Correct): Correctly integrating by parts but missing the second integration step, -x^2*cos(x) + C.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Integration by Parts",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Hard",
+  "questionText": "Find the indefinite integral of x^2 * sin(x) using integration by parts.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "-x^2*cos(x) + 2x*sin(x) + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x^2*cos(x) - 2x*sin(x) - 2*cos(x) + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x^2*sin(x) - 2x*cos(x) - 2*sin(x) + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "-x^2*cos(x) + 2x*sin(x) + 2*cos(x) + C",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What are u and dv if we choose u = x^2 for the integral of x^2 * sin(x)?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "u = x^2, dv = cos(x)dx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "u = x, dv = x*sin(x)dx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "u = x^2, dv = sin(x)dx",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "u = sin(x), dv = x^2dx",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "After finding the first integral -x^2*cos(x), what are u and dv for the remaining integral \u222b2x*cos(x)dx?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "u = 2, dv = x*cos(x)dx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "u = 2x, dv = cos(x)dx",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "u = cos(x), dv = 2xdx",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "u = 2x, dv = sin(x)dx",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For \u222bx*sin(x)dx, let u = x and dv = sin(x)dx. Then du = dx and v = -cos(x). The integral becomes -x*cos(x) + \u222bcos(x)dx = -x*cos(x) + sin(x) + C. Correct: -x*cos(x) + sin(x) + C. Distractor A: Forgetting the constant of integration, -x*cos(x) + sin(x). Distractor B: Incorrectly applying the formula, x*sin(x) - cos(x) + C. Distractor C: Correctly integrating by parts but missing the second integration step, -x*cos(x) + C.",
+      "questionId": "9b8f5c1d-4e5f-4678-b9a0-1e02b2c3d480",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the indefinite integral of x*sin(x) using integration by parts.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "-x*cos(x) + sin(x) + C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "-x*cos(x) + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x*cos(x) - sin(x) + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x*sin(x) - cos(x) + C",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What are u and dv if we choose u = x for the integral of x*sin(x)?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "u = cos(x), dv = xdx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "u = sin(x), dv = xdx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "u = x, dv = sin(x)dx",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "u = x, dv = cos(x)dx",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After finding the first integral -x*cos(x), what is the integral of cos(x)dx?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "-cos(x) + C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "cos(x) + C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "sin(x) + C",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "-sin(x) + C",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "For \u222bx^3 * cos(x)dx, let u = x^3 and dv = cos(x)dx. Then du = 3x^2dx and v = sin(x). The integral becomes x^3*sin(x) - \u222b3x^2*sin(x)dx. For the remaining integral, let u = 3x^2 and dv = sin(x)dx, then du = 6xdx and v = -cos(x). This gives \u222b3x^2*sin(x)dx = -3x^2*cos(x) + \u222b6x*cos(x)dx = -3x^2*cos(x) + 6x*sin(x) - \u222b6*sin(x)dx = -3x^2*cos(x) + 6x*sin(x) + 6*cos(x) + C. Combining, the final integral is x^3*sin(x) - 3x^2*cos(x) + 6x*sin(x) + 6*cos(x) + C. Correct: x^3*sin(x) - 3x^2*cos(x) + 6x*sin(x) + 6*cos(x) + C. Distractor A: Forgetting the constant of integration, x^3*sin(x) - 3x^2*cos(x) + 6x*sin(x) + 6*cos(x). Distractor B: Incorrectly applying the formula, x^3*cos(x) - 3x^2*sin(x) - 6x*cos(x) + C. Distractor C: Correctly integrating by parts but missing the second integration step, x^3*sin(x) - 3x^2*cos(x) + C.",
+      "questionId": "6bae76af-4112-4fed-b8dc-c8c960d14d2e",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the indefinite integral of x^3 * cos(x) using integration by parts.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x^3*sin(x) - 3x^2*cos(x) + 6x*sin(x) + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x^3*sin(x) - 3x^2*cos(x) + 6x*sin(x) + 6*cos(x)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x^3*sin(x) - 3x^2*cos(x) + 6x*sin(x) + 6*cos(x) + C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x^3*cos(x) - 3x^2*sin(x) - 6x*cos(x) + C",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What are u and dv if we choose u = x^3 for the integral of x^3 * cos(x)?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "u = x^3, dv = sin(x)dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "u = cos(x), dv = x^3dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "u = sin(x), dv = x^3dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "u = x^3, dv = cos(x)dx",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After finding the first integral x^3*sin(x), what are u and dv for the remaining integral \u222b3x^2*sin(x)dx?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "u = cos(x), dv = 3x^2dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "u = 3x^2, dv = sin(x)dx",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "u = sin(x), dv = 3x^2dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "u = 3x^2, dv = cos(x)dx",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

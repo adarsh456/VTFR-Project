@@ -1,0 +1,336 @@
+{
+  "calculationDraft": "Correct: Energy cannot be created or destroyed, only converted from one form to another. \n   Distractor A (Computational Error): Thinking energy is created when it's actually converted (e.g., burning gasoline creates energy).\n   Distractor B (Conceptual Misconception): Believing energy can be destroyed (e.g., energy is lost when a car brakes).\n   Distractor C (Trap): Assuming energy conversion is 100% efficient (e.g., all energy from gasoline is converted into motion).",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 5",
+  "subject": "Physics",
+  "chapter": "Thermodynamics",
+  "topic": "First Law of Thermodynamics",
+  "bloomsLevel": "Understand",
+  "difficultyTag": "Medium",
+  "questionText": "What is the main idea of the First Law of Thermodynamics?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Energy can be created or destroyed",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Energy is always lost when it's converted",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Energy conversion is always 100% efficient",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Energy can only be converted from one form to another",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What happens to energy when it's converted from one form to another, according to the First Law of Thermodynamics?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "It's lost",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "It's created",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "It's destroyed",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "It remains the same",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Can energy be converted with 100% efficiency, according to the First Law of Thermodynamics?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "It depends on the type of energy being converted",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Yes, energy conversion is always 100% efficient",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "No, energy conversion is never 100% efficient",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Sometimes, energy conversion can be 100% efficient",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: The First Law of Thermodynamics states that energy cannot be created or destroyed. \n           Distractor A (Computational Error): Thinking the law only applies to certain types of energy.\n           Distractor B (Conceptual Misconception): Believing the law means energy is always conserved in a closed system.\n           Distractor C (Trap): Assuming the law only applies to energy conversion, not energy transfer.",
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d7e39",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What does the First Law of Thermodynamics say about energy?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Energy can be created or destroyed",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Energy conversion is always 100% efficient",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Energy is always conserved in a closed system",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Energy can only be converted from one form to another, but not created or destroyed",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the main idea of the First Law of Thermodynamics?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Energy conversion is always 100% efficient",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Energy is always lost when it's converted",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Energy can only be converted from one form to another",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Energy can be created or destroyed",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Is the First Law of Thermodynamics related to energy transfer or energy conversion?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Both energy conversion and energy transfer",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Only energy conversion",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Only energy transfer",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Neither energy conversion nor energy transfer",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Correct: The First Law of Thermodynamics applies to all types of energy. \n           Distractor A (Computational Error): Thinking the law only applies to kinetic energy.\n           Distractor B (Conceptual Misconception): Believing the law only applies to potential energy.\n           Distractor C (Trap): Assuming the law only applies to thermal energy.",
+      "questionId": "4c9f5b6a-8f7c-46a2-b3d9-1e02a5c6d7e8",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What types of energy does the First Law of Thermodynamics apply to?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Only kinetic energy",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "All types of energy",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Only potential energy",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Only thermal energy",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Does the First Law of Thermodynamics apply to kinetic energy?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "No",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "It depends on the situation",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Yes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Sometimes",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Does the First Law of Thermodynamics apply to potential energy?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Yes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Sometimes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "No",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "It depends on the situation",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Correct: The First Law of Thermodynamics is a fundamental principle in physics. \n           Distractor A (Computational Error): Thinking the law is only used in engineering.\n           Distractor B (Conceptual Misconception): Believing the law is only related to chemistry.\n           Distractor C (Trap): Assuming the law is only used in biology.",
+      "questionId": "54863171-414a-49f7-914b-1682ca4d8e3f",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What field of science does the First Law of Thermodynamics primarily belong to?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Biology",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Physics",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Chemistry",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Engineering",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Is the First Law of Thermodynamics primarily used in physics?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Yes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "It depends on the situation",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "No",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Sometimes",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Is the First Law of Thermodynamics related to chemistry?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "No",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Yes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Sometimes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "It depends on the situation",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "questionId": "9a411a6f-357f-4a2a-8c4a-5e4419b5f2a5",
+  "questionType": "image_mcq",
+  "grade": "Grade 8",
+  "subject": "Mathematics",
+  "chapter": "Geometry",
+  "topic": "Properties of Rectangle",
+  "questionText": "In the given rectangle, find the area with a length of 8 cm and a width of 5 cm.",
+  "questionLatex": "",
+  "diagramType": "rectangle",
+  "diagramData": {
+    "length": 8,
+    "width": 5
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "30 square cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "40 square cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "45 square cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "50 square cm",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "40 square cm",
+  "correctExplanation": "Area of rectangle = length * width = 8 * 5 = 40 square cm",
+  "questionImagePath": "generated_question\\image_questions\\grade_8_mathematics_properties_of_rectangle_1.png"
+}

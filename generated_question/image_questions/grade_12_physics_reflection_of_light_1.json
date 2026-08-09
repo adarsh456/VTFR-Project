@@ -1,0 +1,69 @@
+{
+  "calculationDraft": "The law of reflection states that the angle of incidence is equal to the angle of reflection. Given the angle of incidence is 45 degrees, we can determine the angle of reflection using this law.",
+  "questionId": "b878801a-2486-40a5-b833-9971b1681ef9",
+  "questionType": "image_mcq",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "light",
+  "topic": "reflection of light",
+  "questionText": "In the diagram below, a light ray is incident on a horizontal mirror at an angle of incidence of 45 degrees. Using the law of reflection, determine the angle of reflection.",
+  "questionLatex": "",
+  "diagramType": "right_triangle",
+  "diagramData": {
+    "angle_of_incidence": 45,
+    "mirror_position": "horizontal"
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "90 degrees",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "45 degrees",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "30 degrees",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "60 degrees",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the relationship between the angle of incidence and the angle of reflection according to the law of reflection?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Angle of incidence is equal to the angle of reflection",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Angle of incidence is twice the angle of reflection",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Angle of incidence is half the angle of reflection",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Angle of incidence and angle of reflection are unrelated",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "correctAnswer": "45 degrees",
+  "correctExplanation": "The law of reflection states that the angle of incidence is equal to the angle of reflection. Therefore, the angle of reflection is also 45 degrees.",
+  "questionImagePath": "generated_question\\image_questions\\grade_12_physics_reflection_of_light_1.png"
+}

@@ -1,0 +1,69 @@
+{
+  "calculationDraft": "To find the perimeter of the rectangle, we need to add the lengths of all four sides. Since the rectangle has a length of 8cm and a width of 5cm, we can use the formula: Perimeter = 2 * (length + width). For the distractors, common misconceptions include adding the length and width without doubling them, doubling one dimension but not the other, or using the wrong operation altogether.",
+  "questionId": "UUID-123456",
+  "questionType": "image_mcq",
+  "grade": "Grade 5",
+  "subject": "Mathematics",
+  "chapter": "Geometry",
+  "topic": "Properties of Rectangle",
+  "questionText": "Find the perimeter of the given rectangle with length 8cm and width 5cm in the diagram below.",
+  "questionLatex": "",
+  "diagramType": "rectangle",
+  "diagramData": {
+    "length": 8,
+    "width": 5
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "8cm * 5cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "18cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "26cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "8cm + 5cm",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula to calculate the perimeter of the rectangle with length 8cm and width 5cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Perimeter = 2 * (length + width)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Perimeter = length * width",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Perimeter = length - width",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Perimeter = length + width",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "correctAnswer": "26cm",
+  "correctExplanation": "The perimeter of a rectangle is calculated by adding all its sides, which can also be expressed as 2 times the sum of its length and width. Therefore, Perimeter = 2 * (8cm + 5cm) = 2 * 13cm = 26cm.",
+  "questionImagePath": "generated_question\\image_questions\\grade_5_mathematics_properties_of_rectangle_1.png"
+}

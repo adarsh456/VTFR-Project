@@ -1,0 +1,44 @@
+{
+  "calculationDraft": "To find the total resistance, we use the formula R_total = R1 + R2. Given R1 = 15Ω and R2 = 25Ω, we calculate R_total = 15Ω + 25Ω = 40Ω. To find the current drawn, we use Ohm's law, I = V / R_total, where V = 12V. Thus, I = 12V / 40Ω = 0.3A.",
+  "questionId": "f2cfc9d0-15a4-43a8-8d1f-4e5a5212c2e5",
+  "questionType": "image_mcq",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Current Electricity",
+  "topic": "Resistors in Series",
+  "questionText": "In the circuit shown below, with a 12V battery connected to two resistors in series, R1 = 15Ω and R2 = 25Ω, what is the total resistance and the current drawn from the battery?",
+  "questionLatex": "",
+  "diagramType": "series_circuit",
+  "diagramData": {
+    "voltage": 12,
+    "resistors": [
+      15,
+      25
+    ]
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Total resistance = 10Ω, Current = 1.2A",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Total resistance = 40Ω, Current = 0.3A",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Total resistance = 40Ω, Current = 0.6A",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Total resistance = 10Ω, Current = 0.3A",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "Total resistance = 40Ω, Current = 0.3A",
+  "correctExplanation": "The total resistance in a series circuit is the sum of the individual resistances, and the current drawn is calculated using Ohm's law with the total resistance.",
+  "questionImagePath": "generated_question\\image_questions\\grade_12_physics_resistors_in_series_1.png"
+}

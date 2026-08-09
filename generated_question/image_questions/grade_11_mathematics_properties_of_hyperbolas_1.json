@@ -1,0 +1,45 @@
+{
+  "calculationDraft": "To find the equation of the asymptote, we need to find the center and the standard form of the hyperbola. The given equation is y^2/4 - x^2/9 = 1. Comparing this with the standard form of a hyperbola (y^2/a^2 - x^2/b^2 = 1), we can see that a^2 = 4 and b^2 = 9. The equations of the asymptotes are y = ±(a/b)x. So, we need to find a/b.",
+  "questionId": "9f3c1914-85f4-43c5-8f6d-ffa119a7a8f4",
+  "questionType": "image_mcq",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "chapter": "Conic Sections",
+  "topic": "Properties of Hyperbolas",
+  "questionText": "In the graph of the hyperbola shown, what is the equation of the asymptote of the hyperbola given by the equation y^2/4 - x^2/9 = 1?",
+  "questionLatex": "y^2/4 - x^2/9 = 1",
+  "diagramType": "graph",
+  "diagramData": {
+    "expression": "y**2/4 - x**2/9",
+    "x_range": [
+      -10,
+      10
+    ],
+    "label": "y^2/4 - x^2/9 = 1"
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "y = ±2x/3",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "y = ±3x/2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "y = ±x/2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "y = ±x/3",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "y = ±2x/3",
+  "correctExplanation": "The equation of the asymptote of a hyperbola is y = ±(a/b)x. Here, a = 2 and b = 3, so the equation of the asymptote is y = ±2x/3.",
+  "questionImagePath": "generated_question\\image_questions\\grade_11_mathematics_properties_of_hyperbolas_1.png"
+}

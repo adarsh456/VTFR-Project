@@ -1,0 +1,72 @@
+{
+  "questionId": "3d-geometry-mcq-1",
+  "questionType": "image_mcq",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "chapter": "introduction to three dimentional geometry",
+  "topic": "Coordinate System and Plane Equations",
+  "questionText": "Considering the points (1, 2, 3), (4, 5, 6), and (7, 8, 9) in the 3D coordinate system shown in the diagram, what is the equation of the plane that passes through these points?",
+  "questionLatex": "",
+  "diagramType": "scatter_3d",
+  "diagramData": {
+    "points": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        4,
+        5,
+        6
+      ],
+      [
+        7,
+        8,
+        9
+      ]
+    ],
+    "point_labels": [
+      "A",
+      "B",
+      "C"
+    ],
+    "x_range": [
+      0,
+      10
+    ],
+    "y_range": [
+      0,
+      10
+    ],
+    "z_range": [
+      0,
+      10
+    ]
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x - y + z = 0",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x + y - z = 0",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x - y + z = 2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x - y + z = 0 is not correct but x + y + z = 6 - (1 + 2 + 3) = 0 or x + y + z = 6 is not correct either, the plane equation is actually x - y + z = 2 - (1 - 2 + 3) = 0",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "x - y + z = 2",
+  "correctExplanation": "To find the equation of the plane passing through the given points, first find two vectors in the plane by subtracting pairs of the points. Then, find the normal vector to the plane by taking the cross product of these two vectors. Finally, use one of the points and the normal vector to write the equation of the plane.",
+  "questionImagePath": "generated_question\\image_questions\\grade_11_mathematics_coordinate_system_and_plane_equations_1.png"
+}

@@ -1,0 +1,44 @@
+{
+  "calculationDraft": "To determine the type of triangle, we need to examine its side lengths. An isosceles triangle has at least two sides of equal length, an equilateral triangle has all three sides of equal length, and a scalene triangle has all three sides of different lengths. Given the side lengths are 5, 6, and 7, which are all different, we can conclude the triangle is scalene. Distractor A (isosceles) is incorrect because there are no equal side lengths. Distractor B (equilateral) is incorrect because all sides must be equal. Distractor C (right triangle) is not relevant to the side lengths given but is incorrect in the context of this question about side length equality.",
+  "questionId": "f4f5c5b0-8e2a-40c6-8a51-4c2c2e2e2e2e",
+  "questionType": "image_mcq",
+  "grade": "Grade 5",
+  "subject": "Mathematics",
+  "chapter": "Geometry",
+  "topic": "Triangle Side and Angle Rules",
+  "questionText": "In the triangle diagram shown below with side lengths 5, 6, and 7, which of the following is true about the triangle: it is isosceles, scalene, or equilateral?",
+  "questionLatex": "",
+  "diagramType": "triangle",
+  "diagramData": {
+    "side_lengths": [
+      5,
+      6,
+      7
+    ]
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "The triangle is isosceles.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "The triangle is equilateral.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "The triangle is scalene.",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "The triangle is right-angled.",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "The triangle is scalene.",
+  "correctExplanation": "Since all three sides of the triangle have different lengths, the triangle is scalene.",
+  "questionImagePath": "generated_question\\image_questions\\grade_5_mathematics_triangle_side_and_angle_rules_1.png"
+}

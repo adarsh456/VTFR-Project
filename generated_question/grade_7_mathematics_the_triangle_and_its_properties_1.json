@@ -1,0 +1,254 @@
+{
+  "calculationDraft": "Correct: To find the perimeter of the triangle, we need to add the lengths of all three sides. Given sides are 5 cm, 6 cm, and 7 cm. Perimeter = 5 + 6 + 7 = 18 cm. Distractor A (Computational Error): Student adds only two sides, 5 + 6 = 11 cm. Distractor B (Conceptual Misconception): Student thinks perimeter is the same as area and calculates 0.5 * base * height, but since we don't have the height, let's say they use one of the sides as height incorrectly, e.g., 0.5 * 5 * 6 = 15 cm. Distractor C (Trap): Student calculates the perimeter but forgets to include one of the sides in the sum, e.g., 5 + 7 = 12 cm.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 7",
+  "subject": "Mathematics",
+  "chapter": "geometry and mensuration",
+  "topic": "the triangle and its properties",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "questionText": "What is the perimeter of a triangle with side lengths 5 cm, 12 cm, and 9 cm?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "30 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "25 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "26 cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "20 cm",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the sum of the two shorter sides of the triangle?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "20 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "22 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "17 cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "15 cm",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "If the sum of the two shorter sides is 17 cm, and the longest side is 9 cm, what is the total perimeter of the triangle?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "28 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "24 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "26 cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25 cm",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: For a right-angled triangle with sides 3 cm, 4 cm, and hypotenuse 5 cm, the perimeter is simply the sum of all sides, 3 + 4 + 5 = 12 cm. Distractor A: Student forgets to include the hypotenuse, 3 + 4 = 7 cm. Distractor B: Student mistakenly calculates the area instead, 0.5 * base * height = 0.5 * 3 * 4 = 6 cm. Distractor C: Student adds an extra side that doesn't exist, 3 + 4 + 5 + 2 = 14 cm.",
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d7e39",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the perimeter of a right-angled triangle with sides 3 cm and 4 cm, and a hypotenuse of 5 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "7 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "10 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "15 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "12 cm",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What are the lengths of the two shorter sides of the right-angled triangle?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3 cm and 4 cm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "2 cm and 3 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "7 cm and 8 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "5 cm and 6 cm",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the sides are 3 cm and 4 cm, and knowing the triangle is right-angled with a hypotenuse of 5 cm, what is the perimeter?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "12 cm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "10 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "11 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "13 cm",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Correct: The perimeter of an equilateral triangle with each side being 6 cm is simply 3 times the length of one side, 3 * 6 = 18 cm. Distractor A: Student calculates the perimeter of an isosceles triangle with two sides of 6 cm and one side of 8 cm, which would be 6 + 6 + 8 = 20 cm. Distractor B: Student thinks the perimeter is the area and calculates 0.5 * base * height, but for an equilateral triangle, this would be a different calculation, let's say they incorrectly use 0.5 * 6 * 6 = 18 cm but for the wrong reason. Distractor C: Student calculates the perimeter but uses the wrong multiplier, 2 * 6 = 12 cm.",
+      "questionId": "f62561eb-e7e2-4d15-913d-a65e5a4fe068",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the perimeter of an equilateral triangle with each side being 6 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "18 cm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "24 cm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "15 cm",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the length of one side of the equilateral triangle?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "7 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "8 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "6 cm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "5 cm",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Knowing that each side of the equilateral triangle is 6 cm, how do you calculate the perimeter?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "5 * 6 = 30 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4 * 6 = 24 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "2 * 6 = 12 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "3 * 6 = 18 cm",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

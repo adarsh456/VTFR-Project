@@ -1,0 +1,44 @@
+{
+  "questionId": "4b6c30d1-5c5a-46b3-8c2a-421fc1c2c7d8",
+  "questionType": "image_mcq",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "ray optics",
+  "topic": "prism ray daigram",
+  "questionText": "What is the nature of the ray that emerges from the prism?",
+  "questionLatex": "",
+  "diagramType": "geometry",
+  "diagramData": {
+    "shape": "prism",
+    "labels": {
+      "angle_of_incidence": "30°",
+      "angle_of_refraction": "20°",
+      "angle_of_emergence": "?"
+    }
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "The ray is refracted towards the normal",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "The ray is reflected back into the prism",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "The ray is refracted away from the normal",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "The ray passes straight through the prism without bending",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "The ray is refracted away from the normal",
+  "correctExplanation": "When light passes from a denser medium to a rarer medium, it is refracted away from the normal.",
+  "questionImagePath": "generated_question\\image_questions\\grade_12_physics_prism_ray_daigram_1.png"
+}

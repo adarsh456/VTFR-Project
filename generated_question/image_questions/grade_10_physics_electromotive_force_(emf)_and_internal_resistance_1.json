@@ -1,0 +1,45 @@
+{
+  "calculationDraft": "To find the total resistance in the circuit, we need to add the internal resistance of the battery to the total resistance of the external resistors. Since the external resistors are connected in series, their total resistance is the sum of their individual resistances. total_external_resistance = 4Ω + 6Ω = 10Ω. total_resistance = internal_resistance + total_external_resistance = 2Ω + 10Ω = 12Ω",
+  "questionId": "9f5645a8-3322-48e5-8a7e-d3f3e95b29a6",
+  "questionType": "image_mcq",
+  "grade": "Grade 10",
+  "subject": "Physics",
+  "chapter": "electric current",
+  "topic": "Electromotive Force (EMF) and Internal Resistance",
+  "questionText": "In the circuit shown below with a 12V battery, an internal resistance of 2Ω, and two external resistors of 4Ω and 6Ω connected in series, what is the total resistance in the circuit?",
+  "questionLatex": "",
+  "diagramType": "series_circuit",
+  "diagramData": {
+    "voltage": 12,
+    "internal_resistance": 2,
+    "resistors": [
+      4,
+      6
+    ]
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "6Ω",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "10Ω",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "12Ω",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "14Ω",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "12Ω",
+  "correctExplanation": "The total resistance is the sum of the internal resistance and the total resistance of the external resistors, which are connected in series.",
+  "questionImagePath": "generated_question\\image_questions\\grade_10_physics_electromotive_force_(emf)_and_internal_resistance_1.png"
+}

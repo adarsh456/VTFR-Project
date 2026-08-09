@@ -1,0 +1,42 @@
+{
+  "calculationDraft": "To find the angle of refraction, we use Snell's law: n1 sin(θ1) = n2 sin(θ2), where n1 = 1 (air), θ1 = 30 degrees, n2 = 1.5 (glass), and θ2 is the angle of refraction. Rearranging the equation to solve for θ2, we get sin(θ2) = (n1 / n2) * sin(θ1) = (1 / 1.5) * sin(30 degrees). Using a calculator, sin(30 degrees) = 0.5, so sin(θ2) = (1 / 1.5) * 0.5 = 0.3333. The angle whose sine is 0.3333 is approximately 19.47 degrees.",
+  "questionId": "63c0d834-51f5-43a8-8c5a-12345567",
+  "questionType": "image_mcq",
+  "grade": "Grade 10",
+  "subject": "Physics",
+  "chapter": "Light – Reflection and Refraction",
+  "topic": "Refraction of Light through a Single Glass Slab",
+  "questionText": "In the diagram, what is the angle of refraction when light passes from air into a glass slab with an angle of incidence of 30 degrees and a refractive index of 1.5?",
+  "questionLatex": "",
+  "diagramType": "right_triangle",
+  "diagramData": {
+    "shape": "right_triangle",
+    "angle_of_incidence": "30 degrees",
+    "refractive_index": 1.5
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "20 degrees",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "25 degrees",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "19.5 degrees",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "35 degrees",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "19.5 degrees",
+  "correctExplanation": "Using Snell's law and the given values, the angle of refraction is approximately 19.47 degrees, which is closest to 19.5 degrees among the given options.",
+  "questionImagePath": "generated_question\\image_questions\\grade_10_physics_refraction_of_light_through_a_single_glass_slab_1.png"
+}

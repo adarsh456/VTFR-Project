@@ -1,0 +1,44 @@
+{
+  "questionId": "UUID-123456",
+  "questionType": "image_mcq",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Definite Integrals",
+  "questionText": "Referring to the graph of the function f(x) = 2x, find the definite integral of f(x) from x = 0 to x = 4.",
+  "questionLatex": "$/int_{0}^{4} 2x \\\\\\[ dx",
+  "diagramType": "graph",
+  "diagramData": {
+    "expression": "2*x",
+    "x_range": [
+      0,
+      4
+    ],
+    "label": "y = 2x"
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "4",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "8",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "16",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "32",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "16",
+  "correctExplanation": "The definite integral of f(x) = 2x from x = 0 to x = 4 is calculated as $/int_{0}^{4} 2x \\\\ dx = [x^2]_{0}^{4} = 4^2 - 0^2 = 16$.",
+  "questionImagePath": "generated_question\\image_questions\\grade_12_mathematics_definite_integrals_1.png"
+}

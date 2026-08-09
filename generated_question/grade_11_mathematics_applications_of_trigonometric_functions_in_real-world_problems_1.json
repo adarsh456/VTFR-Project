@@ -1,0 +1,330 @@
+{
+  "calculationDraft": "To find the height of the building, we can use the tangent function. We know the angle of elevation (30 degrees) and the distance from the building (50 meters). The tangent function is tan(angle) = opposite side / adjacent side. In this case, the opposite side is the height of the building and the adjacent side is the distance from the building.",
+  "questionId": "123e4567-e89b-12d3-a456-426614174000",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "chapter": "trigonometric function",
+  "topic": "Applications of Trigonometric Functions in Real-World Problems",
+  "questionText": "A surveyor is standing 50 meters away from a building and measures the angle of elevation to the top of the building to be 30 degrees. What is the height of the building?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "25 meters",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "50 meters",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "25 * sqrt(3) meters",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "100 meters",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Identify the given information: angle of elevation (30 degrees), distance from the building (50 meters)",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "angle of elevation (45 degrees), distance from the building (25 meters)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "angle of elevation (30 degrees), distance from the building (50 meters)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "angle of elevation (60 degrees), distance from the building (75 meters)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "angle of elevation (90 degrees), distance from the building (100 meters)",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Choose the correct trigonometric function to use: tangent, sine, or cosine",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "sine function",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "cosine function",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "tangent function",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "cotangent function",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Plug in the values into the tangent function: tan(30) = height / 50",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "tan(30) = 50 / height",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "tan(30) = height / 25",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "tan(30) = height / 50",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "tan(30) = 25 / height",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 4,
+      "stepText": "Solve for the height: height = 50 * tan(30)",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "height = 25 * tan(30)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "height = 50 / tan(30)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "height = 50 * tan(30)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "height = 25 / tan(30)",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "To find the length of the shadow, we can use the tangent function. We know the angle of elevation (45 degrees) and the height of the object (10 meters). The tangent function is tan(angle) = opposite side / adjacent side. In this case, the opposite side is the height of the object and the adjacent side is the length of the shadow.",
+      "questionId": "123e4567-e89b-12d3-a456-426614174001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A lamp post is 10 meters tall and casts a shadow at an angle of elevation of 45 degrees. What is the length of the shadow?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "5 meters",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "10 meters",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "15 meters",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "20 meters",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the given information: angle of elevation (45 degrees), height of the object (10 meters)",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "angle of elevation (30 degrees), height of the object (5 meters)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "angle of elevation (45 degrees), height of the object (10 meters)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "angle of elevation (60 degrees), height of the object (15 meters)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "angle of elevation (90 degrees), height of the object (20 meters)",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Choose the correct trigonometric function to use: tangent, sine, or cosine",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "sine function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "cosine function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "tangent function",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "cotangent function",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "To find the distance from the observer to the point on the ground where the angle of depression is measured, we can use the tangent function. We know the angle of depression (60 degrees) and the height of the observer (20 meters). The tangent function is tan(angle) = opposite side / adjacent side. In this case, the opposite side is the height of the observer and the adjacent side is the distance from the observer to the point on the ground.",
+      "questionId": "123e4567-e89b-12d3-a456-426614174002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "An observer is 20 meters above the ground and measures the angle of depression to a point on the ground to be 60 degrees. What is the distance from the observer to the point on the ground?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "10 meters",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20 meters",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "10 * sqrt(3) meters",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "30 meters",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the given information: angle of depression (60 degrees), height of the observer (20 meters)",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "angle of depression (30 degrees), height of the observer (10 meters)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "angle of depression (60 degrees), height of the observer (20 meters)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "angle of depression (90 degrees), height of the observer (30 meters)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "angle of depression (45 degrees), height of the observer (25 meters)",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Choose the correct trigonometric function to use: tangent, sine, or cosine",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "sine function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "cosine function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "tangent function",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "cotangent function",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 3,
+          "stepText": "Plug in the values into the tangent function: tan(60) = 20 / distance",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "tan(60) = distance / 20",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "tan(60) = 10 / distance",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "tan(60) = 20 / distance",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "tan(60) = distance / 10",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

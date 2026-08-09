@@ -1,0 +1,40 @@
+{
+  "questionId": "123e4567-e89b-12d3-a456-426655440000",
+  "questionType": "image_mcq",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Geometry",
+  "topic": "Circle Theorems",
+  "questionText": "In the circle shown, if an angle at the center is 60 degrees and the radius is 5 cm, what is the length of the arc subtended by this angle?",
+  "questionLatex": "",
+  "diagramType": "circle",
+  "diagramData": {
+    "radius": 5,
+    "angle": 60
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "1.667 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "3.333 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "5.235 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "$\frac{60}{360} * 2 * pi * 5 = \frac{1}{6} * 10 * pi = \frac{5}{3} * pi approx 5.235$ cm, so 5.235 cm is the closest answer, however the actual calculation results in  $\frac{5pi}{3}$ which is approximately 5.235, hence 5.235 cm",
+      "isCorrect": true
+    }
+  ],
+  "correctAnswer": "5.235 cm",
+  "correctExplanation": "The length of the arc subtended by a central angle in a circle can be calculated as (angle/360) * 2 * pi * radius. In this case, it is (60/360) * 2 * pi * 5 = (1/6) * 10 * pi = (5/3) * pi, which is approximately 5.235 cm.",
+  "questionImagePath": "generated_question\\image_questions\\grade_10_mathematics_circle_theorems_2.png"
+}

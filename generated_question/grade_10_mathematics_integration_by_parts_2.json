@@ -1,0 +1,172 @@
+{
+  "calculationDraft": "Correct: Integral of x * ln(x) using integration by parts. Let u = ln(x), dv = x dx, then du = 1/x dx, v = (1/2)x^2. Integral = (1/2)x^2 * ln(x) - integral of (1/2)x^2 * (1/x) dx = (1/2)x^2 * ln(x) - (1/2) integral of x dx = (1/2)x^2 * ln(x) - (1/4)x^2 + C. Distractor A: Student forgets to integrate the second part, resulting in (1/2)x^2 * ln(x). Distractor B: Student incorrectly applies the formula, resulting in x^2 * ln(x). Distractor C: Student correctly integrates but forgets the constant of integration, resulting in (1/2)x^2 * ln(x) - (1/4)x^2.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Integration by Parts",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "questionText": "Find the indefinite integral of x * ln(x) using integration by parts.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x^2 * ln(x) + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "(1/2)x^2 * ln(x) - (1/2)x + C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "(1/2)x^2 * ln(x) - (1/4)x^2 + C",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "(1/4)x^2 * ln(x) + C",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the derivative of ln(x)?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "1/x",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the integral of x dx?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "(1/4)x^2 + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(1/2)x^2 + C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x^2 + C",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: Integral of x * e^x using integration by parts. Let u = x, dv = e^x dx, then du = dx, v = e^x. Integral = x * e^x - integral of e^x dx = x * e^x - e^x + C. Distractor A: Student forgets to integrate the second part, resulting in x * e^x. Distractor B: Student incorrectly applies the formula, resulting in e^x. Distractor C: Student correctly integrates but forgets the constant of integration, resulting in x * e^x - e^x.",
+      "questionId": "d64a370a-cd05-4180-aaee-b0592a9dcbfc",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the indefinite integral of x * e^x using integration by parts.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x * e^x + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "e^x + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x * e^x - e^x + C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "e^x - x + C",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the derivative of x?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "e^x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x^2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the integral of e^x dx?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "e^x - x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "e^x + x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "e^x - C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "e^x + C",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

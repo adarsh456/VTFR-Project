@@ -1,0 +1,41 @@
+{
+  "calculationDraft": "To find the perimeter of the rectangle, we use the formula: Perimeter = 2*length + 2*width. Given length = 6 and width = 4, we substitute these values into the formula to get Perimeter = 2*6 + 2*4 = 12 + 8 = 20. Distractor A is a computational error, adding the length and width instead of doubling them. Distractor B is a conceptual misconception, using the formula for the area of a rectangle instead of the perimeter. Distractor C is a trap, calculating the perimeter of one side of the rectangle instead of all sides.",
+  "questionId": "123e4567-e89b-12d3-a456-426655440000",
+  "questionType": "image_mcq",
+  "grade": "Grade 5",
+  "subject": "Mathematics",
+  "chapter": "mensuration and geometry",
+  "topic": "working with 2d and 3d shape",
+  "questionText": "In the rectangle diagram shown below with length 6 and width 4, what is the perimeter of the given rectangle?",
+  "questionLatex": "",
+  "diagramType": "rectangle",
+  "diagramData": {
+    "length": 6,
+    "width": 4
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "10",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "12",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "20",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "24",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "20",
+  "correctExplanation": "The perimeter of a rectangle is calculated by the formula: Perimeter = 2*length + 2*width. Substituting the given values, we get Perimeter = 2*6 + 2*4 = 20.",
+  "questionImagePath": "generated_question\\image_questions\\grade_5_mathematics_working_with_2d_and_3d_shape_1.png"
+}

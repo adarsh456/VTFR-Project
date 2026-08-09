@@ -1,0 +1,40 @@
+{
+  "questionId": "8d4e7b59-93c4-41a9-8f4d-8b5d21cbe0c4",
+  "questionType": "image_mcq",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Geometry",
+  "topic": "Area of Triangle",
+  "questionText": "In the triangle diagram, find the area of the triangle with base 5 cm and height 6 cm",
+  "questionLatex": "",
+  "diagramType": "triangle",
+  "diagramData": {
+    "base": "5 cm",
+    "height": "6 cm"
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "12 square cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "13 square cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "15 square cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "20 square cm",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "15 square cm",
+  "correctExplanation": "Area of a triangle = (1/2) * base * height = (1/2) * 5 * 6 = 15 square cm",
+  "questionImagePath": "generated_question\\image_questions\\grade_10_mathematics_area_of_triangle_1.png"
+}

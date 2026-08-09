@@ -1,0 +1,41 @@
+{
+  "calculationDraft": "To find the length of the arc, we use the formula: arc length = (angle/360) * 2 * π * radius. Given angle = 60 degrees and radius = 5 cm, we can calculate the arc length as: arc length = (60/360) * 2 * π * 5 = (1/6) * 2 * 3.14159 * 5 = 5.23598 cm, rounding this to two decimal places gives approximately 5.24 cm.",
+  "questionId": "2f6c4e5d-7a3b-42a5-9f2c-5c64e46b3f6d",
+  "questionType": "image_mcq",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Geometry",
+  "topic": "Circle Theorems",
+  "questionText": "In the circle shown, if an angle at the center is 60 degrees and the radius is 5 cm, what is the length of the arc subtended by this angle?",
+  "questionLatex": "",
+  "diagramType": "circle",
+  "diagramData": {
+    "radius": 5,
+    "angle": 60
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "3.14 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "5.0 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "5.24 cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "6.28 cm",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "5.24 cm",
+  "correctExplanation": "Using the formula for arc length, which is (angle/360) * 2 * π * radius, we find that the length of the arc subtended by a 60-degree angle in a circle with a radius of 5 cm is approximately 5.24 cm.",
+  "questionImagePath": "generated_question\\image_questions\\grade_10_mathematics_circle_theorems_1.png"
+}

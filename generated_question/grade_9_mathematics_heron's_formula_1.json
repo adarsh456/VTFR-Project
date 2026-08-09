@@ -1,0 +1,442 @@
+{
+  "calculationDraft": "To find the area of a triangle with side lengths 5 cm, 6 cm, and 7 cm, we use Heron's formula: Area = sqrt(s*(s-a)*(s-b)*(s-c)), where s is the semi-perimeter (s = (a+b+c)/2) and a, b, c are the side lengths. First, calculate the semi-perimeter: s = (5+6+7)/2 = 9. Then, plug the values into Heron's formula: Area = sqrt(9*(9-5)*(9-6)*(9-7)) = sqrt(9*4*3*2) = sqrt(216) = 6*sqrt(6).",
+  "questionId": "vtfr_mensuration_heron_001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 9",
+  "subject": "Mathematics",
+  "chapter": "mensuration",
+  "topic": "heron's formula",
+  "questionText": "What is the area of a triangle with side lengths 5 cm, 6 cm, and 7 cm?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "8 cm^2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "12 cm^2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "6*sqrt(6) cm^2",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "10*sqrt(2) cm^2",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Calculate the semi-perimeter of the triangle using the formula s = (a+b+c)/2, where a, b, and c are the side lengths.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "s = (5+6+7)/3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "s = (5*6*7)/2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "s = (5+6+7)/2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "s = (5-6+7)/2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Plug the semi-perimeter and side lengths into Heron's formula to find the area of the triangle.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Area = sqrt(s*(s-a)*(s+b)*(s+c))",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s+c))",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s-c))",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Area = sqrt(s*(s+a)*(s+b)*(s+c))",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Simplify the expression under the square root to find the numerical value of the area.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Area = sqrt(9*4*3*2) = 6*sqrt(3)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Area = sqrt(9*4*3*2) = 12*sqrt(2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Area = sqrt(9*4*3*2) = 6*sqrt(6)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Area = sqrt(9*4*3*2) = 8*sqrt(4)",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For a triangle with side lengths 3 cm, 4 cm, and 5 cm, the semi-perimeter s = (3+4+5)/2 = 6. Then, using Heron's formula: Area = sqrt(6*(6-3)*(6-4)*(6-5)) = sqrt(6*3*2*1) = sqrt(36) = 6 cm^2.",
+      "questionId": "vtfr_mensuration_heron_alt_001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the area of a triangle with side lengths 3 cm, 4 cm, and 5 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4 cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "5 cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6 cm^2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "8 cm^2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Calculate the semi-perimeter of the triangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "s = (3+4+5)/3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "s = (3*4*5)/2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "s = (3+4+5)/2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "s = (3-4+5)/2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Use Heron's formula to find the area.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = sqrt(s*(s-a)*(s+b)*(s+c))",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s+c))",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s-c))",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = s*(s-a)*(s-b)*(s-c)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "The area of the triangle can also be found using the formula 1/2 * base * height. For a right-angled triangle with sides 3, 4, and 5, the base and height are 3 and 4, respectively. Thus, Area = 1/2 * 3 * 4 = 6 cm^2.",
+      "questionId": "vtfr_mensuration_heron_alt_002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the area of a right-angled triangle with side lengths 3 cm, 4 cm, and 5 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4 cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "5 cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6 cm^2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "8 cm^2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the base and height of the right-angled triangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Base = 5 cm, Height = 3 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Base = 4 cm, Height = 5 cm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Base = 3 cm, Height = 4 cm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Base = 3 cm, Height = 5 cm",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply the formula for the area of a triangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = 1/2 * base + height",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = base * height",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = 1/2 * base * height",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = base / height",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "For a triangle with side lengths 10 cm, 10 cm, and 10 cm (equilateral), the semi-perimeter s = (10+10+10)/2 = 15. Then, using Heron's formula: Area = sqrt(15*(15-10)*(15-10)*(15-10)) = sqrt(15*5*5*5) = sqrt(1875) = 25*sqrt(3) cm^2.",
+      "questionId": "vtfr_mensuration_heron_alt_003",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the area of an equilateral triangle with side length 10 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "20*sqrt(3) cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "25*sqrt(2) cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "25*sqrt(3) cm^2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "30*sqrt(3) cm^2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Calculate the semi-perimeter of the equilateral triangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "s = (10+10+10)/3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "s = (10*10*10)/2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "s = (10+10+10)/2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "s = (10-10+10)/2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply Heron's formula to find the area.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = sqrt(s*(s-a)*(s+b)*(s+c))",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s+c))",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s-c))",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = s*(s-a)*(s-b)*(s-c)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Given a triangle with sides 7 cm, 8 cm, and 9 cm, first find the semi-perimeter: s = (7+8+9)/2 = 12. Then, apply Heron's formula: Area = sqrt(12*(12-7)*(12-8)*(12-9)) = sqrt(12*5*4*3) = sqrt(720) = 12*sqrt(5) cm^2.",
+      "questionId": "vtfr_mensuration_heron_alt_004",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the area of a triangle with side lengths 7 cm, 8 cm, and 9 cm?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "10*sqrt(5) cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "12*sqrt(3) cm^2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "12*sqrt(5) cm^2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "15*sqrt(5) cm^2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Calculate the semi-perimeter of the triangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "s = (7+8+9)/3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "s = (7*8*9)/2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "s = (7+8+9)/2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "s = (7-8+9)/2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Use Heron's formula to find the area of the triangle.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Area = sqrt(s*(s-a)*(s+b)*(s+c))",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s+c))",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Area = sqrt(s*(s-a)*(s-b)*(s-c))",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Area = s*(s-a)*(s-b)*(s-c)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

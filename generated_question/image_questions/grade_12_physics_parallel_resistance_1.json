@@ -1,0 +1,37 @@
+{
+  "calculationDraft": "",
+  "questionId": "f4c94a2d-6e3f-40c5-9a7a-82e3e6f6c4e5",
+  "questionType": "image_mcq",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "electricty",
+  "topic": "parallel resistance",
+  "questionText": "What happens to the total resistance in a parallel circuit when more resistors are added?",
+  "questionLatex": "",
+  "questionImageNote": "A parallel circuit with two resistors and a battery",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "The total resistance increases",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "The total resistance remains the same",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "The total resistance decreases",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "The total resistance becomes infinite",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "The total resistance decreases",
+  "correctExplanation": "In a parallel circuit, the total resistance decreases as more resistors are added because there are more paths for the current to flow, resulting in less opposition to the flow of charge.",
+  "questionImagePath": "generated_question\\image_questions\\grade_12_physics_parallel_resistance_1.png"
+}

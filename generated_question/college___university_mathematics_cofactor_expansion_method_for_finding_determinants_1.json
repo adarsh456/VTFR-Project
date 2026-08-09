@@ -1,0 +1,278 @@
+{
+  "calculationDraft": "To find the determinant of a 3x3 matrix using the cofactor expansion method, expand along the first row. The determinant of matrix A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] is calculated as: det(A) = 1*cofactor(1,1) + 2*cofactor(1,2) + 3*cofactor(1,3). The cofactor of an element at position (i,j) in a 3x3 matrix is found by removing the i-th row and j-th column and finding the determinant of the resulting 2x2 matrix, then multiplying by (-1)^(i+j).",
+  "questionId": "VTFR-1234567890",
+  "questionType": "vtfr_adaptive",
+  "grade": "College / University",
+  "subject": "Mathematics",
+  "chapter": "matrix and determination",
+  "topic": "Cofactor Expansion Method for Finding Determinants",
+  "questionText": "What is the determinant of the matrix A = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] using the cofactor expansion method along the first row?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "0",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "10",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "20",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "30",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Identify the elements in the first row of matrix A and their corresponding cofactors.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1, 2, 3 with their respective cofactors",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4, 5, 6 with their respective cofactors",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "7, 8, 9 with their respective cofactors",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Only 1 with its cofactor",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Calculate the determinant of each 2x2 submatrix obtained by removing the row and column of each element in the first row.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "For element 1: det([[5, 6], [8, 9]]) = (5*9 - 6*8) = -3",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "For element 1: det([[5, 6], [8, 9]]) = (5*9 + 6*8) = 27",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "For element 1: det([[5, 6], [8, 9]]) = (5*8 - 6*9) = 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "For element 1: det([[5, 6], [8, 9]]) = (5*6 - 8*9) = -42",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Apply the cofactor expansion formula: det(A) = 1*cofactor(1,1) + 2*cofactor(1,2) + 3*cofactor(1,3).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "det(A) = 1*(-3) + 2*(-3) + 3*(-3) = 0",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "det(A) = 1*(3) + 2*(3) + 3*(3) = 18",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "det(A) = 1*(-3) + 2*(3) + 3*(-3) = -6",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "det(A) = 1*(3) + 2*(-3) + 3*(3) = 6",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For a simpler 2x2 matrix, the determinant can be found directly using the formula: det(A) = ad - bc for matrix A = [[a, b], [c, d]].",
+      "questionId": "VTFR-ALTERNATE-1",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the determinant of the matrix A = [[2, 3], [4, 5]]?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "-2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "10",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "-10",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the elements of the 2x2 matrix A.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "a = 2, b = 3, c = 4, d = 5",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "a = 2, b = 4, c = 3, d = 5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "a = 3, b = 2, c = 4, d = 5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "a = 2, b = 3, c = 5, d = 4",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Apply the determinant formula for a 2x2 matrix: det(A) = ad - bc.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "det(A) = (2*5) - (3*4) = -2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "det(A) = (2*4) - (3*5) = -7",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "det(A) = (3*5) - (2*4) = 7",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "det(A) = (3*4) - (2*5) = -2",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Consider a 3x3 matrix with some elements given. The determinant can be found using the cofactor expansion along any row or column. For simplicity, choose a row or column with the most zeros to simplify calculations.",
+      "questionId": "VTFR-ALTERNATE-2",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the determinant of the matrix A = [[1, 0, 0], [0, 2, 0], [0, 0, 3]]?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "6",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "12",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "-6",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Notice the matrix is diagonal, meaning its determinant is the product of its diagonal elements.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The matrix is diagonal, so det(A) = 1*2*3",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The matrix is not diagonal, so we must use cofactor expansion",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "We can only find the determinant of a diagonal matrix if it's 2x2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The determinant of any diagonal matrix is 0",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Calculate the determinant as the product of the diagonal elements: 1*2*3.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "det(A) = 1*2*3 = 6",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "det(A) = 1+2+3 = 6",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "det(A) = 1*2 + 3 = 5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "det(A) = 1*2 - 3 = -1",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

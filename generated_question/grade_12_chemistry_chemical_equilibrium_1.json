@@ -1,0 +1,278 @@
+{
+  "calculationDraft": "For the reaction N2 + 3H2 \u21cc 2NH3, the equilibrium constant expression is Kc = [NH3]^2 / ([N2] * [H2]^3). Given the initial concentrations of N2 = 0.5 M, H2 = 0.8 M, and NH3 = 0.2 M, and the equilibrium concentrations of N2 = 0.3 M, H2 = 0.6 M, and NH3 = 0.6 M, we can calculate the equilibrium constant Kc.",
+  "questionId": "VTFR-CHEM-001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 12",
+  "subject": "Chemistry",
+  "chapter": "Physical Chemistry",
+  "topic": "Chemical Equilibrium",
+  "questionText": "What is the value of the equilibrium constant Kc for the reaction N2 + 3H2 \u21cc 2NH3, given the initial and equilibrium concentrations?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "0.01",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "0.1",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "3.6",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "10.0",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Write down the equilibrium constant expression for the reaction N2 + 3H2 \u21cc 2NH3.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Kc = [NH3] / ([N2] * [H2])",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Kc = [NH3]^2 / ([N2] * [H2]^2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Kc = [NH3]^2 / ([N2] * [H2]^3)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Kc = [N2] * [H2]^3 / [NH3]^2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Plug in the equilibrium concentrations into the equilibrium constant expression.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Kc = (0.2)^2 / (0.3 * (0.6)^3)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Kc = (0.6)^2 / (0.5 * (0.8)^3)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Kc = (0.6)^2 / (0.3 * (0.6)^3)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Kc = (0.2)^2 / (0.5 * (0.8)^3)",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Calculate the value of Kc.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Kc = 0.01",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Kc = 0.1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Kc = 3.6",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Kc = 10.0",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For the reaction 2NO2 \u21cc N2O4, the equilibrium constant expression is Kc = [N2O4] / [NO2]^2. Given the initial concentrations of NO2 = 0.4 M and N2O4 = 0.1 M, and the equilibrium concentrations of NO2 = 0.2 M and N2O4 = 0.3 M, we can calculate the equilibrium constant Kc.",
+      "questionId": "VTFR-CHEM-ALT-001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the value of the equilibrium constant Kc for the reaction 2NO2 \u21cc N2O4, given the initial and equilibrium concentrations?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "0.05",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "0.5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1.5",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "5.0",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Write down the equilibrium constant expression for the reaction 2NO2 \u21cc N2O4.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Kc = [NO2]^2 / [N2O4]",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Kc = [N2O4]^2 / [NO2]",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Kc = [N2O4] / [NO2]^2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Kc = [NO2] / [N2O4]^2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Plug in the equilibrium concentrations into the equilibrium constant expression and calculate Kc.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Kc = 0.05",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Kc = 0.5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Kc = 1.5",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Kc = 5.0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "For the reaction H2 + I2 \u21cc 2HI, the equilibrium constant expression is Kc = [HI]^2 / ([H2] * [I2]). Given the initial concentrations of H2 = 0.2 M, I2 = 0.3 M, and HI = 0.1 M, and the equilibrium concentrations of H2 = 0.1 M, I2 = 0.2 M, and HI = 0.4 M, we can calculate the equilibrium constant Kc.",
+      "questionId": "VTFR-CHEM-ALT-002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the value of the equilibrium constant Kc for the reaction H2 + I2 \u21cc 2HI, given the initial and equilibrium concentrations?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "0.2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2.0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8.0",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "10.0",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Write down the equilibrium constant expression for the reaction H2 + I2 \u21cc 2HI.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Kc = [HI] / ([H2] * [I2])",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Kc = [HI]^2 / ([H2]^2 * [I2])",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Kc = [HI]^2 / ([H2] * [I2])",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Kc = [H2] * [I2] / [HI]^2",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Plug in the equilibrium concentrations into the equilibrium constant expression and calculate Kc.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Kc = 0.2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Kc = 2.0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Kc = 8.0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Kc = 10.0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

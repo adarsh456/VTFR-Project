@@ -1,0 +1,277 @@
+{
+  "calculationDraft": "Correct: To find the efficiency of the Carnot Cycle, we use the formula: efficiency = 1 - (T_cold / T_hot). Given T_cold = 300K and T_hot = 500K, efficiency = 1 - (300/500) = 1 - 0.6 = 0.4 or 40%. Distractor A (Computational Error): Student calculates efficiency as (T_hot - T_cold) / T_hot = (500 - 300) / 500 = 200 / 500 = 0.4, but forgets to convert it to percentage, so 40%. Distractor B (Conceptual Misconception): Student thinks efficiency is directly proportional to the temperatures, so efficiency = T_hot / T_cold = 500 / 300 = 1.67 or 167%. Distractor C (Trap): Student calculates efficiency as 1 - (T_cold / T_hot) but uses the wrong temperatures, T_cold = 200K and T_hot = 400K, efficiency = 1 - (200/400) = 1 - 0.5 = 0.5 or 50%.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 5",
+  "subject": "Physics",
+  "chapter": "Thermodynamics",
+  "topic": "Carnot Cycle",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "questionText": "What is the efficiency of a Carnot engine that operates between a hot reservoir at 500K and a cold reservoir at 300K?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "50%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "40%",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "30%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "20%",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula to calculate the efficiency of a Carnot engine?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "efficiency = T_cold / (T_hot - T_cold)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "efficiency = 1 - (T_cold / T_hot)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "efficiency = T_hot / T_cold",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "efficiency = (T_hot - T_cold) / T_cold",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given T_hot = 500K and T_cold = 300K, what is the efficiency of the Carnot engine?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "40%",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "50%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "60%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25%",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: To find the temperature of the hot reservoir, we use the formula: efficiency = 1 - (T_cold / T_hot). Given efficiency = 0.4 and T_cold = 300K, 0.4 = 1 - (300 / T_hot), so T_hot = 300 / (1 - 0.4) = 300 / 0.6 = 500K. Distractor A: Student calculates T_hot as 300 / 0.4 = 750K. Distractor B: Student thinks efficiency is directly proportional to the temperatures, so T_hot = efficiency * T_cold = 0.4 * 300 = 120K. Distractor C: Student calculates T_hot as 300 / (1 - 0.4) but uses the wrong efficiency value, 0.5, so T_hot = 300 / (1 - 0.5) = 300 / 0.5 = 600K.",
+      "questionId": "91fc0579-9a44-4887-83ae-7dbf8619325c",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "If a Carnot engine has an efficiency of 40% and operates between a cold reservoir at 300K, what is the temperature of the hot reservoir?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "500K",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "400K",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "700K",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "600K",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the formula to calculate the temperature of the hot reservoir?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "T_hot = efficiency * T_cold",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "T_hot = T_cold / (1 - efficiency)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "T_hot = (1 - efficiency) * T_cold",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "T_hot = T_cold / efficiency",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given efficiency = 0.4 and T_cold = 300K, what is the temperature of the hot reservoir?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "650K",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "500K",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "450K",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "550K",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Correct: To find the cold reservoir temperature, we use the formula: efficiency = 1 - (T_cold / T_hot). Given efficiency = 0.4 and T_hot = 500K, 0.4 = 1 - (T_cold / 500), so T_cold = 500 * (1 - 0.4) = 500 * 0.6 = 300K. Distractor A: Student calculates T_cold as 500 * 0.4 = 200K. Distractor B: Student thinks efficiency is directly proportional to the temperatures, so T_cold = (1 - efficiency) * T_hot = (1 - 0.4) * 500 = 0.6 * 500 = 300K, which is correct but the reasoning is wrong. Distractor C: Student calculates T_cold as 500 * (1 - 0.4) but uses the wrong efficiency value, 0.5, so T_cold = 500 * (1 - 0.5) = 500 * 0.5 = 250K.",
+      "questionId": "402c0512-f869-4e5b-a927-9ed0e4137d3f",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "If a Carnot engine has an efficiency of 40% and operates between a hot reservoir at 500K, what is the temperature of the cold reservoir?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "300K",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "200K",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "350K",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "250K",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the formula to calculate the temperature of the cold reservoir?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "T_cold = T_hot * efficiency",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "T_cold = T_hot * (1 - efficiency)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "T_cold = (1 + efficiency) * T_hot",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "T_cold = T_hot / efficiency",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given efficiency = 0.4 and T_hot = 500K, what is the temperature of the cold reservoir?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "400K",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "300K",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "100K",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "200K",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The Carnot Cycle is a theoretical thermodynamic cycle that is the most efficient possible cycle for converting thermal energy into mechanical work. The efficiency of the Carnot Cycle is given by the formula: efficiency = 1 - (T_cold / T_hot), where T_cold is the temperature of the cold reservoir and T_hot is the temperature of the hot reservoir.",
+    "youtubeResource": {
+      "title": "Carnot Cycle Explained",
+      "searchQuery": "Carnot Cycle efficiency formula derivation",
+      "url": "https://www.youtube.com/results?search_query=Carnot+Cycle+efficiency+formula+derivation"
+    },
+    "imageResource": {
+      "title": "Carnot Cycle Diagram",
+      "searchQuery": "Carnot Cycle PV diagram",
+      "url": "https://www.google.com/search?tbm=isch&q=Carnot+Cycle+PV+diagram"
+    },
+    "pdfResource": {
+      "title": "Carnot Cycle Notes",
+      "searchQuery": "Carnot Cycle notes PDF",
+      "url": "https://www.google.com/search?q=Carnot+Cycle+notes+PDF+filetype%3Apdf"
+    },
+    "webResource": {
+      "title": "Carnot Cycle Article",
+      "searchQuery": "Carnot Cycle explanation",
+      "url": "https://www.google.com/search?q=Carnot+Cycle+explanation"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "calculationDraft": "To find the largest angle in the given triangle, we compare the values of angle_A, angle_B, and angle_C. The largest angle is the one with the highest value. angle_A = 60°, angle_B = 80°, angle_C = 40°. Comparing these values, we see that angle_B has the highest value, making it the largest angle. The other options are incorrect because they either represent a smaller angle or are not an angle in the triangle.",
+  "questionId": "f4e8c5b3-4a3f-49c1-93c4-5c5c5c5c5c5c",
+  "questionType": "image_mcq",
+  "grade": "Grade 5",
+  "subject": "Mathematics",
+  "chapter": "mesuration geometry",
+  "topic": "identify angles",
+  "questionText": "In the triangle below, which angle is the largest?",
+  "questionLatex": "",
+  "diagramType": "triangle",
+  "diagramData": {
+    "angle_A": 60,
+    "angle_B": 80,
+    "angle_C": 40
+  },
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Angle A",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Angle C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Angle B",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "All angles are equal",
+      "isCorrect": false
+    }
+  ],
+  "correctAnswer": "Angle B",
+  "correctExplanation": "Angle B is the largest because it has the highest value among the angles in the triangle.",
+  "questionImagePath": "generated_question\\image_questions\\grade_5_mathematics_identify_angles_1.png"
+}

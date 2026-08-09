@@ -1,0 +1,524 @@
+{
+  "calculationDraft": "To factorize the expression 12x^2 + 20x, we first look for the greatest common factor (GCF) of the terms. The GCF of 12x^2 and 20x is 4x. We then divide each term by the GCF to factor it out: 12x^2 / 4x = 3x, and 20x / 4x = 5. Thus, the expression can be rewritten as 4x(3x + 5).",
+  "questionId": "vtfr-math-8-factorisation-001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 8",
+  "subject": "Mathematics",
+  "chapter": "arithmetic and algebra",
+  "topic": "factorisation",
+  "questionText": "What is the factored form of the expression 12x^2 + 20x?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "2x(6x + 10)",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "4x(3x + 5)",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "6x(2x + 5)",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "8x(3x + 2)",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Identify the greatest common factor (GCF) of the terms 12x^2 and 20x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "The GCF is 2x.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "The GCF is 4x.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "The GCF is 6x.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "The GCF is 8x.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Divide each term by the GCF to factor it out.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Dividing by 2x gives 6x + 10.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Dividing by 4x gives 3x + 5.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Dividing by 6x gives 2x + 5.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Dividing by 8x gives 3x + 2.",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Write the factored form of the expression.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2x(6x + 10)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4x(3x + 5)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6x(2x + 5)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "8x(3x + 2)",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "To factorize the expression 6x + 12, we look for the greatest common factor (GCF) of the terms. The GCF of 6x and 12 is 6. We then divide each term by the GCF to factor it out: 6x / 6 = x, and 12 / 6 = 2. Thus, the expression can be rewritten as 6(x + 2).",
+      "questionId": "vtfr-math-8-factorisation-alt-001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the factored form of the expression 6x + 12?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2(3x + 6)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3(2x + 4)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6(x + 2)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "12(x + 1)",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the greatest common factor (GCF) of the terms 6x and 12.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The GCF is 2.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The GCF is 3.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The GCF is 6.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The GCF is 12.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Write the factored form of the expression.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2(3x + 6)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "3(2x + 4)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "6(x + 2)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "12(x + 1)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "To factorize the expression 9x^2 + 15x, we look for the greatest common factor (GCF) of the terms. The GCF of 9x^2 and 15x is 3x. We then divide each term by the GCF to factor it out: 9x^2 / 3x = 3x, and 15x / 3x = 5. Thus, the expression can be rewritten as 3x(3x + 5).",
+      "questionId": "vtfr-math-8-factorisation-alt-002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the factored form of the expression 9x^2 + 15x?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "3x(3x + 4)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3x(3x + 5)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "5x(3x + 2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "9x(2x + 1)",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the greatest common factor (GCF) of the terms 9x^2 and 15x.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The GCF is 3.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The GCF is 3x.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The GCF is 5x.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The GCF is 9x.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Write the factored form of the expression.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3x(3x + 4)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "3x(3x + 5)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "5x(3x + 2)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "9x(2x + 1)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "To factorize the expression 8x + 16, we look for the greatest common factor (GCF) of the terms. The GCF of 8x and 16 is 8. We then divide each term by the GCF to factor it out: 8x / 8 = x, and 16 / 8 = 2. Thus, the expression can be rewritten as 8(x + 2).",
+      "questionId": "vtfr-math-8-factorisation-alt-003",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the factored form of the expression 8x + 16?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2(4x + 8)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4(2x + 4)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8(x + 2)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "16(x + 1)",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the greatest common factor (GCF) of the terms 8x and 16.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The GCF is 2.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The GCF is 4.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The GCF is 8.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The GCF is 16.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Write the factored form of the expression.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2(4x + 8)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4(2x + 4)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "8(x + 2)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "16(x + 1)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "To factorize the expression 15x^2 + 25x, we look for the greatest common factor (GCF) of the terms. The GCF of 15x^2 and 25x is 5x. We then divide each term by the GCF to factor it out: 15x^2 / 5x = 3x, and 25x / 5x = 5. Thus, the expression can be rewritten as 5x(3x + 5).",
+      "questionId": "vtfr-math-8-factorisation-alt-004",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the factored form of the expression 15x^2 + 25x?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "3x(5x + 10)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "5x(3x + 5)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "10x(3x + 2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "15x(2x + 1)",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the greatest common factor (GCF) of the terms 15x^2 and 25x.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The GCF is 5.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The GCF is 5x.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The GCF is 10x.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The GCF is 15x.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Write the factored form of the expression.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3x(5x + 10)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "5x(3x + 5)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "10x(3x + 2)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "15x(2x + 1)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "To factorize the expression 20x + 30, we look for the greatest common factor (GCF) of the terms. The GCF of 20x and 30 is 10. We then divide each term by the GCF to factor it out: 20x / 10 = 2x, and 30 / 10 = 3. Thus, the expression can be rewritten as 10(2x + 3).",
+      "questionId": "vtfr-math-8-factorisation-alt-005",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the factored form of the expression 20x + 30?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2(10x + 15)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "5(4x + 6)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "10(2x + 3)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "20(x + 1)",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the greatest common factor (GCF) of the terms 20x and 30.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The GCF is 2.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The GCF is 5.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The GCF is 10.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The GCF is 20.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Write the factored form of the expression.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2(10x + 15)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "5(4x + 6)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "10(2x + 3)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "20(x + 1)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

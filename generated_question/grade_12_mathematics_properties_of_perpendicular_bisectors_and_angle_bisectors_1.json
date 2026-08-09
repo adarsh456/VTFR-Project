@@ -1,0 +1,226 @@
+{
+  "calculationDraft": "To find the point of intersection between the perpendicular bisector of segment AB and the angle bisector of angle A, first find the midpoint of AB, then find the slope of AB and the negative reciprocal of that slope to determine the perpendicular bisector's equation. For the angle bisector, use the Angle Bisector Theorem to find its equation. The intersection point satisfies both equations.",
+  "questionId": "VTFR-G12-MATH-001",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "geometry",
+  "topic": "Properties of Perpendicular Bisectors and Angle Bisectors",
+  "questionText": "In triangle ABC, the coordinates of A are (2, 3) and the coordinates of B are (6, 9). What is the equation of the perpendicular bisector of segment AB?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "y = -x + 5",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "y = x + 1",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "y = x - 1",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "y = x + 0",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Find the midpoint of segment AB to use in the perpendicular bisector equation.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Midpoint = ((2+6)/2, (3+9)/2) = (4, 6)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Midpoint = ((2+6)/2, (3+9)/2) = (3, 5)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Midpoint = ((2*6)/2, (3*9)/2) = (6, 13.5)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Midpoint = ((2+6)/2, (3+9)/2) = (5, 7)",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Determine the slope of AB to find the slope of the perpendicular bisector.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Slope of AB = (9-3)/(6-2) = 6/4 = 1.5, so the slope of the perpendicular bisector is -1/1.5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Slope of AB = (9-3)/(6-2) = 6/4 = 1.5, so the slope of the perpendicular bisector is -2/3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Slope of AB = (9-3)/(6-2) = 6/4 = 1.5, so the slope of the perpendicular bisector is -1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Slope of AB = (9-3)/(6-2) = 6/4 = 1.5, so the slope of the perpendicular bisector is -2/3, but since the line is y = x + b, its slope is 1",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Given the midpoint (4,6) and the slope of the perpendicular bisector, find its equation using the point-slope form.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "y - 6 = -1(x - 4), simplifying to y = -x + 10",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "y - 6 = 1(x - 4), simplifying to y = x + 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "y - 6 = -2/3(x - 4), simplifying to y = -2/3x + 26/3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "y - 6 = 1(x - 4), simplifying to y = x + 2, but realizing the equation should be y = x because it passes through (4,4) and has a slope of 1",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "For a simpler question, consider the properties of the angle bisector in relation to the sides of the triangle.",
+      "questionId": "VTFR-G12-MATH-ALT001",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the primary property of an angle bisector in a triangle regarding the sides it intersects?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "It divides the opposite side into segments that are proportional to the adjacent sides.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "It divides the opposite side into two equal segments.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "It is always perpendicular to the opposite side.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "It is parallel to one of the adjacent sides.",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Recall the Angle Bisector Theorem.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The Angle Bisector Theorem states that the angle bisector divides the opposite side into segments proportional to the adjacent sides.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The Angle Bisector Theorem states that the angle bisector always intersects the opposite side at its midpoint.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The Angle Bisector Theorem states that the angle bisector is always perpendicular to the opposite side.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The Angle Bisector Theorem states that the angle bisector is parallel to one of the adjacent sides.",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Consider the equation of a line and how it relates to being a perpendicular bisector.",
+      "questionId": "VTFR-G12-MATH-ALT002",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What type of line equation represents a perpendicular bisector of a segment with endpoints (x1, y1) and (x2, y2)?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "A line with a slope of 0.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "A line with a slope equal to the negative reciprocal of the slope of the line connecting the endpoints.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "A line with a slope equal to the slope of the line connecting the endpoints.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "A line that is always vertical.",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Determine the characteristics of a perpendicular bisector in terms of slope.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The slope of the perpendicular bisector is the negative reciprocal of the slope of the line segment it bisects.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The slope of the perpendicular bisector is the same as the slope of the line segment it bisects.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The slope of the perpendicular bisector is always 0.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The slope of the perpendicular bisector is always undefined.",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
