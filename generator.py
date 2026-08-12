@@ -3,14 +3,40 @@ import sys
 import json
 import uuid
 import random
-from urllib.parse import quote_plus
+from dotenv import load_dotenv
+from openai import OpenAI
 from config import SYLLABUS
-import chains
+import prompt_templates
+
+
+load_dotenv()
+
+
+groq_key = os.environ.get("GROQ_API_KEY")
+hf_key = os.environ.get("huggingface_API_KEY")
+
+if groq_key:
+    client = OpenAI(
+        base_url="https://api.groq.com/openai/v1",
+        api_key=groq_key,
+    )
+    DEFAULT_MODEL = "llama-3.3-70b-versatile"
+    FALLBACK_MODEL = "llama-3.1-8b-instant"
+    print("AI Client initialized using Groq (llama-3.3-70b-versatile).")
+elif hf_key:
+    client = OpenAI(
+        base_url="https://router.huggingface.co/v1",
+        api_key=hf_key,
+    )
+    DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct"
+    FALLBACK_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
+    print("AI Client initialized using HuggingFace Router.")
+else:
+    print("Error: Neither GROQ_API_KEY nor huggingface_API_KEY environment variable is set. Please set one of them in a .env file.")
+    sys.exit(1)
 
 def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, exclude_questions: list = None, num_alternate_questions: int = 3):
-    """
-    Generates a VTFR question JSON payload using LangChain's chains module.
-    """
+    
     exclude_instruction = ""
     if exclude_questions:
         exclude_instruction = (
@@ -20,94 +46,57 @@ def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, e
             + "\nYou must choose a completely different mathematical expression or function."
         )
 
+    system_prompt = prompt_templates.get_system_prompt(grade, subject, chapter, topic, exclude_instruction, num_alternate_questions)
+    user_prompt = prompt_templates.get_user_prompt(grade, subject, chapter, topic, exclude_questions)
+
     print(f"Generating VTFR question for Grade: '{grade}', Subject: '{subject}', Chapter: '{chapter}', Topic: '{topic}'...")
 
-    inputs = {
-        "grade": grade,
-        "subject": subject,
-        "chapter": chapter,
-        "topic": topic,
-        "exclude_instruction": exclude_instruction,
-        "num_alternate_questions": num_alternate_questions,
-        "exclude_questions": exclude_questions or []
-    }
-
     try:
-        result = chains.run_generate_vtfr_question(inputs)
+       
+        response = client.chat.completions.create(
+            model=DEFAULT_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            response_format={"type": "json_object"},
+            temperature=0.4,
+            max_tokens=6000
+        )
+        content = response.choices[0].message.content
+        result = json.loads(content)
         _enforce_uuids(result)
         _shuffle_options(result)
-        _enrich_related_content(result)
         _warn_if_insufficient_alt_steps(result)
         return result
+
     except Exception as e:
-        print(f"VTFR question generation failed: {e}")
-        raise e
-
-
-
-def _enrich_related_content(data: dict):
-    """
-    Ensures 'relatedContent' exists and formats 100% working search URLs for:
-    - YouTube video tutorials
-    - Google Images (diagrams/charts)
-    - PDF study notes/worksheets
-    - Web articles/explanations
-    """
-    grade = data.get("grade", "")
-    subject = data.get("subject", "")
-    topic = data.get("topic", "")
-
-    if "relatedContent" not in data or not isinstance(data["relatedContent"], dict):
-        data["relatedContent"] = {}
-
-    rel = data["relatedContent"]
-
-    # 1. Concept Summary Fallback
-    if "conceptSummary" not in rel or not rel["conceptSummary"]:
-        rel["conceptSummary"] = f"Review the foundational principles of {topic} in {subject} to understand step-by-step problem solving."
-
-    # 2. YouTube Resource
-    yt = rel.get("youtubeResource", {})
-    yt_query = yt.get("searchQuery") or f"{grade} {subject} {topic} concept explanation tutorial"
-    rel["youtubeResource"] = {
-        "title": yt.get("title") or f"{topic} Video Lesson",
-        "searchQuery": yt_query,
-        "url": f"https://www.youtube.com/results?search_query={quote_plus(yt_query)}"
-    }
-
-    # 3. Image Resource (Diagrams/Charts)
-    img = rel.get("imageResource", {})
-    img_query = img.get("searchQuery") or f"{subject} {topic} formula diagram chart"
-    rel["imageResource"] = {
-        "title": img.get("title") or f"{topic} Visual Diagram / Chart",
-        "searchQuery": img_query,
-        "url": f"https://www.google.com/search?tbm=isch&q={quote_plus(img_query)}"
-    }
-
-    # 4. PDF Resource
-    pdf = rel.get("pdfResource", {})
-    pdf_query = pdf.get("searchQuery") or f"{grade} {subject} {topic} study notes revision pdf"
-    rel["pdfResource"] = {
-        "title": pdf.get("title") or f"{topic} Revision Notes PDF",
-        "searchQuery": pdf_query,
-        "url": f"https://www.google.com/search?q={quote_plus(pdf_query + ' filetype:pdf')}"
-    }
-
-    # 5. Web Resource
-    web = rel.get("webResource", {})
-    web_query = web.get("searchQuery") or f"{grade} {subject} {topic} explained examples"
-    rel["webResource"] = {
-        "title": web.get("title") or f"{topic} Reference Article",
-        "searchQuery": web_query,
-        "url": f"https://www.google.com/search?q={quote_plus(web_query)}"
-    }
+        print(f"Primary model failed or error occurred: {e}")
+        print(f"Attempting fallback model: {FALLBACK_MODEL}...")
+        try:
+            response = client.chat.completions.create(
+                model=FALLBACK_MODEL,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt}
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.4,
+                max_tokens=6000
+            )
+            content = response.choices[0].message.content
+            result = json.loads(content)
+            _enforce_uuids(result)
+            _shuffle_options(result)
+            _warn_if_insufficient_alt_steps(result)
+            return result
+        except Exception as e_fallback:
+            print(f"Fallback model also failed: {e_fallback}")
+            raise e_fallback
 
 
 def _enforce_uuids(data: dict):
-    """
-    Ensures all questionId fields in the payload are valid UUID v4 strings.
-    Replaces any non-UUID ID (e.g. 'vtfr-math-8-001') with a freshly generated UUID.
-    """
+    
     import re
     uuid4_pattern = re.compile(
         r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
@@ -127,12 +116,7 @@ def _enforce_uuids(data: dict):
 
 
 def _shuffle_options(data: dict):
-    """
-    Randomly shuffles the optionsList in every optionsList across the entire payload
-    (main question, all solutionSteps, all alternateQuestions and their solutionSteps),
-    then re-assigns optionSequenceNo 1-4 in the new order.
-    This guarantees the correct answer is not always at the same position.
-    """
+   
     def _shuffle_list(options: list):
         if not options:
             return
@@ -140,14 +124,14 @@ def _shuffle_options(data: dict):
         for idx, opt in enumerate(options, 1):
             opt["optionSequenceNo"] = idx
 
-    # Main question options
+    
     _shuffle_list(data.get("optionsList", []))
 
-    # Main question solution steps
+    
     for step in data.get("solutionSteps", []):
         _shuffle_list(step.get("optionsList", []))
 
-    # Alternate questions and their steps
+   
     for alt in data.get("alternateQuestions", []):
         _shuffle_list(alt.get("optionsList", []))
         for step in alt.get("solutionSteps", []):
@@ -155,10 +139,7 @@ def _shuffle_options(data: dict):
 
 
 def _warn_if_insufficient_alt_steps(data: dict):
-    """
-    Validates that every alternateQuestion has at least 2 solutionSteps.
-    Logs a warning for any that fall short (minimum required is 2 steps).
-    """
+    
     alt_questions = data.get("alternateQuestions", [])
     for i, alt in enumerate(alt_questions):
         steps = alt.get("solutionSteps", [])
@@ -174,16 +155,32 @@ def _warn_if_insufficient_alt_steps(data: dict):
             )
 
 def get_topic_suggestions(subject: str, chapter: str):
-    """
-    Asks the AI (llama-3.1-8b-instant) to suggest 3-4 topics related to a custom chapter.
-    """
+   
+    
     print(f"\nAsking AI for topic suggestions for Subject: '{subject}', Chapter: '{chapter}'...")
-    inputs = {
-        "subject": subject,
-        "chapter": chapter
-    }
+    system_prompt = (
+        "You are an educational curriculum assistant. "
+        "Given a subject and a chapter, suggest exactly 3 to 4 specific, distinct, and high-quality sub-topics "
+        "suitable for creating Veriable Time Fixed Response (VTFR) educational questions. "
+        "Return the output strictly in the following JSON format:\n"
+        "{\n"
+        '  "topics": ["Topic 1", "Topic 2", "Topic 3"]\n'
+        "}"
+    )
+    user_prompt = f"Subject: {subject}\nChapter: {chapter}"
+    
     try:
-        data = chains.run_suggest_topics(inputs)
+        response = client.chat.completions.create(
+            model=FALLBACK_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            response_format={"type": "json_object"},
+            temperature=0.7,
+            max_tokens=300
+        )
+        data = json.loads(response.choices[0].message.content)
         topics = data.get("topics", [])
         return topics[:4]  # Enforce maximum of 4 suggestions
     except Exception as e:
@@ -225,7 +222,6 @@ def get_unique_filename(directory, base_name, extension=".json"):
             return filepath
         counter += 1
 
-# SYLLABUS is imported from config
 
 def select_from_syllabus():
     print("\n" + "="*50)
@@ -257,7 +253,7 @@ def select_from_syllabus():
     sub_data = SYLLABUS[sub_choice]
     subject = sub_data["subject"]
     
-    # 2. Select Chapter
+    
     print(f"\nSelect Chapter for {subject}:")
     for key, val in sub_data["chapters"].items():
         print(f"  {key}. {val['chapter']}")
@@ -276,6 +272,7 @@ def select_from_syllabus():
         print("="*50 + "\n")
         return subject, chapter, topic
 
+
     if chap_choice not in sub_data["chapters"]:
         print("Invalid choice, defaulting to first chapter.")
         chap_choice = list(sub_data["chapters"].keys())[0]
@@ -283,7 +280,7 @@ def select_from_syllabus():
     chap_data = sub_data["chapters"][chap_choice]
     chapter = chap_data["chapter"]
     
-    # 3. Select Topic
+    
     print(f"\nSelect Topic for {chapter}:")
     for idx, topic_name in enumerate(chap_data["topics"], 1):
         print(f"  {idx}. {topic_name}")
@@ -317,9 +314,7 @@ def select_from_syllabus():
 
 
 def select_grade():
-    """
-    Prompts the teacher to select a grade level.
-    """
+    
     grades = [
         "Grade 1", "Grade 2", "Grade 3", "Grade 4",
         "Grade 5", "Grade 6", "Grade 7", "Grade 8",
@@ -354,10 +349,7 @@ def select_grade():
 
 
 def select_num_alternate_questions() -> int:
-    """
-    Prompts the teacher to choose how many alternate questions to generate (1-5).
-    Defaults to 3 if the input is invalid or empty.
-    """
+   
     print("\n" + "="*50)
     print("    NUMBER OF ALTERNATE QUESTIONS (1-5)")
     print("="*50)
@@ -379,26 +371,19 @@ def select_num_alternate_questions() -> int:
             print(f"Value {n} is out of range. Defaulting to 3.")
             return 2
     except ValueError:
-        print("Invalid input. Defaulting to 2.")
+        print("Invalid input. Defaulting to .")
         return 2
 
 
-if __name__ == "__main__":
-    # Reconfigure stdout to support unicode characters on Windows terminal
+def main():
     sys.stdout.reconfigure(encoding='utf-8')
     sys.stderr.reconfigure(encoding='utf-8')
 
-    # Step 1: Select grade level
     grade = select_grade()
-
-    # Step 2: Get user selection from syllabus
     sub, chap, top = select_from_syllabus()
-
-    # Step 3: Select number of alternate questions
     num_alt = select_num_alternate_questions()
     
-    # Scan output directory to exclude previously generated questions
-    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated_question")
+    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
     exclude_list = []
     if os.path.isdir(output_dir):
         for filename in os.listdir(output_dir):
@@ -422,7 +407,6 @@ if __name__ == "__main__":
             result = generate_vtfr_question(sub, chap, top, grade=grade, exclude_questions=exclude_list, num_alternate_questions=num_alt)
             q_text = result.get("questionText", "")
             
-            # Check if generated question is too similar to any excluded question
             is_duplicate = False
             for eq in exclude_list:
                 if q_text.strip().lower() == eq.strip().lower() or (q_text and q_text in eq) or (eq and eq in q_text):
@@ -442,13 +426,11 @@ if __name__ == "__main__":
         if not result:
             raise Exception("Failed to generate a unique question after max retries")
             
-        # Ensure a valid UUID is set if not returned properly
         if "questionId" not in result or result["questionId"] == "UNIQUE_ID":
             result["questionId"] = str(uuid.uuid4())
             
         grade_slug = grade.lower().replace(' ', '_').replace('/', '_')
         base_filename = f"{grade_slug}_{sub.lower().replace(' ', '_')}_{top.lower().replace(' ', '_')}"
-        output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated_question")
         os.makedirs(output_dir, exist_ok=True)
         filepath = get_unique_filename(output_dir, base_filename, ".json")
         
@@ -456,10 +438,12 @@ if __name__ == "__main__":
             json.dump(result, f, indent=2)
         
         print(f"Successfully saved generated question to {filepath}\n")
-        
-        # Show the generated JSON in the terminal
         print("Generated VTFR JSON Payload:")
         print(json.dumps(result, indent=2))
         print("-" * 40)
     except Exception as e:
         print(f"Failed to generate VTFR question for {sub} - {top}: {e}\n")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,172 @@
+{
+  "calculationDraft": "Correct: To find the determinant of the 2x2 matrix [[3, 2], [4, 5]], we use the formula det(A) = ad - bc, where a = 3, b = 2, c = 4, and d = 5. Thus, det(A) = (3*5) - (2*4) = 15 - 8 = 7. Distractor A (Computational Error): Student incorrectly calculates (3*4) - (2*5) = 12 - 10 = 2. Distractor B (Conceptual Misconception): Student thinks the determinant of a 2x2 matrix is the sum of its diagonal elements, so det(A) = 3 + 5 = 8. Distractor C (Trap): Student calculates the determinant as (3*5) + (2*4) = 15 + 8 = 23, mistakenly adding instead of subtracting.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Matrices and Determinants",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "questionText": "What is the determinant of the matrix [[3, 2], [4, 5]]?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "23",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "8",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "7",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "2",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What are the values of a, b, c, and d in the given 2x2 matrix [[3, 2], [4, 5]]?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "a = 3, b = 2, c = 4, d = 5",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "a = 4, b = 3, c = 5, d = 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "a = 3, b = 2, c = 5, d = 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "a = 3, b = 4, c = 2, d = 5",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Using the formula det(A) = ad - bc, what is the determinant of the matrix with a = 3, b = 2, c = 4, and d = 5?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "det(A) = (3*2) - (4*5) = -14",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "det(A) = (3*5) + (2*4) = 23",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "det(A) = (3*4) - (2*5) = 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "det(A) = (3*5) - (2*4) = 7",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: The determinant of the 2x2 matrix [[2, 1], [3, 4]] is found using det(A) = ad - bc, where a = 2, b = 1, c = 3, and d = 4. Thus, det(A) = (2*4) - (1*3) = 8 - 3 = 5. Distractor A: Student calculates (2*3) - (1*4) = 6 - 4 = 2. Distractor B: Student thinks the determinant is the sum of the diagonal elements, so det(A) = 2 + 4 = 6. Distractor C: Student calculates (2*4) + (1*3) = 8 + 3 = 11, mistakenly adding instead of subtracting.",
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d7e39",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the determinant of the matrix [[2, 1], [3, 4]].",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "11",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "5",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Identify the values of a, b, c, and d in the matrix [[2, 1], [3, 4]].",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "a = 3, b = 2, c = 4, d = 1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "a = 2, b = 3, c = 1, d = 4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "a = 2, b = 1, c = 3, d = 4",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "a = 2, b = 1, c = 4, d = 3",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Using the formula det(A) = ad - bc with a = 2, b = 1, c = 3, and d = 4, what is the determinant?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "det(A) = (2*3) - (1*4) = 2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "det(A) = (2*1) - (3*4) = -10",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "det(A) = (2*4) - (1*3) = 5",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "det(A) = (2*4) + (1*3) = 11",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

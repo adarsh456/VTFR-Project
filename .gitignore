@@ -17,3 +17,7 @@ venv/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Output / generated questions
+vtfr/output/
+generated_question/

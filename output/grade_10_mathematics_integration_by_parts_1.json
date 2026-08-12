@@ -1,0 +1,254 @@
+{
+  "calculationDraft": "Correct: \u222b(x)(e^x)dx = x(e^x) - \u222b(1)(e^x)dx = xe^x - e^x + C. Distractor A (Computational Error): Incorrectly applying the formula as \u222b(x)(e^x)dx = x(e^x) - \u222b(x)(e^x)dx, leading to an infinite loop. Distractor B (Conceptual Misconception): Forgetting to integrate the second part, resulting in xe^x. Distractor C (Trap): Correctly applying integration by parts but forgetting the constant of integration, resulting in xe^x - e^x.",
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Integration by Parts",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "questionText": "What is the integral of x*e^x with respect to x?",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "xe^x - e^x + C",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "xe^x",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "e^x",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x^2*e^x",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Which formula should be applied to integrate x*e^x?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Integration by parts",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Separation of variables",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Trigonometric substitution",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Integration by substitution",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "If u = x and dv = e^x dx, what are du and v?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "du = dx, v = e^x",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "du = e^x dx, v = x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "du = dx, v = x*e^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "du = x dx, v = e^x",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "calculationDraft": "Correct: \u222b(2x)(e^x)dx = 2xe^x - 2\u222b(e^x)dx = 2xe^x - 2e^x + C. Distractor A: Incorrectly integrating the second part, resulting in 2xe^x - e^x. Distractor B: Forgetting to multiply by 2 in the second part, resulting in 2xe^x - 2. Distractor C: Correctly integrating but forgetting the constant, resulting in 2xe^x - 2e^x.",
+      "questionId": "40e0c3f6-b1d1-428b-8267-25dc9aa189d4",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the integral of 2x*e^x with respect to x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2xe^x - 2e^x + C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2xe^x - 2e^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2xe^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2xe^x - e^x + C",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the product rule for integration?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "u*dv + v*du",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "u*v + C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "u*dv - v*du",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "u*dv - \u222b(v*du)",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "If u = 2x, what is du?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "du = 2dx",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "du = e^x dx",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "du = 2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "du = x",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "calculationDraft": "Correct: \u222b(3)(e^x)dx = 3e^x + C. Distractor A: Forgetting the constant of integration, resulting in 3e^x. Distractor B: Incorrectly integrating, resulting in e^(3x). Distractor C: Multiplying by an incorrect constant, resulting in 6e^x.",
+      "questionId": "b1e9cfa9-aa12-4c26-99b2-82078e0fa5c1",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the integral of 3*e^x with respect to x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "e^x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "e^(3x) + C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "3e^x + C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "6e^x",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the basic rule for integrating exponential functions?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "\u222b(e^x)dx = e^x + C",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "\u222b(e^x)dx = x*e^x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "\u222b(e^x)dx = e^(x+1)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "\u222b(e^x)dx = x",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "How does the constant 3 affect the integral?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "It changes the base of the exponential function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "It has no effect on the integral",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "It multiplies the result by 3",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "It adds 3 to the result",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -60,531 +60,65 @@ Next Step      Learning Resource
 ## 🚀 Key Features
 
 ### 1. 🧠 AI-Based Question Generation
-
-Teachers provide a topic such as:
-
-```text
-RAG (Retrieval Augmented Generation)
-```
-
-The AI generates conceptual questions based on the selected topic.
-
+The system generates conceptual questions based on the selected topic.
 Each main question contains:
-
-* Question
-* 4 multiple-choice options
+* Question & 4 multiple-choice options
 * Correct answer
 * Difficulty level
 * Bloom's taxonomy level
 * Guided reasoning steps
-* Similar questions
-
----
-
-### 2. 🔍 Step-by-Step Reasoning Evaluation
-
-Instead of checking only the final answer, VTFR breaks the solution into **2–5 reasoning steps**.
-
-For example:
-
-```text
-Main Question
-     ↓
-Step 1 → MCQ
-     ↓
-Step 2 → MCQ
-     ↓
-Step 3 → MCQ
-     ↓
-Final Understanding
-```
-
-This allows the system to identify the exact stage where the student has difficulty.
-
----
-
-### 3. 📚 Personalized Learning Resources
-
-When a student selects an incorrect answer, the system can recommend learning resources such as:
-
-* 📄 PDF
-* 🎥 Video
-* 🖼️ Image
-* 📝 Text
-* 🔊 Audio
-
-The goal is not simply to mark the answer as wrong, but to **help the student learn the concept**.
-
----
-
-### 4. 🔄 Similar Question Generation
-
-After providing learning material, VTFR generates **2–3 similar questions** based on the same concept.
-
-Example:
-
-```text
-Original Question
-       ↓
-Student makes mistake
-       ↓
-Learning Resource
-       ↓
-Similar Question 1
-       ↓
-Similar Question 2
-       ↓
-Concept Mastery
-```
-
-This creates an adaptive learning experience.
-
----
-
-### 5. 📊 Bloom's Taxonomy
-
-Questions can be categorized according to Bloom's Taxonomy levels, such as:
-
-* Remember
-* Understand
-* Apply
-* Analyze
-* Evaluate
-* Create
-
-This helps teachers create questions according to different cognitive levels.
-
----
-
-### 6. 🎚️ Difficulty Levels
-
-The system supports different question difficulty levels:
-
-```text
-Easy
-Medium
-Hard
-```
-
-This allows assessments to be customized according to student requirements.
-
----
-
-## 🏗️ System Architecture
-
-```text
-                    ┌─────────────────────┐
-                    │      Teacher        │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   Select / Add      │
-                    │      Topic          │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    AI Question      │
-                    │     Generator       │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    Main Question    │
-                    │      + MCQs         │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ Guided Reasoning    │
-                    │     Steps (2–5)     │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ Student Response    │
-                    └──────────┬──────────┘
-                               │
-                    ┌──────────┴──────────┐
-                    │                     │
-                 Correct               Incorrect
-                    │                     │
-                    ▼                     ▼
-             Next Reasoning        Learning Resource
-                 Step                     │
-                                          ▼
-                                  Similar Questions
-                                          │
-                                          ▼
-                                   Re-assessment
-```
-
----
-
-## 🛠️ Technology Stack
-
-### AI / Backend
-
-| Technology         | Purpose                         |
-| ------------------ | ------------------------------- |
-| 🐍 Python          | Core backend and AI processing  |
-| 🦜 LangChain       | LLM application framework       |
-| 🧠 Generative AI   | Question and content generation |
-| 🔗 LangGraph       | AI workflow orchestration       |
-| 📦 Pydantic / JSON | Structured AI output            |
-| 🔐 dotenv          | Environment variable management |
-
-### AI Workflow
-
-```text
-User Input
-    ↓
-Prompt Template
-    ↓
-LLM
-    ↓
-Structured JSON Output
-    ↓
-Question Validation
-    ↓
-Assessment Workflow
-```
+* Similar alternate questions for scaffolding
 
 ---
 
 ## 📂 Project Structure
 
+This project uses a modular folder structure separating schemas, LLM configurations, prompts, and chains:
+
 ```text
-VTFR/
+MKCL_VTFR/
 │
-├── 📁 backend/
-│   ├── app.py
-│   ├── config.py
-│   ├── prompt_templates.py
-│   ├── question_generator.py
-│   ├── assessment.py
-│   └── requirements.txt
+├── generate_vtfr.py      # Entry point — Interactive CLI VTFR Question Generator
+├── config.py             # Syllabus configuration (Subjects, Chapters, and Topics)
+├── schemas.py            # Pydantic schemas for structured question output
+├── llm_factory.py        # Initializes LangChain models and handles fallback routing
+├── prompts.py            # Prompts defined using ChatPromptTemplate
+├── chains.py             # LangChain chains pairing prompts + LLMs + schemas
+├── requirements.txt      # Required Python packages
+├── .gitignore            # Tells Git which files to ignore (like .env and __pycache__)
 │
-├── 📁 prompts/
-│   └── vtfr_prompts.py
-│
-├── 📁 data/
-│   └── questions.json
-│
-├── 📁 resources/
-│   ├── pdf/
-│   ├── video/
-│   ├── audio/
-│   └── images/
-│
-├── 📁 tests/
-│
-├── .env
-├── .gitignore
-└── README.md
-```
-
-> **Note:** Update the folder structure according to your actual project files.
-
----
-
-## 🧩 Question Structure
-
-VTFR generates structured question data similar to:
-
-```json
-{
-  "question_id": "Q001",
-  "main_question": {
-    "question": "What is Retrieval Augmented Generation?",
-    "options": [
-      "A technique for retrieving relevant information",
-      "A database management system",
-      "A programming language",
-      "A networking protocol"
-    ],
-    "correct_answer": "A technique for retrieving relevant information"
-  },
-  "bloom_level": "Understand",
-  "difficulty": "Medium",
-  "steps": [
-    {
-      "step_number": 1,
-      "question": "What is the purpose of retrieval in RAG?",
-      "options": [
-        "Retrieve relevant context",
-        "Compile source code",
-        "Create a database",
-        "Encrypt data"
-      ]
-    }
-  ],
-  "similar_questions": [
-    {
-      "question": "Which component retrieves relevant documents in RAG?",
-      "options": [
-        "Retriever",
-        "Compiler",
-        "Operating System",
-        "Browser"
-      ]
-    }
-  ]
-}
+├── .env.example          # Template for local environment variables
+└── generated_question/   # Folder where generated JSON questions are saved
 ```
 
 ---
 
-## 🔐 Environment Variables
+## 🚀 Setup Instructions
 
-Create a `.env` file:
-
-```env
-OPENAI_API_KEY=your_api_key
-# OR
-GROQ_API_KEY=your_api_key
-
-LANGCHAIN_API_KEY=your_langchain_api_key
-LANGCHAIN_TRACING_V2=true
-LANGCHAIN_PROJECT=VTFR
-```
-
-⚠️ **Never commit your `.env` file to GitHub.**
-
-Add it to `.gitignore`:
-
-```gitignore
-.env
-__pycache__/
-*.pyc
-venv/
-myenv/
-```
-
----
-
-## ⚙️ Installation
-
-### 1. Clone the Repository
-
+### Step 1: Clone the Repository
 ```bash
-git clone <your-repository-url>
-cd VTFR
+git clone https://github.com/adarsh456/VTFR-Project.git
+cd VTFR-Project
 ```
 
-### 2. Create Virtual Environment
-
-```bash
-python -m venv myenv
-```
-
-### 3. Activate Virtual Environment
-
-### Windows
-
-```bash
-myenv\Scripts\activate
-```
-
-### Linux / macOS
-
-```bash
-source myenv/bin/activate
-```
-
-### 4. Install Dependencies
-
+### Step 2: Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Configure Environment Variables
+### Step 3: Configure Environment Variables (`.env`)
+1. Create a copy of the `.env.example` file and name it `.env`.
+2. Open your new `.env` file and add your API keys:
+   ```env
+   GROQ_API_KEY=your_groq_api_key_here
+   HUGGINGFACEHUB_API_TOKEN=your_huggingface_api_key_here
+   ```
 
-Create `.env` and add your API keys.
+---
 
-### 6. Run the Application
+## 🎮 How to Run
 
+To run the interactive question generator, simply execute:
 ```bash
-python app.py
+python generate_vtfr.py
 ```
-
----
-
-## 🔄 VTFR Workflow
-
-### Teacher Workflow
-
-```text
-Teacher Login
-     ↓
-Select Topic
-     ↓
-Set Difficulty
-     ↓
-Set Cognitive Level
-     ↓
-Generate Questions
-     ↓
-Review Questions
-     ↓
-Publish Assessment
-```
-
-### Student Workflow
-
-```text
-Student Login
-     ↓
-Start Assessment
-     ↓
-Answer Main Question
-     ↓
-Solve Reasoning Step
-     ↓
-Submit Answer
-     ↓
-Evaluate Response
-     ↓
-Correct → Continue
-     │
-     └── Incorrect
-             ↓
-       Learning Resource
-             ↓
-       Similar Question
-             ↓
-          Re-attempt
-```
-
----
-
-## 🧠 AI Prompt Engineering
-
-VTFR uses structured prompts to ensure that the LLM produces consistent assessment data.
-
-The prompt instructs the AI to:
-
-* Generate multiple main questions.
-* Provide exactly 4 options for every MCQ.
-* Generate 2–5 reasoning steps.
-* Keep correct answers internally available for evaluation.
-* Generate 2–3 similar questions.
-* Assign Bloom's Taxonomy level.
-* Assign difficulty level.
-* Recommend learning resources when required.
-* Return structured JSON.
-
-This reduces unpredictable LLM responses and makes the generated content easier to process programmatically.
-
----
-
-## 📈 Advantages
-
-### Traditional Assessment
-
-```text
-Question → Answer → Correct / Incorrect
-```
-
-### VTFR
-
-```text
-Question
-   ↓
-Reasoning
-   ↓
-Step Evaluation
-   ↓
-Identify Knowledge Gap
-   ↓
-Learning Resource
-   ↓
-Similar Question
-   ↓
-Re-assessment
-   ↓
-Concept Mastery
-```
-
-### Major Benefits
-
-✅ Evaluates reasoning, not only final answers
-✅ Identifies specific conceptual gaps
-✅ Provides personalized learning resources
-✅ Generates adaptive questions
-✅ Supports different cognitive levels
-✅ Reduces manual question creation
-✅ Encourages concept-based learning
-✅ Provides continuous assessment
-
----
-
-## 🎯 Project Objectives
-
-1. To develop an AI-powered intelligent assessment system.
-2. To evaluate students' step-by-step reasoning.
-3. To identify conceptual gaps in student responses.
-4. To generate questions automatically using Generative AI.
-5. To provide personalized learning resources.
-6. To generate similar questions for reinforcement.
-7. To incorporate Bloom's Taxonomy into assessment.
-8. To support different levels of question difficulty.
-9. To create an adaptive learning and assessment experience.
-
----
-
-## 🔮 Future Enhancements
-
-* 📊 Student performance dashboard
-* 📈 Learning analytics
-* 🧑‍🏫 Teacher analytics dashboard
-* 🎯 Personalized difficulty adjustment
-* 🧠 Knowledge graph integration
-* 🤖 Advanced Agentic AI workflow
-* 🔍 RAG-based resource retrieval
-* 🗣️ Voice-based assessment
-* 🌐 Multi-language support
-* 📱 Mobile application
-* 🏆 Gamification and achievement system
-
----
-
-## 👨‍💻 Developer
-
-**Sahil Jadhav**
-
-AI / Full-Stack Developer
-
-### Areas of Interest
-
-* Generative AI
-* Agentic AI
-* LangChain
-* LangGraph
-* Python
-* Java
-* Spring Boot
-* React
-* Full-Stack Development
-* Data Structures & Algorithms
-
----
-
-## 📜 Project Status
-
-🚧 **Currently Under Development**
-
-The VTFR system is being developed as part of an AI-based learning and assessment initiative.
-
----
-
-## ⭐ Support
-
-If you find this project useful, consider giving the repository a ⭐ on GitHub.
-
----
-
-## 📄 License
-
-This project is developed for educational and research purposes.
