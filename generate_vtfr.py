@@ -8,9 +8,7 @@ from config import SYLLABUS
 import chains
 
 def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, exclude_questions: list = None, num_alternate_questions: int = 3):
-    """
-    Generates a VTFR question JSON payload using LangChain's chains module.
-    """
+
     exclude_instruction = ""
     if exclude_questions:
         exclude_instruction = (
@@ -46,13 +44,7 @@ def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, e
 
 
 def _enrich_related_content(data: dict):
-    """
-    Ensures 'relatedContent' exists and formats 100% working search URLs for:
-    - YouTube video tutorials
-    - Google Images (diagrams/charts)
-    - PDF study notes/worksheets
-    - Web articles/explanations
-    """
+    
     grade = data.get("grade", "")
     subject = data.get("subject", "")
     topic = data.get("topic", "")
@@ -104,10 +96,7 @@ def _enrich_related_content(data: dict):
 
 
 def _enforce_uuids(data: dict):
-    """
-    Ensures all questionId fields in the payload are valid UUID v4 strings.
-    Replaces any non-UUID ID (e.g. 'vtfr-math-8-001') with a freshly generated UUID.
-    """
+   
     import re
     uuid4_pattern = re.compile(
         r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
@@ -127,12 +116,7 @@ def _enforce_uuids(data: dict):
 
 
 def _shuffle_options(data: dict):
-    """
-    Randomly shuffles the optionsList in every optionsList across the entire payload
-    (main question, all solutionSteps, all alternateQuestions and their solutionSteps),
-    then re-assigns optionSequenceNo 1-4 in the new order.
-    This guarantees the correct answer is not always at the same position.
-    """
+    
     def _shuffle_list(options: list):
         if not options:
             return
@@ -155,10 +139,7 @@ def _shuffle_options(data: dict):
 
 
 def _warn_if_insufficient_alt_steps(data: dict):
-    """
-    Validates that every alternateQuestion has at least 2 solutionSteps.
-    Logs a warning for any that fall short (minimum required is 2 steps).
-    """
+    
     alt_questions = data.get("alternateQuestions", [])
     for i, alt in enumerate(alt_questions):
         steps = alt.get("solutionSteps", [])
@@ -174,9 +155,7 @@ def _warn_if_insufficient_alt_steps(data: dict):
             )
 
 def get_topic_suggestions(subject: str, chapter: str):
-    """
-    Asks the AI (llama-3.1-8b-instant) to suggest 3-4 topics related to a custom chapter.
-    """
+    
     print(f"\nAsking AI for topic suggestions for Subject: '{subject}', Chapter: '{chapter}'...")
     inputs = {
         "subject": subject,
@@ -317,9 +296,7 @@ def select_from_syllabus():
 
 
 def select_grade():
-    """
-    Prompts the teacher to select a grade level.
-    """
+    
     grades = [
         "Grade 1", "Grade 2", "Grade 3", "Grade 4",
         "Grade 5", "Grade 6", "Grade 7", "Grade 8",
@@ -354,10 +331,7 @@ def select_grade():
 
 
 def select_num_alternate_questions() -> int:
-    """
-    Prompts the teacher to choose how many alternate questions to generate (1-5).
-    Defaults to 3 if the input is invalid or empty.
-    """
+    
     print("\n" + "="*50)
     print("    NUMBER OF ALTERNATE QUESTIONS (1-5)")
     print("="*50)

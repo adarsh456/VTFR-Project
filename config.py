@@ -3,12 +3,40 @@ SYLLABUS = {
         "subject": "Mathematics",
         "chapters": {
             "1": {
-                "chapter": "Calculus",
-                "topics": ["Integration by Parts", "Substitution Rule", "Definite Integrals"]
+                "chapter": "Algebra",
+                "topics": [
+                    "Complex Numbers and Quadratic Equations",
+                    "Permutations and Combinations",
+                    "Matrices",
+                    "Determinants",
+                    "Binomial Theorem"
+                ]
             },
             "2": {
-                "chapter": "Algebra",
-                "topics": ["Quadratic Equations", "Matrices and Determinants"]
+                "chapter": "Calculus",
+                "topics": [
+                    "Limits and Derivatives",
+                    "Continuity and Differentiability",
+                    "Applications of Derivatives",
+                    "Definite and Indefinite Integrals",
+                    "Differential Equations"
+                ]
+            },
+            "3": {
+                "chapter": "Coordinate Geometry & Vectors",
+                "topics": [
+                    "Straight Lines",
+                    "Conic Sections",
+                    "Vector Algebra",
+                    "Three Dimensional Geometry"
+                ]
+            },
+            "4": {
+                "chapter": "Probability & Statistics",
+                "topics": [
+                    "Probability",
+                    "Measures of Dispersion (Statistics)"
+                ]
             }
         }
     },
@@ -16,12 +44,42 @@ SYLLABUS = {
         "subject": "Physics",
         "chapters": {
             "1": {
-                "chapter": "Thermodynamics",
-                "topics": ["First Law of Thermodynamics", "Carnot Cycle"]
+                "chapter": "Mechanics",
+                "topics": [
+                    "Motion in a Plane (Vectors & Projectiles)",
+                    "Laws of Motion",
+                    "Work, Energy and Power",
+                    "System of Particles and Rotational Motion",
+                    "Gravitation"
+                ]
             },
             "2": {
-                "chapter": "Mechanics",
-                "topics": ["Newton's Laws of Motion", "Work-Energy Theorem"]
+                "chapter": "Thermodynamics & Kinetic Theory",
+                "topics": [
+                    "Thermal Properties of Matter",
+                    "Laws of Thermodynamics",
+                    "Kinetic Theory of Gases"
+                ]
+            },
+            "3": {
+                "chapter": "Electromagnetism",
+                "topics": [
+                    "Electric Charges and Fields",
+                    "Electrostatic Potential and Capacitance",
+                    "Current Electricity",
+                    "Moving Charges and Magnetism",
+                    "Electromagnetic Induction and Alternating Current"
+                ]
+            },
+            "4": {
+                "chapter": "Optics & Modern Physics",
+                "topics": [
+                    "Ray Optics and Optical Instruments",
+                    "Wave Optics",
+                    "Dual Nature of Radiation and Matter",
+                    "Atoms and Nuclei",
+                    "Semiconductor Electronics"
+                ]
             }
         }
     },
@@ -30,7 +88,33 @@ SYLLABUS = {
         "chapters": {
             "1": {
                 "chapter": "Physical Chemistry",
-                "topics": ["Stoichiometry and Limiting Reagents", "Chemical Equilibrium"]
+                "topics": [
+                    "Some Basic Concepts of Chemistry (Mole Concept)",
+                    "Structure of Atom",
+                    "Chemical Thermodynamics",
+                    "Chemical and Ionic Equilibrium",
+                    "Solutions",
+                    "Electrochemistry",
+                    "Chemical Kinetics"
+                ]
+            },
+            "2": {
+                "chapter": "Inorganic Chemistry",
+                "topics": [
+                    "Chemical Bonding and Molecular Structure",
+                    "d- and f-Block Elements",
+                    "Coordination Compounds"
+                ]
+            },
+            "3": {
+                "chapter": "Organic Chemistry",
+                "topics": [
+                    "Organic Chemistry: Basic Principles and Techniques",
+                    "Hydrocarbons",
+                    "Haloalkanes, Haloarenes, Alcohols, Phenols and Ethers",
+                    "Aldehydes, Ketones and Carboxylic Acids",
+                    "Amines and Biomolecules"
+                ]
             }
         }
     }

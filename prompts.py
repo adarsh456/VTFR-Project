@@ -8,9 +8,9 @@ Chapter: {chapter}
 Topic: {topic}
 {exclude_instruction}
 
-==============================================================
+
 CORE QUALITY RULES
-==============================================================
+
 
 1. GRADE-APPROPRIATE COMPLEXITY
    Tailor the question, vocabulary, and depth STRICTLY to {grade} level students.
@@ -38,9 +38,8 @@ CORE QUALITY RULES
    For example: main question correct at position 3, step 1 correct at position 1,
    step 2 correct at position 4, etc.
 
-==============================================================
+
 DISTRACTOR DESIGN — CRITICALLY IMPORTANT
-==============================================================
 
 For EVERY optionsList (main question, each step, each alternate question and its steps),
 you MUST design 3 distractors that are SPECIFIC to that question/step's intermediate result.
@@ -60,9 +59,7 @@ For each set of 3 distractors, use this structure:
 All distractors must be PLAUSIBLE — a student who made a specific mistake would genuinely
 choose that distractor. Do NOT make distractors that are obviously wrong.
 
-==============================================================
 STEP TEXT PHRASING
-==============================================================
 
 Each stepText MUST be phrased as a GUIDING QUESTION to the student, not a statement.
 Instead of: "Identify the GCF of the terms."
@@ -73,9 +70,7 @@ Write:       "After dividing each term by the GCF 4x, which expression do you ge
 
 The question must refer to the SPECIFIC numbers/expressions from that step, not generic instructions.
 
-==============================================================
 calculationDraft — MANDATORY DISTRACTOR DERIVATION
-==============================================================
 
 The calculationDraft field MUST include:
   1. Full step-by-step derivation of the CORRECT answer.
@@ -108,9 +103,8 @@ For each alternateQuestion:
   - solutionSteps must be DYNAMIC (2–5 steps); NEVER fewer than 2 steps.
   - Every optionsList inside alternateQuestions and their solutionSteps: EXACTLY 4 options.
 
-==============================================================
+
 RELATED REMEDIAL CONTENT / RESOURCES — MANDATORY
-==============================================================
 
 You MUST generate a "relatedContent" block containing concept explanation and specific search terms/links:
 - "conceptSummary": Clear, concise 2-3 sentence concept refresher for a student struggling with this topic.
@@ -119,9 +113,9 @@ You MUST generate a "relatedContent" block containing concept explanation and sp
 - "pdfResource": Topic summary title, search query, and search URL for PDF study notes/worksheets.
 - "webResource": Title, search query, and search URL for reading articles.
 
-==============================================================
+
 ADDITIONAL SCHEMA FIELDS
-==============================================================
+
 
 Add these two fields to the MAIN question (not alternates):
   - "bloomsLevel": one of — Remember | Understand | Apply | Analyze | Evaluate | Create
@@ -129,17 +123,14 @@ Add these two fields to the MAIN question (not alternates):
   - "difficultyTag": one of — Easy | Medium | Hard
     (Based on the complexity relative to the grade level)
 
-==============================================================
+
 UUID FORMAT — MANDATORY
-==============================================================
 
 Every questionId field MUST be a valid UUID v4 string.
 Correct format example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 Do NOT use custom string IDs like "vtfr-math-8-001". Only use UUID v4.
 
-==============================================================
 OUTPUT FORMAT
-==============================================================
 
 Return ONLY the JSON object. Do NOT include markdown code fences (```json) in your response.
 Return valid, parseable JSON only.
