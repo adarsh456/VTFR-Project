@@ -1,3 +1,5 @@
+import json
+import re
 from langchain_core.runnables import RunnableLambda
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import SystemMessage, HumanMessage
@@ -39,7 +41,8 @@ def make_suggestions_prompt(inputs: dict):
         "You are an educational curriculum assistant. "
         "Given a subject and a chapter, suggest exactly 3 to 4 specific, distinct, and high-quality sub-topics "
         "suitable for creating Veriable Time Fixed Response (VTFR) educational questions. "
-        "Return the output strictly in the following JSON format:\n"
+        "Return ONLY the raw JSON object. Do not include any introductory text, markdown formatting blocks (like ```json), or extra text.\n"
+        "Format:\n"
         "{\n"
         '  "topics": ["Topic 1", "Topic 2", "Topic 3"]\n'
         "}"
@@ -55,7 +58,7 @@ def make_suggestions_prompt(inputs: dict):
 # We wrap the prompt creation in a RunnableLambda to dynamically build prompt messages from inputs
 generate_vtfr_chain = RunnableLambda(make_vtfr_prompt) | model | JsonOutputParser()
 
-suggest_topics_chain = RunnableLambda(make_suggestions_prompt) | suggestions_llm | JsonOutputParser()
+suggest_topics_chain = RunnableLambda(make_suggestions_prompt) | suggestions_llm
 
 def run_generate_vtfr_question(inputs: dict) -> dict:
     """
@@ -68,6 +71,19 @@ def run_generate_vtfr_question(inputs: dict) -> dict:
 
 def run_suggest_topics(inputs: dict) -> dict:
     """
-    Executes the suggestion chain.
+    Executes the suggestion chain and extracts JSON robustly.
     """
-    return suggest_topics_chain.invoke(inputs)
+    try:
+        response = suggest_topics_chain.invoke(inputs)
+        content = response.content.strip()
+        # Look for the first JSON object using a regex pattern
+        json_match = re.search(r"(\{.*\})", content, re.DOTALL)
+        if json_match:
+            try:
+                return json.loads(json_match.group(1))
+            except Exception:
+                pass
+        return json.loads(content)
+    except Exception as e:
+        print(f"Failed to get AI topic suggestions: {e}")
+        return {}

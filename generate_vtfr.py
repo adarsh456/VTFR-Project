@@ -420,8 +420,11 @@ if __name__ == "__main__":
         if "questionId" not in result or result["questionId"] == "UNIQUE_ID":
             result["questionId"] = str(uuid.uuid4())
             
-        grade_slug = grade.lower().replace(' ', '_').replace('/', '_')
-        base_filename = f"{grade_slug}_{sub.lower().replace(' ', '_')}_{top.lower().replace(' ', '_')}"
+        import re
+        grade_slug = re.sub(r'[\\/*?:"<>|]', "", grade.lower().replace(' ', '_').replace('/', '_'))
+        sub_slug = re.sub(r'[\\/*?:"<>|]', "", sub.lower().replace(' ', '_'))
+        top_slug = re.sub(r'[\\/*?:"<>|]', "", top.lower().replace(' ', '_'))
+        base_filename = f"{grade_slug}_{sub_slug}_{top_slug}"
         output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated_question")
         os.makedirs(output_dir, exist_ok=True)
         filepath = get_unique_filename(output_dir, base_filename, ".json")
