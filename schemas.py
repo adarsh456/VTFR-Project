@@ -25,15 +25,15 @@ class AlternateQuestion(BaseModel):
 
 class Resource(BaseModel):
     title: str = Field(description="Title of the learning resource")
-    searchQuery: str = Field(description="Working search query for the resource")
-    url: str = Field(description="Complete search URL with query parameters URL-encoded")
+    searchQuery: Optional[str] = Field(default="", description="Working search query for the resource")
+    url: Optional[str] = Field(default=None, description="Direct URL of the exact selected resource")
 
 class RelatedContent(BaseModel):
     conceptSummary: str = Field(description="Clear 2-3 sentence concept refresher")
-    youtubeResource: Resource = Field(description="Video search details")
-    imageResource: Resource = Field(description="Visual diagram search details")
-    pdfResource: Resource = Field(description="Study notes search details")
-    webResource: Resource = Field(description="Reference article search details")
+    youtubeResource: Optional[Resource] = Field(default=None, description="Direct YouTube video")
+    imageResource: Optional[Resource] = Field(default=None, description="Direct educational diagram image")
+    pdfResource: Optional[Resource] = Field(default=None, description="Direct PDF document")
+    webResource: Optional[Resource] = Field(default=None, description="Direct educational article")
 
 class VTFRQuestion(BaseModel):
     questionId: str = Field(

@@ -291,22 +291,22 @@ JSON Schema:
     "youtubeResource": {{
       "title": "string — video topic title",
       "searchQuery": "string — search query e.g. '{grade} {subject} {topic} step by step tutorial'",
-      "url": "string — YouTube search URL"
+      "url": "string — direct YouTube video URL or search query"
     }},
     "imageResource": {{
       "title": "string — diagram or visual explanation title",
       "searchQuery": "string — search query e.g. '{topic} visual formula chart diagram'",
-      "url": "string — Google Image search URL"
+      "url": "string — direct diagram/image URL"
     }},
     "pdfResource": {{
       "title": "string — study notes or revision PDF title",
       "searchQuery": "string — search query e.g. '{grade} {subject} {topic} revision notes pdf'",
-      "url": "string — Google PDF search URL"
+      "url": "string — direct PDF document URL"
     }},
     "webResource": {{
       "title": "string — article or interactive tutorial title",
       "searchQuery": "string — search query e.g. '{subject} {topic} concept guide'",
-      "url": "string — Google search URL"
+      "url": "string — direct educational article URL"
     }}
   }}
 }}"""
