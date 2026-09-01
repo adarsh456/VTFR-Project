@@ -109,7 +109,7 @@ RELATED REMEDIAL CONTENT / RESOURCES — MANDATORY
 You MUST generate a "relatedContent" block containing concept explanation and specific search terms/links:
 - "conceptSummary": Clear, concise 2-3 sentence concept refresher for a student struggling with this topic.
 - "youtubeResource": Title, precise search query, and search URL for video tutorials.
-- "imageResource": Visual description (diagram/chart needed), search query, and search URL for visual learning.
+- "imageResource": Educational diagram title and highly specific search query (grade + subject + chapter + topic + key question concept + 'educational diagram') for visual learning.
 - "pdfResource": Topic summary title, search query, and search URL for PDF study notes/worksheets.
 - "webResource": Title, search query, and search URL for reading articles.
 
@@ -291,22 +291,22 @@ JSON Schema:
     "youtubeResource": {{
       "title": "string — video topic title",
       "searchQuery": "string — search query e.g. '{grade} {subject} {topic} step by step tutorial'",
-      "url": "string — YouTube search URL"
+      "url": "string — direct YouTube video URL or search query"
     }},
     "imageResource": {{
-      "title": "string — diagram or visual explanation title",
-      "searchQuery": "string — search query e.g. '{topic} visual formula chart diagram'",
-      "url": "string — Google Image search URL"
+      "title": "string — specific educational diagram or chart title (e.g. 'Light Wave Wavelength and Frequency Diagram')",
+      "searchQuery": "string — highly specific search query structured as '{grade} {subject} {topic} <key concepts> educational diagram'",
+      "url": "string — direct educational diagram URL"
     }},
     "pdfResource": {{
       "title": "string — study notes or revision PDF title",
       "searchQuery": "string — search query e.g. '{grade} {subject} {topic} revision notes pdf'",
-      "url": "string — Google PDF search URL"
+      "url": "string — direct PDF document URL"
     }},
     "webResource": {{
       "title": "string — article or interactive tutorial title",
       "searchQuery": "string — search query e.g. '{subject} {topic} concept guide'",
-      "url": "string — Google search URL"
+      "url": "string — direct educational article URL"
     }}
   }}
 }}"""

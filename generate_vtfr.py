@@ -6,6 +6,15 @@ import random
 from urllib.parse import quote_plus
 from config import SYLLABUS
 import chains
+import resource_resolver
+
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 
 def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, exclude_questions: list = None, num_alternate_questions: int = 3):
 
@@ -47,7 +56,9 @@ def _enrich_related_content(data: dict):
     
     grade = data.get("grade", "")
     subject = data.get("subject", "")
+    chapter = data.get("chapter", "")
     topic = data.get("topic", "")
+    question_text = data.get("questionText", "")
 
     if "relatedContent" not in data or not isinstance(data["relatedContent"], dict):
         data["relatedContent"] = {}
@@ -57,41 +68,65 @@ def _enrich_related_content(data: dict):
     # 1. Concept Summary Fallback
     if "conceptSummary" not in rel or not rel["conceptSummary"]:
         rel["conceptSummary"] = f"Review the foundational principles of {topic} in {subject} to understand step-by-step problem solving."
+    concept_summary = rel["conceptSummary"]
 
-    # 2. YouTube Resource
+    # 2. YouTube Resource (Exact direct video link)
     yt = rel.get("youtubeResource", {})
     yt_query = yt.get("searchQuery") or f"{grade} {subject} {topic} concept explanation tutorial"
+    yt_url = resource_resolver.get_exact_youtube_url(yt_query, topic)
     rel["youtubeResource"] = {
         "title": yt.get("title") or f"{topic} Video Lesson",
         "searchQuery": yt_query,
-        "url": f"https://www.youtube.com/results?search_query={quote_plus(yt_query)}"
+        "url": yt_url
     }
 
-    # 3. Image Resource (Diagrams/Charts)
+    # 3. Image Resource (Exact direct verified educational diagram link)
     img = rel.get("imageResource", {})
-    img_query = img.get("searchQuery") or f"{subject} {topic} formula diagram chart"
+    img_query = img.get("searchQuery")
+    if not img_query or len(img_query.split()) < 4:
+        img_query = resource_resolver.build_structured_image_query(
+            grade=grade,
+            subject=subject,
+            chapter=chapter,
+            topic=topic,
+            question_text=question_text,
+            concept_summary=concept_summary
+        )
+
+    img_url, resolved_title = resource_resolver.resolve_educational_image(
+        query=img_query,
+        topic=topic,
+        subject=subject,
+        chapter=chapter,
+        grade=grade,
+        question_text=question_text,
+        concept_summary=concept_summary
+    )
+
     rel["imageResource"] = {
-        "title": img.get("title") or f"{topic} Visual Diagram / Chart",
+        "title": img.get("title") or resolved_title or f"{topic} Visual Diagram / Chart",
         "searchQuery": img_query,
-        "url": f"https://www.google.com/search?tbm=isch&q={quote_plus(img_query)}"
+        "url": img_url
     }
 
-    # 4. PDF Resource
+    # 4. PDF Resource (Exact direct PDF notes / study sheet link)
     pdf = rel.get("pdfResource", {})
     pdf_query = pdf.get("searchQuery") or f"{grade} {subject} {topic} study notes revision pdf"
+    pdf_url = resource_resolver.get_exact_pdf_url(pdf_query, topic, subject)
     rel["pdfResource"] = {
         "title": pdf.get("title") or f"{topic} Revision Notes PDF",
         "searchQuery": pdf_query,
-        "url": f"https://www.google.com/search?q={quote_plus(pdf_query + ' filetype:pdf')}"
+        "url": pdf_url
     }
 
-    # 5. Web Resource
+    # 5. Web Resource (Exact direct educational article link)
     web = rel.get("webResource", {})
     web_query = web.get("searchQuery") or f"{grade} {subject} {topic} explained examples"
+    web_url = resource_resolver.get_exact_web_url(web_query, topic, subject)
     rel["webResource"] = {
         "title": web.get("title") or f"{topic} Reference Article",
         "searchQuery": web_query,
-        "url": f"https://www.google.com/search?q={quote_plus(web_query)}"
+        "url": web_url
     }
 
 
@@ -107,7 +142,7 @@ def _enforce_uuids(data: dict):
         qid = obj.get("questionId", "")
         if not qid or not uuid4_pattern.match(str(qid)):
             new_id = str(uuid.uuid4())
-            print(f"[UUID FIX] {label}: replaced '{qid}' → '{new_id}'")
+            print(f"[UUID FIX] {label}: replaced '{qid}' -> '{new_id}'")
             obj["questionId"] = new_id
 
     _fix(data, "main question")
