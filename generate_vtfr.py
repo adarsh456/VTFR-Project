@@ -56,7 +56,9 @@ def _enrich_related_content(data: dict):
     
     grade = data.get("grade", "")
     subject = data.get("subject", "")
+    chapter = data.get("chapter", "")
     topic = data.get("topic", "")
+    question_text = data.get("questionText", "")
 
     if "relatedContent" not in data or not isinstance(data["relatedContent"], dict):
         data["relatedContent"] = {}
@@ -66,6 +68,7 @@ def _enrich_related_content(data: dict):
     # 1. Concept Summary Fallback
     if "conceptSummary" not in rel or not rel["conceptSummary"]:
         rel["conceptSummary"] = f"Review the foundational principles of {topic} in {subject} to understand step-by-step problem solving."
+    concept_summary = rel["conceptSummary"]
 
     # 2. YouTube Resource (Exact direct video link)
     yt = rel.get("youtubeResource", {})
@@ -77,12 +80,31 @@ def _enrich_related_content(data: dict):
         "url": yt_url
     }
 
-    # 3. Image Resource (Exact direct diagram/image link)
+    # 3. Image Resource (Exact direct verified educational diagram link)
     img = rel.get("imageResource", {})
-    img_query = img.get("searchQuery") or f"{subject} {topic} formula diagram chart"
-    img_url = resource_resolver.get_exact_image_url(img_query, topic, subject)
+    img_query = img.get("searchQuery")
+    if not img_query or len(img_query.split()) < 4:
+        img_query = resource_resolver.build_structured_image_query(
+            grade=grade,
+            subject=subject,
+            chapter=chapter,
+            topic=topic,
+            question_text=question_text,
+            concept_summary=concept_summary
+        )
+
+    img_url, resolved_title = resource_resolver.resolve_educational_image(
+        query=img_query,
+        topic=topic,
+        subject=subject,
+        chapter=chapter,
+        grade=grade,
+        question_text=question_text,
+        concept_summary=concept_summary
+    )
+
     rel["imageResource"] = {
-        "title": img.get("title") or f"{topic} Visual Diagram / Chart",
+        "title": img.get("title") or resolved_title or f"{topic} Visual Diagram / Chart",
         "searchQuery": img_query,
         "url": img_url
     }
