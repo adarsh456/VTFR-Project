@@ -79,10 +79,10 @@ def _enrich_related_content(data: dict):
 
     # 3. Image Resource (Exact direct diagram/image link)
     img = rel.get("imageResource", {})
-    img_query = img.get("searchQuery") or f"{subject} {topic} formula diagram chart"
-    img_url = resource_resolver.get_exact_image_url(img_query, topic, subject)
+    img_query = img.get("searchQuery") or f"{subject} {topic} definition formula types applications mindmap summary"
+    img_url = resource_resolver.get_exact_image_url(img_query, topic, subject, grade)
     rel["imageResource"] = {
-        "title": img.get("title") or f"{topic} Visual Diagram / Chart",
+        "title": img.get("title") or f"{topic} Visual Concept Card / Infographic",
         "searchQuery": img_query,
         "url": img_url
     }

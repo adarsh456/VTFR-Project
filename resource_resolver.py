@@ -553,23 +553,18 @@ def evaluate_image_educational_quality(image_url: str, topic: str, subject: str 
 
         sys_prompt = (
             "You are a strict Educational Resource Judge. Evaluate whether an image (described by its URL/filename) "
-            "is a useful educational resource for a student studying the given topic.\n\n"
-            "The image MUST contain meaningful educational content such as:\n"
-            "- a diagram\n"
-            "- labeled concepts\n"
-            "- explanations\n"
-            "- formulas\n"
-            "- examples\n"
-            "- process/flowchart\n"
-            "- comparison\n"
-            "- graph or chart\n\n"
-            "Reject the image if it is primarily:\n"
-            "- a photograph\n"
-            "- decorative artwork\n"
-            "- an unlabeled object/model\n"
-            "- a traffic sign / road sign / speed limit sign\n"
-            "- a portrait of a person\n"
-            "- unrelated visual content\n\n"
+            "is a useful educational concept resource for a student studying the given topic.\n\n"
+            "High Priority Educational Content (Score 80-100):\n"
+            "- Structured concept infographics & summary cards\n"
+            "- Visual cards containing definition, formulas, classification/types, advantages/disadvantages, applications\n"
+            "- Educational mindmaps & cheat sheets\n"
+            "- Labeled scientific diagrams, mechanisms, and flowcharts\n\n"
+            "Standard Educational Content (Score 50-79):\n"
+            "- Simple graphs, formulas, or single textbook diagrams\n\n"
+            "Reject Image (Score < 50):\n"
+            "- Generic photographs, decorative artwork, portraits\n"
+            "- Traffic/road signs, logos, speed limits, coats of arms\n"
+            "- Unrelated visual content\n\n"
             "Return ONLY a JSON object with this exact structure:\n"
             "{\n"
             '  "relevant": "YES" or "NO",\n'
@@ -594,22 +589,21 @@ def evaluate_image_educational_quality(image_url: str, topic: str, subject: str 
         return {"relevant": "YES", "educational": "YES", "score": 80, "reason": f"Rule evaluation fallback: {e}"}
 
 
-def get_exact_image_url(query: str, topic: str = "", subject: str = "") -> str:
+def get_exact_image_url(query: str, topic: str = "", subject: str = "", grade: str = "Grade 12") -> str:
     """
-    Finds exactly ONE direct image resource (.jpg/.png/.svg/.webp).
-    Validates MIME type / image extension and educational quality via AI Judge.
-    Returns direct image URL or None.
-    NEVER returns an image search page or thumbnail grid.
+    Finds exactly ONE direct educational image URL (.png/.jpg/.svg/.webp).
+    Prioritizes concept summary cards, mindmaps, infographics (definition, formula, types, applications).
+    If no verified external image is found, falls back to generating a local 5-panel Concept Card PNG.
     """
     clean_topic = _clean_topic_name(topic, query, subject)
-    search_q = f"{clean_topic} {subject} diagram formula chart".strip()
+    search_q = f"{clean_topic} {subject} definition formula types applications mindmap summary infographic diagram".strip()
 
-    print(f"[Image] Searching for direct educational diagram...")
+    print(f"[Image] Searching for direct educational concept infographic/diagram...")
     candidates = _search_image_candidates(search_q, clean_topic)
     
     # Try broader query if 0 candidates found
     if not candidates:
-        candidates = _search_image_candidates(f"{clean_topic} diagram", clean_topic)
+        candidates = _search_image_candidates(f"{clean_topic} {subject} mindmap cheat sheet diagram", clean_topic)
 
     ranked_candidates = _rank_candidates(candidates, clean_topic, subject)
 
@@ -623,7 +617,18 @@ def get_exact_image_url(query: str, topic: str = "", subject: str = "") -> str:
             else:
                 print(f"[Image] Candidate rejected by AI Judge ({eval_res.get('reason')}): {candidate}")
 
-    print(f"[Image] No valid direct image found. Returning None.")
+    # Fallback to Programmatic 5-Panel Concept Card Generator
+    print(f"[Image] No verified web infographic found. Triggering Programmatic 5-Panel Concept Card Generator...")
+    try:
+        import concept_card_generator
+        card_path = concept_card_generator.generate_educational_concept_card(clean_topic, subject, grade)
+        if card_path:
+            print(f"[Image] Programmatic Concept Card Fallback Created: {card_path}")
+            return card_path
+    except Exception as e:
+        print(f"[Image] Concept card generator fallback error: {e}")
+
+    print(f"[Image] No valid image or fallback card generated. Returning None.")
     return None
 
 
