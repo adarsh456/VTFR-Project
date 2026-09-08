@@ -50,10 +50,11 @@ To guarantee high availability and bypass potential billing limitations (like th
 2.  **Duplicate Detection**: Scans the `generated_question/` directory to build a list of already generated questions to exclude.
 3.  **Prompt Assembly**: Invokes template functions in `prompt_templates.py`.
 4.  **AI Generation**: Sends request to chosen model in JSON Mode.
-5.  **Post-Processing & Shuffling**:
+5. **Post-Processing, Shuffling & Concept Card Enrichment**:
     *   Generates a new UUID v4 if the LLM output's ID is missing.
     *   Shuffles intermediate solution step options (1-4 positions) so that the correct answer is randomized.
     *   Enforces a minimum of 2 steps for scaffolded alternate questions.
+    *   **Educational Concept Card Generation**: Automatically invokes `concept_card_generator.py` to create a 5-Panel Educational Concept Summary Card PNG (Definition, Formulas, Types, Pros/Cons, Real-World Applications) tailored to beginners, attached under `relatedContent.imageResource`.
 6.  **Saving Result**: Writes the completed JSON question payload to `generated_question/`.
 
 ### B. Image-Based MCQ Question Generator (`generate_image_question.py`)

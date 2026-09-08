@@ -1,3 +1,4 @@
+import os
 import re
 import json
 import urllib.request
@@ -591,17 +592,28 @@ def evaluate_image_educational_quality(image_url: str, topic: str, subject: str 
 
 def get_exact_image_url(query: str, topic: str = "", subject: str = "", grade: str = "Grade 12") -> str:
     """
-    Finds exactly ONE direct educational image URL (.png/.jpg/.svg/.webp).
-    Prioritizes concept summary cards, mindmaps, infographics (definition, formula, types, applications).
-    If no verified external image is found, falls back to generating a local 5-panel Concept Card PNG.
+    Generates a local 5-panel Educational Concept Summary Card PNG for the topic.
+    Provides a structured, beginner-friendly infographic (definition, formula, types, characteristics, applications).
+    If programmatic concept card generation fails, falls back to web image search.
     """
     clean_topic = _clean_topic_name(topic, query, subject)
-    search_q = f"{clean_topic} {subject} definition formula types applications mindmap summary infographic diagram".strip()
 
-    print(f"[Image] Searching for direct educational concept infographic/diagram...")
+    # Primary: Programmatic 5-Panel Concept Card Generator
+    print(f"[Concept Card] Generating 5-Panel Educational Concept Card Infographic for '{clean_topic}'...")
+    try:
+        import concept_card_generator
+        card_path = concept_card_generator.generate_educational_concept_card(clean_topic, subject, grade)
+        if card_path and os.path.exists(card_path):
+            print(f"[Concept Card] SUCCESS! Generated Concept Card: {card_path}")
+            return card_path
+    except Exception as e:
+        print(f"[Concept Card] Generator error: {e}. Falling back to web image search...")
+
+    # Fallback to Web Image Candidate Search
+    search_q = f"{clean_topic} {subject} definition formula types applications mindmap summary infographic diagram".strip()
+    print(f"[Image] Fallback searching for direct educational concept infographic/diagram...")
     candidates = _search_image_candidates(search_q, clean_topic)
     
-    # Try broader query if 0 candidates found
     if not candidates:
         candidates = _search_image_candidates(f"{clean_topic} {subject} mindmap cheat sheet diagram", clean_topic)
 
@@ -609,26 +621,12 @@ def get_exact_image_url(query: str, topic: str = "", subject: str = "", grade: s
 
     for candidate in ranked_candidates:
         if is_valid_image_url(candidate, check_live=False):
-            # Run AI Educational Judge Evaluation
             eval_res = evaluate_image_educational_quality(candidate, clean_topic, subject)
             if eval_res.get("relevant") == "YES" and eval_res.get("educational") == "YES" and eval_res.get("score", 0) >= 50:
-                print(f"[Image] Valid direct URL (AI Score: {eval_res.get('score')}): {candidate}")
+                print(f"[Image] Valid fallback web image URL (AI Score: {eval_res.get('score')}): {candidate}")
                 return candidate
-            else:
-                print(f"[Image] Candidate rejected by AI Judge ({eval_res.get('reason')}): {candidate}")
 
-    # Fallback to Programmatic 5-Panel Concept Card Generator
-    print(f"[Image] No verified web infographic found. Triggering Programmatic 5-Panel Concept Card Generator...")
-    try:
-        import concept_card_generator
-        card_path = concept_card_generator.generate_educational_concept_card(clean_topic, subject, grade)
-        if card_path:
-            print(f"[Image] Programmatic Concept Card Fallback Created: {card_path}")
-            return card_path
-    except Exception as e:
-        print(f"[Image] Concept card generator fallback error: {e}")
-
-    print(f"[Image] No valid image or fallback card generated. Returning None.")
+    print(f"[Image] No valid concept card or fallback web image found. Returning None.")
     return None
 
 

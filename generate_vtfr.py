@@ -77,12 +77,12 @@ def _enrich_related_content(data: dict):
         "url": yt_url
     }
 
-    # 3. Image Resource (Exact direct diagram/image link)
+    # 3. Image Resource (5-Panel Educational Concept Card Image)
     img = rel.get("imageResource", {})
-    img_query = img.get("searchQuery") or f"{subject} {topic} definition formula types applications mindmap summary"
+    img_query = img.get("searchQuery") or f"{subject} {topic} definition formula types applications concept card"
     img_url = resource_resolver.get_exact_image_url(img_query, topic, subject, grade)
     rel["imageResource"] = {
-        "title": img.get("title") or f"{topic} Visual Concept Card / Infographic",
+        "title": img.get("title") or f"{topic} Educational Concept Card",
         "searchQuery": img_query,
         "url": img_url
     }
