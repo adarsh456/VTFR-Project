@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
 # Load environment variables
-load_dotenv()
+load_dotenv(override=True)
 
 def get_llm():
     """
@@ -14,7 +14,7 @@ def get_llm():
     """
     llms = []
 
-    # Provider 1: Hugging Face Router - Llama 3.3 70B (Primary - Active & Working)
+    # Provider 1: Hugging Face Router - Llama 3.3 70B (Primary)
     hf_key = (os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY") or "").strip().strip('"\'')
     if hf_key:
         llms.append(
@@ -37,14 +37,32 @@ def get_llm():
             )
         )
 
-    # Provider 3: Groq API (Fallback 2)
+    # Provider 3 & 4: Groq API (Fallback 2 & 3)
     groq_key = (os.environ.get("GROQ_API_KEY") or "").strip().strip('"\'')
     if groq_key:
         llms.append(
             ChatOpenAI(
                 openai_api_base="https://api.groq.com/openai/v1",
                 openai_api_key=groq_key,
-                model_name="llama-3.3-70b-versatile",
+                model_name="openai/gpt-oss-120b",
+                temperature=0.4,
+                max_tokens=6000
+            )
+        )
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="qwen/qwen3.6-27b",
+                temperature=0.4,
+                max_tokens=6000
+            )
+        )
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="groq/compound-mini",
                 temperature=0.4,
                 max_tokens=6000
             )
@@ -95,7 +113,16 @@ def get_suggestions_llm():
             ChatOpenAI(
                 openai_api_base="https://api.groq.com/openai/v1",
                 openai_api_key=groq_key,
-                model_name="llama-3.3-70b-versatile",
+                model_name="openai/gpt-oss-120b",
+                temperature=0.7,
+                max_tokens=1500
+            )
+        )
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="qwen/qwen3.6-27b",
                 temperature=0.7,
                 max_tokens=1500
             )

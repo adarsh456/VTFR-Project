@@ -387,18 +387,45 @@ if __name__ == "__main__":
     # Scan output directory to exclude previously generated questions
     output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated_question")
     exclude_list = []
+    MAX_EXCLUDE_FILES = 20
     if os.path.isdir(output_dir):
+        json_files = []
         for filename in os.listdir(output_dir):
-            if filename.endswith(".json"):
+            full_path = os.path.join(output_dir, filename)
+            if os.path.isfile(full_path) and filename.endswith(".json"):
+                json_files.append((full_path, os.path.getmtime(full_path)))
+        
+        # Sort files by modification time descending (newest first)
+        json_files.sort(key=lambda x: x[1], reverse=True)
+        
+        # FIFO Cleanup: delete older files if total count exceeds MAX_EXCLUDE_FILES
+        if len(json_files) > MAX_EXCLUDE_FILES:
+            for old_path, _ in json_files[MAX_EXCLUDE_FILES:]:
                 try:
-                    with open(os.path.join(output_dir, filename), "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        if "questionText" in data:
-                            exclude_list.append(data["questionText"])
+                    os.remove(old_path)
                 except Exception:
                     pass
+            json_files = json_files[:MAX_EXCLUDE_FILES]
+            
+        same_subject_questions = []
+        other_questions = []
+        for full_path, _ in json_files:
+            try:
+                with open(full_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    q_text = data.get("questionText")
+                    if q_text:
+                        q_subj = data.get("subject", "")
+                        if q_subj.lower() == sub.lower():
+                            same_subject_questions.append(q_text)
+                        else:
+                            other_questions.append(q_text)
+            except Exception:
+                pass
+                
+        exclude_list = (same_subject_questions + other_questions)[:MAX_EXCLUDE_FILES]
 
-    print(f"Loaded {len(exclude_list)} existing questions to exclude:")
+    print(f"\nLoaded {len(exclude_list)} existing questions to exclude (Subject: {sub}, Max limit: {MAX_EXCLUDE_FILES}):")
     for eq in exclude_list:
         print(f"  - {eq}")
 
@@ -446,6 +473,17 @@ if __name__ == "__main__":
             json.dump(result, f, indent=2)
         
         print(f"Successfully saved generated question to {filepath}\n")
+        
+        # Enforce FIFO cleanup after saving as well
+        all_files = [(os.path.join(output_dir, fn), os.path.getmtime(os.path.join(output_dir, fn)))
+                     for fn in os.listdir(output_dir) if os.path.isfile(os.path.join(output_dir, fn)) and fn.endswith(".json")]
+        if len(all_files) > MAX_EXCLUDE_FILES:
+            all_files.sort(key=lambda x: x[1], reverse=True)
+            for old_p, _ in all_files[MAX_EXCLUDE_FILES:]:
+                try:
+                    os.remove(old_p)
+                except Exception:
+                    pass
         
         # Show the generated JSON in the terminal
         print("Generated VTFR JSON Payload:")

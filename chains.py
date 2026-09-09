@@ -54,9 +54,38 @@ def make_suggestions_prompt(inputs: dict):
         HumanMessage(content=user_prompt)
     ])
 
+def robust_json_parser(response) -> dict:
+    """
+    Extracts JSON substring robustly from LLM response, stripping conversational preambles or markdown code fences.
+    """
+    if hasattr(response, "content"):
+        content = response.content
+    elif isinstance(response, str):
+        content = response
+    elif isinstance(response, dict):
+        return response
+    else:
+        content = str(response)
+
+    content = content.strip()
+
+    # Strip markdown code blocks
+    content = re.sub(r"^```json\s*", "", content, flags=re.MULTILINE)
+    content = re.sub(r"^```\s*", "", content, flags=re.MULTILINE)
+    content = re.sub(r"\s*```$", "", content, flags=re.MULTILINE)
+
+    # Locate outermost JSON object {...}
+    json_match = re.search(r"(\{.*\})", content, re.DOTALL)
+    if json_match:
+        try:
+            return json.loads(json_match.group(1))
+        except Exception:
+            pass
+
+    return json.loads(content)
+
 # Define the LangChain chains using LCEL
-# We wrap the prompt creation in a RunnableLambda to dynamically build prompt messages from inputs
-generate_vtfr_chain = RunnableLambda(make_vtfr_prompt) | model | JsonOutputParser()
+generate_vtfr_chain = RunnableLambda(make_vtfr_prompt) | model
 
 suggest_topics_chain = RunnableLambda(make_suggestions_prompt) | suggestions_llm
 
@@ -64,7 +93,8 @@ def run_generate_vtfr_question(inputs: dict) -> dict:
     """
     Executes the generation chain and validates the output structure against VTFRQuestion schema.
     """
-    raw_result = generate_vtfr_chain.invoke(inputs)
+    raw_response = generate_vtfr_chain.invoke(inputs)
+    raw_result = robust_json_parser(raw_response)
     # Parse and validate structure using Pydantic, then convert back to dict
     validated = VTFRQuestion.model_validate(raw_result)
     return validated.model_dump()
