@@ -1,0 +1,195 @@
+{
+  "questionId": "14c235d5-6f6f-4e9f-8b4e-12345b6789a0",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Analyze",
+  "difficultyTag": "Hard",
+  "grade": "College / University",
+  "subject": "computer science",
+  "chapter": "database",
+  "topic": "Database Normalization",
+  "questionText": "A university database contains a table with the following attributes: Student ID, Name, Course ID, Course Name, and Grade. How would you normalize this table to ensure it meets the requirements of Second Normal Form (2NF)?",
+  "calculationDraft": "To normalize a database, we need to ensure that each table has a primary key and that each non-key attribute depends on the entire primary key. For the given table with attributes (Student ID, Name, Course ID, Course Name, Grade), we first identify the primary key as (Student ID, Course ID) because a student can take multiple courses and a course can have multiple students. Then, we apply the rules of normalization: First Normal Form (1NF) requires that each cell contains a single value, which is already the case. Second Normal Form (2NF) requires that each non-key attribute depends on the entire primary key. Here, 'Name' depends only on 'Student ID', and 'Course Name' depends only on 'Course ID', so we need to split the table into two to satisfy 2NF. The correct normalization results in two tables: one with (Student ID, Name) and another with (Course ID, Course Name, Student ID, Grade). The main question's correct answer is thus the description of these two tables. Distractor A represents a computational error by suggesting a wrong primary key. Distractor B represents a conceptual misconception by suggesting that no normalization is needed. Distractor C represents a partially correct but incorrect normalization by suggesting only one table with redundant data.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Create two tables: one with (Student ID, Name, Grade) and another with (Course ID, Course Name), ignoring the relationship between students and courses.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "No normalization is needed since the table already contains unique identifiers for each student and course.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Create one table with (Student ID, Course ID) as the primary key and include all other attributes.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Split the table into three tables: one for students, one for courses, and one for grades, with appropriate foreign keys.",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the primary key for the given table, considering the relationship between students and courses?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "(Student ID, Course ID)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Course ID",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(Name, Course Name)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Student ID",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "After identifying the primary key, how would you apply the rules of Second Normal Form (2NF) to the table?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Ensure each non-key attribute depends on the entire primary key, potentially splitting the table.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Remove all non-key attributes to minimize data redundancy.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Apply Third Normal Form (3NF) rules directly without considering 2NF.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Combine the table with another to reduce the number of tables in the database.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "7b8c9d0e-f123-4567-890a-bc123d456e7f",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Describe the process of normalizing a database table containing employee information to Second Normal Form (2NF).",
+      "calculationDraft": "For a simpler database table with attributes (Employee ID, Name, Department), the primary key is clearly 'Employee ID'. To normalize this table, we check for dependencies. Since 'Name' and 'Department' both depend on 'Employee ID', the table is already in Second Normal Form (2NF). However, if we had an attribute like 'Department Manager' that depends on 'Department' and not on 'Employee ID', we would need to split the table to satisfy 3NF. Distractor A suggests incorrectly identifying the primary key. Distractor B suggests no normalization is needed due to a misunderstanding of dependencies. Distractor C suggests an unnecessary split due to over-application of normalization rules.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Apply normalization rules without identifying the primary key first.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Identify the primary key and ensure all other attributes depend on it, splitting the table if necessary.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Combine all related tables into one large table to simplify queries.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Remove redundant data by deleting duplicate rows.",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How do you identify the primary key in a simple employee database table?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Look for the attribute that uniquely identifies each employee.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Use a combination of all attributes as the primary key.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Select the attribute that is most frequently queried.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Choose the attribute with the most unique values.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After identifying the primary key, what is the next step in normalizing the table to 2NF?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Apply Third Normal Form (3NF) rules immediately.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Check for dependencies to ensure each non-key attribute depends on the entire primary key.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Split the table based on the primary key without checking dependencies.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Combine the table with other related tables.",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Database normalization is the process of organizing the data in a database to minimize data redundancy and dependency. It involves dividing large tables into smaller tables and linking them through relationships to improve data integrity and reduce data anomalies.",
+    "youtubeResource": {
+      "title": "Database Normalization Tutorial",
+      "searchQuery": "database normalization tutorial for beginners",
+      "url": "https://www.youtube.com/watch?v=suKHq3ZLPmU"
+    },
+    "imageResource": {
+      "title": "Database Normalization Diagram",
+      "searchQuery": "database normalization diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/database_normalization_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Database Normalization Notes",
+      "searchQuery": "database normalization notes pdf",
+      "url": "https://crystal.uta.edu/~cli/cse3330/lecture%20notes/lecture%20notes%20on%20database%20normalization.pdf"
+    },
+    "webResource": {
+      "title": "Database Normalization Guide",
+      "searchQuery": "database normalization guide",
+      "url": "https://www.geeksforgeeks.org/dbms/introduction-of-database-normalization/"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "questionId": "d3b9f5a2-8c4e-4f1a-9b2d-6e7c8f9a0b12",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Analyze",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "computer science",
+  "chapter": "operating system",
+  "topic": "Process Scheduling Algorithms",
+  "questionText": "Four processes arrive at time 0 with the following CPU burst times: P1 = 5 ms, P2 = 3 ms, P3 = 8 ms, and P4 = 6 ms. Using the First\u2011Come\u2011First\u2011Served (FCFS) scheduling algorithm, what is the average waiting time of the four processes?",
+  "calculationDraft": "Correct: Waiting times are calculated based on the order of execution (FCFS).\\n- P1 starts at 0 ms, so waiting time = 0 ms.\\n- P2 starts after P1 finishes (5 ms), so waiting time = 5 ms.\\n- P3 starts after P1 and P2 finish (5+3 = 8 ms), so waiting time = 8 ms.\\n- P4 starts after P1, P2, and P3 finish (5+3+8 = 16 ms), so waiting time = 16 ms.\\nSum of waiting times = 0 + 5 + 8 + 16 = 29 ms.\\nAverage waiting time = 29 \u00f7 4 = 7.25 ms.\\n\\nDistractor A (Computational Error): The student mistakenly uses 12 ms for P4\u2019s waiting time (perhaps mixing burst time with waiting time). Sum = 0 + 5 + 8 + 12 = 25 ms; 25 \u00f7 4 = 6.25 ms, which is rounded to 6.5 ms in the option list.\\n\\nDistractor B (Conceptual Misconception): The student treats each process\u2019s waiting time as its own burst time, then averages those burst times: (5 + 3 + 8 + 6) \u00f7 4 = 22 \u00f7 4 = 5.5 ms. To create a plausible distractor they add a small constant, arriving at 8.0 ms, reflecting the mistaken belief that waiting time equals turnaround time.\\n\\nDistractor C (Trap/Partially Correct): The student correctly adds the waiting times (29 ms) but divides by the wrong number of processes (3 instead of 4), yielding 29 \u00f7 3 \u2248 9.67 ms, which is rounded down to 9.0 ms for the option.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "8.0 ms",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "6.5 ms",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "7.25 ms",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "9.0 ms",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the waiting time for Process P2, given that Process P1 runs first for 5 ms?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "5 ms",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "0 ms",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the waiting time for Process P3, considering the execution of P1 (5 ms) and P2 (3 ms) before it?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "8 ms",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "13 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "5 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "11 ms",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "What is the average waiting time for all four processes?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "8.0 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "7.25 ms",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6.5 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "9.0 ms",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "2d1e1513-1d67-417b-9df1-930456db04b5",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Three processes arrive together with burst times: A = 2 ms, B = 4 ms, and C = 6 ms. Using Shortest Job First (SJF) scheduling, what is the average waiting time?",
+      "calculationDraft": "Correct: For SJF, order processes by shortest burst: A (2 ms), B (4 ms), C (6 ms).\\nWaiting times: A = 0 ms, B = 2 ms (after A), C = 2+4 = 6 ms.\\nSum = 0+2+6 = 8 ms. Average = 8 \u00f7 3 \u2248 2.67 ms.\\n\\nDistractor A (Computational Error): Student adds waiting times as 0+2+5 = 7 ms, then 7 \u00f7 3 \u2248 2.33 ms, rounded to 2.0 ms.\\n\\nDistractor B (Conceptual Misconception): Student assumes each process waits the average burst time: (2+4+6) \u00f7 3 = 4 ms, then adds 0.67 ms mistakenly, giving 3.0 ms.\\n\\nDistractor C (Trap): Student correctly sums 8 ms but divides by 2 instead of 3, yielding 4.0 ms.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2.67 ms",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3.0 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "4.0 ms",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2.0 ms",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "In SJF, which order will the processes execute?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "A, B, C",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "C, B, A",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "B, A, C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "A, C, B",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the average waiting time for the three processes?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "4.0 ms",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "2.67 ms",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "2.0 ms",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "3.0 ms",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Process scheduling determines the order in which processes access the CPU. FCFS runs processes in arrival order, while SJF selects the shortest CPU burst first, minimizing average waiting time but requiring knowledge of burst lengths.",
+    "youtubeResource": {
+      "title": "Process Scheduling Algorithms for Beginners",
+      "searchQuery": "Grade 10 computer science process scheduling algorithms tutorial",
+      "url": "https://www.youtube.com/watch?v=zFnrUVqtiOY"
+    },
+    "imageResource": {
+      "title": "FCFS vs SJF Scheduling Diagram",
+      "searchQuery": "FCFS SJF scheduling visual chart",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/process_scheduling_algorithms_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Process Scheduling Algorithms Revision Notes",
+      "searchQuery": "process scheduling algorithms pdf grade 10",
+      "url": "https://www.brianheinold.net/cs356_notes_processes.pdf"
+    },
+    "webResource": {
+      "title": "Understanding CPU Scheduling",
+      "searchQuery": "computer science CPU scheduling basics",
+      "url": "https://www.geeksforgeeks.org/operating-systems/cpu-scheduling-in-operating-systems/"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Chemistry",
+  "chapter": "Organic Chemistry",
+  "topic": "Aldehydes, Ketones and Carboxylic Acids",
+  "questionText": "What type of reaction occurs between butanal (an aldehyde) and ethanol (an alcohol)?",
+  "calculationDraft": "Correct: To determine the type of reaction that occurs between butanal and ethanol, we need to consider the functional groups present. Butanal is an aldehyde, and ethanol is an alcohol. The reaction between an aldehyde and an alcohol can result in the formation of an acetal. Distractor A (Computational Error): Student might mistakenly identify the reaction as an esterification reaction, resulting in the formation of an ester. Distractor B (Conceptual Misconception): Student might think that the reaction between an aldehyde and an alcohol always results in the formation of a ketone. Distractor C (Trap): Student might partially correctly identify the reaction as involving the formation of an acetal, but mistakenly believe that the reaction requires an acid catalyst.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Alkylation reaction",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Ketone formation reaction",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Acetal formation reaction",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Esterification reaction",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What functional groups are present in butanal and ethanol?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Ketone and ester",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Aldehyde and alcohol",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Alkene and alkyne",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Aldehyde and carboxylic acid",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What type of reaction typically occurs between an aldehyde and an alcohol?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Elimination reaction",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Nucleophilic substitution reaction",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Acid-base reaction",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Acetal formation reaction",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "c47d449f-9b34-4a61-bf30-a31ffb07a139",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the product of the reaction between propanal and methanol?",
+      "calculationDraft": "Correct: To determine the product of the reaction between propanal and methanol, we need to consider the functional groups present. Propanal is an aldehyde, and methanol is an alcohol. The reaction between an aldehyde and an alcohol can result in the formation of an acetal. Distractor A (Computational Error): Student might mistakenly identify the product as an ester. Distractor B (Conceptual Misconception): Student might think that the reaction between an aldehyde and an alcohol always results in the formation of a ketone. Distractor C (Trap): Student might partially correctly identify the product as an acetal, but mistakenly believe that the reaction requires an acid catalyst.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Propanal-methanol acetal",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Propanal-methanol ketone",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Propanal-methanol alkene",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Propanal-methanol ester",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What functional groups are present in propanal and methanol?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Aldehyde and carboxylic acid",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Alkene and alkyne",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Ketone and ester",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Aldehyde and alcohol",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What type of reaction typically occurs between an aldehyde and an alcohol?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Acetal formation reaction",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Elimination reaction",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Acid-base reaction",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Nucleophilic substitution reaction",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Aldehydes and ketones are organic compounds that contain a carbonyl group. Aldehydes have the general formula RCHO, while ketones have the general formula RCOR'. The reaction between an aldehyde and an alcohol can result in the formation of an acetal.",
+    "youtubeResource": {
+      "title": "Aldehydes and Ketones Reactions",
+      "searchQuery": "aldehydes and ketones reactions tutorial",
+      "url": "https://www.youtube.com/watch?v=8mQcp15qBu8"
+    },
+    "imageResource": {
+      "title": "Aldehyde and Ketone Structures",
+      "searchQuery": "aldehyde and ketone structures diagram",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Functional_group_with_oxygen_alcohol_ester_aldehyd_ketone_carboxylic_acid_ester.JPG/1280px-Functional_group_with_oxygen_alcohol_ester_aldehyd_ketone_carboxylic_acid_ester.JPG"
+    },
+    "pdfResource": {
+      "title": "Aldehydes and Ketones Notes",
+      "searchQuery": "aldehydes and ketones notes pdf",
+      "url": "https://arpitclasses.in/wp-content/uploads/2023/02/NCERT-Notes-Class-12-Chemistry-Chapter-12.-Aldehydes-Ketones-and-Carboxylic-Acids.pdf"
+    },
+    "webResource": {
+      "title": "Aldehydes and Ketones Reactions Guide",
+      "searchQuery": "aldehydes and ketones reactions guide",
+      "url": "https://chem.libretexts.org/Bookshelves/General_Chemistry/Chemistry_1e_(OpenSTAX)/20:_Organic_Chemistry/20.04:_Aldehydes_Ketones_Carboxylic_Acids_and_Esters"
+    }
+  }
+}

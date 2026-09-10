@@ -1,0 +1,277 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Probability & Statistics",
+  "topic": "Probability",
+  "questionText": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. What is the probability of drawing a red marble from the bag?",
+  "calculationDraft": "Correct: A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. To find the probability of drawing a red marble, we divide the number of red marbles by the total number of marbles: 5/(5+3+2) = 5/10 = 1/2. Distractor A (Computational Error): Student incorrectly adds the number of marbles instead of finding the total: 5+3+2 = 10, then incorrectly calculates probability as 5/5 = 1. Distractor B (Conceptual Misconception): Student thinks probability is the number of red marbles divided by the number of blue marbles: 5/3. Distractor C (Trap): Student calculates the probability of not drawing a red marble and then subtracts from 1: (3+2)/(5+3+2) = 5/10 = 1/2, then 1 - 1/2 = 1/2, but this is actually the correct method for finding the probability of not drawing a red marble, not the probability of drawing a red marble itself.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "1/3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "1/2",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "1/4",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "2/3",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the total number of marbles in the bag, given there are 5 red marbles, 3 blue marbles, and 2 green marbles?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "8",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "10",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "15",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "12",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given the total number of marbles is 10, what is the probability of drawing a red marble, knowing there are 5 red marbles?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1/5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3/10",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2/5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1/2",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d7e39",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the probability of getting heads when flipping a fair coin?",
+      "calculationDraft": "Correct: A coin is flipped. The probability of getting heads is 1 out of 2, since there are only two outcomes: heads or tails. Distractor A (Computational Error): Student thinks there are 3 outcomes and calculates 1/3. Distractor B (Conceptual Misconception): Student believes the probability changes based on the previous flip. Distractor C (Trap): Student calculates the probability of getting tails and then subtracts from 1, which coincidentally gives the correct answer but for the wrong reason.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "3/4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "1/2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1/3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2/3",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How many possible outcomes are there when flipping a coin?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given there are 2 outcomes, what is the probability of getting heads?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3/4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1/3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "1/4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1/2",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "4c1f5a2d-6a4b-43c9-8f4e-6a5b7c8d9e0a",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the probability of rolling a 6 on a fair six-sided die?",
+      "calculationDraft": "Correct: A die is rolled. The probability of rolling a 6 is 1 out of 6, since there are 6 faces on the die. Distractor A (Computational Error): Student thinks there are 5 faces and calculates 1/5. Distractor B (Conceptual Misconception): Student believes the probability changes based on the previous roll. Distractor C (Trap): Student calculates the probability of not rolling a 6 and then subtracts from 1, which gives 5/6, not the probability of rolling a 6.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1/3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "1/5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1/6",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1/4",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How many faces does a standard die have?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "6",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "8",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given a die has 6 faces, what is the probability of rolling a 6?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "1/5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1/4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "1/3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1/6",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Probability is a measure of the likelihood that an event will occur. It is calculated by dividing the number of favorable outcomes by the total number of possible outcomes. Understanding probability is crucial in statistics and real-world applications.",
+    "youtubeResource": {
+      "title": "Introduction to Probability",
+      "searchQuery": "Grade 10 Mathematics Probability basics tutorial",
+      "url": "https://www.youtube.com/watch?v=Yu6OdQ7dMow"
+    },
+    "imageResource": {
+      "title": "Probability Formula Diagram",
+      "searchQuery": "Probability formula chart diagram",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Probability_tree_diagram.svg/1280px-Probability_tree_diagram.svg.png"
+    },
+    "pdfResource": {
+      "title": "Probability Notes for Grade 10",
+      "searchQuery": "Grade 10 Mathematics Probability revision notes pdf",
+      "url": "https://maths.dur.ac.uk/users/clare.wallace/Prob1/Probability-1-lecture-notes.pdf"
+    },
+    "webResource": {
+      "title": "Probability Tutorial for Beginners",
+      "searchQuery": "Mathematics Probability concept guide for beginners",
+      "url": "https://math.libretexts.org/Bookshelves/Applied_Mathematics/Contemporary_Mathematics_(OpenStax)/07:_Probability/7.05:_Basic_Concepts_of_Probability"
+    }
+  }
+}

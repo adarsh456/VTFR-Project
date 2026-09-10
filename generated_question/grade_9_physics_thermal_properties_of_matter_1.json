@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 9",
+  "subject": "Physics",
+  "chapter": "Thermodynamics & Kinetic Theory",
+  "topic": "Thermal Properties of Matter",
+  "questionText": "A 50g block of metal at 20\u00b0C is mixed with a 100g block of metal at 80\u00b0C. If the specific heat capacity of the metal is 0.5 J/g\u00b0C, what is the final temperature of the mixture?",
+  "calculationDraft": "Correct: To find the final temperature of the mixture, we use the formula: (m1 * c1 * T1) + (m2 * c2 * T2) = (m1 + m2) * c * T, where m1 = 50g, m2 = 100g, c1 = 0.5 J/g\u00b0C, c2 = 1 J/g\u00b0C, T1 = 20\u00b0C, T2 = 80\u00b0C, and c = 0.5 J/g\u00b0C for the mixture. Substituting these values, we get: (50 * 0.5 * 20) + (100 * 1 * 80) = (50 + 100) * 0.5 * T. Simplifying, we get: 500 + 8000 = 150 * 0.5 * T, which gives us 8500 = 75 * T. Solving for T, we get T = 8500 / 75 = 113.33\u00b0C. Distractor A (Computational Error): Student incorrectly calculates the total heat energy as (50 * 0.5 * 80) + (100 * 1 * 20) = 2000 + 2000 = 4000 J, leading to an incorrect final temperature. Distractor B (Conceptual Misconception): Student assumes that the final temperature is the average of the initial temperatures, T = (20 + 80) / 2 = 50\u00b0C. Distractor C (Trap): Student correctly calculates the total heat energy but forgets to account for the heat capacity of the mixture, leading to an incorrect final temperature of T = 8500 / (50 + 100) = 56.67\u00b0C.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "50\u00b0C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "120\u00b0C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "56.67\u00b0C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "113.33\u00b0C",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the total heat energy transferred from the hotter block to the cooler block?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4000 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "10000 J",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8500 J",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "12000 J",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the final temperature of the mixture, given the total heat energy and the heat capacity of the mixture?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "110\u00b0C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "90\u00b0C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "100\u00b0C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "113.33\u00b0C",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b8f4a2d-45e6-42f3-9c4d-65a7b1c2d3e4",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A 20g block of ice at 10\u00b0C is mixed with a 30g block of ice at 50\u00b0C. What is the final temperature of the mixture?",
+      "calculationDraft": "Correct: For a simple mixture of two substances, the final temperature can be estimated using the formula: T = (m1 * T1 + m2 * T2) / (m1 + m2), where m1 and m2 are the masses of the substances, and T1 and T2 are their initial temperatures. Given m1 = 20g, m2 = 30g, T1 = 10\u00b0C, and T2 = 50\u00b0C, we can substitute these values into the formula to find the final temperature. Distractor A (Computational Error): Student incorrectly calculates the final temperature as T = (20 * 50 + 30 * 10) / (20 + 30) = 1000 / 50 = 20\u00b0C. Distractor B (Conceptual Misconception): Student assumes that the final temperature is the average of the initial temperatures, T = (10 + 50) / 2 = 30\u00b0C. Distractor C (Trap): Student correctly calculates the numerator but forgets to divide by the total mass, leading to an incorrect final temperature of T = 20 * 10 + 30 * 50 = 200 + 1500 = 1700\u00b0C.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "30\u00b0C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "28.57\u00b0C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "20\u00b0C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25\u00b0C",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the total heat energy transferred from the hotter block to the cooler block?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2000 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1500 J",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "1200 J",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1000 J",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the final temperature of the mixture, given the total heat energy and the heat capacity of the mixture?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "28\u00b0C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "28.57\u00b0C",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "25\u00b0C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "30\u00b0C",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Thermal properties of matter involve the study of heat transfer, temperature, and energy. The final temperature of a mixture can be calculated using the formula: (m1 * c1 * T1) + (m2 * c2 * T2) = (m1 + m2) * c * T, where m1 and m2 are the masses of the substances, c1 and c2 are their specific heat capacities, T1 and T2 are their initial temperatures, and c is the specific heat capacity of the mixture.",
+    "youtubeResource": {
+      "title": "Thermal Properties of Matter",
+      "searchQuery": "Grade 9 Physics Thermal Properties of Matter tutorial",
+      "url": "https://www.youtube.com/watch?v=yf6lUHKFYOI"
+    },
+    "imageResource": {
+      "title": "Thermal Energy Transfer Diagram",
+      "searchQuery": "Thermal energy transfer diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/thermal_properties_of_matter_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Thermal Properties of Matter Notes",
+      "searchQuery": "Grade 9 Physics Thermal Properties of Matter notes pdf",
+      "url": "https://arpitclasses.in/wp-content/uploads/2023/09/ICSE-Notes-Class-11-Physics-11.-Thermal-Properties-Of-Matter.pdf"
+    },
+    "webResource": {
+      "title": "Thermal Properties of Matter",
+      "searchQuery": "Thermal properties of matter",
+      "url": "https://www.geeksforgeeks.org/physics/thermal-properties-of-matter/"
+    }
+  }
+}

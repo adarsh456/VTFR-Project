@@ -1,0 +1,247 @@
+{
+  "questionId": "a3f1c9e2-7b4d-4f2a-9c6e-1d5b8f2a7c34",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 9",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "quatratic equation",
+  "questionText": "Solve the quadratic equation 2x^2 - 7x + 3 = 0. Select the correct set of roots.",
+  "calculationDraft": "Correct solution: For 2x^2 - 7x + 3 = 0, a*c = 6. Numbers that multiply to 6 and add to -7 are -6 and -1. Rewrite: 2x^2 -6x - x + 3 = 0. Group: (2x^2 -6x) + (-x +3) = 2x(x-3) -1(x-3) = (2x-1)(x-3). Set each factor to zero: 2x-1=0 => x=1/2; x-3=0 => x=3. Roots: x = 1/2 or x = 3.\nDistractor A (Computational Error): Choose -2 and -3 as the pair (product -6, not 6) leading to incorrect factorisation (2x+1)(x+3) and roots x = -1/2, -3.\nDistractor B (Conceptual Misconception): Use 6 and -1 (product -6) and keep sign of middle term, giving 2x^2 +6x - x +3, which factors incorrectly to (2x+1)(x+3) and yields roots -1/2 and -3.\nDistractor C (Trap): Use -6 and 1 (correct product but wrong sign on second number) producing 2x^2 -6x + x +3, which factors to (2x+1)(x+3) and gives roots -1/2 and -3.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x = 1/2 or x = -3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x = -1/2 or x = -3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x = 2 or x = 3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x = 1/2 or x = 3",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Which two integers multiply to a\u00b7c (6) and add to b (\u20117)?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "-6 and 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "-2 and -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6 and -1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "-6 and -1",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "After rewriting the middle term using the pair found, what is the new quadratic expression?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2x^2 -6x + x + 3 = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2x^2 -6x - x - 3 = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2x^2 +6x - x + 3 = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2x^2 -6x - x + 3 = 0",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "When grouping the terms, which factorization is obtained?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "(2x-3)(x-1)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "(2x+1)(x+3)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(2x-1)(x+3)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "(2x-1)(x-3)",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 4,
+      "stepText": "Setting each factor to zero, what are the solutions for x?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = 1/2 or x = -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 2 or x = 3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -1/2 or x = -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 1/2 or x = 3",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "d9e2b7c4-3a5f-4d8b-9e1a-6c2f5a8b0d71",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the roots of the quadratic equation x^2 - 5x + 6 = 0.",
+      "calculationDraft": "Correct solution: For x^2 - 5x + 6 = 0, numbers that multiply to 6 and add to -5 are -2 and -3. Factor: (x-2)(x-3)=0, giving roots x=2 or x=3.\nDistractor A (Computational Error): Choose -1 and -6 (product 6, sum -7) leading to (x-1)(x-6) and roots 1 and 6.\nDistractor B (Conceptual Misconception): Use 2 and 3 (positive) yielding (x+2)(x+3) and roots -2 and -3.\nDistractor C (Trap): Use -2 and 3 (product -6) giving (x-2)(x+3) and roots 2 and -3.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = 1 or x = 6",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 2 or x = 3",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -2 or x = -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 2 or x = -3",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Which two numbers multiply to 6 and add to -5?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2 and 3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "-1 and -6",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "-2 and 3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "-2 and -3",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the factored form of the quadratic using the numbers found?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x-1)(x-6)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x-2)(x+3)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x-2)(x-3)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x+2)(x+3)",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "A quadratic equation is an expression of the form ax^2 + bx + c = 0. Solving it involves finding the values of x that make the equation true, typically by factoring, completing the square, or using the quadratic formula.",
+    "youtubeResource": {
+      "title": "Grade 9 Quadratic Equations \u2013 Factoring Method",
+      "searchQuery": "Grade 9 quadratic equations factoring tutorial",
+      "url": "https://www.youtube.com/watch?v=fZeMtU4R8_8"
+    },
+    "imageResource": {
+      "title": "Quadratic Equation Factoring Steps Diagram",
+      "searchQuery": "quadratic equation factoring step by step diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/quatratic_equation_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Grade 9 Algebra \u2013 Quadratic Equations Revision Notes",
+      "searchQuery": "Grade 9 quadratic equations pdf notes",
+      "url": "https://davidmorin.physics.fas.harvard.edu/sites/g/files/omnuum12331/files/2025-10/AlgebraChap8d090924.pdf"
+    },
+    "webResource": {
+      "title": "Khan Academy \u2013 Solving Quadratic Equations by Factoring",
+      "searchQuery": "solving quadratic equations by factoring Khan Academy",
+      "url": "https://www.mathsisfun.com/algebra/quadratic-equation.html"
+    }
+  }
+}

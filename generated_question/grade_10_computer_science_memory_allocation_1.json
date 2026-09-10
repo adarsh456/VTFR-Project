@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "computer science",
+  "chapter": "operating system",
+  "topic": "memory allocation",
+  "questionText": "A program requires 1000 bytes for its code and 500 bytes for its data. What is the total amount of memory that the operating system needs to allocate for this program?",
+  "calculationDraft": "Correct: Memory allocation for a program with 1000 bytes of code and 500 bytes of data \u2192 total memory required = code size + data size = 1000 + 500 = 1500 bytes. Distractor A (Computational Error): Student adds 1000 + 500 incorrectly, getting 2000 bytes. Distractor B (Conceptual Misconception): Student thinks only code size matters, so total memory required = 1000 bytes. Distractor C (Trap): Student includes an extra 1000 bytes for 'overhead', getting 2500 bytes.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "2500 bytes",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "2000 bytes",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "1500 bytes",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "1200 bytes",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the total amount of memory required for the code of the program?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1000 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "500 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2000 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1500 bytes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "If the program's data requires 500 bytes, what is the total memory allocation needed?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2000 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "1200 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1500 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1000 bytes",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "4cfdd357-333f-418a-842a-af4eb406c717",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A small program has 500 bytes of code. How much memory does the operating system need to allocate for this program?",
+      "calculationDraft": "Correct: Memory allocation for a small program with 500 bytes of code \u2192 total memory required = code size = 500 bytes. Distractor A (Computational Error): Student thinks total memory required is double the code size, 1000 bytes. Distractor B (Conceptual Misconception): Student believes data size must always be included, even if not given. Distractor C (Trap): Student adds an unnecessary 100 bytes for 'padding', getting 600 bytes.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "500 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "600 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1000 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "400 bytes",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the primary factor that determines the memory allocation for a program?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Code size",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Data size",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Neither code nor data size",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Both code and data size",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the code size is 500 bytes, what is the total memory required for the program?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "500 bytes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "400 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "600 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1000 bytes",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Memory allocation is the process by which the operating system assigns portions of memory to programs. The amount of memory allocated depends on the program's code size and data size. Understanding memory allocation is crucial for efficient program execution and preventing memory-related errors.",
+    "youtubeResource": {
+      "title": "Memory Allocation in Operating Systems",
+      "searchQuery": "memory allocation operating system tutorial",
+      "url": "https://www.youtube.com/watch?v=N3rG_1CEQkQ"
+    },
+    "imageResource": {
+      "title": "Memory Allocation Diagram",
+      "searchQuery": "memory allocation diagram operating system",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Integrated_graphics_with_distinct_memory_allocation.svg/1280px-Integrated_graphics_with_distinct_memory_allocation.svg.png"
+    },
+    "pdfResource": {
+      "title": "Memory Allocation in Operating Systems PDF",
+      "searchQuery": "memory allocation operating system pdf",
+      "url": "https://cse.iitkgp.ac.in/~bivasm/os_notes/memory_v3_new.pdf"
+    },
+    "webResource": {
+      "title": "Memory Allocation Tutorial",
+      "searchQuery": "memory allocation operating system tutorial",
+      "url": "https://www.geeksforgeeks.org/c/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/"
+    }
+  }
+}

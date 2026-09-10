@@ -1,0 +1,221 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Probability & Statistics",
+  "topic": "Measures of Dispersion (Statistics)",
+  "questionText": "What is the range of the dataset {15, 20, 25, 30, 35}?",
+  "calculationDraft": "Correct: The range of a dataset is the difference between the largest and smallest values. For the dataset {15, 20, 25, 30, 35}, the largest value is 35 and the smallest value is 15. Range = largest - smallest = 35 - 15 = 20. Distractor A (Computational Error): Student subtracts smallest from largest but forgets to include the endpoints, Range = 35 - 20 = 15. Distractor B (Conceptual Misconception): Student calculates the mean instead of the range, Range = (15 + 20 + 25 + 30 + 35) / 5 = 25. Distractor C (Trap): Student finds the median and mistakes it for the range, Median = 25, Range = 25.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "30",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "25",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "20",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "15",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the largest value in the dataset {15, 20, 25, 30, 35}?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "20",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "25",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "30",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "35",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the smallest value in the dataset {15, 20, 25, 30, 35}?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "30",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "15",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "What is the range of the dataset, given the largest value is 35 and the smallest value is 15?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "35",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "15",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "20",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "50",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "59caf4fd-95eb-45aa-b64f-b59177557fb5",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the interquartile range (IQR) of the dataset {12, 15, 18, 20, 22, 25, 30}?",
+      "calculationDraft": "Correct: The interquartile range (IQR) of a dataset is the difference between the third quartile (Q3) and the first quartile (Q1). For the dataset {12, 15, 18, 20, 22, 25, 30}, Q3 = 25 and Q1 = 15. IQR = Q3 - Q1 = 25 - 15 = 10. Distractor A (Computational Error): Student adds Q3 and Q1 instead of subtracting, IQR = 25 + 15 = 40. Distractor B (Conceptual Misconception): Student calculates the range instead of the IQR, Range = 30 - 12 = 18. Distractor C (Trap): Student finds the median and mistakes it for the IQR, Median = 20, IQR = 20.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "20",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "18",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "40",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "10",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the third quartile (Q3) of the dataset {12, 15, 18, 20, 22, 25, 30}?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "25",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "30",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "20",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "22",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the first quartile (Q1) of the dataset {12, 15, 18, 20, 22, 25, 30}?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "15",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "12",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "18",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "20",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Measures of dispersion describe the spread of a dataset. The range is the difference between the largest and smallest values, while the interquartile range (IQR) is the difference between the third and first quartiles.",
+    "youtubeResource": {
+      "title": "Measures of Dispersion - Range and IQR",
+      "searchQuery": "Grade 10 Mathematics Measures of Dispersion Range IQR tutorial",
+      "url": "https://www.youtube.com/watch?v=a-5S15o_N7U"
+    },
+    "imageResource": {
+      "title": "Measures of Dispersion Diagram",
+      "searchQuery": "Measures of Dispersion Range IQR diagram",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Dewiacja_i_dyspersja.png"
+    },
+    "pdfResource": {
+      "title": "Measures of Dispersion Notes",
+      "searchQuery": "Grade 10 Mathematics Measures of Dispersion notes pdf",
+      "url": "https://digital.nios.ac.in/content/311en/311_Maths_Eng_Lesson17.pdf"
+    },
+    "webResource": {
+      "title": "Measures of Dispersion Guide",
+      "searchQuery": "Grade 10 Mathematics Measures of Dispersion guide",
+      "url": "https://math.libretexts.org/Courses/Lake_Tahoe_Community_College/Supplemental_Lecture_Notes/Liberal_Arts_Math/Statistics/Measures_of_Dispersion"
+    }
+  }
+}

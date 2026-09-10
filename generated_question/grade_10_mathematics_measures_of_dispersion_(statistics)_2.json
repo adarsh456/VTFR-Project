@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Probability & Statistics",
+  "topic": "Measures of Dispersion (Statistics)",
+  "questionText": "What is the variance of the dataset {2, 4, 6, 8, 10}?",
+  "calculationDraft": "To find the variance of the dataset, we first need to find the mean. The mean is calculated as (2 + 4 + 6 + 8 + 10) / 5 = 30 / 5 = 6. Then, we calculate the deviations from the mean: (2-6), (4-6), (6-6), (8-6), (10-6) which are -4, -2, 0, 2, 4. The squared deviations are 16, 4, 0, 4, 16. The average of these squared deviations is (16 + 4 + 0 + 4 + 16) / 5 = 40 / 5 = 8. Thus, the variance is 8. Distractor A (Computational Error): Incorrectly calculates the mean as 5, leading to incorrect deviations and a variance of 10. Distractor B (Conceptual Misconception): Thinks variance is the average of the deviations, not the squared deviations, resulting in a variance of 0. Distractor C (Partially Correct/Trap): Correctly calculates the mean but forgets to square the deviations, resulting in a variance of 4.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "8",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "4",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "10",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "12",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the mean of the dataset {2, 4, 6, 8, 10}?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "6",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "7",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given the mean is 6, what are the squared deviations from the mean for each data point?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1, 4, 9, 16, 25",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4, 1, 0, 1, 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "16, 4, 0, 4, 16",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25, 16, 9, 4, 1",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b3e3c7d-4a4f-43e9-9d4a-1e02b2c3d480",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the variance of the dataset {1, 3, 5}?",
+      "calculationDraft": "For the dataset {1, 3, 5}, the mean is (1 + 3 + 5) / 3 = 9 / 3 = 3. The deviations from the mean are -2, 0, 2. The squared deviations are 4, 0, 4. The variance is (4 + 0 + 4) / 3 = 8 / 3. Distractor A: Incorrectly calculates the mean as 2, leading to incorrect deviations and variance. Distractor B: Thinks variance is the average of the deviations, not squared. Distractor C: Correctly calculates the mean but forgets to square the deviations.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8/3",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "3",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the mean of the dataset {1, 3, 5}?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "3",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the mean is 3, what are the squared deviations for each data point?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "9, 0, 1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1, 4, 9",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "4, 0, 4",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1, 0, 1",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Measures of dispersion, such as variance, describe the spread of data points within a dataset. The variance is calculated as the average of the squared deviations from the mean.",
+    "youtubeResource": {
+      "title": "Measures of Dispersion - Variance and Standard Deviation",
+      "searchQuery": "Grade 10 Mathematics Measures of Dispersion Variance Standard Deviation tutorial",
+      "url": "https://www.youtube.com/watch?v=a-5S15o_N7U"
+    },
+    "imageResource": {
+      "title": "Variance Formula Diagram",
+      "searchQuery": "Measures of Dispersion Variance formula chart diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/measures_of_dispersion_statistics_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Measures of Dispersion Notes",
+      "searchQuery": "Grade 10 Mathematics Measures of Dispersion revision notes pdf",
+      "url": "https://lecture-notes.tiu.edu.iq/wp-content/uploads/2024/11/Lec-4-Measures-of-Dispersion-2024-25.pdf"
+    },
+    "webResource": {
+      "title": "Understanding Variance in Statistics",
+      "searchQuery": "Measures of Dispersion Variance concept guide",
+      "url": null
+    }
+  }
+}

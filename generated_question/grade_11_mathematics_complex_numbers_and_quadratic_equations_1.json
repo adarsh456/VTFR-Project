@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Complex Numbers and Quadratic Equations",
+  "questionText": "What are the roots of the quadratic equation x^2 + 2x - 6 = 0?",
+  "calculationDraft": "Correct: To find the roots of the quadratic equation x^2 + 2x - 6 = 0, we can use the quadratic formula: x = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a. Here, a = 1, b = 2, and c = -6. Plugging these values into the formula, we get x = (-2 \u00b1 \u221a(2^2 - 4*1*(-6))) / (2*1) = (-2 \u00b1 \u221a(4 + 24)) / 2 = (-2 \u00b1 \u221a28) / 2 = (-2 \u00b1 \u221a(4*7)) / 2 = (-2 \u00b1 2\u221a7) / 2 = -1 \u00b1 \u221a7. Distractor A (Computational Error): Student incorrectly calculates the discriminant as b^2 - 4ac = 2^2 - 4*1*(-6) = 4 + 24 = 28, but then incorrectly simplifies \u221a28 as \u221a(4*7) = 2\u221a7, but forgets to divide by 2, resulting in -2 \u00b1 2\u221a7. Distractor B (Conceptual Misconception): Student thinks the quadratic formula is x = (-b \u00b1 \u221a(b^2 + 4ac)) / 2a, resulting in x = (-2 \u00b1 \u221a(2^2 + 4*1*(-6))) / (2*1) = (-2 \u00b1 \u221a(4 - 24)) / 2 = (-2 \u00b1 \u221a(-20)) / 2 = (-2 \u00b1 2i\u221a5) / 2 = -1 \u00b1 i\u221a5. Distractor C (Trap): Student correctly calculates the discriminant but then incorrectly simplifies the square root, resulting in x = (-2 \u00b1 \u221a28) / 2, but then incorrectly simplifies \u221a28 as \u221a(4*7) = \u221a4*\u221a7 = 2\u221a7, resulting in x = (-2 \u00b1 2\u221a7) / 2 = -1 \u00b1 \u221a7, but then incorrectly writes the solution as x = -1 \u00b1 2\u221a7.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x = -1 \u00b1 \u221a7",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x = -1 \u00b1 2i\u221a5",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x = -1 + 2\u221a7",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x = -1 - \u221a7",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the value of the discriminant b^2 - 4ac in the quadratic equation x^2 + 2x - 6 = 0?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "24",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "28",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "32",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the simplified form of the square root of the discriminant?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2\u221a7",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "\u221a28",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2i\u221a5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "\u221a(4*7)",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "70718a05-eff3-44a9-beb0-71ca40efde7e",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What are the roots of the quadratic equation x^2 - 3x - 4 = 0?",
+      "calculationDraft": "Correct: To find the roots of the quadratic equation x^2 - 3x - 4 = 0, we can factor it as (x - 4)(x + 1) = 0. Distractor A (Computational Error): Student incorrectly factors the quadratic equation as (x - 3)(x - 1) = 0. Distractor B (Conceptual Misconception): Student thinks the quadratic equation can be factored as (x + 3)(x - 1) = 0. Distractor C (Trap): Student correctly factors the quadratic equation but then incorrectly solves for x, resulting in x = 4 or x = -2.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = 3 or x = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = -3 or x = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = 4 or x = -2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 4 or x = -1",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the factored form of the quadratic equation x^2 - 3x - 4 = 0?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x - 2)(x - 2) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x + 3)(x - 1) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 4)(x + 1) = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x - 3)(x - 1) = 0",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What are the roots of the factored quadratic equation (x - 4)(x + 1) = 0?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x = -3 or x = 1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "x = 4 or x = -1",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x = 4 or x = -2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x = 3 or x = 1",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The quadratic formula is used to find the roots of a quadratic equation in the form ax^2 + bx + c = 0. The formula is x = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a. The discriminant, b^2 - 4ac, determines the nature of the roots.",
+    "youtubeResource": {
+      "title": "Quadratic Formula Tutorial",
+      "searchQuery": "quadratic formula tutorial",
+      "url": "https://www.youtube.com/watch?v=XFzX_-bBKOo"
+    },
+    "imageResource": {
+      "title": "Quadratic Formula Diagram",
+      "searchQuery": "quadratic formula diagram",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Quadratic_function_graph_complex_roots.svg/1280px-Quadratic_function_graph_complex_roots.svg.png"
+    },
+    "pdfResource": {
+      "title": "Quadratic Formula Notes",
+      "searchQuery": "quadratic formula notes pdf",
+      "url": "https://ncert.nic.in/textbook/pdf/kemh104.pdf"
+    },
+    "webResource": {
+      "title": "Quadratic Formula Article",
+      "searchQuery": "quadratic formula article",
+      "url": "https://math.libretexts.org/Bookshelves/Algebra/Elementary_Algebra_(LibreTexts)/09%3A_Solving_Quadratic_Equations_and_Graphing_Parabolas/9.06%3A_Introduction_to_Complex_Numbers_and_Complex_Solutions"
+    }
+  }
+}
