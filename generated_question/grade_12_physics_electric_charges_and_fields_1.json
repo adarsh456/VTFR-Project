@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Electromagnetism",
+  "topic": "Electric Charges and Fields",
+  "questionText": "A point charge of +3 microCoulombs is placed at the origin. What is the magnitude of the electric field intensity at a point 2 meters away from the charge?",
+  "calculationDraft": "Correct: Electric field due to a point charge q at distance r is given by E = k * q / r^2. For q = +3 microCoulombs = 3 * 10^-6 C and r = 2 meters, E = (9 * 10^9 N*m^2/C^2) * (3 * 10^-6 C) / (2 m)^2 = 6750000 N/C. Distractor A (Computational Error): Student incorrectly calculates r^2 as 4 m^2 instead of (2 m)^2, resulting in E = (9 * 10^9 N*m^2/C^2) * (3 * 10^-6 C) / (4 m^2) = 3375000 N/C. Distractor B (Conceptual Misconception): Student uses the formula for electric potential V = k * q / r instead of electric field E = k * q / r^2, resulting in V = (9 * 10^9 N*m^2/C^2) * (3 * 10^-6 C) / (2 m) = 13500 V/m. Distractor C (Trap): Student forgets to square the distance r, resulting in E = (9 * 10^9 N*m^2/C^2) * (3 * 10^-6 C) / (2 m) = 13500 N/C.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "13500 V/m",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "6750000 N/C",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "13500 N/C",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "3375000 N/C",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula for the electric field due to a point charge q at distance r?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "E = k * q / r^2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "E = k * q * r",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "E = k / (q * r)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "E = k * q / r",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given q = +3 microCoulombs and r = 2 meters, what is the value of k * q?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "27000 N*m^2/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2.7 N*m^2/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2700 N*m^2/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "27000000 N*m^2/C",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d480",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A point charge of +2 microCoulombs is placed at the origin. What is the magnitude of the electric field intensity at a point 1 meter away from the charge?",
+      "calculationDraft": "Correct: Electric field due to a point charge q at distance r is given by E = k * q / r^2. For q = +2 microCoulombs = 2 * 10^-6 C and r = 1 meter, E = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (1 m)^2 = 18000 N/C. Distractor A (Computational Error): Student incorrectly calculates r^2 as 2 m^2 instead of (1 m)^2, resulting in E = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (2 m^2) = 4500 N/C. Distractor B (Conceptual Misconception): Student uses the formula for electric potential V = k * q / r instead of electric field E = k * q / r^2, resulting in V = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (1 m) = 18000 V/m. Distractor C (Trap): Student forgets to square the distance r, resulting in E = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (1 m) = 18000 N/C.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "18000 V/m",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "9000 N/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "18000 N/C",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "4500 N/C",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the value of k * q for q = +2 microCoulombs?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "180000 N*m^2/C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1800 N*m^2/C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "18000 N*m^2/C",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "1800000 N*m^2/C",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given r = 1 meter, what is the value of r^2?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "0.5 m^2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1 m^2",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "2 m^2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "4 m^2",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The electric field due to a point charge q at distance r is given by E = k * q / r^2, where k is Coulomb's constant. The electric field is a vector quantity and its direction is away from the charge if it is positive and towards the charge if it is negative.",
+    "youtubeResource": {
+      "title": "Electric Field due to a Point Charge",
+      "searchQuery": "electric field point charge",
+      "url": "https://www.youtube.com/watch?v=nN9n3quiJto"
+    },
+    "imageResource": {
+      "title": "Electric Field Lines due to a Point Charge",
+      "searchQuery": "electric field lines point charge",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Fields-of-point-charges.svg/1280px-Fields-of-point-charges.svg.png"
+    },
+    "pdfResource": {
+      "title": "Electric Charges and Fields Notes",
+      "searchQuery": "electric charges and fields notes pdf",
+      "url": "https://image-static.collegedunia.com/public/image/ncert-class-12-physics-chapter-1-electric-charges-and-fields-notes-1778439684.pdf"
+    },
+    "webResource": {
+      "title": "Electric Field due to a Point Charge Tutorial",
+      "searchQuery": "electric field point charge tutorial",
+      "url": "https://openstax.org/books/college-physics-2e/pages/18-introduction-to-electric-charge-and-electric-field"
+    }
+  }
+}

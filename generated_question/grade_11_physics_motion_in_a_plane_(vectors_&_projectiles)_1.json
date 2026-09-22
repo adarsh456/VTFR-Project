@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 11",
+  "subject": "Physics",
+  "chapter": "Mechanics",
+  "topic": "Motion in a Plane (Vectors & Projectiles)",
+  "questionText": "A projectile is launched with an initial velocity of 20 m/s at an angle of 45\u00b0 above the horizontal. What is the range of the projectile, assuming it lands at the same height from which it was launched and neglecting air resistance? (Use g = 9.8 m/s^2)",
+  "calculationDraft": "Correct: To find the range of the projectile, we use the equation R = (v^2 * sin(2\u03b8)) / g. Given v = 20 m/s and \u03b8 = 45\u00b0, we calculate R = (20^2 * sin(2*45\u00b0)) / 9.8 = (400 * sin(90\u00b0)) / 9.8 = (400 * 1) / 9.8 = 400 / 9.8 = 40.82 m. Distractor A (Computational Error): Student calculates R = (20^2 * sin(45\u00b0)) / 9.8, ignoring the 2\u03b8 in the equation, resulting in R = (400 * 0.707) / 9.8 = 28.86 m. Distractor B (Conceptual Misconception): Student uses the equation R = v^2 / g, not accounting for the angle of projection, resulting in R = 20^2 / 9.8 = 400 / 9.8 = 40.82 m, but this is actually the correct answer due to the specific conditions of \u03b8 = 45\u00b0, so it's a trap. Distractor C (Partially Correct / Trap): Student calculates R = (20^2 * sin(2*45\u00b0)) / (2*9.8), incorrectly doubling the acceleration due to gravity, resulting in R = (400 * 1) / 19.6 = 20.41 m.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "60.00 m",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "20.41 m",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "28.86 m",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "40.82 m",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the equation used to find the range of a projectile launched at an angle \u03b8 above the horizontal with an initial velocity v?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "R = v^2 / g",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "R = (v^2 * sin(2\u03b8)) / g",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "R = (v^2 * cos(\u03b8)) / g",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "R = (v^2 * sin(\u03b8)) / g",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given v = 20 m/s and \u03b8 = 45\u00b0, what is the value of sin(2\u03b8) in the equation R = (v^2 * sin(2\u03b8)) / g?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "0.5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "0.707",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "0.866",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "faf28a18-86fc-44a8-837e-7722b369cf34",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A ball is thrown with an initial velocity of 15 m/s at an angle of 30\u00b0 above the horizontal. What is the range of the ball, assuming it lands at the same height from which it was thrown and neglecting air resistance? (Use g = 9.8 m/s^2)",
+      "calculationDraft": "Correct: For a projectile launched at 30\u00b0, the range equation simplifies because sin(2*30\u00b0) = sin(60\u00b0) = 0.866. Thus, R = (v^2 * 0.866) / g. Given v = 15 m/s, R = (15^2 * 0.866) / 9.8 = (225 * 0.866) / 9.8 = 194.85 / 9.8 = 19.88 m. Distractor A: Student calculates R using sin(30\u00b0) instead of sin(60\u00b0), resulting in R = (15^2 * 0.5) / 9.8 = 11.44 m. Distractor B: Student forgets to square the velocity, calculating R = (15 * 0.866) / 9.8 = 1.65 m. Distractor C: Student incorrectly uses g = 10 m/s^2, resulting in R = (15^2 * 0.866) / 10 = 19.48 m.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "11.44 m",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "1.65 m",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "19.88 m",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25.12 m",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the value of sin(2\u03b8) for \u03b8 = 30\u00b0 in the range equation R = (v^2 * sin(2\u03b8)) / g?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "0.707",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "0.5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "0.866",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given v = 15 m/s and sin(2*30\u00b0) = 0.866, what is the range R = (v^2 * sin(2\u03b8)) / g?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "19.88 m",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "25.12 m",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "19.48 m",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "11.44 m",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The range of a projectile is determined by its initial velocity, the angle of projection, and the acceleration due to gravity. The equation for range is R = (v^2 * sin(2\u03b8)) / g, where v is the initial velocity, \u03b8 is the angle of projection, and g is the acceleration due to gravity.",
+    "youtubeResource": {
+      "title": "Projectile Motion - Range and Trajectory",
+      "searchQuery": "Projectile Motion Range and Trajectory tutorial",
+      "url": "https://www.youtube.com/watch?v=d_jnEkwCA6I"
+    },
+    "imageResource": {
+      "title": "Projectile Motion Diagrams",
+      "searchQuery": "Projectile Motion Range and Trajectory diagrams",
+      "url": "https://pulseplots.com/wp-content/images/What_Is_A_Motion_Diagram_In_Physics_1734.jpg"
+    },
+    "pdfResource": {
+      "title": "Projectile Motion Notes",
+      "searchQuery": "Projectile Motion Range and Trajectory notes pdf",
+      "url": "https://chapternotes.in/wp-content/uploads/2026/06/motion-in-a-plane-class-11-notes-chapternotes.pdf"
+    },
+    "webResource": {
+      "title": "Projectile Motion Tutorial",
+      "searchQuery": "Projectile Motion Range and Trajectory tutorial",
+      "url": "https://www.physicsclassroom.com/tutorial/vectors-and-projectiles/projectile-motion/projectil-defined"
+    }
+  }
+}

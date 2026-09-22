@@ -31,7 +31,7 @@ class Resource(BaseModel):
 class RelatedContent(BaseModel):
     conceptSummary: str = Field(description="Clear 2-3 sentence concept refresher")
     youtubeResource: Optional[Resource] = Field(default=None, description="Direct YouTube video")
-    imageResource: Optional[Resource] = Field(default=None, description="Direct educational diagram image")
+    imageResource: Optional[Resource] = Field(default=None, description="Direct 5-Panel Educational Concept Card image PNG")
     pdfResource: Optional[Resource] = Field(default=None, description="Direct PDF document")
     webResource: Optional[Resource] = Field(default=None, description="Direct educational article")
 

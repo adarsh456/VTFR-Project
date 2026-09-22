@@ -4,51 +4,136 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 
 # Load environment variables
-load_dotenv()
+load_dotenv(override=True)
 
 def get_llm():
     """
-    Returns the primary LangChain ChatOpenAI model configured with fallbacks.
-    Uses Hugging Face router.
+    Returns the primary LangChain model with multi-provider fallbacks.
+    Prioritizes active working Hugging Face Router models (Llama 3.3 70B and Qwen 2.5 72B)
+    and Groq API.
     """
-    hf_key = os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY")
+    llms = []
 
+    # Provider 1: Hugging Face Router - Llama 3.3 70B (Primary)
+    hf_key = (os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY") or "").strip().strip('"\'')
     if hf_key:
-        primary_llm = ChatOpenAI(
-            openai_api_base="https://router.huggingface.co/v1",
-            openai_api_key=hf_key,
-            model_name="meta-llama/Llama-3.3-70B-Instruct",
-            temperature=0.4,
-            max_tokens=6000
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://router.huggingface.co/v1",
+                openai_api_key=hf_key,
+                model_name="meta-llama/Llama-3.3-70B-Instruct",
+                temperature=0.4,
+                max_tokens=6000
+            )
         )
-        fallback_llm = ChatOpenAI(
-            openai_api_base="https://router.huggingface.co/v1",
-            openai_api_key=hf_key,
-            model_name="meta-llama/Llama-3.1-8B-Instruct",
-            temperature=0.4,
-            max_tokens=6000
+        # Provider 2: Hugging Face Router - Qwen 2.5 72B (Fallback 1)
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://router.huggingface.co/v1",
+                openai_api_key=hf_key,
+                model_name="Qwen/Qwen2.5-72B-Instruct",
+                temperature=0.4,
+                max_tokens=6000
+            )
         )
-        print("AI Model initialized using HuggingFace Router with Llama-3.3-70B (and Llama-3.1-8B fallback).")
-    else:
-        print("Error: HUGGINGFACEHUB_API_TOKEN environment variable is not set. Please set it in a .env file.")
+
+    # Provider 3 & 4: Groq API (Fallback 2 & 3)
+    groq_key = (os.environ.get("GROQ_API_KEY") or "").strip().strip('"\'')
+    if groq_key:
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="openai/gpt-oss-120b",
+                temperature=0.4,
+                max_tokens=6000
+            )
+        )
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="qwen/qwen3.6-27b",
+                temperature=0.4,
+                max_tokens=6000
+            )
+        )
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="groq/compound-mini",
+                temperature=0.4,
+                max_tokens=6000
+            )
+        )
+
+    if not llms:
+        print("Error: Neither HUGGINGFACEHUB_API_TOKEN nor GROQ_API_KEY is set in .env file.")
         sys.exit(1)
 
-    return primary_llm.with_fallbacks([fallback_llm])
+    primary = llms[0]
+    fallbacks = llms[1:]
+    
+    if fallbacks:
+        return primary.with_fallbacks(fallbacks)
+    return primary
+
 
 def get_suggestions_llm():
     """
-    Returns a lighter model instance with higher temperature for creative suggestions.
+    Returns a model instance for suggestions with multi-provider fallbacks.
     """
-    hf_key = os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY")
+    llms = []
 
+    hf_key = (os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY") or "").strip().strip('"\'')
     if hf_key:
-        return ChatOpenAI(
-            openai_api_base="https://router.huggingface.co/v1",
-            openai_api_key=hf_key,
-            model_name="meta-llama/Llama-3.1-8B-Instruct",
-            temperature=0.7,
-            max_tokens=300
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://router.huggingface.co/v1",
+                openai_api_key=hf_key,
+                model_name="meta-llama/Llama-3.3-70B-Instruct",
+                temperature=0.7,
+                max_tokens=1500
+            )
         )
-    else:
-        print("Error: HUGGINGFACEHUB_API_TOKEN environment variable is not set. Please set it in a .env file.")
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://router.huggingface.co/v1",
+                openai_api_key=hf_key,
+                model_name="Qwen/Qwen2.5-72B-Instruct",
+                temperature=0.7,
+                max_tokens=1500
+            )
+        )
+
+    groq_key = (os.environ.get("GROQ_API_KEY") or "").strip().strip('"\'')
+    if groq_key:
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="openai/gpt-oss-120b",
+                temperature=0.7,
+                max_tokens=1500
+            )
+        )
+        llms.append(
+            ChatOpenAI(
+                openai_api_base="https://api.groq.com/openai/v1",
+                openai_api_key=groq_key,
+                model_name="qwen/qwen3.6-27b",
+                temperature=0.7,
+                max_tokens=1500
+            )
+        )
+
+    if not llms:
+        print("Error: Neither HUGGINGFACEHUB_API_TOKEN nor GROQ_API_KEY is set in .env file.")
         sys.exit(1)
+
+    primary = llms[0]
+    fallbacks = llms[1:]
+    if fallbacks:
+        return primary.with_fallbacks(fallbacks)
+    return primary

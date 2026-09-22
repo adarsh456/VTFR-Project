@@ -109,7 +109,7 @@ RELATED REMEDIAL CONTENT / RESOURCES — MANDATORY
 You MUST generate a "relatedContent" block containing concept explanation and specific search terms/links:
 - "conceptSummary": Clear, concise 2-3 sentence concept refresher for a student struggling with this topic.
 - "youtubeResource": Title, precise search query, and search URL for video tutorials.
-- "imageResource": Educational diagram title and highly specific search query (grade + subject + chapter + topic + key question concept + 'educational diagram') for visual learning.
+- "imageResource": Title, visual description, search query, and educational diagram / concept card details for visual learning.
 - "pdfResource": Topic summary title, search query, and search URL for PDF study notes/worksheets.
 - "webResource": Title, search query, and search URL for reading articles.
 

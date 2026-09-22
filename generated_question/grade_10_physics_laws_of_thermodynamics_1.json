@@ -1,0 +1,277 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Physics",
+  "chapter": "Thermodynamics & Kinetic Theory",
+  "topic": "Laws of Thermodynamics",
+  "questionText": "A heat engine operates between two temperatures, 500K and 300K. What is the efficiency of this engine?",
+  "calculationDraft": "Correct: A heat engine operates between two temperatures, 500K and 300K. Efficiency = 1 - (T_cold / T_hot) = 1 - (300K / 500K) = 1 - 0.6 = 0.4 or 40%. Distractor A (Computational Error): Student calculates efficiency as (T_hot - T_cold) / T_hot = (500K - 300K) / 500K = 200K / 500K = 0.4, but then incorrectly converts it to a percentage by multiplying by 100 and then dividing by 100 again, resulting in 40% being incorrectly calculated as 4%. Distractor B (Conceptual Misconception): Student thinks efficiency is directly proportional to the temperature difference, so calculates it as (T_hot - T_cold) / T_hot = (500K - 300K) / 500K = 200K / 500K = 0.4, but then mistakenly believes this is the efficiency in percentage form without conversion, resulting in an incorrect answer of 0.4 or 40% being misunderstood as 4%. Distractor C (Trap): Student correctly calculates the efficiency as 40% but then mistakenly believes that this value represents the fraction of energy lost, rather than the fraction of energy converted into useful work, resulting in an incorrect answer where the student thinks the engine is 60% efficient because 100% - 40% = 60%.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "50%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "30%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "40%",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "60%",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula to calculate the efficiency of a heat engine?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Efficiency = (T_hot + T_cold) / T_hot",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Efficiency = (T_hot - T_cold) / T_cold",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Efficiency = 1 - (T_cold / T_hot)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Efficiency = T_hot / T_cold",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given the temperatures of the hot and cold reservoirs as 500K and 300K respectively, what is the efficiency of the engine?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "40%",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "60%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "80%",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "33741157-dc18-45ed-9baa-f79563e22c00",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A refrigerator operates between two temperatures, 250K and 300K. What is the Coefficient of Performance (COP) of this refrigerator?",
+      "calculationDraft": "Correct: A refrigerator operates between two temperatures, 250K and 300K. Coefficient of Performance (COP) = T_cold / (T_hot - T_cold) = 250K / (300K - 250K) = 250K / 50K = 5. Distractor A (Computational Error): Student calculates COP as (T_hot + T_cold) / (T_hot - T_cold) = (300K + 250K) / (300K - 250K) = 550K / 50K = 11. Distractor B (Conceptual Misconception): Student thinks COP is directly proportional to the temperature difference, so calculates it as (T_hot - T_cold) / T_cold = (300K - 250K) / 250K = 50K / 250K = 0.2. Distractor C (Trap): Student correctly calculates the COP as 5 but then mistakenly believes this value represents the ratio of heat absorbed to heat rejected, resulting in an incorrect answer where the student thinks the COP is 1/5 or 0.2.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "5",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the formula to calculate the Coefficient of Performance (COP) of a refrigerator?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "COP = T_hot / T_cold",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "COP = T_cold / (T_hot - T_cold)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "COP = T_hot / (T_hot - T_cold)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "COP = (T_hot - T_cold) / T_cold",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the temperatures of the hot and cold reservoirs as 300K and 250K respectively, what is the COP of the refrigerator?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "5",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "6",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "4",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "0c2d9db4-b332-437f-ab29-038de9b94d8c",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A heat pump operates between two temperatures, 300K and 250K. What is the Coefficient of Performance (COP) of this heat pump?",
+      "calculationDraft": "Correct: A heat pump operates between two temperatures, 300K and 250K. Coefficient of Performance (COP) = T_hot / (T_hot - T_cold) = 300K / (300K - 250K) = 300K / 50K = 6. Distractor A (Computational Error): Student calculates COP as (T_hot + T_cold) / (T_hot - T_cold) = (300K + 250K) / (300K - 250K) = 550K / 50K = 11. Distractor B (Conceptual Misconception): Student thinks COP is directly proportional to the temperature difference, so calculates it as (T_hot - T_cold) / T_cold = (300K - 250K) / 250K = 50K / 250K = 0.2. Distractor C (Trap): Student correctly calculates the COP as 6 but then mistakenly believes this value represents the ratio of heat absorbed to heat rejected, resulting in an incorrect answer where the student thinks the COP is 1/6 or 0.17.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "8",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "7",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "6",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the formula to calculate the Coefficient of Performance (COP) of a heat pump?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "COP = T_hot / T_cold",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "COP = T_hot / (T_hot - T_cold)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "COP = T_cold / (T_hot - T_cold)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "COP = (T_hot - T_cold) / T_cold",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the temperatures of the hot and cold reservoirs as 300K and 250K respectively, what is the COP of the heat pump?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "7",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "8",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "5",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "6",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The efficiency of a heat engine is determined by the temperatures of the hot and cold reservoirs. It is calculated using the formula: Efficiency = 1 - (T_cold / T_hot), where T_hot is the temperature of the hot reservoir and T_cold is the temperature of the cold reservoir.",
+    "youtubeResource": {
+      "title": "Heat Engine Efficiency Explained",
+      "searchQuery": "heat engine efficiency formula derivation",
+      "url": "https://www.youtube.com/watch?v=8N1BxHgsoOw"
+    },
+    "imageResource": {
+      "title": "Heat Engine Diagram",
+      "searchQuery": "heat engine diagram with temperatures labeled",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Thermodynamics_navigation.svg/1280px-Thermodynamics_navigation.svg.png"
+    },
+    "pdfResource": {
+      "title": "Thermodynamics Notes",
+      "searchQuery": "grade 10 physics thermodynamics notes pdf",
+      "url": "https://physicsfundamentals.com/wp-content/uploads/2026/07/Laws-of-Thermodynamics-Notes.pdf"
+    },
+    "webResource": {
+      "title": "Thermodynamics Tutorial",
+      "searchQuery": "grade 10 physics thermodynamics tutorial",
+      "url": "https://openstax.org/books/college-physics-2e/pages/15-introduction-to-thermodynamics"
+    }
+  }
+}

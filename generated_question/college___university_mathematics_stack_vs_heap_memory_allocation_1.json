@@ -1,0 +1,273 @@
+{
+  "questionId": "a1f2c3d4-5678-4abc-9def-0123456789ab",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "College / University",
+  "subject": "Mathematics",
+  "chapter": "memory allocation",
+  "topic": "Stack vs Heap Memory Allocation",
+  "questionText": "Consider a C program that declares the following local variables inside main():\\n\\nint a[10];\\ndouble b;\\nchar *p = malloc(25 * sizeof(char));\\n\\nThe system uses 4 bytes for an int, 8 bytes for a double, and 1 byte per char. Each heap allocation incurs an 8\u2011byte bookkeeping header. What is the total amount of memory (in bytes) that will be reserved for these three variables during execution?",
+  "calculationDraft": "Correct answer derivation: Stack memory: int a[10] => 10 * 4 = 40 bytes; double b => 8 bytes. Heap allocation: malloc(25 * sizeof(char)) => 25 bytes data + 8\u2011byte header = 33 bytes. Total = 40 + 8 + 33 = 81 bytes.\\n\\nDistractor A (Computational Error): Student assumes heap header is 4 bytes instead of 8. Heap = 25 + 4 = 29 bytes. Total = 40 + 8 + 29 = 77 bytes.\\n\\nDistractor B (Conceptual Misconception): Student forgets the heap header altogether. Heap = 25 bytes. Total = 40 + 8 + 25 = 73 bytes.\\n\\nDistractor C (Trap/Partially Correct): Student adds the header twice (perhaps thinking of alignment). Heap = 25 + 8 + 8 = 41 bytes. Total = 40 + 8 + 41 = 89 bytes.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "81 bytes",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "89 bytes",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "73 bytes",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "77 bytes",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "How many bytes does the array a[10] of int occupy on the stack given each int is 4 bytes?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "10 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "44 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "40 bytes",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the stack memory consumption of the double variable b?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "8 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "16 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "0 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "4 bytes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Including the 8\u2011byte bookkeeping header, how many total bytes are allocated on the heap for p?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "29 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "41 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "33 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25 bytes",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 4,
+      "stepText": "What is the sum of the stack memory (a and b) and the heap allocation for p?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "77 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "89 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "81 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "73 bytes",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "b2e3f4a5-6789-4bcd-8f01-1234567890cd",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A function declares the following local variables: int x = 5; char y[4]; Assuming an int uses 4 bytes and each char uses 1 byte, how many bytes are used on the stack for these declarations?",
+      "calculationDraft": "Correct answer derivation: int x occupies 4 bytes, char y[4] occupies 4 bytes, total stack = 4 + 4 = 8 bytes.\\n\\nDistractor A (Computational Error): Student adds an extra byte, total = 4 + 5 = 9 bytes.\\n\\nDistractor B (Conceptual Misconception): Student counts only the int, total = 4 bytes.\\n\\nDistractor C (Trap): Student multiplies the char array size by 2, total = 4 + 8 = 12 bytes.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "8 bytes",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "9 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "4 bytes",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "12 bytes",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How many bytes does the integer variable x occupy on the stack?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "0 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "8 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "4 bytes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "5 bytes",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "How many bytes does the character array y[4] occupy on the stack?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "0 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4 bytes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "8 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "5 bytes",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 3,
+          "stepText": "What is the total stack memory used by x and y combined?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "9 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4 bytes",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "8 bytes",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "12 bytes",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Stack memory stores function call frames and local variables with automatic lifetime, while heap memory is allocated dynamically at runtime and persists until explicitly freed. Understanding size calculations for each region helps predict program memory usage.",
+    "youtubeResource": {
+      "title": "Stack vs Heap Memory Allocation Explained",
+      "searchQuery": "College University Mathematics Stack vs Heap Memory Allocation tutorial",
+      "url": "https://www.youtube.com/watch?v=5OJRqkYbK-4"
+    },
+    "imageResource": {
+      "title": "Stack and Heap Memory Diagram",
+      "searchQuery": "Stack vs Heap memory allocation visual diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/stack_vs_heap_memory_allocation_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Memory Allocation Study Notes",
+      "searchQuery": "Stack heap memory allocation PDF notes college",
+      "url": "https://www.cs.cornell.edu/courses/cs3410/2025sp/lectures/05-stack_heap_dynamic_memory_allocation-notes.pdf"
+    },
+    "webResource": {
+      "title": "Understanding Stack and Heap in C",
+      "searchQuery": "Stack vs Heap memory allocation concept guide",
+      "url": "https://www.geeksforgeeks.org/dsa/stack-vs-heap-memory-allocation/"
+    }
+  }
+}

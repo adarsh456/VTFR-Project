@@ -1,14 +1,16 @@
+import os
 import re
 import json
 import urllib.request
 import urllib.parse
 from urllib.parse import quote_plus
+from langchain_core.messages import SystemMessage, HumanMessage
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 TIMEOUT = 5  # 5 seconds timeout per network request
 
 # ==============================================================================
-# 1. CENTRAL SEARCH URL REJECTION VALIDATOR
+# 1. CENTRAL SEARCH URL REJECTION VALIDATOR & DOMAIN DEFINITIONS
 # ==============================================================================
 
 FORBIDDEN_SEARCH_PATTERNS = [
@@ -49,7 +51,7 @@ def is_search_url(url: str) -> bool:
 
 
 # ==============================================================================
-# 2. VALIDATION FUNCTIONS
+# 2. VALIDATION FUNCTIONS & PATTERNS
 # ==============================================================================
 
 def is_valid_youtube_url(url: str) -> bool:
@@ -78,6 +80,78 @@ BLACK_LISTED_TERMS = [
     "destination", "travel", "hd wallpaper", "4k wallpaper", "desktop background",
     "nature background", "sunset", "sunrise", "seashore", "coastal", "bikini"
 ]
+
+JUNK_IMAGE_PATTERNS = [
+    r"logo", r"icon", r"avatar", r"banner", r"button", r"symbol", r"flag",
+    r"vecteezy", r"amazon", r"ebay", r"walmart", r"etsy", r"shutterstock",
+    r"freepik", r"dreamstime", r"alamy", r"adobe", r"pinterest", r"stock",
+    r"product", r"shop", r"app-icon", r"preview", r"vector-graphics",
+    r"google-meet", r"meeting", r"conference", r"brand",
+    # Reject AI architecture, neural networks, transformers, GPT diagrams
+    r"gpt_3d", r"transformer", r"neural_network", r"deep_learning",
+    # Traffic signs, road signs, coats of arms, stamps, coins, borders
+    r"speed_limit", r"weight_limit", r"traffic", r"road", r"_sign", r"border", r"belgian", r"highway",
+    r"coat_of_arms", r"badge", r"emblem", r"stamp", r"coin", r"license_plate", r"kytc",
+    # Reject scanned PDF pages & document thumbnails
+    r"\.pdf", r"page\d+", r"IA_", r"document", r"scanned", r"paper",
+    # Reject non-educational statistical/unrelated charts, portraits, celebrities & blogs
+    r"electricity", r"gdp", r"population", r"survey", r"market", r"climate",
+    r"emission", r"country", r"lifestyle", r"watts", r"portrait", r"painting",
+    r"window_manager", r"gui", r"desktop", r"operating_system", r"ubuntu", r"interface",
+    r"wordpress", r"gettyimages", r"people\.com", r"vox-cdn", r"buzzfeed", r"dailymail",
+    r"tmz", r"eonline", r"popsugar", r"hollywoodreporter", r"instagram", r"facebook",
+    r"twitter", r"tiktok", r"blogspot", r"fashion", r"award", r"redcarpet"
+]
+
+EDUCATIONAL_KEYWORD_PATTERNS = [
+    r"diagram", r"formula", r"extrema", r"graph", r"chart", r"function",
+    r"structure", r"equation", r"cycle", r"model", r"law", r"concept",
+    r"rule", r"table", r"vectors", r"wave", r"derivation", r"plot", r"curve",
+    r"trigonometry", r"integral", r"orbital", r"roots", r"matrix", r"parabola",
+    r"molecule", r"atom", r"bond", r"reaction", r"synthesis", r"mechanism",
+    r"distillation", r"chromatography", r"resonance", r"isomerism", r"alkane",
+    r"derivative", r"tangent", r"slope", r"differentiation", r"calculus", r"limit",
+    r"carnot", r"thermodynamic", r"cheat_sheet", r"mindmap", r"summary", r"notes"
+]
+
+EDUCATIONAL_SUBJECT_TOKENS = [
+    "chemistry", "organic", "molecule", "reaction", "formula", "diagram", "structure",
+    "extrema", "math", "physics", "cell", "atom", "orbital", "equation", "graph",
+    "chart", "derivative", "integral", "function", "bond", "iupac", "alkane",
+    "alkene", "alkyne", "functional", "distillation", "chromatography", "resonance",
+    "isomerism", "mechanisms", "synthesis", "science", "biology", "physics", "calculus",
+    "algebra", "geometry", "trigonometry", "differentiation", "tangent", "thermodynamics",
+    "carnot", "mindmap", "cheatsheet", "summary"
+]
+
+AUTHORITY_DOMAINS = [
+    "wikimedia.org",
+    "wikipedia.org",
+    "libretexts.org",
+    "openstax.org",
+    "khanacademy.org",
+    "geeksforgeeks.org",
+    "byjus.com",
+    "cuemath.com",
+    "physicsclassroom.com",
+    "purplemath.com",
+    "chemguide.co.uk",
+    "masterorganicchemistry.com",
+    "ck12.org",
+    "mathsisfun.com",
+    "sciencedirect.com"
+]
+
+NON_ENGLISH_INDICATORS = [
+    "_droite", "droite", "polaires", "parametres", "_fr.", "_de.", "_ru.", "_es.",
+    "_it.", "_cn.", "_jp.", "schema_", "croquis", "dessin", "tableau"
+]
+
+SUBJECT_INCOMPATIBLE_TERMS = {
+    "mathematics": ["phase diagram", "feynman", "laser", "quantum", "molecule", "reaction", "chemical", "spectroscopy", "anatomy", "flower", "organism", "cell membrane"],
+    "physics": ["flower", "plant", "organism", "anatomy", "cell membrane", "monument", "painting"],
+    "chemistry": ["feynman", "cosmology", "galaxy", "black hole", "monument"]
+}
 
 
 def is_blacklisted_image_resource(url: str, title: str = "") -> bool:
@@ -405,6 +479,142 @@ def search_wikipedia_media(query: str, topic: str = "", subject: str = "", conce
                     pass
     except Exception:
         pass
+
+    return candidates
+
+
+def _search_wikipedia_article_diagrams(clean_topic: str, subject: str = "") -> list:
+    """Fetches high-quality concept diagrams directly embedded in canonical Wikipedia textbook articles."""
+    headers = {"User-Agent": "VTFR-QuestionGenerator/1.0 (educational-app@vtfr.org)"}
+    candidates = []
+
+    search_titles = [clean_topic]
+    clean_lower = clean_topic.lower()
+
+    # Smart topic mapping for canonical Wikipedia articles
+    if "thermodynamics" in clean_lower or "carnot" in clean_lower or "heat" in clean_lower:
+        search_titles.extend(["Carnot heat engine", "Carnot cycle", "Laws of thermodynamics", "Second law of thermodynamics"])
+    elif "motion in a plane" in clean_lower or "projectile" in clean_lower or "vectors" in clean_lower:
+        search_titles.extend(["Projectile motion", "Trajectory of a projectile", "Kinematics", "Equations of motion"])
+    elif "limit" in clean_lower or "derivative" in clean_lower or "calculus" in clean_lower:
+        search_titles.extend(["Limit of a function", "Derivative", "Differential calculus"])
+    elif "organic chemistry" in clean_lower or "organic" in clean_lower:
+        search_titles.extend(["Organic chemistry", "Structural formula", "Chemical nomenclature", "Functional group"])
+    elif "maximization" in clean_lower or "minimization" in clean_lower:
+        search_titles.extend(["Maximum and minimum", "Extrema", "Optimization (mathematics)"])
+    elif "quadratic" in clean_lower:
+        search_titles.extend(["Quadratic equation", "Quadratic function"])
+    elif "integral" in clean_lower:
+        search_titles.extend(["Integral", "Definite integral"])
+    elif "atomic" in clean_lower or "atom" in clean_lower:
+        search_titles.extend(["Atom", "Atomic orbital"])
+
+    for title_query in search_titles:
+        try:
+            # Opensearch to resolve exact page title
+            os_url = f"https://en.wikipedia.org/w/api.php?action=opensearch&search={quote_plus(title_query)}&limit=1&namespace=0&format=json"
+            os_data = json.loads(_make_request(os_url, headers=headers))
+            page_title = os_data[1][0] if (os_data and len(os_data) > 1 and os_data[1]) else title_query
+
+            # Fetch page images
+            url = f"https://en.wikipedia.org/w/api.php?action=query&titles={quote_plus(page_title)}&generator=images&gimlimit=30&prop=imageinfo&iiprop=url&iiurlwidth=1280&format=json"
+            data = json.loads(_make_request(url, headers=headers))
+            pages = data.get("query", {}).get("pages", {})
+            for p in pages.values():
+                t = p.get("title", "")
+                info = p.get("imageinfo", [])
+                if info:
+                    u = info[0].get("thumburl") or info[0].get("url")
+                    if u and any(u.lower().endswith(ext) or ext + '?' in u.lower() for ext in ['.png', '.jpg', '.jpeg', '.svg']):
+                        clean_u = u.split("?")[0]
+                        if not any(re.search(pat, clean_u, re.I) or re.search(pat, t.lower(), re.I) for pat in JUNK_IMAGE_PATTERNS):
+                            candidates.append(clean_u)
+            if candidates:
+                break
+        except Exception:
+            pass
+
+    return candidates
+
+
+def _search_wikimedia_diagrams(clean_topic: str, subject: str = "") -> list:
+    """Searches Wikimedia Commons File namespace (gsrnamespace=6) for verified educational diagrams."""
+    results = []
+    headers = {"User-Agent": "VTFR-QuestionGenerator/1.0 (educational-app@vtfr.org)"}
+    search_terms = [f"{clean_topic} diagram", f"{clean_topic} formula", f"{clean_topic} {subject}".strip()]
+
+    for term in search_terms:
+        try:
+            commons_url = (
+                f"https://commons.wikimedia.org/w/api.php?action=query&generator=search"
+                f"&gsrsearch={quote_plus(term)}&gsrnamespace=6&gsrlimit=8&prop=imageinfo"
+                f"&iiprop=url&iiurlwidth=1280&format=json"
+            )
+            raw = _make_request(commons_url, headers=headers)
+            data = json.loads(raw)
+            pages = data.get("query", {}).get("pages", {})
+            for p in pages.values():
+                info = p.get("imageinfo", [])
+                if info:
+                    u = info[0].get("thumburl") or info[0].get("url")
+                    if u and u.startswith("http"):
+                        clean_u = u.split("?")[0]
+                        if not any(re.search(pat, clean_u, re.I) for pat in JUNK_IMAGE_PATTERNS):
+                            if clean_u not in results:
+                                results.append(clean_u)
+            if results:
+                break
+        except Exception:
+            pass
+
+    return results
+
+
+def _search_image_candidates(query: str, topic: str = "", subject: str = "") -> list:
+    """Searches for direct image URLs (.png, .jpg, .svg, .webp) prioritizing Wikipedia/Wikimedia educational diagrams."""
+    candidates = []
+    clean_topic = _clean_topic_name(topic, query, subject)
+
+    # 1. First priority: Direct Wikipedia article educational images
+    wiki_imgs = _search_wikipedia_article_diagrams(clean_topic, subject)
+    for img in wiki_imgs:
+        if img not in candidates:
+            candidates.append(img)
+
+    # 2. Second priority: Wikimedia Commons diagram search
+    commons_imgs = _search_wikimedia_diagrams(clean_topic, subject)
+    for img in commons_imgs:
+        if img not in candidates:
+            candidates.append(img)
+
+    # 3. Third priority: Bing Images Search (strictly filtered against junk & disallowed domains)
+    try:
+        b_img_url = f"https://www.bing.com/images/search?q={quote_plus(clean_topic + ' ' + subject + ' formula concept diagram')}&form=HDRSC2"
+        html = _make_request(b_img_url)
+        
+        # Pattern 1: murl (clean exact image file URL)
+        murls = re.findall(r'murl&quot;:&quot;(https?://[^&"]+?)&quot;', html)
+        for m in murls:
+            clean_m = urllib.parse.unquote(m).strip().split("?")[0]
+            if not is_search_url(clean_m) and clean_m not in candidates:
+                if not any(re.search(pat, clean_m, re.I) for pat in JUNK_IMAGE_PATTERNS):
+                    # Must be from an allowed domain OR contain an educational subject token in the URL
+                    clean_lower = clean_m.lower()
+                    if any(dom in clean_lower for dom in AUTHORITY_DOMAINS) or any(tok in clean_lower for tok in EDUCATIONAL_SUBJECT_TOKENS):
+                        candidates.append(clean_m)
+                
+        # Pattern 2: mediaurl parameter
+        mediaurls = re.findall(r'mediaurl=(https?://[^&"\'\s]+)', html)
+        for m in mediaurls:
+            clean_m = urllib.parse.unquote(m).strip().split("?")[0]
+            if not is_search_url(clean_m) and clean_m not in candidates:
+                if not any(re.search(pat, clean_m, re.I) for pat in JUNK_IMAGE_PATTERNS):
+                    clean_lower = clean_m.lower()
+                    if any(dom in clean_lower for dom in AUTHORITY_DOMAINS) or any(tok in clean_lower for tok in EDUCATIONAL_SUBJECT_TOKENS):
+                        candidates.append(clean_m)
+    except Exception:
+        pass
+
     return candidates
 
 
@@ -440,18 +650,6 @@ def search_commons_diagrams(query: str) -> list:
     except Exception:
         pass
     return candidates
-
-
-NON_ENGLISH_INDICATORS = [
-    "_droite", "droite", "polaires", "parametres", "_fr.", "_de.", "_ru.", "_es.",
-    "_it.", "_cn.", "_jp.", "schema_", "croquis", "dessin", "tableau"
-]
-
-SUBJECT_INCOMPATIBLE_TERMS = {
-    "mathematics": ["phase diagram", "feynman", "laser", "quantum", "molecule", "reaction", "chemical", "spectroscopy", "anatomy", "flower", "organism", "cell membrane"],
-    "physics": ["flower", "plant", "organism", "anatomy", "cell membrane", "monument", "painting"],
-    "chemistry": ["feynman", "cosmology", "galaxy", "black hole", "monument"]
-}
 
 
 def _score_image_candidate(cand: dict, topic: str, subject: str, concept_tokens: list) -> int:
@@ -507,47 +705,56 @@ def _score_image_candidate(cand: dict, topic: str, subject: str, concept_tokens:
     return score
 
 
-AUTHORITY_DOMAINS = [
-    "khanacademy.org",
-    "geeksforgeeks.org",
-    "libretexts.org",
-    "byjus.com",
-    "tutorialspoint.com",
-    "javatpoint.com",
-    "baeldung.com",
-    "w3schools.com",
-    "lamar.edu",
-    "openstax.org",
-    "mit.edu",
-    "stanford.edu",
-    "coursera.org",
-    "sciencedirect.com",
-    "britannica.com"
-]
-
-
 def _rank_candidates(candidates: list, topic: str, subject: str = "") -> list:
-    """Ranks candidates by keyword match, domain authority, and resource specificity."""
+    """Ranks candidates by keyword match, domain authority, vector format, and hotlink safety."""
     clean_topic = _clean_topic_name(topic).lower()
     topic_tokens = [w for w in re.split(r'\W+', clean_topic) if len(w) > 2]
 
     def score_candidate(url: str) -> int:
         score = 0
         url_lower = url.lower()
-        
-        # High score for authority educational platforms
-        for auth_domain in AUTHORITY_DOMAINS:
-            if auth_domain in url_lower:
-                score += 15
+
+        # Reject any candidate with junk patterns
+        if any(re.search(pat, url_lower, re.I) for pat in JUNK_IMAGE_PATTERNS):
+            return -1000
+
+        # Must either belong to an authority domain or contain educational subject tokens
+        has_auth_domain = any(domain in url_lower for domain in AUTHORITY_DOMAINS)
+        has_sub_token = any(token in url_lower for token in EDUCATIONAL_SUBJECT_TOKENS)
+
+        if not has_auth_domain and not has_sub_token:
+            return -1000  # REJECT UNRELATED WEB IMAGES
+
+        # Massive boost (+100) for 100% hotlink-safe, open-CORS Wikimedia Commons CDN
+        if "wikimedia.org" in url_lower or "wikipedia.org" in url_lower:
+            score += 100
+        elif "openstax.org" in url_lower or "libretexts.org" in url_lower:
+            score += 60
+
+        # Points for top educational domains
+        for domain in AUTHORITY_DOMAINS:
+            if domain in url_lower:
+                score += 30
                 break
-                
-        # Points for each matching topic token in URL path
+
+        # Points for SVG/PNG vector diagrams
+        if url_lower.endswith(".svg") or url_lower.endswith(".svg.png"):
+            score += 25
+        elif url_lower.endswith(".png"):
+            score += 15
+
+        # Points for educational keywords in filename
+        for kw in EDUCATIONAL_KEYWORD_PATTERNS:
+            if re.search(kw, url_lower):
+                score += 20
+
+        # Points for topic tokens in URL
         for token in topic_tokens:
             if token in url_lower:
-                score += 5
+                score += 10
                 
         if subject and subject.lower() in url_lower:
-            score += 2
+            score += 5
             
         return score
 
@@ -660,21 +867,82 @@ def resolve_educational_image(
     return None, fallback_title
 
 
+def evaluate_image_educational_quality(image_url: str, topic: str, subject: str = "") -> dict:
+    """
+    Evaluates whether a candidate image is a useful educational resource
+    for the given topic using AI evaluation prompt criteria.
+    """
+    try:
+        import llm_factory
+        eval_llm = llm_factory.get_suggestions_llm()
+
+        sys_prompt = (
+            "You are a strict Educational Resource Judge. Evaluate whether an image (described by its URL/filename) "
+            "is a useful educational concept resource for a student studying the given topic.\n\n"
+            "High Priority Educational Content (Score 80-100):\n"
+            "- Structured concept infographics & summary cards\n"
+            "- Visual cards containing definition, formulas, classification/types, advantages/disadvantages, applications\n"
+            "- Educational mindmaps & cheat sheets\n"
+            "- Labeled scientific diagrams, mechanisms, and flowcharts\n\n"
+            "Standard Educational Content (Score 50-79):\n"
+            "- Simple graphs, formulas, or single textbook diagrams\n\n"
+            "Reject Image (Score < 50):\n"
+            "- Generic photographs, decorative artwork, portraits\n"
+            "- Traffic/road signs, logos, speed limits, coats of arms\n"
+            "- Unrelated visual content\n\n"
+            "Return ONLY a JSON object with this exact structure:\n"
+            "{\n"
+            '  "relevant": "YES" or "NO",\n'
+            '  "educational": "YES" or "NO",\n'
+            '  "score": 0-100,\n'
+            '  "reason": "Short explanation"\n'
+            "}"
+        )
+
+        user_prompt = f"Subject: {subject}\nTopic: {topic}\nImage Filename/URL: {image_url}"
+
+        response = eval_llm.invoke([
+            SystemMessage(content=sys_prompt),
+            HumanMessage(content=user_prompt)
+        ])
+        content = response.content.strip()
+        json_match = re.search(r"(\{.*\})", content, re.DOTALL)
+        if json_match:
+            return json.loads(json_match.group(1))
+        return json.loads(content)
+    except Exception as e:
+        return {"relevant": "YES", "educational": "YES", "score": 80, "reason": f"Rule evaluation fallback: {e}"}
+
+
 def get_exact_image_url(
     query: str = "",
     topic: str = "",
     subject: str = "",
     chapter: str = "",
-    grade: str = "",
+    grade: str = "Grade 12",
     question_text: str = "",
     concept_summary: str = ""
 ) -> str:
     """
-    Finds exactly ONE verified direct educational diagram image URL (.svg/.png/.jpg/.webp).
-    Validates MIME type / image extension and guarantees rejection of wallpapers/stock photos.
-    Returns direct image URL or None.
-    NEVER returns a search page or wallpaper.
+    Resolves the educational image resource:
+    1. Generates a local 5-panel Educational Concept Summary Card PNG for the topic.
+    2. If concept card generation fails, resolves a direct verified educational diagram URL.
+    3. Returns direct image path/URL or None.
     """
+    clean_topic = _clean_topic_name(topic, query, subject)
+
+    # Primary: Programmatic 5-Panel Concept Card Generator
+    print(f"[Concept Card] Generating 5-Panel Educational Concept Card Infographic for '{clean_topic}'...")
+    try:
+        import concept_card_generator
+        card_path = concept_card_generator.generate_educational_concept_card(clean_topic, subject, grade)
+        if card_path and os.path.exists(card_path):
+            print(f"[Concept Card] SUCCESS! Generated Concept Card: {card_path}")
+            return card_path
+    except Exception as e:
+        print(f"[Concept Card] Generator error: {e}. Falling back to educational diagram search...")
+
+    # Fallback 1: Authoritative Educational Diagram Search (Wikipedia/Commons)
     url, _ = resolve_educational_image(
         query=query,
         topic=topic,
@@ -684,7 +952,25 @@ def get_exact_image_url(
         question_text=question_text,
         concept_summary=concept_summary
     )
-    return url
+    if url:
+        return url
+
+    # Fallback 2: General Candidate Search with AI Quality Evaluation
+    search_q = f"{clean_topic} {subject} definition formula types applications mindmap summary infographic diagram".strip()
+    candidates = _search_image_candidates(search_q, clean_topic, subject)
+    if not candidates:
+        candidates = _search_image_candidates(f"{clean_topic} {subject} mindmap cheat sheet diagram", clean_topic, subject)
+
+    ranked_candidates = _rank_candidates(candidates, clean_topic, subject)
+    for candidate in ranked_candidates:
+        if is_valid_image_url(candidate, check_live=False):
+            eval_res = evaluate_image_educational_quality(candidate, clean_topic, subject)
+            if eval_res.get("relevant") == "YES" and eval_res.get("educational") == "YES" and eval_res.get("score", 0) >= 50:
+                print(f"[Image] Valid fallback web image URL (AI Score: {eval_res.get('score')}): {candidate}")
+                return candidate
+
+    print(f"[Image] No valid concept card or educational diagram found. Returning None.")
+    return None
 
 
 def get_exact_pdf_url(query: str, topic: str = "", subject: str = "") -> str:

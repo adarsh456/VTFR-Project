@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Complex Numbers and Quadratic Equations",
+  "questionText": "What are the roots of the quadratic equation x^2 - 3x - 4 = 0?",
+  "calculationDraft": "Correct: Factor the quadratic expression x^2 - 3x - 4 \u2192 factors of -4 that add up to -3 are -4 and 1, so (x - 4)(x + 1) = 0. Distractor A (Computational Error): Student picks (x - 2)(x - 2) due to incorrect factorization. Distractor B (Conceptual Misconception): Student thinks the factors should be (x + 4)(x - 1) due to misunderstanding of how coefficients work in factoring. Distractor C (Trap): Student factors it as (x - 1)(x - 4) but forgets to consider the sign change for the constant term.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x = 1, x = -4",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x = -1, x = 4",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x = -4, x = 1",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x = 2, x = -2",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What are the factors of -4 that add up to -3 in the quadratic equation x^2 - 3x - 4 = 0?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1 and -4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "-2 and 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2 and -2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "-4 and 1",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given the factors are -4 and 1, how do you write the factored form of the quadratic equation?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "(x + 4)(x - 1) = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "(x + 1)(x + 4) = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(x - 4)(x + 1) = 0",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "(x - 1)(x - 4) = 0",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b4f6c5d-85e1-42c2-8d5e-1a2b3c4d5e6f",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve for x in the equation x^2 + 2x - 3 = 0 by factoring.",
+      "calculationDraft": "Correct: Solve for x in x^2 + 2x - 3 = 0 by factoring \u2192 (x + 3)(x - 1) = 0. Distractor A: Student thinks it factors as (x + 1)(x - 3) due to sign error. Distractor B: Student attempts to use the quadratic formula instead of factoring. Distractor C: Student factors correctly but solves for x incorrectly, getting x = -1, x = 3.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -1, x = 3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 3, x = -1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -3, x = 1",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 1, x = -3",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What are the factors of -3 that add up to 2 in the quadratic equation x^2 + 2x - 3 = 0?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3 and -1",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "1 and -3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "-1 and 3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "-3 and 1",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the factors are 3 and -1, how do you write the factored form and solve for x?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x - 1)(x + 3) = 0, so x = 1, x = -3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x + 3)(x - 1) = 0, so x = -3, x = 1",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 3)(x + 1) = 0, so x = 3, x = -1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x + 1)(x - 3) = 0, so x = -1, x = 3",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "To solve quadratic equations, we can use factoring, the quadratic formula, or other methods depending on the equation's form. Factoring involves finding two numbers that multiply to the constant term and add to the coefficient of the linear term.",
+    "youtubeResource": {
+      "title": "Solving Quadratic Equations by Factoring",
+      "searchQuery": "Grade 10 Mathematics solving quadratic equations by factoring tutorial",
+      "url": "https://www.youtube.com/watch?v=QYDf_NQEGUQ"
+    },
+    "imageResource": {
+      "title": "Quadratic Equation Factoring Diagram",
+      "searchQuery": "quadratic equation factoring method diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/complex_numbers_and_quadratic_equations_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Grade 10 Mathematics Quadratic Equations Revision Notes",
+      "searchQuery": "Grade 10 Mathematics quadratic equations revision notes pdf",
+      "url": "https://chapternotes.in/wp-content/uploads/2026/06/complex-numbers-and-quadratic-equations-class-11-notes-chapternotes.pdf"
+    },
+    "webResource": {
+      "title": "Mathematics Complex Numbers and Quadratic Equations Guide",
+      "searchQuery": "Mathematics complex numbers and quadratic equations concept guide",
+      "url": "https://math.libretexts.org/Bookshelves/Algebra/Elementary_Algebra_(LibreTexts)/09%3A_Solving_Quadratic_Equations_and_Graphing_Parabolas/9.06%3A_Introduction_to_Complex_Numbers_and_Complex_Solutions"
+    }
+  }
+}
