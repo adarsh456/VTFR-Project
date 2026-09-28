@@ -38,6 +38,14 @@ CORE QUALITY RULES
    For example: main question correct at position 3, step 1 correct at position 1,
    step 2 correct at position 4, etc.
 
+6. "explanation" FIELD ON CORRECT OPTION ONLY — CRITICAL NON-NEGOTIABLE RULE
+   In EVERY optionsList (main question, each solutionStep, each alternateQuestion, and each alternate step):
+   - The ONE option where "isCorrect": true MUST contain an "explanation" field.
+   - The "explanation" must explain WHY that option is correct in 1–2 concise, educational sentences tailored to {grade} level.
+   - Do NOT simply repeat the option text. Give the mathematical / conceptual justification.
+   - Do NOT include markdown formatting, "Correct answer is...", AI references, or long paragraphs in the explanation.
+   - All THREE options where "isCorrect": false MUST NOT contain an "explanation" field under any circumstances.
+
 
 DISTRACTOR DESIGN — CRITICALLY IMPORTANT
 
@@ -101,7 +109,7 @@ Vary the structure:
 For each alternateQuestion:
   - Include its own calculationDraft with full distractor derivation (as specified above).
   - solutionSteps must be DYNAMIC (2–5 steps); NEVER fewer than 2 steps.
-  - Every optionsList inside alternateQuestions and their solutionSteps: EXACTLY 4 options.
+  - Every optionsList inside alternateQuestions and their solutionSteps: EXACTLY 4 options (1 correct with explanation + 3 distractors without explanation).
 
 
 RELATED REMEDIAL CONTENT / RESOURCES — MANDATORY
@@ -166,7 +174,8 @@ JSON Schema:
     {{
       "optionSequenceNo": 3,
       "optionText": "string — CORRECT ANSWER (place at any position 1-4, not always here)",
-      "isCorrect": true
+      "isCorrect": true,
+      "explanation": "string — concise 1-2 sentence educational explanation of WHY this option is correct (present ONLY on the correct option)"
     }},
     {{
       "optionSequenceNo": 4,
@@ -187,7 +196,8 @@ JSON Schema:
         {{
           "optionSequenceNo": 2,
           "optionText": "string — CORRECT intermediate result for this step",
-          "isCorrect": true
+          "isCorrect": true,
+          "explanation": "string — concise 1-2 sentence educational explanation of WHY this intermediate step result is correct (ONLY for isCorrect: true)"
         }},
         {{
           "optionSequenceNo": 3,
@@ -217,7 +227,8 @@ JSON Schema:
         {{
           "optionSequenceNo": 2,
           "optionText": "string — CORRECT (vary its position across alternates)",
-          "isCorrect": true
+          "isCorrect": true,
+          "explanation": "string — concise 1-2 sentence educational explanation of why this alternate answer is correct (ONLY for isCorrect: true)"
         }},
         {{
           "optionSequenceNo": 3,
@@ -238,7 +249,8 @@ JSON Schema:
             {{
               "optionSequenceNo": 1,
               "optionText": "string",
-              "isCorrect": true
+              "isCorrect": true,
+              "explanation": "string — concise 1-2 sentence educational explanation of why this step result is correct (ONLY for isCorrect: true)"
             }},
             {{
               "optionSequenceNo": 2,
@@ -274,7 +286,8 @@ JSON Schema:
             {{
               "optionSequenceNo": 3,
               "optionText": "string — CORRECT for step 2",
-              "isCorrect": true
+              "isCorrect": true,
+              "explanation": "string — concise 1-2 sentence educational explanation of why this step result is correct (ONLY for isCorrect: true)"
             }},
             {{
               "optionSequenceNo": 4,
@@ -317,6 +330,7 @@ def get_user_prompt(grade: str, subject: str, chapter: str, topic: str, exclude_
         f"Generate a high-quality VTFR JSON question for {grade} - {subject} - {chapter} - {topic}.\n"
         f"Remember:\n"
         f"  • Place the correct answer at a DIFFERENT position in each optionsList (do not always use position 2).\n"
+        f"  • In EVERY optionsList, include a concise 1-2 sentence 'explanation' field ONLY on the correct option ('isCorrect': true). False options MUST NOT contain an 'explanation'.\n"
         f"  • Each step's distractors must be UNIQUE to that step — do not reuse the main question's option values.\n"
         f"  • calculationDraft must show derivation of BOTH the correct answer AND all 3 distractors.\n"
         f"  • stepText must be phrased as a guiding question referencing specific values.\n"
