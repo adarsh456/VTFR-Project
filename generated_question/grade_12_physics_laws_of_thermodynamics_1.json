@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Thermodynamics & Kinetic Theory",
+  "topic": "Laws of Thermodynamics",
+  "questionText": "A Carnot engine operates between a hot reservoir at 500K and a cold reservoir at 300K. What is the efficiency of this engine?",
+  "calculationDraft": "Correct: A Carnot engine operates between two reservoirs at temperatures 500K and 300K. Efficiency of a Carnot engine is given by the formula: efficiency = 1 - (T_cold / T_hot). Substituting the given temperatures: efficiency = 1 - (300K / 500K) = 1 - 0.6 = 0.4 or 40%. Distractor A (Computational Error): Student calculates efficiency as (T_hot - T_cold) / T_hot = (500K - 300K) / 500K = 200K / 500K = 0.4, but incorrectly converts it to a percentage, resulting in 40% being the correct answer but for the wrong reason. Distractor B (Conceptual Misconception): Student thinks the efficiency is directly proportional to the temperature difference and calculates it as (T_hot - T_cold) / T_hot = (500K - 300K) / 500K = 200K / 500K = 0.4, but then mistakenly doubles it to 80%. Distractor C (Trap): Student correctly calculates the efficiency as 40% but then mistakenly thinks this is the percentage of energy lost, not the percentage of energy efficiently used, leading them to believe the efficiency is actually 60%.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "60%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "20%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "80%",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "40%",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula for calculating the efficiency of a Carnot engine?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "efficiency = T_hot / T_cold",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "efficiency = 1 - (T_cold / T_hot)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "efficiency = (T_hot - T_cold) / T_hot",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "efficiency = (T_hot + T_cold) / T_hot",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Substitute the given temperatures into the efficiency formula to find the efficiency of the Carnot engine.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "efficiency = 1 - (400K / 500K) = 0.2 or 20%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "efficiency = 1 - (300K / 400K) = 0.25 or 25%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "efficiency = 1 - (200K / 500K) = 0.6 or 60%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "efficiency = 1 - (300K / 500K) = 0.4 or 40%",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "54d8b8d4-39a8-4af5-a2c4-835f6c1d0635",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "If a Carnot engine operates between a hot reservoir at 800K and a cold reservoir at 200K, what is its efficiency?",
+      "calculationDraft": "Correct: A Carnot engine's efficiency is also related to the temperatures of its hot and cold reservoirs by the formula efficiency = 1 - (T_cold / T_hot). For a hot reservoir at 800K and a cold reservoir at 200K, efficiency = 1 - (200K / 800K) = 1 - 0.25 = 0.75 or 75%. Distractor A (Computational Error): Student miscalculates the ratio T_cold / T_hot as 200K / 700K instead of 200K / 800K, resulting in an incorrect efficiency of 1 - (200K / 700K) = 1 - 0.2857 = 0.7143 or 71.43%. Distractor B (Conceptual Misconception): Student believes the efficiency is directly proportional to the temperature of the hot reservoir and calculates it as (800K - 200K) / 800K = 600K / 800K = 0.75, but then mistakenly thinks this fraction represents the fraction of energy lost, not the efficiency. Distractor C (Trap): Student correctly calculates the efficiency as 75% but then mistakenly believes this is the maximum possible efficiency for any Carnot engine, not realizing it's specific to the given temperatures.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "90%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "25%",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "75%",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "50%",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What formula relates the efficiency of a Carnot engine to its reservoir temperatures?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "efficiency = (T_hot - T_cold) / T_cold",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "efficiency = 1 - (T_cold / T_hot)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "efficiency = T_cold / T_hot",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "efficiency = T_hot / (T_hot + T_cold)",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Calculate the efficiency using the given temperatures of 800K and 200K.",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "efficiency = 1 - (200K / 800K) = 0.75 or 75%",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "efficiency = 1 - (150K / 800K) = 0.8125 or 81.25%",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "efficiency = 1 - (200K / 700K) = 0.7143 or 71.43%",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "efficiency = 1 - (300K / 800K) = 0.625 or 62.5%",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The efficiency of a Carnot engine is determined by the temperatures of its hot and cold reservoirs, given by the formula efficiency = 1 - (T_cold / T_hot), where T_hot and T_cold are the temperatures of the hot and cold reservoirs, respectively.",
+    "youtubeResource": {
+      "title": "Carnot Engine Efficiency Calculation",
+      "searchQuery": "Carnot engine efficiency formula derivation and examples",
+      "url": "https://www.youtube.com/watch?v=8N1BxHgsoOw"
+    },
+    "imageResource": {
+      "title": "Carnot Engine Diagram",
+      "searchQuery": "Carnot engine diagram with hot and cold reservoirs",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/GPT_3D_Diagram_en.svg/1280px-GPT_3D_Diagram_en.svg.png"
+    },
+    "pdfResource": {
+      "title": "Thermodynamics Notes - Carnot Engine",
+      "searchQuery": "Grade 12 physics thermodynamics notes Carnot engine efficiency",
+      "url": "https://physicsfundamentals.com/wp-content/uploads/2026/07/Laws-of-Thermodynamics-Notes.pdf"
+    },
+    "webResource": {
+      "title": "Carnot Engine Efficiency Explanation",
+      "searchQuery": "Carnot engine efficiency explanation and examples for Grade 12 physics",
+      "url": "https://en.wikipedia.org/wiki/Laws_of_thermodynamics"
+    }
+  }
+}

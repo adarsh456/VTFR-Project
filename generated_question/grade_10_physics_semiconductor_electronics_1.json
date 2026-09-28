@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Physics",
+  "chapter": "Optics & Modern Physics",
+  "topic": "Semiconductor Electronics",
+  "questionText": "A silicon diode is connected in series with a 1k\u03a9 resistor and a 5V battery. What is the current flowing through the diode, given that the forward voltage drop of the silicon diode is 0.7V?",
+  "calculationDraft": "Correct: To find the current flowing through the diode, we first need to calculate the voltage across it. Given the circuit with a 5V battery, a 1k\u03a9 resistor, and a silicon diode with a forward voltage drop of 0.7V, the voltage across the diode (Vd) is 5V - 0.7V = 4.3V. Then, using Ohm's law, I = V/R, where V is the voltage across the resistor (which is the same as the battery voltage minus the diode voltage drop, so 5V - 0.7V = 4.3V) and R is the resistance (1k\u03a9 or 1000\u03a9), we find I = 4.3V / 1000\u03a9 = 0.0043A or 4.3mA. Distractor A (Computational Error): Student incorrectly calculates the voltage across the resistor as 5V - 1V = 4V, leading to I = 4V / 1000\u03a9 = 0.004A or 4mA. Distractor B (Conceptual Misconception): Student forgets to account for the diode's voltage drop, using the full 5V, leading to I = 5V / 1000\u03a9 = 0.005A or 5mA. Distractor C (Trap): Student correctly calculates the voltage across the diode but then incorrectly applies it to find the current, for example, using the diode voltage drop in the calculation as if it were the voltage across the resistor, I = 0.7V / 1000\u03a9 = 0.0007A or 0.7mA.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "3mA",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "4.3mA",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "0.7mA",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "5mA",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the voltage across the diode in the given circuit?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4.3V",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "5V",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1V",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "0.7V",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Using Ohm's law, what is the current flowing through the resistor (and thus the diode) if the voltage across the resistor is 4.3V and the resistance is 1k\u03a9?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4.3mA",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "4mA",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "0.7mA",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "3mA",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "fc1e9349-3861-4fba-8e77-b4a1fa906181",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A 9V battery is connected to a 3k\u03a9 resistor. What is the current flowing through the circuit?",
+      "calculationDraft": "Correct: For a simple circuit with a battery and a resistor, the current (I) can be found using Ohm's law, I = V/R, where V is the voltage of the battery and R is the resistance. Given a 9V battery and a 3k\u03a9 resistor, I = 9V / 3000\u03a9 = 0.003A or 3mA. Distractor A: Student calculates the current as if the resistance were 300\u03a9, leading to I = 9V / 300\u03a9 = 0.03A or 30mA. Distractor B: Student forgets to convert the resistance from k\u03a9 to \u03a9, leading to an incorrect calculation. Distractor C: Student uses the wrong formula, such as I = V * R, leading to an incorrect result.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "300mA",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "0.3mA",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "3mA",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "30mA",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What formula is used to calculate the current in a simple circuit with a battery and a resistor?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "I = R / V",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "I = V * R",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "I = V / R",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "I = V + R",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the 9V battery and the 3k\u03a9 resistor, what is the current flowing through the circuit using the correct formula?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "300mA",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "3mA",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "0.3mA",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "30mA",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Semiconductor electronics involves the study of the flow of electrical current in materials that have electrical conductivity between that of a conductor and an insulator. This includes diodes, transistors, and other semiconductor devices. Understanding how these devices work and how to calculate currents and voltages in circuits containing them is crucial for designing and analyzing electronic circuits.",
+    "youtubeResource": {
+      "title": "Introduction to Semiconductor Electronics",
+      "searchQuery": "Grade 10 Physics Semiconductor Electronics tutorial",
+      "url": "https://www.youtube.com/watch?v=j5dj5Q-oi6w"
+    },
+    "imageResource": {
+      "title": "Diode Circuit Diagram",
+      "searchQuery": "diode circuit diagram",
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/NPN_Band_Diagram_Active-ar.svg/1280px-NPN_Band_Diagram_Active-ar.svg.png"
+    },
+    "pdfResource": {
+      "title": "Semiconductor Electronics Notes",
+      "searchQuery": "Grade 10 Physics Semiconductor Electronics notes pdf",
+      "url": "https://dpvipracollege.ac.in/wp-content/uploads/2023/01/semiconductors-lecture-notes-1_0.pdf"
+    },
+    "webResource": {
+      "title": "Semiconductor Electronics Tutorial",
+      "searchQuery": "Semiconductor Electronics tutorial for beginners",
+      "url": "https://www.next.gr/tutorials/basic-electronics-principles/basic-semiconductor-physics-tutorial"
+    }
+  }
+}

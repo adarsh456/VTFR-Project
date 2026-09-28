@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Complex Numbers and Quadratic Equations",
+  "questionText": "Solve the quadratic equation z^2 + 4z + 5 = 0 for z, where z is a complex number.",
+  "calculationDraft": "Correct: To solve the equation z^2 + 4z + 5 = 0, we use the quadratic formula z = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a, where a = 1, b = 4, and c = 5. Plugging these values into the formula gives z = (-4 \u00b1 \u221a(4^2 - 4*1*5)) / 2*1 = (-4 \u00b1 \u221a(16 - 20)) / 2 = (-4 \u00b1 \u221a(-4)) / 2 = (-4 \u00b1 2i) / 2. Simplifying gives two solutions: z = (-4 + 2i) / 2 = -2 + i and z = (-4 - 2i) / 2 = -2 - i. Distractor A (Computational Error): Student incorrectly calculates the discriminant as b^2 - 4ac = 4^2 - 4*1*4 = 16 - 16 = 0, leading to the wrong conclusion that the equation has one real solution. Distractor B (Conceptual Misconception): Student mistakenly applies the quadratic formula for real numbers only, ignoring the possibility of complex roots. Distractor C (Trap): Student correctly applies the quadratic formula but incorrectly simplifies the expression, for example, forgetting to divide by 2a, leading to an incorrect solution like z = -4 \u00b1 \u221a(-4).",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "z = -3 + i and z = -3 - i",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "z = -1 + i and z = -1 - i",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "z = -2 + i and z = -2 - i",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "z = -2 + 2i and z = -2 - 2i",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What are the values of a, b, and c in the quadratic equation z^2 + 4z + 5 = 0?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "a = 1, b = 3, c = 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "a = 1, b = 4, c = 5",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "a = 2, b = 4, c = 5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "a = 1, b = 5, c = 4",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Using the quadratic formula z = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a, what is the discriminant (b^2 - 4ac) for the given equation?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "16 - 20 = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "16 - 20 = 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "16 - 20 = -4",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "16 - 20 = -16",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3d7e39",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the quadratic equation x^2 + 2x + 2 = 0 for x, where x is a complex number.",
+      "calculationDraft": "Correct: For the equation x^2 + 2x + 2 = 0, applying the quadratic formula x = (-b \u00b1 \u221a(b^2 - 4ac)) / 2a gives x = (-2 \u00b1 \u221a(2^2 - 4*1*2)) / 2*1 = (-2 \u00b1 \u221a(4 - 8)) / 2 = (-2 \u00b1 \u221a(-4)) / 2 = (-2 \u00b1 2i) / 2. Simplifying yields x = -1 + i and x = -1 - i. Distractor A: Incorrectly calculates the discriminant as b^2 - 4ac = 2^2 - 4*1*1 = 4 - 4 = 0, leading to the wrong conclusion of one real solution. Distractor B: Applies the formula correctly but simplifies incorrectly, for example, x = -2 \u00b1 \u221a(-4) without dividing by 2a. Distractor C: Correctly applies the quadratic formula but incorrectly identifies the roots, for example, x = -1 \u00b1 2i.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -1 + i and x = -1 - i",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 1 + i and x = 1 - i",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -2 + i and x = -2 - i",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = -1 + 2i and x = -1 - 2i",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the value of the discriminant (b^2 - 4ac) in the equation x^2 + 2x + 2 = 0?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2^2 - 4*1*2 = 4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "2^2 - 4*1*2 = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "2^2 - 4*1*2 = -8",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "2^2 - 4*1*2 = -4",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Using the quadratic formula, what are the solutions to the equation x^2 + 2x + 2 = 0?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x = -1 + 2i and x = -1 - 2i",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "x = -2 + i and x = -2 - i",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x = -1 + i and x = -1 - i",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x = 1 + i and x = 1 - i",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The quadratic formula is used to solve quadratic equations of the form ax^2 + bx + c = 0. For complex roots, the discriminant (b^2 - 4ac) is negative, and the roots are expressed in terms of i, where i is the imaginary unit with the property that i^2 = -1.",
+    "youtubeResource": {
+      "title": "Solving Quadratic Equations with Complex Roots",
+      "searchQuery": "quadratic formula complex roots tutorial",
+      "url": "https://www.youtube.com/watch?v=XFzX_-bBKOo"
+    },
+    "imageResource": {
+      "title": "Complex Quadratic Formula Diagram",
+      "searchQuery": "quadratic formula complex roots diagram",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Quadratic_function_graph_complex_roots.svg/1280px-Quadratic_function_graph_complex_roots.svg.png"
+    },
+    "pdfResource": {
+      "title": "Complex Numbers and Quadratic Equations Study Guide",
+      "searchQuery": "complex numbers and quadratic equations pdf",
+      "url": "https://chapternotes.in/wp-content/uploads/2026/06/complex-numbers-and-quadratic-equations-class-11-notes-chapternotes.pdf"
+    },
+    "webResource": {
+      "title": "Complex Roots of Quadratic Equations",
+      "searchQuery": "complex roots quadratic equations",
+      "url": "https://math.libretexts.org/Bookshelves/Algebra/Elementary_Algebra_(LibreTexts)/09%3A_Solving_Quadratic_Equations_and_Graphing_Parabolas/9.06%3A_Introduction_to_Complex_Numbers_and_Complex_Solutions"
+    }
+  }
+}

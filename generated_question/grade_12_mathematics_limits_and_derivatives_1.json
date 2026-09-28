@@ -1,0 +1,259 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Limits and Derivatives",
+  "questionText": "Find the derivative of the function f(x) = 3x^2 + 2x - 5.",
+  "calculationDraft": "Correct: Find the derivative of f(x) = 3x^2 + 2x - 5 using the power rule. The derivative of x^n is nx^(n-1). So, f'(x) = d(3x^2)/dx + d(2x)/dx - d(5)/dx = 6x + 2. Distractor A (Computational Error): Student forgets to apply the power rule correctly for the first term, resulting in 3x + 2. Distractor B (Conceptual Misconception): Student thinks the derivative of a constant is the constant itself, not zero, resulting in f'(x) = 6x + 2 - 5. Distractor C (Trap): Student correctly applies the power rule but forgets to combine like terms, resulting in f'(x) = 6x^1 + 2x^0, which simplifies incorrectly to 6x + 2x^0, not recognizing x^0 as 1.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "f'(x) = 3x + 2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "f'(x) = 6x^1 + 2x^0",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "f'(x) = 6x + 2",
+      "isCorrect": true,
+      "explanation": "The derivative of x^n is nx^(n-1), so applying this rule to each term in f(x) = 3x^2 + 2x - 5 gives f'(x) = 6x + 2. The derivative of a constant is zero."
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "f'(x) = 6x + 2 - 5",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the derivative of the term 3x^2 in the function f(x) = 3x^2 + 2x - 5?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "9x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "12x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "6x",
+          "isCorrect": true,
+          "explanation": "Using the power rule, the derivative of x^n is nx^(n-1), so the derivative of 3x^2 is 3*2x^(2-1) = 6x."
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the derivative of the term 2x in the function f(x) = 3x^2 + 2x - 5?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "2",
+          "isCorrect": true,
+          "explanation": "The derivative of x is 1, and using the constant multiple rule, the derivative of 2x is 2*1 = 2."
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "4",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "a8dfeeef-c689-4fd4-964f-5469502fc219",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the derivative of the function f(x) = x^2.",
+      "calculationDraft": "Correct: Find the derivative of f(x) = x^2 using the power rule. The derivative of x^n is nx^(n-1). So, f'(x) = d(x^2)/dx = 2x. Distractor A (Computational Error): Student applies the power rule incorrectly, resulting in f'(x) = x. Distractor B (Conceptual Misconception): Student thinks the derivative of x^2 is x^2 itself. Distractor C (Trap): Student applies the power rule but forgets to simplify, resulting in f'(x) = 2x^1, which they incorrectly think is not the same as 2x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "f'(x) = 2x^1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "f'(x) = 2x",
+          "isCorrect": true,
+          "explanation": "Using the power rule, the derivative of x^n is nx^(n-1), so the derivative of x^2 is 2x^(2-1) = 2x."
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "f'(x) = x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "f'(x) = x^2",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the derivative of x^2 using the power rule?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "2x",
+              "isCorrect": true,
+              "explanation": "The derivative of x^n is nx^(n-1), so for x^2, it is 2x^(2-1) = 2x."
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x^2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "f3c3643c-aa6e-4ef3-bc8e-92245d3943f2",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Find the derivative of the function f(x) = 4x^3 - 2x^2 + x - 1.",
+      "calculationDraft": "Correct: Find the derivative of f(x) = 4x^3 - 2x^2 + x - 1. Using the power rule for each term: d(4x^3)/dx = 12x^2, d(-2x^2)/dx = -4x, d(x)/dx = 1, and d(-1)/dx = 0. So, f'(x) = 12x^2 - 4x + 1. Distractor A (Computational Error): Student incorrectly applies the power rule to the first term, getting 4x^2. Distractor B (Conceptual Misconception): Student thinks the derivative of x^n is x^(n+1), resulting in f'(x) = 4x^4 - 2x^3 + x^2 - 1. Distractor C (Trap): Student correctly applies the power rule but forgets to include the derivative of the constant term, resulting in f'(x) = 12x^2 - 4x + x.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "f'(x) = 4x^2 - 4x + 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "f'(x) = 12x^2 - 4x + x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "f'(x) = 12x^2 - 4x + 1",
+          "isCorrect": true,
+          "explanation": "Applying the power rule to each term: the derivative of 4x^3 is 12x^2, of -2x^2 is -4x, of x is 1, and of -1 is 0. Combining these gives f'(x) = 12x^2 - 4x + 1."
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "f'(x) = 4x^4 - 2x^3 + x^2 - 1",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the derivative of the term 4x^3 in the function f(x) = 4x^3 - 2x^2 + x - 1?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "12x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "4x^2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "12x^2",
+              "isCorrect": true,
+              "explanation": "Using the power rule, the derivative of x^n is nx^(n-1), so the derivative of 4x^3 is 4*3x^(3-1) = 12x^2."
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the derivative of the term -2x^2 in the function f(x) = 4x^3 - 2x^2 + x - 1?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "-4x",
+              "isCorrect": true,
+              "explanation": "The derivative of x^n is nx^(n-1), and using the constant multiple rule, the derivative of -2x^2 is -2*2x^(2-1) = -4x."
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "4x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "2x",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "-2x",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The derivative of a function represents the rate of change of the function with respect to its variable. It is found using rules such as the power rule, which states that if f(x) = x^n, then f'(x) = nx^(n-1).",
+    "youtubeResource": {
+      "title": "Derivatives Using the Power Rule",
+      "searchQuery": "power rule for derivatives",
+      "url": "https://www.youtube.com/watch?v=uTmTjJ8Zugk"
+    },
+    "imageResource": {
+      "title": "Power Rule Diagram",
+      "searchQuery": "power rule for derivatives diagram",
+      "url": "D:/VTFR code/VTFR-Project/generated_question/concept_cards/limits_and_derivatives_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Calculus Derivatives Notes",
+      "searchQuery": "calculus derivatives notes pdf",
+      "url": "https://ncertbooks.org/wp-content/uploads/ncb-pdfs/class-11-maths-chapter-12-limits-and-derivatives-revision-notes-4121.pdf"
+    },
+    "webResource": {
+      "title": "Derivatives Tutorial",
+      "searchQuery": "derivatives tutorial",
+      "url": "https://math.libretexts.org/Courses/Northern_Illinois_University/Calculus_I_Notes/01%3A_Limits_and_Continuity"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Analyze",
+  "difficultyTag": "Hard",
+  "grade": "Grade 11",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Continuity and Differentiability",
+  "questionText": "Is the function f(x) = (x^2 - 4) / (x - 2) continuous at x = 2?",
+  "calculationDraft": "Correct: To determine if the function f(x) = (x^2 - 4) / (x - 2) is continuous at x = 2, we first simplify the function by factoring the numerator: f(x) = ((x + 2)(x - 2)) / (x - 2). Then, we cancel out the common factor (x - 2), resulting in f(x) = x + 2 for x \u2260 2. Since the simplified function is a linear function, it is continuous everywhere. However, we must check if the original function is defined at x = 2. Since f(2) is undefined (division by zero), the function is not continuous at x = 2. Distractor A (Computational Error): Student incorrectly simplifies the function to f(x) = x - 2, leading to the conclusion that the function is continuous at x = 2. Distractor B (Conceptual Misconception): Student believes that since the simplified function is continuous, the original function must also be continuous at x = 2, ignoring the fact that the original function is undefined at x = 2. Distractor C (Trap): Student correctly simplifies the function but fails to check if the original function is defined at x = 2, concluding that the function is continuous at x = 2 without proper justification.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "The continuity of the function at x = 2 cannot be determined",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "The function is continuous at x = 2, but only for the simplified form",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Yes, the function is continuous at x = 2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "No, the function is not continuous at x = 2",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the simplified form of the function f(x) = (x^2 - 4) / (x - 2) after factoring the numerator?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "f(x) = x - 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "f(x) = (x + 2)(x - 2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "f(x) = x + 2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "f(x) = x^2 - 4",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Is the simplified function f(x) = x + 2 continuous at x = 2?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "No, the function is not continuous at x = 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Yes, the function is continuous at x = 2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "The function is continuous at x = 2, but only for certain values of x",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "The continuity of the function at x = 2 depends on the original function",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "106fe777-5699-43d4-90f6-a3e0f5d05479",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Is the function f(x) = x^2 continuous at x = 1?",
+      "calculationDraft": "Correct: The function f(x) = x^2 is continuous at x = 1 because it is a polynomial function, and polynomial functions are continuous everywhere. Distractor A (Computational Error): Student believes that the function is not continuous at x = 1 because it is not defined at x = 0. Distractor B (Conceptual Misconception): Student thinks that continuity depends on the function's derivative, not its definition. Distractor C (Trap): Student correctly identifies the function as continuous but fails to provide a reason why.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "No, the function is not continuous at x = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "The function is continuous at x = 1, but only for the interval [0, 1]",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "The continuity of the function at x = 1 cannot be determined",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Yes, the function is continuous at x = 1",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What type of function is f(x) = x^2?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Trigonometric function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Rational function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Exponential function",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Polynomial function",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Are polynomial functions continuous everywhere?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The continuity of polynomial functions depends on their degree",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Yes, polynomial functions are continuous everywhere",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "No, polynomial functions are not continuous everywhere",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Polynomial functions are continuous only for certain intervals",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Continuity and differentiability are fundamental concepts in calculus that describe the behavior of functions. A function is continuous at a point if its limit exists at that point and is equal to the function's value. Differentiability is a stronger condition that implies continuity and allows for the calculation of derivatives.",
+    "youtubeResource": {
+      "title": "Continuity and Differentiability Tutorial",
+      "searchQuery": "Grade 11 Mathematics Continuity and Differentiability step by step tutorial",
+      "url": "https://www.youtube.com/watch?v=nRv1lPqrx3k"
+    },
+    "imageResource": {
+      "title": "Continuity and Differentiability Diagram",
+      "searchQuery": "Grade 11 Mathematics Continuity and Differentiability educational diagram",
+      "url": "D:/VTFR code/VTFR-Project/generated_question/concept_cards/continuity_and_differentiability_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Continuity and Differentiability Revision Notes",
+      "searchQuery": "Grade 11 Mathematics Continuity and Differentiability revision notes pdf",
+      "url": "https://ncertbooks.org/wp-content/uploads/ncb-pdfs/class-12-mathematics-chapter-5-continuity-and-differentiability-revision-notes-4295.pdf"
+    },
+    "webResource": {
+      "title": "Continuity and Differentiability Concept Guide",
+      "searchQuery": "Mathematics Continuity and Differentiability concept guide",
+      "url": "https://www.khanacademy.org/math/calculus-1/cs1-derivatives-definition-and-basic-rules/cs1-differentiability/v/differentiability"
+    }
+  }
+}

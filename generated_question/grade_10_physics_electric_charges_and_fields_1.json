@@ -1,0 +1,201 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 10",
+  "subject": "Physics",
+  "chapter": "Electromagnetism",
+  "topic": "Electric Charges and Fields",
+  "questionText": "A point charge of 2 * 10^-6 C is placed in space. What is the electric potential at a point 0.05 meters away from the charge?",
+  "calculationDraft": "Correct: To find the electric potential at a point due to a point charge, we use the formula V = k * q / r. Given q = 2 * 10^-6 C and r = 0.05 m, and k = 9 * 10^9 N*m^2/C^2, we substitute these values into the formula to get V = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (0.05 m) = 360,000 V. Distractor A (Computational Error): Student incorrectly calculates the value as V = k * q * r, resulting in V = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) * (0.05 m) = 900 V. Distractor B (Conceptual Misconception): Student uses the wrong formula, thinking it's related to electric field intensity E = k * q / r^2, and calculates V = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (0.05 m)^2 = 72,000,000 V. Distractor C (Partially Correct / Trap): Student forgets to convert the distance to meters or uses the wrong unit for charge, resulting in a miscalculation like V = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (5 cm) = 3,600,000 V.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "360,000 V",
+      "isCorrect": true,
+      "explanation": "The electric potential due to a point charge is calculated using the formula V = k * q / r, where k is Coulomb's constant, q is the charge, and r is the distance from the charge. Substituting the given values into the formula yields the correct answer."
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "72,000,000 V",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "3,600,000 V",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "900 V",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula to calculate the electric potential at a point due to a point charge?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "V = k / (q * r)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "V = k * q / r",
+          "isCorrect": true,
+          "explanation": "The formula for electric potential due to a point charge is V = k * q / r, where V is the electric potential, k is Coulomb's constant, q is the charge, and r is the distance from the charge."
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "V = k * q * r",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "V = k + q + r",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given q = 2 * 10^-6 C and r = 0.05 m, and using the correct formula, what is the electric potential at the point?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "360 V",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "3,600 V",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "36,000 V",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "360,000 V",
+          "isCorrect": true,
+          "explanation": "Substituting the given values into the formula V = k * q / r gives V = (9 * 10^9 N*m^2/C^2) * (2 * 10^-6 C) / (0.05 m) = 360,000 V."
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "a92a9e38-5ff3-418b-913d-6e54509dfd16",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What is the electric field intensity at a point 0.1 meters away from a 5 * 10^-6 C point charge?",
+      "calculationDraft": "Correct: The electric field intensity due to a point charge is given by E = k * q / r^2. For q = 5 * 10^-6 C and r = 0.1 m, E = (9 * 10^9 N*m^2/C^2) * (5 * 10^-6 C) / (0.1 m)^2 = 4,500,000 N/C. Distractor A: Student calculates E = k * q * r, resulting in E = (9 * 10^9 N*m^2/C^2) * (5 * 10^-6 C) * (0.1 m) = 4,500 N/C. Distractor B: Student uses the wrong formula, E = k * q / r, and calculates E = (9 * 10^9 N*m^2/C^2) * (5 * 10^-6 C) / (0.1 m) = 450,000 N/C. Distractor C: Student forgets to square the distance, calculating E = (9 * 10^9 N*m^2/C^2) * (5 * 10^-6 C) / (0.1 m) = 450,000 N/C.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4,500 N/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "450,000 N/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "45,000 N/C",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "4,500,000 N/C",
+          "isCorrect": true,
+          "explanation": "The electric field intensity due to a point charge is calculated using the formula E = k * q / r^2. Substituting the given values yields the correct answer."
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What formula is used to calculate the electric field intensity due to a point charge?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "E = k / (q * r)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "E = k * q * r",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "E = k * q / r^2",
+              "isCorrect": true,
+              "explanation": "The formula for electric field intensity due to a point charge is E = k * q / r^2, where E is the electric field intensity, k is Coulomb's constant, q is the charge, and r is the distance from the charge."
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "E = k * q / r",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given q = 5 * 10^-6 C and r = 0.1 m, what is the electric field intensity at the point using the correct formula?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "4,500 N/C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "45,000 N/C",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "4,500,000 N/C",
+              "isCorrect": true,
+              "explanation": "Substituting the given values into the formula E = k * q / r^2 gives E = (9 * 10^9 N*m^2/C^2) * (5 * 10^-6 C) / (0.1 m)^2 = 4,500,000 N/C."
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "450,000 N/C",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Electric charges and fields are fundamental concepts in physics, where charges interact with each other through forces that can be either attractive or repulsive. The electric potential and field intensity around a point charge can be calculated using specific formulas, which are crucial for understanding various phenomena in electromagnetism.",
+    "youtubeResource": {
+      "title": "Electric Charges and Fields Tutorial",
+      "searchQuery": "Grade 10 Physics Electric Charges and Fields step by step tutorial",
+      "url": "https://www.youtube.com/watch?v=nN9n3quiJto"
+    },
+    "imageResource": {
+      "title": "Electric Field Lines Diagram",
+      "searchQuery": "Grade 10 Physics Electric Charges and Fields electric field lines educational diagram",
+      "url": "D:/VTFR code/VTFR-Project/generated_question/concept_cards/electric_charges_and_fields_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Electric Charges and Fields Revision Notes",
+      "searchQuery": "Grade 10 Physics Electric Charges and Fields revision notes pdf",
+      "url": "https://ncertbooks.org/wp-content/uploads/ncb-pdfs/revision-notes-class-12-physics-chapter-1-electric-charges-and-fields-2794.pdf"
+    },
+    "webResource": {
+      "title": "Electric Charges and Fields Concept Guide",
+      "searchQuery": "Physics Electric Charges and Fields concept guide",
+      "url": "https://www.khanacademy.org/science/highschool-physics/x6679aa2c65c01e53:electrostatics/x6679aa2c65c01e53:coulombs-law/v/electric-field-definition"
+    }
+  }
+}

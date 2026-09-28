@@ -6,6 +6,15 @@ import random
 from urllib.parse import quote_plus
 from config import SYLLABUS
 import chains
+import resource_resolver
+
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 
 def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, exclude_questions: list = None, num_alternate_questions: int = 3):
 
@@ -47,7 +56,9 @@ def _enrich_related_content(data: dict):
     
     grade = data.get("grade", "")
     subject = data.get("subject", "")
+    chapter = data.get("chapter", "")
     topic = data.get("topic", "")
+    question_text = data.get("questionText", "")
 
     if "relatedContent" not in data or not isinstance(data["relatedContent"], dict):
         data["relatedContent"] = {}
@@ -57,41 +68,65 @@ def _enrich_related_content(data: dict):
     # 1. Concept Summary Fallback
     if "conceptSummary" not in rel or not rel["conceptSummary"]:
         rel["conceptSummary"] = f"Review the foundational principles of {topic} in {subject} to understand step-by-step problem solving."
+    concept_summary = rel["conceptSummary"]
 
-    # 2. YouTube Resource
+    # 2. YouTube Resource (Exact direct video link)
     yt = rel.get("youtubeResource", {})
     yt_query = yt.get("searchQuery") or f"{grade} {subject} {topic} concept explanation tutorial"
+    yt_url = resource_resolver.get_exact_youtube_url(yt_query, topic)
     rel["youtubeResource"] = {
         "title": yt.get("title") or f"{topic} Video Lesson",
         "searchQuery": yt_query,
-        "url": f"https://www.youtube.com/results?search_query={quote_plus(yt_query)}"
+        "url": yt_url
     }
 
-    # 3. Image Resource (Diagrams/Charts)
+    # 3. Image Resource (5-Panel Educational Concept Card Image / Diagram)
     img = rel.get("imageResource", {})
-    img_query = img.get("searchQuery") or f"{subject} {topic} formula diagram chart"
+    img_query = img.get("searchQuery")
+    if not img_query or len(img_query.split()) < 4:
+        img_query = resource_resolver.build_structured_image_query(
+            grade=grade,
+            subject=subject,
+            chapter=chapter,
+            topic=topic,
+            question_text=question_text,
+            concept_summary=concept_summary
+        )
+
+    img_url = resource_resolver.get_exact_image_url(
+        query=img_query,
+        topic=topic,
+        subject=subject,
+        chapter=chapter,
+        grade=grade,
+        question_text=question_text,
+        concept_summary=concept_summary
+    )
+
     rel["imageResource"] = {
-        "title": img.get("title") or f"{topic} Visual Diagram / Chart",
+        "title": img.get("title") or f"{topic} Educational Concept Card",
         "searchQuery": img_query,
-        "url": f"https://www.google.com/search?tbm=isch&q={quote_plus(img_query)}"
+        "url": img_url
     }
 
-    # 4. PDF Resource
+    # 4. PDF Resource (Exact direct PDF notes / study sheet link)
     pdf = rel.get("pdfResource", {})
     pdf_query = pdf.get("searchQuery") or f"{grade} {subject} {topic} study notes revision pdf"
+    pdf_url = resource_resolver.get_exact_pdf_url(pdf_query, topic, subject)
     rel["pdfResource"] = {
         "title": pdf.get("title") or f"{topic} Revision Notes PDF",
         "searchQuery": pdf_query,
-        "url": f"https://www.google.com/search?q={quote_plus(pdf_query + ' filetype:pdf')}"
+        "url": pdf_url
     }
 
-    # 5. Web Resource
+    # 5. Web Resource (Exact direct educational article link)
     web = rel.get("webResource", {})
     web_query = web.get("searchQuery") or f"{grade} {subject} {topic} explained examples"
+    web_url = resource_resolver.get_exact_web_url(web_query, topic, subject)
     rel["webResource"] = {
         "title": web.get("title") or f"{topic} Reference Article",
         "searchQuery": web_query,
-        "url": f"https://www.google.com/search?q={quote_plus(web_query)}"
+        "url": web_url
     }
 
 
@@ -107,7 +142,7 @@ def _enforce_uuids(data: dict):
         qid = obj.get("questionId", "")
         if not qid or not uuid4_pattern.match(str(qid)):
             new_id = str(uuid.uuid4())
-            print(f"[UUID FIX] {label}: replaced '{qid}' → '{new_id}'")
+            print(f"[UUID FIX] {label}: replaced '{qid}' -> '{new_id}'")
             obj["questionId"] = new_id
 
     _fix(data, "main question")
@@ -374,18 +409,45 @@ if __name__ == "__main__":
     # Scan output directory to exclude previously generated questions
     output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated_question")
     exclude_list = []
+    MAX_EXCLUDE_FILES = 20
     if os.path.isdir(output_dir):
+        json_files = []
         for filename in os.listdir(output_dir):
-            if filename.endswith(".json"):
+            full_path = os.path.join(output_dir, filename)
+            if os.path.isfile(full_path) and filename.endswith(".json"):
+                json_files.append((full_path, os.path.getmtime(full_path)))
+        
+        # Sort files by modification time descending (newest first)
+        json_files.sort(key=lambda x: x[1], reverse=True)
+        
+        # FIFO Cleanup: delete older files if total count exceeds MAX_EXCLUDE_FILES
+        if len(json_files) > MAX_EXCLUDE_FILES:
+            for old_path, _ in json_files[MAX_EXCLUDE_FILES:]:
                 try:
-                    with open(os.path.join(output_dir, filename), "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                        if "questionText" in data:
-                            exclude_list.append(data["questionText"])
+                    os.remove(old_path)
                 except Exception:
                     pass
+            json_files = json_files[:MAX_EXCLUDE_FILES]
+            
+        same_subject_questions = []
+        other_questions = []
+        for full_path, _ in json_files:
+            try:
+                with open(full_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    q_text = data.get("questionText")
+                    if q_text:
+                        q_subj = data.get("subject", "")
+                        if q_subj.lower() == sub.lower():
+                            same_subject_questions.append(q_text)
+                        else:
+                            other_questions.append(q_text)
+            except Exception:
+                pass
+                
+        exclude_list = (same_subject_questions + other_questions)[:MAX_EXCLUDE_FILES]
 
-    print(f"Loaded {len(exclude_list)} existing questions to exclude:")
+    print(f"\nLoaded {len(exclude_list)} existing questions to exclude (Subject: {sub}, Max limit: {MAX_EXCLUDE_FILES}):")
     for eq in exclude_list:
         print(f"  - {eq}")
 
@@ -433,6 +495,17 @@ if __name__ == "__main__":
             json.dump(result, f, indent=2)
         
         print(f"Successfully saved generated question to {filepath}\n")
+        
+        # Enforce FIFO cleanup after saving as well
+        all_files = [(os.path.join(output_dir, fn), os.path.getmtime(os.path.join(output_dir, fn)))
+                     for fn in os.listdir(output_dir) if os.path.isfile(os.path.join(output_dir, fn)) and fn.endswith(".json")]
+        if len(all_files) > MAX_EXCLUDE_FILES:
+            all_files.sort(key=lambda x: x[1], reverse=True)
+            for old_p, _ in all_files[MAX_EXCLUDE_FILES:]:
+                try:
+                    os.remove(old_p)
+                except Exception:
+                    pass
         
         # Show the generated JSON in the terminal
         print("Generated VTFR JSON Payload:")

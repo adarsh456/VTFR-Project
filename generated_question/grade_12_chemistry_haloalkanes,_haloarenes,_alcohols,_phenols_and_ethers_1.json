@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Chemistry",
+  "chapter": "Organic Chemistry",
+  "topic": "Haloalkanes, Haloarenes, Alcohols, Phenols and Ethers",
+  "questionText": "What type of reaction occurs between chloroethane (C2H5Cl) and sodium hydroxide (NaOH)?",
+  "calculationDraft": "Correct: To determine the type of reaction between chloroethane (a haloalkane) and sodium hydroxide (NaOH), we consider the reaction mechanism. Chloroethane can undergo an SN1 or SN2 reaction with NaOH. Given the primary nature of the haloalkane, the reaction is more likely to proceed via an SN2 mechanism, resulting in the formation of ethanol (an alcohol) and sodium chloride (NaCl). Distractor A (Computational Error): Student mistakenly identifies the reaction as an elimination reaction, resulting in the formation of ethene. Distractor B (Conceptual Misconception): Student believes the reaction involves the substitution of the hydroxyl group (-OH) from NaOH onto the chloroethane, forming a haloalkane with a different halogen. Distractor C (Trap): Student thinks the reaction is an addition reaction, forming a compound with both -OH and -Cl functional groups.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "Addition reaction",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Elimination reaction",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "Nucleophilic substitution (SN2) reaction",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Hydrolysis reaction",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the nature of the haloalkane (primary, secondary, or tertiary) in the given reaction?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Tertiary",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Primary",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Secondary",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Quaternary",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Which reaction mechanism is more likely to occur with a primary haloalkane and a strong nucleophile like NaOH?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "SN1 mechanism",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "SN2 mechanism",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Electrophilic addition",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Elimination reaction",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "0c7ccb7e-8008-4910-9de9-a30001ed39d1",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What type of reaction occurs between bromoethane (C2H5Br) and potassium hydroxide (KOH)?",
+      "calculationDraft": "Correct: The reaction between bromoethane (a haloalkane) and potassium hydroxide (KOH) is an example of a nucleophilic substitution reaction. Distractor A (Computational Error): Student thinks it's an example of an elimination reaction. Distractor B (Conceptual Misconception): Student believes it involves the addition of the hydroxyl group (-OH) from KOH onto bromoethane. Distractor C (Trap): Student considers it a hydrolysis reaction.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Nucleophilic substitution reaction",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Elimination reaction",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Electrophilic addition reaction",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Hydrolysis reaction",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the role of KOH in the reaction with bromoethane?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Acting as a catalyst",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Acting as a nucleophile",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Acting as a leaving group",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Acting as an electrophile",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the expected product of the reaction between bromoethane and KOH?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Ethanol",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Potassium bromide",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Ethene",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Bromoethanol",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Haloalkanes undergo nucleophilic substitution reactions with strong nucleophiles like NaOH or KOH, resulting in the formation of alcohols. The reaction mechanism can be either SN1 or SN2, depending on the nature of the haloalkane.",
+    "youtubeResource": {
+      "title": "Nucleophilic Substitution Reactions of Haloalkanes",
+      "searchQuery": "nucleophilic substitution reactions of haloalkanes for grade 12 chemistry",
+      "url": "https://www.youtube.com/watch?v=ohjnpwpRiTA"
+    },
+    "imageResource": {
+      "title": "Mechanism of SN2 Reaction",
+      "searchQuery": "SN2 reaction mechanism diagram",
+      "url": "https://chem.libretexts.org/@api/deki/files/24163/examples.gif"
+    },
+    "pdfResource": {
+      "title": "Organic Chemistry Revision Notes - Haloalkanes",
+      "searchQuery": "grade 12 chemistry organic chemistry revision notes haloalkanes pdf",
+      "url": "https://chemistryworkshopjr.weebly.com/uploads/1/8/0/4/18041291/organic_name_reactions.pdf"
+    },
+    "webResource": {
+      "title": "Chemistry Guide - Nucleophilic Substitution Reactions",
+      "searchQuery": "chemistry guide nucleophilic substitution reactions",
+      "url": "https://collegedunia.com/articles/e-1731-ncert-handwritten-notes-class-12-chemistry-chapter-6-haloalkanes-and-haloarenes"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Optics & Modern Physics",
+  "topic": "Ray Optics and Optical Instruments",
+  "questionText": "A convex lens is made of a material with a refractive index of 1.5. The radii of curvature of its two surfaces are 10 cm and -20 cm. What is the focal length of this lens?",
+  "calculationDraft": "Correct: To find the focal length of the lens, we use the lensmaker's formula: 1/f = (n-1)(1/R1 - 1/R2), where n is the refractive index of the lens material, R1 and R2 are the radii of curvature of the two surfaces. For a convex lens, R1 is positive and R2 is negative. Given n = 1.5, R1 = 10 cm, and R2 = -20 cm, we plug these values into the formula: 1/f = (1.5-1)(1/10 - 1/-20) = 0.5(0.1 + 0.05) = 0.5 * 0.15 = 0.075. Thus, f = 1/0.075 = 13.33 cm. Distractor A (Computational Error): Student incorrectly assumes R2 is positive, leading to 1/f = (1.5-1)(1/10 - 1/20) = 0.5(0.1 - 0.05) = 0.025, so f = 1/0.025 = 40 cm. Distractor B (Conceptual Misconception): Student uses the wrong formula for a concave lens, which would be 1/f = (1-n)(1/R1 - 1/R2), resulting in a negative focal length. Distractor C (Partially Correct/Trap): Student correctly calculates 1/f but then incorrectly inverts the fraction to find f, resulting in f = 0.075 cm, which is not plausible for a lens focal length.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "13.33 cm",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "40 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "15 cm",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "0.075 cm",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the formula used to calculate the focal length of a lens, given its refractive index and the radii of curvature of its surfaces?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1/f = (n-1)(1/R1 - 1/R2)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "1/f = (n-1)(1/R1 + 1/R2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1/f = (n+1)(1/R1 + 1/R2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "1/f = (1-n)(1/R1 + 1/R2)",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Given the refractive index n = 1.5, and the radii of curvature R1 = 10 cm and R2 = -20 cm, what is the value of 1/f?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "0.1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "0.075",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "0.05",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "0.025",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b3c1c1c-4e4a-43c5-85e3-0f02f1d2e3f4",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A magnifying glass has a focal length of 5 cm. If the near point of the observer is 25 cm, what is the magnification of the magnifying glass?",
+      "calculationDraft": "Correct: For a simple magnifying glass, the magnification M is given by M = (25 cm) / f, where f is the focal length of the lens. Given f = 5 cm, M = (25 cm) / 5 cm = 5. Distractor A: Student uses the wrong formula, M = f / (25 cm), resulting in M = 5 cm / 25 cm = 0.2. Distractor B: Student incorrectly calculates the focal length, leading to f = 10 cm, and thus M = (25 cm) / 10 cm = 2.5. Distractor C: Student correctly calculates M but rounds incorrectly, resulting in M = 4.9.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "0.2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2.5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "5",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "4.9",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What formula is used to calculate the magnification of a simple magnifying glass?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "M = (25 cm) + f",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "M = f / (25 cm)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "M = f * (25 cm)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "M = (25 cm) / f",
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the focal length f = 5 cm, what is the magnification M of the magnifying glass?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "4.9",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "5.1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "5",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "4",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The magnification of a lens is determined by its focal length and the distance between the object and the lens. For a convex lens, the focal length is positive, and for a concave lens, it is negative. The lensmaker's formula is used to calculate the focal length of a lens given its refractive index and the radii of curvature of its surfaces.",
+    "youtubeResource": {
+      "title": "Lens and Mirror Physics",
+      "searchQuery": "Grade 12 Physics Lens and Mirror tutorial",
+      "url": "https://www.youtube.com/watch?v=1R5vH6KIpIk"
+    },
+    "imageResource": {
+      "title": "Lens and Mirror Diagrams",
+      "searchQuery": "Physics Lens and Mirror diagrams",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/ray_optics_and_optical_instruments_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Optics Notes",
+      "searchQuery": "Grade 12 Physics Optics notes pdf",
+      "url": "https://www.spiroacademy.com/pdf-notes/study-meterials/Physics/Ray-Optics.pdf"
+    },
+    "webResource": {
+      "title": "Physics Optics Tutorial",
+      "searchQuery": "Physics Optics tutorial for Grade 12",
+      "url": "https://www.khanacademy.org/science/telangana-class-12-physics/xa7b8ddfaf4be38cd:ray-optics-and-optical-instruments"
+    }
+  }
+}
