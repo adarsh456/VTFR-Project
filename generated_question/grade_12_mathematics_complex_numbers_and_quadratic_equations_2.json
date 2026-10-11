@@ -1,0 +1,195 @@
+{
+  "questionId": "4f7ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Complex Numbers and Quadratic Equations",
+  "questionText": "Solve the quadratic equation x^2 - 5x + 6 = 0 for x, where x is a real number. Select the correct set of roots.",
+  "calculationDraft": "Correct: The roots of the quadratic equation x^2 - 5x + 6 = 0 can be found using the quadratic formula: x = (-b \u00b1 \u221a(b^2 - 4ac)) / (2a). For this equation, a = 1, b = -5, and c = 6. Plugging these values into the formula gives x = (5 \u00b1 \u221a((-5)^2 - 4*1*6)) / (2*1) = (5 \u00b1 \u221a(25 - 24)) / 2 = (5 \u00b1 \u221a1) / 2. Simplifying this gives two roots: x = (5 + 1) / 2 = 3 and x = (5 - 1) / 2 = 2. Distractor A (Computational Error): Student incorrectly calculates the discriminant as b^2 - 4ac = (-5)^2 - 4*1*6 = 25 - 24 = 1, but then incorrectly solves for the roots, getting x = (5 \u00b1 \u221a1) / 1 instead of / 2, resulting in roots x = 5 + 1 = 6 and x = 5 - 1 = 4. Distractor B (Conceptual Misconception): Student attempts to factor the quadratic equation directly without using the quadratic formula, incorrectly factoring it as (x - 3)(x - 2) = 0, which is actually correct but the student mistakenly thinks the factors are (x - 4)(x - 3) = 0, leading to incorrect roots x = 4 and x = 3. Distractor C (Partially Correct / Trap): Student correctly applies the quadratic formula but only solves for one of the roots, finding x = (5 + 1) / 2 = 3 but not calculating the second root, or calculates the roots as x = (5 \u00b1 \u221a1) / 2 but doesn't simplify to get the exact values, resulting in roots being expressed as x = (5 + 1) / 2 and x = (5 - 1) / 2 without simplification to 3 and 2.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x = 3 and x = 2",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x = 4 and x = 3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x = 2 and x = 6",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x = 1 and x = 4",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What are the values of a, b, and c in the quadratic equation x^2 - 5x + 6 = 0?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "a = 1, b = -5, c = 6",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "a = 1, b = 6, c = -5",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "a = -1, b = 5, c = 6",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "a = 1, b = 5, c = -6",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Using the quadratic formula x = (-b \u00b1 \u221a(b^2 - 4ac)) / (2a), what is the discriminant (b^2 - 4ac) for the given equation?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "b^2 - 4ac = (-5)^2 - 4*1*6 = 1",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "b^2 - 4ac = (-5)^2 + 4*1*6 = 49",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "b^2 - 4ac = 25 + 24 = 49",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "b^2 - 4ac = 25 - 24 = -1",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9f7ac10b-58cc-4372-a567-0e02b2c3d480",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the quadratic equation x^2 - 3x - 4 = 0 for x by factoring.",
+      "calculationDraft": "Correct: For the equation x^2 - 3x - 4 = 0, factor it directly as (x - 4)(x + 1) = 0. Distractor A: Incorrectly factors it as (x - 3)(x - 1) = 0. Distractor B: Tries to use the quadratic formula but calculates the discriminant incorrectly as b^2 - 4ac = 9 + 16 = 25. Distractor C: Correctly factors but doesn't solve for x, leaving it as (x - 4)(x + 1) = 0 without finding the roots.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -1 and x = 4",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 3 and x = -1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -3 and x = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 1 and x = -4",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How can the quadratic equation x^2 - 3x - 4 = 0 be factored?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x - 4)(x + 1) = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x - 2)(x - 2) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 3)(x - 1) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x + 3)(x + 1) = 0",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Solving (x - 4)(x + 1) = 0 for x gives which roots?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x = -4 and x = 1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "x = 2 and x = -2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x = 4 and x = -1",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x = 3 and x = -3",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Quadratic equations can be solved using the quadratic formula or by factoring, depending on their form. The quadratic formula is x = (-b \u00b1 \u221a(b^2 - 4ac)) / (2a), where a, b, and c are coefficients from the equation ax^2 + bx + c = 0. Factoring involves expressing the quadratic equation as a product of two binomials.",
+    "youtubeResource": {
+      "title": "Solving Quadratic Equations",
+      "searchQuery": "Grade 12 Mathematics Solving Quadratic Equations step by step tutorial",
+      "url": "https://www.youtube.com/watch?v=7tu6_GH5qAw"
+    },
+    "imageResource": {
+      "title": "Quadratic Formula Diagram",
+      "searchQuery": "Quadratic Formula visual explanation diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/complex_numbers_and_quadratic_equations_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Quadratic Equations Revision Notes",
+      "searchQuery": "Grade 12 Mathematics Quadratic Equations revision notes pdf",
+      "url": "https://ncert.nic.in/textbook/pdf/kemh104.pdf"
+    },
+    "webResource": {
+      "title": "Complex Numbers and Quadratic Equations Guide",
+      "searchQuery": "Mathematics Complex Numbers and Quadratic Equations concept guide",
+      "url": "https://math.libretexts.org/Bookshelves/Algebra/Elementary_Algebra_(LibreTexts)/09%3A_Solving_Quadratic_Equations_and_Graphing_Parabolas/9.06%3A_Introduction_to_Complex_Numbers_and_Complex_Solutions"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Analyze",
+  "difficultyTag": "Hard",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Continuity and Differentiability",
+  "questionText": "Determine if the function f(x) = (x^2 - 4) / (x - 2) can be made continuous at x = 2 by appropriately defining f(2).",
+  "calculationDraft": "Correct: To determine if the function f(x) = (x^2 - 4) / (x - 2) is continuous at x = 2, we first simplify the function to f(x) = x + 2 for x \u2260 2. Since the limit as x approaches 2 is 4, and the function value at x = 2 is undefined but can be made continuous by defining f(2) = 4, the function can be made continuous. Distractor A (Computational Error): Incorrectly simplifying the function to f(x) = x - 2, leading to a limit of 0. Distractor B (Conceptual Misconception): Believing the function is discontinuous at x = 2 because it is undefined, without considering it can be made continuous by defining f(2) = 4. Distractor C (Trap): Correctly simplifying the function but then incorrectly stating the limit as x approaches 2 is 2, not 4.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "No, the function cannot be made continuous at x = 2.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "Yes, the function can be made continuous at x = 2 by defining f(2) = 4.",
+      "isCorrect": true
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "The function is already continuous at x = 2 without redefinition.",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "Yes, the function can be made continuous at x = 2 by defining f(2) = 0.",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the simplified form of the function f(x) = (x^2 - 4) / (x - 2) for x \u2260 2?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "f(x) = 2x - 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "f(x) = x + 2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "f(x) = x - 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "f(x) = x^2 + 2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "What is the limit of f(x) as x approaches 2, given its simplified form?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "The limit is 0.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "The limit is 2.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "The limit is 4.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "The limit is undefined.",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Is the function g(x) = |x| continuous at x = 0?",
+      "calculationDraft": "Correct: For the function g(x) = |x|, the limit as x approaches 0 from the right is 0, and from the left is also 0, making g(x) continuous at x = 0. Distractor A: Limit from the right is 1. Distractor B: Function is discontinuous because it's not differentiable at x = 0. Distractor C: Limit from the left is -1.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "The function g(x) is continuous for all x except x = 0.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "No, g(x) is not continuous at x = 0 because it's not defined at x = 0.",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Yes, g(x) is continuous at x = 0.",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "The continuity of g(x) at x = 0 depends on the definition of g(0).",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the limit of g(x) = |x| as x approaches 0 from the right?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The limit is 1.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The limit is 0.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The limit is undefined.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The limit is -1.",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the limit of g(x) = |x| as x approaches 0 from the left?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "The limit is -1.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "The limit is 0.",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "The limit is 1.",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "The limit is undefined.",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Continuity and differentiability are fundamental concepts in calculus that describe the behavior of functions. A function is continuous at a point if its limit exists at that point and equals the function's value. Differentiability implies continuity but not vice versa.",
+    "youtubeResource": {
+      "title": "Continuity and Differentiability Explained",
+      "searchQuery": "Grade 12 Mathematics Continuity and Differentiability tutorial",
+      "url": "https://www.youtube.com/watch?v=nRv1lPqrx3k"
+    },
+    "imageResource": {
+      "title": "Continuity and Differentiability Diagrams",
+      "searchQuery": "Continuity and Differentiability visual formula chart diagram",
+      "url": "D:/MKCL_Internship/MKCL_VTFR/generated_question/concept_cards/continuity_and_differentiability_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Continuity and Differentiability Notes",
+      "searchQuery": "Grade 12 Mathematics Continuity and Differentiability revision notes pdf",
+      "url": "https://egyankosh.ac.in/bitstream/123456789/28503/1/Unit-2.pdf"
+    },
+    "webResource": {
+      "title": "Continuity and Differentiability Guide",
+      "searchQuery": "Mathematics Continuity and Differentiability concept guide",
+      "url": "https://www.cuemath.com/calculus/continuity-and-differentiability/"
+    }
+  }
+}

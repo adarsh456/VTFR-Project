@@ -131,23 +131,10 @@ def _enrich_related_content(data: dict):
 
 
 def _enforce_uuids(data: dict):
-   
-    import re
-    uuid4_pattern = re.compile(
-        r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
-        re.IGNORECASE
-    )
-
-    def _fix(obj: dict, label: str):
-        qid = obj.get("questionId", "")
-        if not qid or not uuid4_pattern.match(str(qid)):
-            new_id = str(uuid.uuid4())
-            print(f"[UUID FIX] {label}: replaced '{qid}' -> '{new_id}'")
-            obj["questionId"] = new_id
-
-    _fix(data, "main question")
-    for i, alt in enumerate(data.get("alternateQuestions", [])):
-        _fix(alt, f"alternateQuestions[{i}]")
+    # Always assign fresh unique UUID4s to avoid collisions with example template UUIDs
+    data["questionId"] = str(uuid.uuid4())
+    for alt in data.get("alternateQuestions", []):
+        alt["questionId"] = str(uuid.uuid4())
 
 
 def _shuffle_options(data: dict):
