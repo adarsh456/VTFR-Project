@@ -1,28 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { getSyllabus, generateQuestion } from '../../services/questionService';
+import { 
+  DEFAULT_GRADE_SYLLABUS, 
+  getGrades, 
+  getSubjectsForGrade, 
+  getChaptersForSubject, 
+  getTopicsForChapter 
+} from '../../data/curriculumData';
 import { Sparkles, Loader2, RefreshCw, UploadCloud, CheckCircle2, ChevronDown } from 'lucide-react';
 import axios from 'axios';
 
 export default function QuestionGeneratorForm({ onQuestionGenerated }) {
-  const [syllabusData, setSyllabusData] = useState(null);
-  const [subjects, setSubjects] = useState(['Physics', 'Mathematics', 'Chemistry']);
-  const [availableTopics, setAvailableTopics] = useState([
-    'Binary Search Tree (BST) Insertion',
-    'Limits and Derivatives',
-    'Laws of Motion & Vectors',
-    'Quadratic Equations & Roots',
-    'Current Electricity & Circuits'
-  ]);
+  const [gradeSyllabus, setGradeSyllabus] = useState(DEFAULT_GRADE_SYLLABUS);
 
   // Form State
-  const [selectedSubject, setSelectedSubject] = useState('Physics');
-  const [selectedTopic, setSelectedTopic] = useState('Binary Search Tree (BST) Insertion');
-  const [selectedGrade, setSelectedGrade] = useState('10th Grade');
+  const [selectedGrade, setSelectedGrade] = useState('Grade 10');
+  const [selectedSubject, setSelectedSubject] = useState('Mathematics');
+  const [selectedChapter, setSelectedChapter] = useState('Probability & Statistics');
+  const [selectedTopic, setSelectedTopic] = useState('Measures of Dispersion (Statistics)');
   const [difficultyValue, setDifficultyValue] = useState(65); // 0 to 100 slider
   const [questionType, setQuestionType] = useState('Application Based');
   const [bloomsLevel, setBloomsLevel] = useState('Applying');
   const [customPrompt, setCustomPrompt] = useState('');
   
+  // Cascading options
+  const availableGrades = useMemo(() => {
+    const list = getGrades(gradeSyllabus);
+    if (selectedGrade && !list.includes(selectedGrade)) return [selectedGrade, ...list];
+    return list;
+  }, [gradeSyllabus, selectedGrade]);
+
+  const availableSubjects = useMemo(() => {
+    const list = getSubjectsForGrade(selectedGrade, gradeSyllabus);
+    if (selectedSubject && !list.includes(selectedSubject)) return [selectedSubject, ...list];
+    return list;
+  }, [gradeSyllabus, selectedGrade, selectedSubject]);
+
+  const availableChapters = useMemo(() => {
+    const list = getChaptersForSubject(selectedGrade, selectedSubject, gradeSyllabus);
+    if (selectedChapter && !list.includes(selectedChapter)) return [selectedChapter, ...list];
+    return list;
+  }, [gradeSyllabus, selectedGrade, selectedSubject, selectedChapter]);
+
+  const availableTopics = useMemo(() => {
+    const list = getTopicsForChapter(selectedGrade, selectedSubject, selectedChapter, gradeSyllabus);
+    if (selectedTopic && !list.includes(selectedTopic)) return [selectedTopic, ...list];
+    return list;
+  }, [gradeSyllabus, selectedGrade, selectedSubject, selectedChapter, selectedTopic]);
+
   // Upload State
   const [uploadingPdf, setUploadingPdf] = useState(false);
   const [pdfName, setPdfName] = useState(null);
@@ -38,30 +63,45 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
   const fetchSyllabus = async () => {
     try {
       const data = await getSyllabus();
-      setSyllabusData(data.syllabus);
-      if (data.subjects && data.subjects.length > 0) {
-        setSubjects(data.subjects);
+      if (data?.grade_syllabus) {
+        setGradeSyllabus((prev) => ({ ...prev, ...data.grade_syllabus }));
       }
     } catch (e) {
-      console.log('Using default subjects list.');
+      console.log('Using default curriculum.');
     }
+  };
+
+  const handleGradeChange = (newGrade) => {
+    setSelectedGrade(newGrade);
+    const subjList = getSubjectsForGrade(newGrade, gradeSyllabus);
+    const nextSubj = subjList.includes(selectedSubject) ? selectedSubject : (subjList[0] || 'Mathematics');
+    setSelectedSubject(nextSubj);
+
+    const chapList = getChaptersForSubject(newGrade, nextSubj, gradeSyllabus);
+    const nextChap = chapList.includes(selectedChapter) ? selectedChapter : (chapList[0] || 'General Chapter');
+    setSelectedChapter(nextChap);
+
+    const topList = getTopicsForChapter(newGrade, nextSubj, nextChap, gradeSyllabus);
+    const nextTop = topList.includes(selectedTopic) ? selectedTopic : (topList[0] || 'Core Concepts');
+    setSelectedTopic(nextTop);
   };
 
   const handleSubjectChange = (newSubj) => {
     setSelectedSubject(newSubj);
-    if (!syllabusData) return;
+    const chapList = getChaptersForSubject(selectedGrade, newSubj, gradeSyllabus);
+    const nextChap = chapList.includes(selectedChapter) ? selectedChapter : (chapList[0] || 'General Chapter');
+    setSelectedChapter(nextChap);
 
-    const foundItem = Object.values(syllabusData).find((s) => s.subject === newSubj);
-    if (foundItem && foundItem.chapters) {
-      const allTopics = [];
-      Object.values(foundItem.chapters).forEach((chap) => {
-        if (chap.topics) allTopics.push(...chap.topics);
-      });
-      if (allTopics.length > 0) {
-        setAvailableTopics(allTopics);
-        setSelectedTopic(allTopics[0]);
-      }
-    }
+    const topList = getTopicsForChapter(selectedGrade, newSubj, nextChap, gradeSyllabus);
+    const nextTop = topList.includes(selectedTopic) ? selectedTopic : (topList[0] || 'Core Concepts');
+    setSelectedTopic(nextTop);
+  };
+
+  const handleChapterChange = (newChap) => {
+    setSelectedChapter(newChap);
+    const topList = getTopicsForChapter(selectedGrade, selectedSubject, newChap, gradeSyllabus);
+    const nextTop = topList.includes(selectedTopic) ? selectedTopic : (topList[0] || 'Core Concepts');
+    setSelectedTopic(nextTop);
   };
 
   const handlePdfUpload = async (e) => {
@@ -107,7 +147,7 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
       const result = await generateQuestion({
         grade: selectedGrade.includes('Grade') ? selectedGrade : `Grade ${selectedGrade.replace(/\D/g, '')}`,
         subject: selectedSubject,
-        chapter: 'Standard Curriculum',
+        chapter: selectedChapter,
         topic: selectedTopic
       });
 
@@ -129,6 +169,25 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
       </h2>
 
       <form onSubmit={handleGenerate} className="space-y-4">
+        {/* Standard / Grade Select */}
+        <div>
+          <label className="block text-xs font-semibold text-gray-600 mb-1.5">
+            Grade / Standard
+          </label>
+          <div className="relative">
+            <select
+              value={selectedGrade}
+              onChange={(e) => handleGradeChange(e.target.value)}
+              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
+            >
+              {availableGrades.map((g) => (
+                <option key={g} value={g}>{g}</option>
+              ))}
+            </select>
+            <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
+        </div>
+
         {/* Subject Select */}
         <div>
           <label className="block text-xs font-semibold text-gray-600 mb-1.5">
@@ -140,10 +199,28 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
               onChange={(e) => handleSubjectChange(e.target.value)}
               className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
             >
-              {subjects.map((s) => (
+              {availableSubjects.map((s) => (
                 <option key={s} value={s}>{s}</option>
               ))}
-              <option value="Computer Science">Computer Science</option>
+            </select>
+            <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          </div>
+        </div>
+
+        {/* Chapter Select */}
+        <div>
+          <label className="block text-xs font-semibold text-gray-600 mb-1.5">
+            Chapter
+          </label>
+          <div className="relative">
+            <select
+              value={selectedChapter}
+              onChange={(e) => handleChapterChange(e.target.value)}
+              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
+            >
+              {availableChapters.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
             </select>
             <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
@@ -163,26 +240,6 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
               {availableTopics.map((t) => (
                 <option key={t} value={t}>{t}</option>
               ))}
-            </select>
-            <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-          </div>
-        </div>
-
-        {/* Standard / Grade Select */}
-        <div>
-          <label className="block text-xs font-semibold text-gray-600 mb-1.5">
-            Standard/Grade
-          </label>
-          <div className="relative">
-            <select
-              value={selectedGrade}
-              onChange={(e) => setSelectedGrade(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
-            >
-              <option value="10th Grade">10th Grade</option>
-              <option value="11th Grade">11th Grade</option>
-              <option value="12th Grade">12th Grade</option>
-              <option value="9th Grade">9th Grade</option>
             </select>
             <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>

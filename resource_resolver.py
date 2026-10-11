@@ -937,8 +937,10 @@ def get_exact_image_url(
         import concept_card_generator
         card_path = concept_card_generator.generate_educational_concept_card(clean_topic, subject, grade)
         if card_path and os.path.exists(card_path):
-            print(f"[Concept Card] SUCCESS! Generated Concept Card: {card_path}")
-            return card_path
+            card_filename = os.path.basename(card_path)
+            web_url = f"http://127.0.0.1:8000/concept_cards/{card_filename}"
+            print(f"[Concept Card] SUCCESS! Generated Concept Card: {card_path} -> {web_url}")
+            return web_url
     except Exception as e:
         print(f"[Concept Card] Generator error: {e}. Falling back to educational diagram search...")
 

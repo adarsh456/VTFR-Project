@@ -1,0 +1,201 @@
+{
+  "questionId": "a68e92ab-d8ec-4c68-9e3f-3bd1fa4ff49f",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Optics & Modern Physics",
+  "topic": "Dual Nature of Radiation and Matter",
+  "questionText": "A metal surface has a work function of 2.3 eV. If photons with an energy of 4.5 eV are incident on this surface, what is the maximum kinetic energy of the emitted photoelectrons?",
+  "calculationDraft": "Correct Answer Derivation: \n1. Given: Work Function (\u03a6) = 2.3 eV, Incident Energy (E) = 4.5 eV.\n2. Formula: Kinetic Energy (K_max) = E - \u03a6.\n3. Calculation: K_max = 4.5 eV - 2.3 eV = 2.2 eV.\n\nDistractor Derivations:\n- Distractor A (Computational Error): 6.8 eV. The student adds the work function and incident energy instead of subtracting (4.5 + 2.3 = 6.8). This reflects a sign error in the photoelectric equation.\n- Distractor B (Conceptual Misconception): 2.3 eV. The student assumes the kinetic energy is equal to the work function, ignoring the incident photon energy. This indicates a fundamental misunderstanding of energy conservation in photoemission.\n- Distractor C (Partially Correct/Trap): 4.5 eV. The student assumes all incident photon energy is converted to kinetic energy, neglecting the energy required to overcome the binding force (work function). This is a common trap for students who forget the threshold energy requirement.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "2.2 eV",
+      "isCorrect": true,
+      "explanation": "According to Einstein's photoelectric equation, the maximum kinetic energy is the difference between the incident photon energy and the work function (K_max = E - \u03a6), which is 4.5 eV - 2.3 eV = 2.2 eV."
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "2.3 eV",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "4.5 eV",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "6.8 eV",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "Which formula correctly represents Einstein's photoelectric equation for the maximum kinetic energy (K_max) of emitted electrons?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "K_max = E \u00d7 \u03a6",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "K_max = E - \u03a6",
+          "isCorrect": true,
+          "explanation": "The incident photon energy (E) is split between overcoming the work function (\u03a6) and providing kinetic energy to the electron, hence K_max = E - \u03a6."
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "K_max = \u03a6 - E",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "K_max = E + \u03a6",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Using the values E = 4.5 eV and \u03a6 = 2.3 eV, what is the result of the subtraction E - \u03a6?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "2.2 eV",
+          "isCorrect": true,
+          "explanation": "Subtracting the work function (2.3 eV) from the incident energy (4.5 eV) yields 2.2 eV."
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "6.8 eV",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "4.5 eV",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "2.3 eV",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "b6d3aa16-f98b-4f0e-b1e2-760fe056bf57",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "If the work function of a metal is 2 eV and the incident light has a photon energy of 5 eV, what is the maximum kinetic energy of the photoelectrons?",
+      "calculationDraft": "Correct Answer Derivation:\n1. Given: Work Function (\u03a6) = 2 eV, Incident Energy (E) = 5 eV.\n2. Formula: K_max = E - \u03a6.\n3. Calculation: K_max = 5 eV - 2 eV = 3 eV.\n\nDistractor Derivations:\n- Distractor A (Computational Error): 7 eV. The student adds the values (5 + 2) instead of subtracting.\n- Distractor B (Conceptual Misconception): 2 eV. The student selects the work function value, ignoring the incident energy.\n- Distractor C (Partially Correct/Trap): 5 eV. The student assumes the full incident energy becomes kinetic energy, forgetting the work function deduction.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "5 eV",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2 eV",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "3 eV",
+          "isCorrect": true,
+          "explanation": "The maximum kinetic energy is calculated by subtracting the work function from the incident photon energy: 5 eV - 2 eV = 3 eV."
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "7 eV",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the value of the incident photon energy (E) provided in the problem?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3 eV",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "5 eV",
+              "isCorrect": true,
+              "explanation": "The problem explicitly states that the incident light has a photon energy of 5 eV."
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "7 eV",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "2 eV",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After identifying E = 5 eV and \u03a6 = 2 eV, what is the calculated maximum kinetic energy?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "2 eV",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "3 eV",
+              "isCorrect": true,
+              "explanation": "Subtracting the work function (2 eV) from the incident energy (5 eV) gives 3 eV."
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "5 eV",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "7 eV",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "The photoelectric effect demonstrates the particle nature of light. Einstein's equation states that the maximum kinetic energy of emitted electrons is the difference between the incident photon energy and the metal's work function (K_max = hf - \u03a6). This concept is crucial for understanding quantum mechanics and modern electronics.",
+    "youtubeResource": {
+      "title": "Photoelectric Effect and Einstein's Equation",
+      "searchQuery": "Grade 12 Physics Photoelectric Effect Einstein Equation tutorial",
+      "url": "https://www.youtube.com/watch?v=lSRXcKFUm2s"
+    },
+    "imageResource": {
+      "title": "Photoelectric Effect Energy Diagram",
+      "searchQuery": "Grade 12 Physics Dual Nature of Radiation and Matter photoelectric effect energy diagram",
+      "url": "http://127.0.0.1:8000/concept_cards/dual_nature_of_radiation_and_matter_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Dual Nature of Radiation and Matter Revision Notes",
+      "searchQuery": "Grade 12 Physics Dual Nature of Radiation and Matter revision notes pdf",
+      "url": "https://physicsfundamentals.com/wp-content/uploads/2026/07/Dual-Nature-of-Radiation-and-Matter-Notes.pdf"
+    },
+    "webResource": {
+      "title": "Understanding the Photoelectric Effect",
+      "searchQuery": "Physics Dual Nature of Radiation and Matter concept guide",
+      "url": "https://www.aakash.ac.in/important-concepts/physics/dual-nature-of-matter-and-radiation"
+    }
+  }
+}

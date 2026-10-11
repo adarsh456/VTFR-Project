@@ -32,6 +32,21 @@ static_dir = os.path.join(os.path.dirname(__file__), "static")
 os.makedirs(static_dir, exist_ok=True)
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
+# Mount concept cards directory for direct image access
+concept_cards_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "generated_question", "concept_cards"))
+if not os.path.exists(concept_cards_dir):
+    concept_cards_dir = os.path.abspath("generated_question/concept_cards")
+os.makedirs(concept_cards_dir, exist_ok=True)
+app.mount("/concept_cards", StaticFiles(directory=concept_cards_dir), name="concept_cards")
+app.mount("/static/concept_cards", StaticFiles(directory=concept_cards_dir), name="static_concept_cards")
+
+# Mount full generated_question directory
+gen_q_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "generated_question"))
+if not os.path.exists(gen_q_dir):
+    gen_q_dir = os.path.abspath("generated_question")
+os.makedirs(gen_q_dir, exist_ok=True)
+app.mount("/generated_question", StaticFiles(directory=gen_q_dir), name="generated_question")
+
 # Include API Routers
 app.include_router(api_v1_router)
 

@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from ...db import get_db, Question
-from ...engine import generate_vtfr_question, SYLLABUS, GRADE_LIST, SUBJECT_LIST
+from ...engine import generate_vtfr_question, SYLLABUS, GRADE_LIST, SUBJECT_LIST, GRADE_SYLLABUS
 
 router = APIRouter(prefix="/questions", tags=["Questions"])
 
@@ -22,7 +22,8 @@ def get_syllabus():
     return {
         "syllabus": SYLLABUS,
         "grades": GRADE_LIST,
-        "subjects": SUBJECT_LIST
+        "subjects": SUBJECT_LIST,
+        "grade_syllabus": GRADE_SYLLABUS
     }
 
 @router.post("/generate")
@@ -202,5 +203,51 @@ def generate_diagram_endpoint(diagram_type: str = Query("function")):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Diagram generation failed: {str(e)}")
+
+@router.get("/concept-card-image")
+def get_concept_card_image(
+    filename: Optional[str] = Query(None),
+    topic: Optional[str] = Query(None)
+):
+    """
+    Returns the generated 5-panel concept card PNG image by filename or matching topic name.
+    """
+    import os
+    import re
+    from fastapi.responses import FileResponse
+
+    # Try project root generated_question/concept_cards
+    gen_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "generated_question", "concept_cards"))
+    if not os.path.exists(gen_dir):
+        gen_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "generated_question", "concept_cards"))
+    if not os.path.exists(gen_dir):
+        gen_dir = os.path.abspath("generated_question/concept_cards")
+
+    target_file = None
+    if filename:
+        clean_name = os.path.basename(filename).strip("'\" ")
+        candidate = os.path.join(gen_dir, clean_name)
+        if os.path.exists(candidate):
+            target_file = candidate
+
+    if not target_file and topic:
+        clean_topic = re.sub(r"[^\w\s-]", "", topic).strip().lower().replace(" ", "_")
+        if os.path.exists(gen_dir):
+            for f in os.listdir(gen_dir):
+                if f.lower().endswith(".png"):
+                    base_f = f.lower().replace("_concept_card.png", "")
+                    if clean_topic in base_f or base_f in clean_topic or clean_topic[:6] in base_f:
+                        target_file = os.path.join(gen_dir, f)
+                        break
+
+    if not target_file and os.path.exists(gen_dir):
+        files = [f for f in os.listdir(gen_dir) if f.endswith(".png")]
+        if files:
+            target_file = os.path.join(gen_dir, sorted(files)[0])
+
+    if target_file and os.path.exists(target_file):
+        return FileResponse(target_file, media_type="image/png")
+
+    raise HTTPException(status_code=404, detail="Concept card image not found")
 
 

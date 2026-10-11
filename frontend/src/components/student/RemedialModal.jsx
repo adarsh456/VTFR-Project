@@ -86,19 +86,48 @@ export default function RemedialModal({
           )}
 
           {/* 5-Panel Educational Card Image */}
-          {image && image.url && (
-            <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
-              <div className="flex items-center gap-2 text-xs font-bold text-purple-700 mb-2">
-                <ImageIcon className="w-4 h-4 text-purple-600" />
-                <span>Educational Concept Card</span>
+          {(() => {
+            const rawUrl = image?.url;
+            let resolvedUrl = rawUrl;
+            if (rawUrl && typeof rawUrl === 'string') {
+              if (rawUrl.includes('concept_cards')) {
+                const fn = rawUrl.split(/concept_cards[\\/]/).pop();
+                if (fn) resolvedUrl = `http://127.0.0.1:8000/concept_cards/${encodeURIComponent(fn)}`;
+              } else if (rawUrl.endsWith('.png') || rawUrl.endsWith('.jpg')) {
+                const fn = rawUrl.split(/[\\/]/).pop();
+                resolvedUrl = `http://127.0.0.1:8000/concept_cards/${encodeURIComponent(fn)}`;
+              }
+            }
+            if (!resolvedUrl) return null;
+
+            return (
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-200">
+                <div className="flex items-center justify-between text-xs font-bold text-purple-700 mb-2">
+                  <div className="flex items-center gap-2">
+                    <ImageIcon className="w-4 h-4 text-purple-600" />
+                    <span>Educational Concept Card Infographic</span>
+                  </div>
+                  <a
+                    href={resolvedUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-purple-600 hover:text-purple-800 underline font-medium"
+                  >
+                    View Full Size
+                  </a>
+                </div>
+                <img
+                  src={resolvedUrl}
+                  alt="Educational Concept Card"
+                  className="w-full rounded-lg max-h-72 object-contain bg-white border border-gray-200"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'http://127.0.0.1:8000/concept_cards/standard_form_and_roots_concept_card.png';
+                  }}
+                />
               </div>
-              <img
-                src={image.url}
-                alt="Educational Concept Card"
-                className="w-full rounded-lg max-h-64 object-contain bg-white border border-gray-200"
-              />
-            </div>
-          )}
+            );
+          })()}
 
           {/* PDF Notes Resource */}
           {pdf && pdf.url && (

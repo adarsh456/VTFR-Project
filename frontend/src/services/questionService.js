@@ -6,14 +6,20 @@ export const getSyllabus = async () => {
 };
 
 export const generateQuestion = async ({ grade, subject, chapter, topic, excludeQuestions = [] }) => {
-  const response = await api.post('/questions/generate', {
-    grade,
-    subject,
-    chapter,
-    topic,
-    exclude_questions: excludeQuestions,
-    num_alternate_questions: 3
-  });
+  const response = await api.post(
+    '/questions/generate',
+    {
+      grade,
+      subject,
+      chapter,
+      topic,
+      exclude_questions: excludeQuestions,
+      num_alternate_questions: 3
+    },
+    {
+      timeout: 180000 // 180 sec (3 min) timeout for LLM synthesis + remedial resource resolving
+    }
+  );
   return response.data;
 };
 

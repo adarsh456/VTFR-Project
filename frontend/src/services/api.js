@@ -7,7 +7,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 45000, // 45 sec timeout for question generation LLM calls
+  timeout: 120000, // 120 sec timeout for standard API calls
 });
 
 export default api;
