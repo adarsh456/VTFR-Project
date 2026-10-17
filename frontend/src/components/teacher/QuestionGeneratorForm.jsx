@@ -89,6 +89,10 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
 
   const handleGradeChange = (newGrade) => {
     setSelectedGrade(newGrade);
+    setIsCustomGrade(false);
+    setIsCustomSubject(false);
+    setIsCustomChapter(false);
+    setIsCustomTopic(false);
     const subjList = getSubjectsForGrade(newGrade, gradeSyllabus);
     const nextSubj = subjList.includes(selectedSubject) ? selectedSubject : (subjList[0] || 'Mathematics');
     setSelectedSubject(nextSubj);
@@ -104,6 +108,9 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
 
   const handleSubjectChange = (newSubj) => {
     setSelectedSubject(newSubj);
+    setIsCustomSubject(false);
+    setIsCustomChapter(false);
+    setIsCustomTopic(false);
     const chapList = getChaptersForSubject(effectiveGrade, newSubj, gradeSyllabus);
     const nextChap = chapList.includes(selectedChapter) ? selectedChapter : (chapList[0] || 'General Chapter');
     setSelectedChapter(nextChap);
@@ -115,6 +122,8 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
 
   const handleChapterChange = (newChap) => {
     setSelectedChapter(newChap);
+    setIsCustomChapter(false);
+    setIsCustomTopic(false);
     const topList = getTopicsForChapter(effectiveGrade, effectiveSubject, newChap, gradeSyllabus);
     const nextTop = topList.includes(selectedTopic) ? selectedTopic : (topList[0] || 'Core Concepts');
     setSelectedTopic(nextTop);
@@ -204,7 +213,9 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
               onChange={(e) => {
                 if (e.target.value === '__custom__') {
                   setIsCustomGrade(true);
-                  if (!customGrade) setCustomGrade('');
+                  setIsCustomSubject(true);
+                  setIsCustomChapter(true);
+                  setIsCustomTopic(true);
                 } else {
                   setIsCustomGrade(false);
                   handleGradeChange(e.target.value);
@@ -256,7 +267,8 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
               onChange={(e) => {
                 if (e.target.value === '__custom__') {
                   setIsCustomSubject(true);
-                  if (!customSubject) setCustomSubject('');
+                  setIsCustomChapter(true);
+                  setIsCustomTopic(true);
                 } else {
                   setIsCustomSubject(false);
                   handleSubjectChange(e.target.value);
@@ -308,7 +320,7 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
               onChange={(e) => {
                 if (e.target.value === '__custom__') {
                   setIsCustomChapter(true);
-                  if (!customChapter) setCustomChapter('');
+                  setIsCustomTopic(true);
                 } else {
                   setIsCustomChapter(false);
                   handleChapterChange(e.target.value);

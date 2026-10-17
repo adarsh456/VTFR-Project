@@ -56,7 +56,8 @@ def make_suggestions_prompt(inputs: dict):
 
 def robust_json_parser(response) -> dict:
     """
-    Extracts JSON substring robustly from LLM response, stripping conversational preambles or markdown code fences.
+    Extracts JSON substring robustly from LLM response, stripping conversational preambles or markdown code fences,
+    and repairing unescaped quotes, trailing commas, or delimiter issues.
     """
     if hasattr(response, "content"):
         content = response.content
@@ -76,13 +77,40 @@ def robust_json_parser(response) -> dict:
 
     # Locate outermost JSON object {...}
     json_match = re.search(r"(\{.*\})", content, re.DOTALL)
-    if json_match:
-        try:
-            return json.loads(json_match.group(1))
-        except Exception:
-            pass
+    target_str = json_match.group(1) if json_match else content
 
-    return json.loads(content)
+    # Tier 1: Standard json.loads with strict=False (allows unescaped control chars)
+    try:
+        return json.loads(target_str, strict=False)
+    except Exception:
+        pass
+
+    # Tier 2: json_repair (expertly repairs unescaped quotes in strings, missing commas, trailing commas)
+    try:
+        import json_repair
+        repaired = json_repair.loads(target_str)
+        if isinstance(repaired, dict) and repaired:
+            return repaired
+    except Exception:
+        pass
+
+    # Tier 3: Clean trailing commas
+    try:
+        cleaned = re.sub(r',\s*([\]}])', r'\1', target_str)
+        return json.loads(cleaned, strict=False)
+    except Exception:
+        pass
+
+    # Tier 4: json_repair on full content
+    try:
+        import json_repair
+        repaired = json_repair.loads(content)
+        if isinstance(repaired, dict) and repaired:
+            return repaired
+    except Exception:
+        pass
+
+    return json.loads(target_str, strict=False)
 
 # Define the LangChain chains using LCEL
 generate_vtfr_chain = RunnableLambda(make_vtfr_prompt) | model
@@ -105,15 +133,7 @@ def run_suggest_topics(inputs: dict) -> dict:
     """
     try:
         response = suggest_topics_chain.invoke(inputs)
-        content = response.content.strip()
-        # Look for the first JSON object using a regex pattern
-        json_match = re.search(r"(\{.*\})", content, re.DOTALL)
-        if json_match:
-            try:
-                return json.loads(json_match.group(1))
-            except Exception:
-                pass
-        return json.loads(content)
+        return robust_json_parser(response)
     except Exception as e:
         print(f"Failed to get AI topic suggestions: {e}")
         return {}

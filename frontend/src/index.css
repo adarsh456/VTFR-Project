@@ -16,6 +16,405 @@
   --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Dark Mode Tokens & Overrides */
+html.dark, :root.dark {
+  --page-bg: #0B1120;
+  --card-bg: #1E293B;
+  --border-color: #334155;
+  --border-focus: #00D2C8;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --header-search-bg: #1E293B;
+  --header-search-placeholder: #64748B;
+}
+
+html.dark body,
+html.dark .workspace-canvas,
+html.dark .app-container {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+}
+
+/* Sidebar in Dark Mode */
+html.dark .sidebar {
+  background: linear-gradient(180deg, #020B18 0%, #010710 100%);
+  border-right-color: #1E293B;
+}
+
+/* Base Cards */
+html.dark .qg-card,
+html.dark .preview-column,
+html.dark .studio-card,
+html.dark .card-white,
+html.dark .preview-sticky-card {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC;
+}
+
+/* Top Stepper Pipeline in Right Column */
+html.dark .pipeline-stepper-container {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+html.dark .pipeline-step-title {
+  color: #F8FAFC !important;
+}
+
+html.dark .pipeline-step-subtitle {
+  color: #94A3B8 !important;
+}
+
+html.dark .pipeline-step-arrow {
+  color: #475569 !important;
+}
+
+html.dark .pipeline-step-circle.idle {
+  background-color: #0F172A !important;
+  border-color: #1E3A8A !important;
+  color: #60A5FA !important;
+}
+
+/* Right Column: Generated Question Preview Container */
+html.dark .preview-container-card {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .preview-title-main {
+  color: #F8FAFC !important;
+}
+
+html.dark .btn-regenerate-action {
+  background-color: #0F172A !important;
+  border-color: #3B82F6 !important;
+  color: #60A5FA !important;
+}
+
+html.dark .btn-regenerate-action:hover {
+  background-color: #1E3A8A !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .btn-more-options {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+  color: #94A3B8 !important;
+}
+
+html.dark .btn-more-options:hover {
+  background-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+/* Metadata Chips */
+html.dark .meta-badge-chip {
+  background-color: #0F172A !important;
+  border-color: #1E3A8A !important;
+  color: #93C5FD !important;
+}
+
+html.dark .meta-badge-chip svg {
+  color: #60A5FA !important;
+}
+
+/* Question Inner Card & Option Items */
+html.dark .inner-question-card {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .iq-title-row {
+  color: #F8FAFC !important;
+}
+
+html.dark .iq-prompt-text {
+  color: #E2E8F0 !important;
+}
+
+html.dark .iq-option-item {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+html.dark .iq-option-item:hover {
+  background-color: #26354D !important;
+  border-color: #475569 !important;
+}
+
+html.dark .iq-option-item.selected {
+  background-color: #1E3A5F !important;
+  border-color: #3B82F6 !important;
+}
+
+html.dark .iq-option-label {
+  color: #F1F5F9 !important;
+}
+
+html.dark .iq-radio-ring {
+  border-color: #64748B !important;
+}
+
+/* Solution Accordion */
+html.dark .solution-collapsible-card {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .solution-header {
+  background-color: #1E293B !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+html.dark .solution-title-wrap {
+  color: #F8FAFC !important;
+}
+
+html.dark .solution-hidden-tag {
+  color: #94A3B8 !important;
+}
+
+html.dark .btn-view-solution-toggle {
+  background-color: #0F172A !important;
+  border-color: #1E3A8A !important;
+  color: #60A5FA !important;
+}
+
+html.dark .solution-body-content {
+  background-color: #0F172A !important;
+  border-top-color: #334155 !important;
+  color: #CBD5E1 !important;
+}
+
+html.dark .calc-draft-interactive-header {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+html.dark .calc-draft-interactive-header span {
+  color: #F8FAFC !important;
+}
+
+html.dark .calc-draft-text-box {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
+}
+
+html.dark .scaffolded-step-card {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #CBD5E1 !important;
+}
+
+html.dark .educational-rationale-box {
+  background-color: rgba(6, 95, 70, 0.25) !important;
+  border-color: #059669 !important;
+  color: #6EE7B7 !important;
+}
+
+/* Alternative Questions Accordion */
+html.dark .alternatives-container-card {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .alternatives-header {
+  background-color: #1E293B !important;
+  border-bottom: 1px solid #334155 !important;
+}
+
+html.dark .alt-header-left {
+  color: #F8FAFC !important;
+}
+
+html.dark .alt-count-pill {
+  background-color: #1E3A8A !important;
+  border-color: #2563EB !important;
+  color: #93C5FD !important;
+}
+
+html.dark .alt-cards-stack {
+  border-top-color: #334155 !important;
+  background-color: #0F172A !important;
+}
+
+html.dark .alt-item-card {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+html.dark .alt-item-card:hover {
+  background-color: #27354A !important;
+  border-color: #475569 !important;
+}
+
+html.dark .alt-item-name {
+  color: #F8FAFC !important;
+}
+
+html.dark .alt-item-text {
+  color: #CBD5E1 !important;
+}
+
+html.dark .alt-item-circle-badge {
+  background-color: #0F172A !important;
+  border-color: #1E3A8A !important;
+  color: #60A5FA !important;
+}
+
+html.dark .alt-item-tag {
+  background-color: #334155 !important;
+  color: #CBD5E1 !important;
+}
+
+html.dark .alt-item-tag.quad {
+  background-color: #1E3A8A !important;
+  color: #93C5FD !important;
+}
+
+html.dark .btn-use-alt-question {
+  background-color: #0F172A !important;
+  border-color: #475569 !important;
+  color: #E2E8F0 !important;
+}
+
+html.dark .btn-use-alt-question:hover {
+  background-color: #1E3A8A !important;
+  border-color: #3B82F6 !important;
+  color: #FFFFFF !important;
+}
+
+/* Resources 4-Grid & Modals */
+html.dark .resources-accordion-card {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+html.dark .resources-title-text {
+  color: #F8FAFC !important;
+}
+
+html.dark .res-card-item {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .res-card-item:hover {
+  background-color: #27354A !important;
+  border-color: #3B82F6 !important;
+}
+
+html.dark .res-card-title {
+  color: #60A5FA !important;
+}
+
+html.dark .res-card-subtitle {
+  color: #94A3B8 !important;
+}
+
+html.dark .res-chevron-right {
+  color: #60A5FA !important;
+}
+
+html.dark .resource-modal-card {
+  background-color: #1E293B !important;
+  border: 1px solid #334155 !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .resource-modal-header {
+  border-bottom-color: #334155 !important;
+}
+
+html.dark .resource-modal-title {
+  color: #F8FAFC !important;
+}
+
+html.dark .resource-modal-close-btn {
+  color: #94A3B8 !important;
+}
+
+html.dark .resource-modal-close-btn:hover {
+  background-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+/* Left Column Form Controls in Dark Mode */
+html.dark .reference-json-selector {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .select-input,
+html.dark .text-input,
+html.dark .custom-input,
+html.dark .textarea-input {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .qg-title {
+  color: #F8FAFC !important;
+}
+
+html.dark .qg-subtitle {
+  color: #94A3B8 !important;
+}
+
+html.dark .qg-field-label {
+  color: #CBD5E1 !important;
+}
+
+html.dark .qg-counter-wrapper {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .qg-counter-val {
+  color: #F8FAFC !important;
+}
+
+html.dark .qg-counter-btn {
+  color: #60A5FA !important;
+}
+
+html.dark .qg-counter-btn:disabled {
+  color: #475569 !important;
+}
+
+html.dark .qg-advanced-box {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+
+html.dark .qg-advanced-header {
+  color: #CBD5E1 !important;
+}
+
+html.dark .qg-advanced-body {
+  border-top-color: #334155 !important;
+}
+
+html.dark .qg-advanced-textarea {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+html.dark .solution-step-card,
+html.dark .distractor-card,
+html.dark .step-box {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+  color: #F8FAFC;
+}
+
 * {
   margin: 0;
   padding: 0;

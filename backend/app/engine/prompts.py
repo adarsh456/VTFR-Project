@@ -138,12 +138,16 @@ Every questionId field MUST be a valid UUID v4 string.
 Correct format example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 Do NOT use custom string IDs like "vtfr-math-8-001". Only use UUID v4.
 
-OUTPUT FORMAT
+OUTPUT FORMAT & JSON SYNTAX COMPLIANCE:
 
-Return ONLY the JSON object. Do NOT include markdown code fences (```json) in your response.
-Return valid, parseable JSON only.
+Return ONLY the raw JSON object. Do NOT include markdown code fences (```json) in your response.
+CRITICAL FOR JSON SYNTAX:
+- Output 100% strictly valid JSON.
+- Never use unescaped double quotes inside string values (e.g. if writing code snippets, programming terms, quotes, or formulas, use single quotes or escape them with \").
+- Never include raw unescaped newlines inside strings.
+- Never place trailing commas before closing braces }} or brackets ].
 
-MATHEMATICAL RIGOR: Ensure options match the question type:
+MATHEMATICAL & TECHNICAL RIGOR: Ensure options match the question type:
   - Definite integral question → options must be numbers
   - Indefinite integral question → options must be expressions with "+ C"
   - Factorisation question → options must be fully factored expressions using GCF

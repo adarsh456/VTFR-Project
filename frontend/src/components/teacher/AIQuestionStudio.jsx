@@ -286,6 +286,10 @@ export default function AIQuestionStudio() {
   // Cascading change handlers
   const handleGradeChange = (newGrade) => {
     setGrade(newGrade);
+    setIsCustomGrade(false);
+    setIsCustomSubject(false);
+    setIsCustomChapter(false);
+    setIsCustomTopic(false);
     const subjList = getSubjectsForGrade(newGrade, gradeSyllabus);
     const nextSubj = subjList.includes(subject) ? subject : (subjList[0] || 'Mathematics');
     setSubject(nextSubj);
@@ -301,6 +305,9 @@ export default function AIQuestionStudio() {
 
   const handleSubjectChange = (newSubj) => {
     setSubject(newSubj);
+    setIsCustomSubject(false);
+    setIsCustomChapter(false);
+    setIsCustomTopic(false);
     const chapList = getChaptersForSubject(effectiveGrade, newSubj, gradeSyllabus);
     const nextChap = chapList.includes(chapter) ? chapter : (chapList[0] || 'General Chapter');
     setChapter(nextChap);
@@ -312,10 +319,38 @@ export default function AIQuestionStudio() {
 
   const handleChapterChange = (newChap) => {
     setChapter(newChap);
+    setIsCustomChapter(false);
+    setIsCustomTopic(false);
     const topList = getTopicsForChapter(effectiveGrade, effectiveSubject, newChap, gradeSyllabus);
     const nextTop = topList.includes(topic) ? topic : (topList[0] || 'Core Concepts');
     setTopic(nextTop);
   };
+
+  // Sync with global header search topic selection
+  useEffect(() => {
+    const handleCurriculumSelect = (e) => {
+      const { grade: g, subject: s, chapter: c, topic: t } = e.detail || {};
+      if (g) {
+        setIsCustomGrade(false);
+        setGrade(g);
+      }
+      if (s) {
+        setIsCustomSubject(false);
+        setSubject(s);
+      }
+      if (c) {
+        setIsCustomChapter(false);
+        setChapter(c);
+      }
+      if (t) {
+        setIsCustomTopic(false);
+        setTopic(t);
+      }
+    };
+    window.addEventListener('selectCurriculumTopic', handleCurriculumSelect);
+    return () => window.removeEventListener('selectCurriculumTopic', handleCurriculumSelect);
+  }, []);
+
   const [numQuestions, setNumQuestions] = useState(1);
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false);
   const [promptText, setPromptText] = useState('');
@@ -622,7 +657,7 @@ export default function AIQuestionStudio() {
 
           {/* Quick Pre-Generated JSON Reference Selector */}
           {sampleList.length > 0 && (
-            <div style={{ padding: '8px 10px', backgroundColor: '#F8FAFC', borderRadius: 8, border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <div className="reference-json-selector" style={{ padding: '8px 10px', backgroundColor: '#F8FAFC', borderRadius: 8, border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: 4 }}>
               <label style={{ fontSize: 11, fontWeight: 700, color: '#2563EB', display: 'flex', alignItems: 'center', gap: 5 }}>
                 <FolderOpen style={{ width: 13, height: 13 }} /> Load Reference VTFR JSON File:
               </label>
@@ -665,7 +700,9 @@ export default function AIQuestionStudio() {
                   onChange={(e) => {
                     if (e.target.value === '__custom__') {
                       setIsCustomGrade(true);
-                      if (!customGrade) setCustomGrade('');
+                      setIsCustomSubject(true);
+                      setIsCustomChapter(true);
+                      setIsCustomTopic(true);
                     } else {
                       setIsCustomGrade(false);
                       handleGradeChange(e.target.value);
@@ -738,7 +775,8 @@ export default function AIQuestionStudio() {
                   onChange={(e) => {
                     if (e.target.value === '__custom__') {
                       setIsCustomSubject(true);
-                      if (!customSubject) setCustomSubject('');
+                      setIsCustomChapter(true);
+                      setIsCustomTopic(true);
                     } else {
                       setIsCustomSubject(false);
                       handleSubjectChange(e.target.value);
@@ -814,7 +852,7 @@ export default function AIQuestionStudio() {
                   onChange={(e) => {
                     if (e.target.value === '__custom__') {
                       setIsCustomChapter(true);
-                      if (!customChapter) setCustomChapter('');
+                      setIsCustomTopic(true);
                     } else {
                       setIsCustomChapter(false);
                       handleChapterChange(e.target.value);
@@ -1281,7 +1319,7 @@ export default function AIQuestionStudio() {
                     
                     {/* Calculation Draft Text (Opens when clicked) */}
                     {isCalculationDraftOpen && activeQuestion.calculationDraft && (
-                      <div style={{ 
+                      <div className="calc-draft-text-box" style={{ 
                         whiteSpace: 'pre-line', 
                         backgroundColor: '#F8FAFC', 
                         padding: '12px 14px', 
@@ -1304,7 +1342,7 @@ export default function AIQuestionStudio() {
                         {activeQuestion.solutionSteps.map((step, sIdx) => {
                           const correctStepOpt = (step.optionsList || []).find(o => o.isCorrect);
                           return (
-                            <div key={sIdx} style={{ fontSize: 12, color: '#475569', padding: '6px 10px', backgroundColor: '#EFF6FF', borderRadius: 6, border: '1px solid #DBEAFE', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            <div key={sIdx} className="scaffolded-step-card" style={{ fontSize: 12, color: '#475569', padding: '6px 10px', backgroundColor: '#EFF6FF', borderRadius: 6, border: '1px solid #DBEAFE', display: 'flex', flexDirection: 'column', gap: 4 }}>
                               <div>
                                 <strong style={{ color: '#1D4ED8' }}>Step {step.stepSequenceNo || (sIdx + 1)}:</strong> {step.stepText}
                               </div>
@@ -1324,7 +1362,7 @@ export default function AIQuestionStudio() {
                       const correctOpt = activeQuestion.options.find(o => o.isCorrect);
                       if (correctOpt && correctOpt.explanation) {
                         return (
-                          <div style={{ marginTop: 8, padding: '6px 10px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: 6, fontSize: 12, color: '#065F46' }}>
+                          <div className="educational-rationale-box" style={{ marginTop: 8, padding: '6px 10px', backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: 6, fontSize: 12, color: '#065F46' }}>
                             <strong>💡 Educational Rationale:</strong> {correctOpt.explanation}
                           </div>
                         );
