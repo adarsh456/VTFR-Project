@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { getSyllabus, generateQuestion } from '../../services/questionService';
-import { 
-  DEFAULT_GRADE_SYLLABUS, 
-  getGrades, 
-  getSubjectsForGrade, 
-  getChaptersForSubject, 
-  getTopicsForChapter 
+import {
+  DEFAULT_GRADE_SYLLABUS,
+  getGrades,
+  getSubjectsForGrade,
+  getChaptersForSubject,
+  getTopicsForChapter
 } from '../../data/curriculumData';
 import { Sparkles, Loader2, RefreshCw, UploadCloud, CheckCircle2, ChevronDown } from 'lucide-react';
 import axios from 'axios';
@@ -22,7 +22,23 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
   const [questionType, setQuestionType] = useState('Application Based');
   const [bloomsLevel, setBloomsLevel] = useState('Applying');
   const [customPrompt, setCustomPrompt] = useState('');
-  
+
+  // Custom Curriculum Fields
+  const [isCustomGrade, setIsCustomGrade] = useState(false);
+  const [customGrade, setCustomGrade] = useState('');
+  const [isCustomSubject, setIsCustomSubject] = useState(false);
+  const [customSubject, setCustomSubject] = useState('');
+  const [isCustomChapter, setIsCustomChapter] = useState(false);
+  const [customChapter, setCustomChapter] = useState('');
+  const [isCustomTopic, setIsCustomTopic] = useState(false);
+  const [customTopic, setCustomTopic] = useState('');
+
+  // Effective values used for synthesis and preview
+  const effectiveGrade = isCustomGrade ? (customGrade.trim() || 'Grade 10') : selectedGrade;
+  const effectiveSubject = isCustomSubject ? (customSubject.trim() || 'Mathematics') : selectedSubject;
+  const effectiveChapter = isCustomChapter ? (customChapter.trim() || 'General Chapter') : selectedChapter;
+  const effectiveTopic = isCustomTopic ? (customTopic.trim() || 'Core Concepts') : selectedTopic;
+
   // Cascading options
   const availableGrades = useMemo(() => {
     const list = getGrades(gradeSyllabus);
@@ -31,22 +47,22 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
   }, [gradeSyllabus, selectedGrade]);
 
   const availableSubjects = useMemo(() => {
-    const list = getSubjectsForGrade(selectedGrade, gradeSyllabus);
+    const list = getSubjectsForGrade(effectiveGrade, gradeSyllabus);
     if (selectedSubject && !list.includes(selectedSubject)) return [selectedSubject, ...list];
     return list;
-  }, [gradeSyllabus, selectedGrade, selectedSubject]);
+  }, [gradeSyllabus, effectiveGrade, selectedSubject]);
 
   const availableChapters = useMemo(() => {
-    const list = getChaptersForSubject(selectedGrade, selectedSubject, gradeSyllabus);
+    const list = getChaptersForSubject(effectiveGrade, effectiveSubject, gradeSyllabus);
     if (selectedChapter && !list.includes(selectedChapter)) return [selectedChapter, ...list];
     return list;
-  }, [gradeSyllabus, selectedGrade, selectedSubject, selectedChapter]);
+  }, [gradeSyllabus, effectiveGrade, effectiveSubject, selectedChapter]);
 
   const availableTopics = useMemo(() => {
-    const list = getTopicsForChapter(selectedGrade, selectedSubject, selectedChapter, gradeSyllabus);
+    const list = getTopicsForChapter(effectiveGrade, effectiveSubject, effectiveChapter, gradeSyllabus);
     if (selectedTopic && !list.includes(selectedTopic)) return [selectedTopic, ...list];
     return list;
-  }, [gradeSyllabus, selectedGrade, selectedSubject, selectedChapter, selectedTopic]);
+  }, [gradeSyllabus, effectiveGrade, effectiveSubject, effectiveChapter, selectedTopic]);
 
   // Upload State
   const [uploadingPdf, setUploadingPdf] = useState(false);
@@ -88,18 +104,18 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
 
   const handleSubjectChange = (newSubj) => {
     setSelectedSubject(newSubj);
-    const chapList = getChaptersForSubject(selectedGrade, newSubj, gradeSyllabus);
+    const chapList = getChaptersForSubject(effectiveGrade, newSubj, gradeSyllabus);
     const nextChap = chapList.includes(selectedChapter) ? selectedChapter : (chapList[0] || 'General Chapter');
     setSelectedChapter(nextChap);
 
-    const topList = getTopicsForChapter(selectedGrade, newSubj, nextChap, gradeSyllabus);
+    const topList = getTopicsForChapter(effectiveGrade, newSubj, nextChap, gradeSyllabus);
     const nextTop = topList.includes(selectedTopic) ? selectedTopic : (topList[0] || 'Core Concepts');
     setSelectedTopic(nextTop);
   };
 
   const handleChapterChange = (newChap) => {
     setSelectedChapter(newChap);
-    const topList = getTopicsForChapter(selectedGrade, selectedSubject, newChap, gradeSyllabus);
+    const topList = getTopicsForChapter(effectiveGrade, effectiveSubject, newChap, gradeSyllabus);
     const nextTop = topList.includes(selectedTopic) ? selectedTopic : (topList[0] || 'Core Concepts');
     setSelectedTopic(nextTop);
   };
@@ -132,6 +148,14 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
     setError(null);
     setSuccessMsg(null);
     setDifficultyValue(50);
+    setIsCustomGrade(false);
+    setCustomGrade('');
+    setIsCustomSubject(false);
+    setCustomSubject('');
+    setIsCustomChapter(false);
+    setCustomChapter('');
+    setIsCustomTopic(false);
+    setCustomTopic('');
   };
 
   const handleGenerate = async (e) => {
@@ -145,10 +169,10 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
 
     try {
       const result = await generateQuestion({
-        grade: selectedGrade.includes('Grade') ? selectedGrade : `Grade ${selectedGrade.replace(/\D/g, '')}`,
-        subject: selectedSubject,
-        chapter: selectedChapter,
-        topic: selectedTopic
+        grade: effectiveGrade,
+        subject: effectiveSubject,
+        chapter: effectiveChapter,
+        topic: effectiveTopic
       });
 
       setSuccessMsg('VTFR Question synthesized & decomposed successfully!');
@@ -176,16 +200,49 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
           </label>
           <div className="relative">
             <select
-              value={selectedGrade}
-              onChange={(e) => handleGradeChange(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
+              value={isCustomGrade ? '__custom__' : selectedGrade}
+              onChange={(e) => {
+                if (e.target.value === '__custom__') {
+                  setIsCustomGrade(true);
+                  if (!customGrade) setCustomGrade('');
+                } else {
+                  setIsCustomGrade(false);
+                  handleGradeChange(e.target.value);
+                }
+              }}
+              className={`w-full bg-white border rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7] ${
+                isCustomGrade ? 'border-[#0096C7] bg-sky-50/40' : 'border-gray-300'
+              }`}
             >
               {availableGrades.map((g) => (
                 <option key={g} value={g}>{g}</option>
               ))}
+              <option value="__custom__">Custom Grade</option>
             </select>
             <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
+          {isCustomGrade && (
+            <div className="mt-2 relative">
+              <input
+                type="text"
+                value={customGrade}
+                onChange={(e) => setCustomGrade(e.target.value)}
+                placeholder="Enter custom grade (e.g., Grade 8, B.Sc 1st Year)..."
+                className="w-full bg-white border-2 border-[#0096C7] rounded-xl px-3.5 py-2 pr-8 text-xs text-[#0B1E36] font-semibold focus:outline-none focus:ring-1 focus:ring-[#0096C7]"
+                autoFocus
+              />
+              {customGrade && (
+                <button
+                  type="button"
+                  onClick={() => setCustomGrade('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs"
+                  title="Clear"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Subject Select */}
@@ -195,16 +252,49 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
           </label>
           <div className="relative">
             <select
-              value={selectedSubject}
-              onChange={(e) => handleSubjectChange(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
+              value={isCustomSubject ? '__custom__' : selectedSubject}
+              onChange={(e) => {
+                if (e.target.value === '__custom__') {
+                  setIsCustomSubject(true);
+                  if (!customSubject) setCustomSubject('');
+                } else {
+                  setIsCustomSubject(false);
+                  handleSubjectChange(e.target.value);
+                }
+              }}
+              className={`w-full bg-white border rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7] ${
+                isCustomSubject ? 'border-[#0096C7] bg-sky-50/40' : 'border-gray-300'
+              }`}
             >
               {availableSubjects.map((s) => (
                 <option key={s} value={s}>{s}</option>
               ))}
+              <option value="__custom__">Custom Subject</option>
             </select>
             <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
+          {isCustomSubject && (
+            <div className="mt-2 relative">
+              <input
+                type="text"
+                value={customSubject}
+                onChange={(e) => setCustomSubject(e.target.value)}
+                placeholder="Enter custom subject (e.g., Data Science, Robotics)..."
+                className="w-full bg-white border-2 border-[#0096C7] rounded-xl px-3.5 py-2 pr-8 text-xs text-[#0B1E36] font-semibold focus:outline-none focus:ring-1 focus:ring-[#0096C7]"
+                autoFocus
+              />
+              {customSubject && (
+                <button
+                  type="button"
+                  onClick={() => setCustomSubject('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs"
+                  title="Clear"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Chapter Select */}
@@ -214,16 +304,49 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
           </label>
           <div className="relative">
             <select
-              value={selectedChapter}
-              onChange={(e) => handleChapterChange(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
+              value={isCustomChapter ? '__custom__' : selectedChapter}
+              onChange={(e) => {
+                if (e.target.value === '__custom__') {
+                  setIsCustomChapter(true);
+                  if (!customChapter) setCustomChapter('');
+                } else {
+                  setIsCustomChapter(false);
+                  handleChapterChange(e.target.value);
+                }
+              }}
+              className={`w-full bg-white border rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7] ${
+                isCustomChapter ? 'border-[#0096C7] bg-sky-50/40' : 'border-gray-300'
+              }`}
             >
               {availableChapters.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
+              <option value="__custom__">Custom Chapter</option>
             </select>
             <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
+          {isCustomChapter && (
+            <div className="mt-2 relative">
+              <input
+                type="text"
+                value={customChapter}
+                onChange={(e) => setCustomChapter(e.target.value)}
+                placeholder="Enter custom chapter (e.g., Thermodynamics, Calculus)..."
+                className="w-full bg-white border-2 border-[#0096C7] rounded-xl px-3.5 py-2 pr-8 text-xs text-[#0B1E36] font-semibold focus:outline-none focus:ring-1 focus:ring-[#0096C7]"
+                autoFocus
+              />
+              {customChapter && (
+                <button
+                  type="button"
+                  onClick={() => setCustomChapter('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs"
+                  title="Clear"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Topic Select */}
@@ -233,16 +356,49 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
           </label>
           <div className="relative">
             <select
-              value={selectedTopic}
-              onChange={(e) => setSelectedTopic(e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7]"
+              value={isCustomTopic ? '__custom__' : selectedTopic}
+              onChange={(e) => {
+                if (e.target.value === '__custom__') {
+                  setIsCustomTopic(true);
+                  if (!customTopic) setCustomTopic('');
+                } else {
+                  setIsCustomTopic(false);
+                  setSelectedTopic(e.target.value);
+                }
+              }}
+              className={`w-full bg-white border rounded-xl px-4 py-2.5 text-sm text-[#0B1E36] font-medium appearance-none focus:outline-none focus:border-[#0096C7] focus:ring-1 focus:ring-[#0096C7] ${
+                isCustomTopic ? 'border-[#0096C7] bg-sky-50/40' : 'border-gray-300'
+              }`}
             >
               {availableTopics.map((t) => (
                 <option key={t} value={t}>{t}</option>
               ))}
+              <option value="__custom__">Custom Topic</option>
             </select>
             <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
+          {isCustomTopic && (
+            <div className="mt-2 relative">
+              <input
+                type="text"
+                value={customTopic}
+                onChange={(e) => setCustomTopic(e.target.value)}
+                placeholder="Enter custom topic (e.g., Integration by Parts)..."
+                className="w-full bg-white border-2 border-[#0096C7] rounded-xl px-3.5 py-2 pr-8 text-xs text-[#0B1E36] font-semibold focus:outline-none focus:ring-1 focus:ring-[#0096C7]"
+                autoFocus
+              />
+              {customTopic && (
+                <button
+                  type="button"
+                  onClick={() => setCustomTopic('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs"
+                  title="Clear"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Difficulty Level Slider */}
@@ -365,7 +521,7 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
           >
             Clear
           </button>
-          
+
           <button
             type="submit"
             disabled={isGenerating}

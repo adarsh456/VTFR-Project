@@ -242,6 +242,22 @@ export default function AIQuestionStudio() {
   const [difficulty, setDifficulty] = useState('Medium');
   const [questionType, setQuestionType] = useState('vtfr_adaptive');
 
+  // Custom Curriculum Fields
+  const [isCustomGrade, setIsCustomGrade] = useState(false);
+  const [customGrade, setCustomGrade] = useState('');
+  const [isCustomSubject, setIsCustomSubject] = useState(false);
+  const [customSubject, setCustomSubject] = useState('');
+  const [isCustomChapter, setIsCustomChapter] = useState(false);
+  const [customChapter, setCustomChapter] = useState('');
+  const [isCustomTopic, setIsCustomTopic] = useState(false);
+  const [customTopic, setCustomTopic] = useState('');
+
+  // Effective values used for synthesis and preview
+  const effectiveGrade = isCustomGrade ? (customGrade.trim() || 'Custom Grade') : grade;
+  const effectiveSubject = isCustomSubject ? (customSubject.trim() || 'Custom Subject') : subject;
+  const effectiveChapter = isCustomChapter ? (customChapter.trim() || 'Custom Chapter') : chapter;
+  const effectiveTopic = isCustomTopic ? (customTopic.trim() || 'Custom Topic') : topic;
+
   // Dynamic cascading option lists based on selected Grade -> Subject -> Chapter -> Topic
   const availableGrades = useMemo(() => {
     const list = getGrades(gradeSyllabus);
@@ -250,22 +266,22 @@ export default function AIQuestionStudio() {
   }, [gradeSyllabus, grade]);
 
   const availableSubjects = useMemo(() => {
-    const list = getSubjectsForGrade(grade, gradeSyllabus);
+    const list = getSubjectsForGrade(effectiveGrade, gradeSyllabus);
     if (subject && !list.includes(subject)) return [subject, ...list];
     return list;
-  }, [gradeSyllabus, grade, subject]);
+  }, [gradeSyllabus, effectiveGrade, subject]);
 
   const availableChapters = useMemo(() => {
-    const list = getChaptersForSubject(grade, subject, gradeSyllabus);
+    const list = getChaptersForSubject(effectiveGrade, effectiveSubject, gradeSyllabus);
     if (chapter && !list.includes(chapter)) return [chapter, ...list];
     return list;
-  }, [gradeSyllabus, grade, subject, chapter]);
+  }, [gradeSyllabus, effectiveGrade, effectiveSubject, chapter]);
 
   const availableTopics = useMemo(() => {
-    const list = getTopicsForChapter(grade, subject, chapter, gradeSyllabus);
+    const list = getTopicsForChapter(effectiveGrade, effectiveSubject, effectiveChapter, gradeSyllabus);
     if (topic && !list.includes(topic)) return [topic, ...list];
     return list;
-  }, [gradeSyllabus, grade, subject, chapter, topic]);
+  }, [gradeSyllabus, effectiveGrade, effectiveSubject, effectiveChapter, topic]);
 
   // Cascading change handlers
   const handleGradeChange = (newGrade) => {
@@ -285,18 +301,18 @@ export default function AIQuestionStudio() {
 
   const handleSubjectChange = (newSubj) => {
     setSubject(newSubj);
-    const chapList = getChaptersForSubject(grade, newSubj, gradeSyllabus);
+    const chapList = getChaptersForSubject(effectiveGrade, newSubj, gradeSyllabus);
     const nextChap = chapList.includes(chapter) ? chapter : (chapList[0] || 'General Chapter');
     setChapter(nextChap);
 
-    const topList = getTopicsForChapter(grade, newSubj, nextChap, gradeSyllabus);
+    const topList = getTopicsForChapter(effectiveGrade, newSubj, nextChap, gradeSyllabus);
     const nextTop = topList.includes(topic) ? topic : (topList[0] || 'Core Concepts');
     setTopic(nextTop);
   };
 
   const handleChapterChange = (newChap) => {
     setChapter(newChap);
-    const topList = getTopicsForChapter(grade, subject, newChap, gradeSyllabus);
+    const topList = getTopicsForChapter(effectiveGrade, effectiveSubject, newChap, gradeSyllabus);
     const nextTop = topList.includes(topic) ? topic : (topList[0] || 'Core Concepts');
     setTopic(nextTop);
   };
@@ -372,10 +388,26 @@ export default function AIQuestionStudio() {
     if (!q) return;
 
     // Update left panel controls if metadata is present
-    if (q.grade) setGrade(q.grade);
-    if (q.subject) setSubject(q.subject);
-    if (q.chapter) setChapter(q.chapter);
-    if (q.topic) setTopic(q.topic);
+    if (q.grade) {
+      setGrade(q.grade);
+      setIsCustomGrade(false);
+      setCustomGrade('');
+    }
+    if (q.subject) {
+      setSubject(q.subject);
+      setIsCustomSubject(false);
+      setCustomSubject('');
+    }
+    if (q.chapter) {
+      setChapter(q.chapter);
+      setIsCustomChapter(false);
+      setCustomChapter('');
+    }
+    if (q.topic) {
+      setTopic(q.topic);
+      setIsCustomTopic(false);
+      setCustomTopic('');
+    }
     if (q.difficultyTag) setDifficulty(q.difficultyTag);
 
     // Map Main Question
@@ -394,10 +426,10 @@ export default function AIQuestionStudio() {
       solutionSteps: q.solutionSteps || [],
       options: mappedOptions,
       metadata: {
-        grade: q.grade || grade,
-        subject: q.subject || subject,
-        chapter: q.chapter || chapter,
-        topic: q.topic || topic,
+        grade: q.grade || effectiveGrade,
+        subject: q.subject || effectiveSubject,
+        chapter: q.chapter || effectiveChapter,
+        topic: q.topic || effectiveTopic,
         difficulty: q.difficultyTag || difficulty,
         type: q.bloomsLevel || 'Apply'
       }
@@ -537,10 +569,10 @@ export default function AIQuestionStudio() {
     
     try {
       const res = await generateQuestion({
-        grade,
-        subject,
-        chapter,
-        topic,
+        grade: effectiveGrade,
+        subject: effectiveSubject,
+        chapter: effectiveChapter,
+        topic: effectiveTopic,
         num_alternate_questions: 3
       });
 
@@ -629,16 +661,70 @@ export default function AIQuestionStudio() {
               </label>
               <div className="select-wrapper">
                 <select 
-                  value={grade} 
-                  onChange={(e) => handleGradeChange(e.target.value)} 
+                  value={isCustomGrade ? '__custom__' : grade} 
+                  onChange={(e) => {
+                    if (e.target.value === '__custom__') {
+                      setIsCustomGrade(true);
+                      if (!customGrade) setCustomGrade('');
+                    } else {
+                      setIsCustomGrade(false);
+                      handleGradeChange(e.target.value);
+                    }
+                  }} 
                   className="select-input"
+                  style={isCustomGrade ? { borderColor: '#2563EB', backgroundColor: '#F0F9FF' } : {}}
                 >
                   {availableGrades.map((g) => (
                     <option key={g} value={g}>{g}</option>
                   ))}
+                  <option value="__custom__">Custom Grade</option>
                 </select>
                 <ChevronDown className="select-chevron" />
               </div>
+              {isCustomGrade && (
+                <div style={{ marginTop: 5, position: 'relative' }}>
+                  <input
+                    type="text"
+                    value={customGrade}
+                    onChange={(e) => setCustomGrade(e.target.value)}
+                    placeholder="Enter custom grade (e.g., Grade 8, B.Sc 1st Year)..."
+                    style={{
+                      width: '100%',
+                      backgroundColor: '#FFFFFF',
+                      border: '1.5px solid #2563EB',
+                      borderRadius: 6,
+                      padding: '5px 22px 5px 8px',
+                      fontSize: 11.5,
+                      fontWeight: 600,
+                      color: '#0F172A',
+                      outline: 'none',
+                      fontFamily: 'inherit'
+                    }}
+                    autoFocus
+                  />
+                  {customGrade && (
+                    <button
+                      type="button"
+                      onClick={() => setCustomGrade('')}
+                      style={{
+                        position: 'absolute',
+                        right: 6,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'none',
+                        border: 'none',
+                        color: '#94A3B8',
+                        cursor: 'pointer',
+                        fontSize: 11,
+                        lineHeight: 1
+                      }}
+                      title="Clear"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Subject Select */}
@@ -648,16 +734,70 @@ export default function AIQuestionStudio() {
               </label>
               <div className="select-wrapper">
                 <select 
-                  value={subject} 
-                  onChange={(e) => handleSubjectChange(e.target.value)} 
+                  value={isCustomSubject ? '__custom__' : subject} 
+                  onChange={(e) => {
+                    if (e.target.value === '__custom__') {
+                      setIsCustomSubject(true);
+                      if (!customSubject) setCustomSubject('');
+                    } else {
+                      setIsCustomSubject(false);
+                      handleSubjectChange(e.target.value);
+                    }
+                  }} 
                   className="select-input"
+                  style={isCustomSubject ? { borderColor: '#2563EB', backgroundColor: '#F0F9FF' } : {}}
                 >
                   {availableSubjects.map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
+                  <option value="__custom__">Custom Subject</option>
                 </select>
                 <ChevronDown className="select-chevron" />
               </div>
+              {isCustomSubject && (
+                <div style={{ marginTop: 5, position: 'relative' }}>
+                  <input
+                    type="text"
+                    value={customSubject}
+                    onChange={(e) => setCustomSubject(e.target.value)}
+                    placeholder="Enter custom subject (e.g., Data Science, Robotics)..."
+                    style={{
+                      width: '100%',
+                      backgroundColor: '#FFFFFF',
+                      border: '1.5px solid #2563EB',
+                      borderRadius: 6,
+                      padding: '5px 22px 5px 8px',
+                      fontSize: 11.5,
+                      fontWeight: 600,
+                      color: '#0F172A',
+                      outline: 'none',
+                      fontFamily: 'inherit'
+                    }}
+                    autoFocus
+                  />
+                  {customSubject && (
+                    <button
+                      type="button"
+                      onClick={() => setCustomSubject('')}
+                      style={{
+                        position: 'absolute',
+                        right: 6,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'none',
+                        border: 'none',
+                        color: '#94A3B8',
+                        cursor: 'pointer',
+                        fontSize: 11,
+                        lineHeight: 1
+                      }}
+                      title="Clear"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
@@ -670,16 +810,70 @@ export default function AIQuestionStudio() {
               </label>
               <div className="select-wrapper">
                 <select 
-                  value={chapter} 
-                  onChange={(e) => handleChapterChange(e.target.value)} 
+                  value={isCustomChapter ? '__custom__' : chapter} 
+                  onChange={(e) => {
+                    if (e.target.value === '__custom__') {
+                      setIsCustomChapter(true);
+                      if (!customChapter) setCustomChapter('');
+                    } else {
+                      setIsCustomChapter(false);
+                      handleChapterChange(e.target.value);
+                    }
+                  }} 
                   className="select-input"
+                  style={isCustomChapter ? { borderColor: '#2563EB', backgroundColor: '#F0F9FF' } : {}}
                 >
                   {availableChapters.map((c) => (
                     <option key={c} value={c}>{c}</option>
                   ))}
+                  <option value="__custom__">Custom Chapter</option>
                 </select>
                 <ChevronDown className="select-chevron" />
               </div>
+              {isCustomChapter && (
+                <div style={{ marginTop: 5, position: 'relative' }}>
+                  <input
+                    type="text"
+                    value={customChapter}
+                    onChange={(e) => setCustomChapter(e.target.value)}
+                    placeholder="Enter custom chapter (e.g., Thermodynamics, Calculus)..."
+                    style={{
+                      width: '100%',
+                      backgroundColor: '#FFFFFF',
+                      border: '1.5px solid #2563EB',
+                      borderRadius: 6,
+                      padding: '5px 22px 5px 8px',
+                      fontSize: 11.5,
+                      fontWeight: 600,
+                      color: '#0F172A',
+                      outline: 'none',
+                      fontFamily: 'inherit'
+                    }}
+                    autoFocus
+                  />
+                  {customChapter && (
+                    <button
+                      type="button"
+                      onClick={() => setCustomChapter('')}
+                      style={{
+                        position: 'absolute',
+                        right: 6,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'none',
+                        border: 'none',
+                        color: '#94A3B8',
+                        cursor: 'pointer',
+                        fontSize: 11,
+                        lineHeight: 1
+                      }}
+                      title="Clear"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Topic Select */}
@@ -689,16 +883,70 @@ export default function AIQuestionStudio() {
               </label>
               <div className="select-wrapper">
                 <select 
-                  value={topic} 
-                  onChange={(e) => setTopic(e.target.value)} 
+                  value={isCustomTopic ? '__custom__' : topic} 
+                  onChange={(e) => {
+                    if (e.target.value === '__custom__') {
+                      setIsCustomTopic(true);
+                      if (!customTopic) setCustomTopic('');
+                    } else {
+                      setIsCustomTopic(false);
+                      setTopic(e.target.value);
+                    }
+                  }} 
                   className="select-input"
+                  style={isCustomTopic ? { borderColor: '#2563EB', backgroundColor: '#F0F9FF' } : {}}
                 >
                   {availableTopics.map((t) => (
                     <option key={t} value={t}>{t}</option>
                   ))}
+                  <option value="__custom__">Custom Topic</option>
                 </select>
                 <ChevronDown className="select-chevron" />
               </div>
+              {isCustomTopic && (
+                <div style={{ marginTop: 5, position: 'relative' }}>
+                  <input
+                    type="text"
+                    value={customTopic}
+                    onChange={(e) => setCustomTopic(e.target.value)}
+                    placeholder="Enter custom topic (e.g., Integration by Parts)..."
+                    style={{
+                      width: '100%',
+                      backgroundColor: '#FFFFFF',
+                      border: '1.5px solid #2563EB',
+                      borderRadius: 6,
+                      padding: '5px 22px 5px 8px',
+                      fontSize: 11.5,
+                      fontWeight: 600,
+                      color: '#0F172A',
+                      outline: 'none',
+                      fontFamily: 'inherit'
+                    }}
+                    autoFocus
+                  />
+                  {customTopic && (
+                    <button
+                      type="button"
+                      onClick={() => setCustomTopic('')}
+                      style={{
+                        position: 'absolute',
+                        right: 6,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'none',
+                        border: 'none',
+                        color: '#94A3B8',
+                        cursor: 'pointer',
+                        fontSize: 11,
+                        lineHeight: 1
+                      }}
+                      title="Clear"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

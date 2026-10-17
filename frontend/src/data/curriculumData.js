@@ -602,11 +602,25 @@ export function getGrades(syllabus = DEFAULT_GRADE_SYLLABUS) {
 }
 
 /**
+ * Returns all unique subjects across all grades in the syllabus.
+ */
+export function getAllUniqueSubjects(syllabus = DEFAULT_GRADE_SYLLABUS) {
+  const subjects = new Set();
+  const syl = syllabus || DEFAULT_GRADE_SYLLABUS;
+  Object.values(syl).forEach(gradeObj => {
+    if (gradeObj && typeof gradeObj === 'object') {
+      Object.keys(gradeObj).forEach(s => subjects.add(s));
+    }
+  });
+  return subjects.size > 0 ? Array.from(subjects) : ['Mathematics', 'Science', 'Physics', 'Chemistry'];
+}
+
+/**
  * Returns available subjects for a specific grade.
  */
 export function getSubjectsForGrade(grade, syllabus = DEFAULT_GRADE_SYLLABUS) {
   const gradeData = syllabus?.[grade] || DEFAULT_GRADE_SYLLABUS[grade];
-  if (!gradeData) return ['Mathematics', 'Physics', 'Chemistry'];
+  if (!gradeData) return getAllUniqueSubjects(syllabus);
   return Object.keys(gradeData);
 }
 
