@@ -250,6 +250,7 @@ export default function TopHeader() {
 
         {/* Theme Toggle Pill */}
         <div
+          id="global-theme-toggle-btn"
           className="theme-toggle-pill"
           onClick={() => setIsDarkMode(!isDarkMode)}
           title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}

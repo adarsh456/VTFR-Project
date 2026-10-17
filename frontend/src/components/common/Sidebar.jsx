@@ -47,6 +47,7 @@ export default function Sidebar({ activeNav = 'studio', onNavChange }) {
 
             return (
               <button
+                id={`sidebar-nav-${item.id}`}
                 key={item.id}
                 type="button"
                 onClick={() => handleNavClick(item.id)}

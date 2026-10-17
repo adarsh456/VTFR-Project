@@ -3,6 +3,7 @@ import TopHeader from './components/common/TopHeader';
 import Sidebar from './components/common/Sidebar';
 import AIQuestionStudio from './components/teacher/AIQuestionStudio';
 import StudentQuizPage from './pages/StudentQuizPage';
+import QuestionLibrary from './components/library/QuestionLibrary';
 
 export default function App() {
   const [activeNav, setActiveNav] = useState('studio');
@@ -19,6 +20,8 @@ export default function App() {
         <main style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
           {activeNav === 'studio' ? (
             <AIQuestionStudio />
+          ) : activeNav === 'library' ? (
+            <QuestionLibrary onNavigateToStudio={() => setActiveNav('studio')} />
           ) : activeNav === 'tree' ? (
             <StudentQuizPage />
           ) : (
