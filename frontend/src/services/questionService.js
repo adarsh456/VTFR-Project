@@ -47,3 +47,9 @@ export const generateDiagram = async (diagramType = 'function') => {
   const response = await api.post(`/questions/generate-diagram?diagram_type=${diagramType}`);
   return response.data;
 };
+
+export const deleteQuestion = async (questionId) => {
+  const response = await api.delete(`/questions/${encodeURIComponent(questionId)}`);
+  return response.data;
+};
+

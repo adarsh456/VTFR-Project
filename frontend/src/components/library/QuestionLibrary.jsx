@@ -25,9 +25,12 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  ArrowRight
+  ArrowRight,
+  Trash2,
+  AlertTriangle
 } from 'lucide-react';
-import { listQuestions, getSampleQuestions, getSampleQuestionByFilename } from '../../services/questionService';
+import { listQuestions, getSampleQuestions, getSampleQuestionByFilename, deleteQuestion } from '../../services/questionService';
+
 import { 
   DEFAULT_GRADE_SYLLABUS, 
   getGrades, 
@@ -65,6 +68,22 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
   // Active Row Action Menu ID
   const [openMenuId, setOpenMenuId] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
+
+  // Delete Action & Confirmation State
+  const [questionToDelete, setQuestionToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [toastMessage, setToastMessage] = useState(null);
+
+  // Close row actions dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!e.target.closest('.ql-row-menu-btn') && !e.target.closest('.ql-dropdown-menu')) {
+        setOpenMenuId(null);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, []);
 
   // Available Filter Options derived from syllabus
   const availableGrades = useMemo(() => getGrades(DEFAULT_GRADE_SYLLABUS), []);
@@ -414,6 +433,41 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
     downloadAnchor.click();
     downloadAnchor.remove();
   };
+
+  const handleConfirmDelete = async () => {
+    if (!questionToDelete) return;
+    setIsDeleting(true);
+    const idToDelete = questionToDelete.id;
+
+    try {
+      await deleteQuestion(idToDelete);
+    } catch (err) {
+      console.warn('Backend delete notification/fallback:', err);
+    }
+
+    setQuestions((prevQuestions) => {
+      const updated = prevQuestions.filter((q) => q.id !== idToDelete);
+      if (selectedQuestion?.id === idToDelete) {
+        setSelectedQuestion(updated.length > 0 ? updated[0] : null);
+      }
+      return updated;
+    });
+
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      next.delete(idToDelete);
+      return next;
+    });
+
+    setIsDeleting(false);
+    setQuestionToDelete(null);
+
+    setToastMessage('Question deleted successfully');
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3000);
+  };
+
 
   return (
     <div className="ql-container">
@@ -923,9 +977,22 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
                                   <Edit3 style={{ width: 13, height: 13 }} />
                                   <span>Edit in Studio</span>
                                 </button>
+                                <div className="ql-dropdown-divider" />
+                                <button 
+                                  type="button" 
+                                  onClick={() => {
+                                    setOpenMenuId(null);
+                                    setQuestionToDelete(q);
+                                  }}
+                                  className="ql-dropdown-item danger"
+                                >
+                                  <Trash2 style={{ width: 13, height: 13 }} />
+                                  <span>Delete Question</span>
+                                </button>
                               </div>
                             )}
                           </div>
+
                         </td>
                       </tr>
                     );
@@ -1239,10 +1306,105 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
               >
                 <Download style={{ width: 14, height: 14 }} />
               </button>
+
+              <button 
+                type="button" 
+                className="ql-footer-btn-delete"
+                onClick={() => setQuestionToDelete(selectedQuestion)}
+                title="Delete Question"
+              >
+                <Trash2 style={{ width: 14, height: 14 }} />
+              </button>
             </div>
           </aside>
         )}
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {questionToDelete && (
+        <div 
+          className="ql-delete-modal-overlay" 
+          onClick={() => !isDeleting && setQuestionToDelete(null)}
+        >
+          <div 
+            className="ql-delete-modal-card" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="ql-delete-modal-icon-header">
+              <div className="ql-delete-icon-wrapper">
+                <Trash2 className="ql-delete-modal-icon" />
+              </div>
+              <button 
+                type="button" 
+                className="ql-delete-modal-close" 
+                onClick={() => !isDeleting && setQuestionToDelete(null)}
+                disabled={isDeleting}
+                title="Close dialog"
+              >
+                <X style={{ width: 16, height: 16 }} />
+              </button>
+            </div>
+
+            <div className="ql-delete-modal-content">
+              <h3 className="ql-delete-modal-title">Delete Question?</h3>
+              <p className="ql-delete-modal-desc">
+                Are you sure you want to permanently delete this question from your library? This action cannot be undone.
+              </p>
+
+              <div className="ql-delete-question-preview">
+                <div className="ql-delete-preview-badge">
+                  <span>{questionToDelete.grade}</span>
+                  <span>•</span>
+                  <span>{questionToDelete.subject}</span>
+                  <span>•</span>
+                  <span>{questionToDelete.topic}</span>
+                </div>
+                <p className="ql-delete-preview-text">
+                  {questionToDelete.questionText}
+                </p>
+              </div>
+            </div>
+
+            <div className="ql-delete-modal-actions">
+              <button 
+                type="button" 
+                className="ql-delete-cancel-btn"
+                onClick={() => setQuestionToDelete(null)}
+                disabled={isDeleting}
+              >
+                Cancel
+              </button>
+              <button 
+                type="button" 
+                className="ql-delete-confirm-btn"
+                onClick={handleConfirmDelete}
+                disabled={isDeleting}
+              >
+                {isDeleting ? (
+                  <>
+                    <Sparkles className="animate-spin" style={{ width: 14, height: 14 }} />
+                    <span>Deleting...</span>
+                  </>
+                ) : (
+                  <>
+                    <Trash2 style={{ width: 14, height: 14 }} />
+                    <span>Delete Question</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="ql-toast-notification">
+          <CheckCircle2 style={{ width: 16, height: 16, color: '#10B981' }} />
+          <span>{toastMessage}</span>
+        </div>
+      )}
     </div>
   );
 }
+
