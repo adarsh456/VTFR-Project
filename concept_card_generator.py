@@ -33,6 +33,9 @@ def render_concept_card_image(topic: str, subject: str, grade: str, sections_dat
     Renders a 5-panel Educational Concept Summary Card PNG with 100% guaranteed,
     non-overlapping layout mathematics and crisp typography.
     """
+    if not isinstance(sections_data, dict):
+        sections_data = {}
+
     fig, ax = plt.subplots(figsize=(10, 15), dpi=200)
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 15)

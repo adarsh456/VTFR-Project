@@ -934,7 +934,10 @@ def get_exact_image_url(
     # Primary: Programmatic 5-Panel Concept Card Generator
     print(f"[Concept Card] Generating 5-Panel Educational Concept Card Infographic for '{clean_topic}'...")
     try:
-        import concept_card_generator
+        try:
+            from . import concept_card_generator
+        except ImportError:
+            import concept_card_generator
         card_path = concept_card_generator.generate_educational_concept_card(clean_topic, subject, grade)
         if card_path and os.path.exists(card_path):
             card_filename = os.path.basename(card_path)
@@ -967,7 +970,7 @@ def get_exact_image_url(
     for candidate in ranked_candidates:
         if is_valid_image_url(candidate, check_live=False):
             eval_res = evaluate_image_educational_quality(candidate, clean_topic, subject)
-            if eval_res.get("relevant") == "YES" and eval_res.get("educational") == "YES" and eval_res.get("score", 0) >= 50:
+            if eval_res and isinstance(eval_res, dict) and eval_res.get("relevant") == "YES" and eval_res.get("educational") == "YES" and eval_res.get("score", 0) >= 50:
                 print(f"[Image] Valid fallback web image URL (AI Score: {eval_res.get('score')}): {candidate}")
                 return candidate
 

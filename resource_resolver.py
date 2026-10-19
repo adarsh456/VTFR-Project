@@ -967,7 +967,7 @@ def get_exact_image_url(
     for candidate in ranked_candidates:
         if is_valid_image_url(candidate, check_live=False):
             eval_res = evaluate_image_educational_quality(candidate, clean_topic, subject)
-            if eval_res.get("relevant") == "YES" and eval_res.get("educational") == "YES" and eval_res.get("score", 0) >= 50:
+            if eval_res and isinstance(eval_res, dict) and eval_res.get("relevant") == "YES" and eval_res.get("educational") == "YES" and eval_res.get("score", 0) >= 50:
                 print(f"[Image] Valid fallback web image URL (AI Score: {eval_res.get('score')}): {candidate}")
                 return candidate
 

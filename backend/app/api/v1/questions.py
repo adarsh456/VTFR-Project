@@ -45,6 +45,9 @@ def generate_question_endpoint(
             num_alternate_questions=req.num_alternate_questions or 3
         )
 
+        if not vtfr_json or not isinstance(vtfr_json, dict):
+            raise ValueError("Generator returned an empty or invalid question payload.")
+
         import uuid
         question_id = vtfr_json.get("questionId")
         if not question_id or db.query(Question).filter(Question.id == question_id).first():
@@ -187,6 +190,65 @@ def get_question_by_id(question_id: str, db: Session = Depends(get_db)):
         "topic": q.topic,
         "payload": q.json_payload
     }
+
+@router.delete("/{question_id}")
+def delete_question(question_id: str, db: Session = Depends(get_db)):
+    """Deletes a question by ID from the database, or sample file if applicable."""
+    from ...db.models import TestSession, StepAttempt
+    try:
+        # 1. Clean up associated test sessions and step attempts to avoid foreign key errors
+        sessions = db.query(TestSession).filter(TestSession.question_id == question_id).all()
+        for s in sessions:
+            db.query(StepAttempt).filter(StepAttempt.session_id == s.id).delete()
+            db.delete(s)
+
+        # 2. Delete question from database if present
+        q = db.query(Question).filter(Question.id == question_id).first()
+        db_deleted = False
+        if q:
+            db.delete(q)
+            db.commit()
+            db_deleted = True
+        else:
+            db.commit()
+
+        # 3. Clean up sample file if the question corresponds to one
+        import os
+        import json
+        gen_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "generated_question"))
+        if not os.path.exists(gen_dir):
+            gen_dir = os.path.abspath("generated_question")
+
+        file_deleted = False
+        if os.path.exists(gen_dir):
+            for fname in os.listdir(gen_dir):
+                if fname.endswith(".json"):
+                    fpath = os.path.join(gen_dir, fname)
+                    try:
+                        if question_id == f"sample-{fname}" or question_id == fname:
+                            os.remove(fpath)
+                            file_deleted = True
+                            break
+                        with open(fpath, "r", encoding="utf-8") as f:
+                            data = json.load(f)
+                        if data.get("questionId") == question_id:
+                            os.remove(fpath)
+                            file_deleted = True
+                            break
+                    except Exception:
+                        pass
+
+        return {
+            "status": "success",
+            "message": "Question deleted successfully",
+            "question_id": question_id,
+            "db_deleted": db_deleted,
+            "file_deleted": file_deleted
+        }
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Failed to delete question: {str(e)}")
+
 
 @router.post("/generate-diagram")
 def generate_diagram_endpoint(diagram_type: str = Query("function")):

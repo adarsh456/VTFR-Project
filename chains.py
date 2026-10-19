@@ -91,10 +91,28 @@ suggest_topics_chain = RunnableLambda(make_suggestions_prompt) | suggestions_llm
 
 def run_generate_vtfr_question(inputs: dict) -> dict:
     """
-    Executes the generation chain and validates the output structure against VTFRQuestion schema.
+    Executes the generation chain, auto-heals any missing metadata or resources,
+    and validates the output structure against VTFRQuestion schema.
     """
     raw_response = generate_vtfr_chain.invoke(inputs)
     raw_result = robust_json_parser(raw_response)
+
+    # Pre-validation auto-healing for syllabus metadata and relatedContent
+    if isinstance(raw_result, dict):
+        for field in ["grade", "subject", "chapter", "topic"]:
+            if not raw_result.get(field) and inputs.get(field):
+                raw_result[field] = str(inputs[field])
+
+        topic = raw_result.get("topic") or inputs.get("topic", "this topic")
+        subj = raw_result.get("subject") or inputs.get("subject", "this subject")
+
+        if not raw_result.get("relatedContent") or not isinstance(raw_result.get("relatedContent"), dict):
+            raw_result["relatedContent"] = {
+                "conceptSummary": f"Review foundational principles of {topic} in {subj} to understand step-by-step problem solving."
+            }
+        elif not raw_result["relatedContent"].get("conceptSummary"):
+            raw_result["relatedContent"]["conceptSummary"] = f"Review foundational principles of {topic} in {subj} to understand step-by-step problem solving."
+
     # Parse and validate structure using Pydantic, then convert back to dict
     validated = VTFRQuestion.model_validate(raw_result)
     return validated.model_dump()

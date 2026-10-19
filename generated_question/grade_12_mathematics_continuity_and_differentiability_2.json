@@ -1,0 +1,398 @@
+{
+  "questionId": "acf396b2-4596-46cf-bdcb-d2f6af48c52a",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Calculus",
+  "topic": "Continuity and Differentiability",
+  "questionText": "For the function f(x) = (x^3 - 8) / (x - 2), what value must be assigned to f(2) to make the function continuous at x = 2?",
+  "calculationDraft": "Correct: To find the value of k for which f(x) = (x^3 - 8)/(x - 2) is continuous at x = 2, we evaluate the limit as x approaches 2. Factor the numerator: x^3 - 8 = (x - 2)(x^2 + 2x + 4). Cancel (x - 2) to get x^2 + 2x + 4. Evaluate at x = 2: 2^2 + 2(2) + 4 = 4 + 4 + 4 = 12. Thus, f(2) must be 12.\nDistractor A (Computational Error): Student forgets to cancel the term or evaluates incorrectly, getting 8 (just substituting x=2 into x^2+4, ignoring the 2x term).\nDistractor B (Conceptual Misconception): Student believes the limit is the value of the denominator or numerator individually, or confuses the root with the function value, selecting 2.\nDistractor C (Trap): Student factors correctly but makes an arithmetic error in the final sum: 4 + 4 + 2 = 10 (forgetting the constant 4 or misadding).",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "8",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "10",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "12",
+      "isCorrect": true,
+      "explanation": "The limit as x approaches 2 is found by simplifying the expression to x^2 + 2x + 4, which evaluates to 12 at x = 2."
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "2",
+      "isCorrect": false
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "To remove the discontinuity at x = 2, which factored form correctly represents the numerator x^3 - 8?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "(x + 2)(x^2 - 2x + 4)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "(x - 2)(x^2 - 2x + 4)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(x - 2)(x^2 + 2x + 4)",
+          "isCorrect": true,
+          "explanation": "This is the correct difference of cubes factorization for x^3 - 2^3."
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "(x - 2)(x^2 + 4)",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "After canceling the common factor (x - 2) from the numerator and denominator, what is the simplified expression for the limit as x approaches 2?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x^2 - 2x + 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x^2 + 4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x^3 - 8",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x^2 + 2x + 4",
+          "isCorrect": true,
+          "explanation": "Canceling (x-2) from (x-2)(x^2+2x+4)/(x-2) leaves the quadratic expression x^2 + 2x + 4."
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "Substituting x = 2 into the simplified expression x^2 + 2x + 4, what is the resulting value?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "10",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "8",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "14",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "12",
+          "isCorrect": true,
+          "explanation": "Evaluating 2^2 + 2(2) + 4 gives 4 + 4 + 4 = 12."
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "1c8b506f-6f9b-4ff1-8f9c-72aba826afa7",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "What value should f(3) take for the function f(x) = (x^2 - 9) / (x - 3) to be continuous at x = 3?",
+      "calculationDraft": "Correct: Limit of (x^2 - 9)/(x - 3) as x -> 3. Factor: (x-3)(x+3)/(x-3) = x+3. Evaluate at 3: 3+3=6.\nDistractor A: 3 (just the root).\nDistractor B: 9 (substituting into x^2).\nDistractor C: 0 (thinking it's undefined/zero).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "9",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "6",
+          "isCorrect": true,
+          "explanation": "Simplifying the expression to x + 3 and evaluating at x = 3 yields 6."
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "3",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Which factorization correctly represents the numerator x^2 - 9?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x + 3)(x + 3)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x - 3)(x - 3)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 3)(x + 3)",
+              "isCorrect": true,
+              "explanation": "This is the standard difference of squares factorization."
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x - 9)(x + 1)",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After canceling (x - 3), what is the value of the remaining expression (x + 3) at x = 3?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "9",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "6",
+              "isCorrect": true,
+              "explanation": "Substituting x=3 into x+3 gives 3+3=6."
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "71d98342-35ec-4a57-8486-7bbb611e96b9",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Determine the value of f(2) that makes f(x) = (4x^2 - 16) / (x - 2) continuous at x = 2.",
+      "calculationDraft": "Correct: Limit of (4x^2 - 16)/(x - 2) as x -> 2. Factor: 4(x^2-4)/(x-2) = 4(x-2)(x+2)/(x-2) = 4(x+2). Evaluate at 2: 4(4)=16.\nDistractor A: 4 (just the coefficient).\nDistractor B: 8 (forgetting the 4 multiplier, just x+2=4).\nDistractor C: 2 (the root).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "4",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "8",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "16",
+          "isCorrect": true,
+          "explanation": "Simplifying to 4(x+2) and evaluating at x=2 gives 4(4) = 16."
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the simplified form of the expression (4x^2 - 16) / (x - 2) after canceling common factors?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "4x + 2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "x + 2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "4(x - 2)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "4(x + 2)",
+              "isCorrect": true,
+              "explanation": "Factoring out 4 gives 4(x-2)(x+2), and canceling (x-2) leaves 4(x+2)."
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "What is the value of 4(x + 2) when x = 2?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "8",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "16",
+              "isCorrect": true,
+              "explanation": "Substituting x=2 into 4(x+2) results in 4(4) = 16."
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "4",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "dacc4137-2831-4676-b882-e5cf9d013359",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "For the function f(x) = (x^2 - 4x + 3) / (x - 1), what value must f(1) equal for the function to be continuous at x = 1?",
+      "calculationDraft": "Correct: Limit of (x^2 - 4x + 3)/(x - 1) as x -> 1. Factor: (x-1)(x-3)/(x-1) = x-3. Evaluate at 1: 1-3=-2.\nDistractor A: 3 (root of other factor).\nDistractor B: 1 (the point).\nDistractor C: -1 (sign error).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "-1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "-2",
+          "isCorrect": true,
+          "explanation": "Simplifying the expression to x - 3 and evaluating at x = 1 yields -2."
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "3",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Which pair of binomials correctly factors the quadratic numerator x^2 - 4x + 3?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x + 1)(x + 3)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x - 1)(x - 3)",
+              "isCorrect": true,
+              "explanation": "These factors multiply to x^2 - 4x + 3 and include the term (x-1) needed for cancellation."
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 1)(x + 3)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x + 1)(x - 3)",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After canceling (x - 1), what is the value of the remaining expression (x - 3) at x = 1?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "-2",
+              "isCorrect": true,
+              "explanation": "Substituting x=1 into x-3 gives 1-3=-2."
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "-1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "3",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "A function is continuous at a point if the limit as x approaches that point exists and equals the function's value at that point. For rational functions with removable discontinuities, you can find the required value by factoring and canceling common terms to evaluate the limit.",
+    "youtubeResource": {
+      "title": "Continuity and Differentiability: Removable Discontinuities",
+      "searchQuery": "Grade 12 Mathematics Continuity and Differentiability removable discontinuities step by step tutorial",
+      "url": "https://www.youtube.com/watch?v=nRv1lPqrx3k"
+    },
+    "imageResource": {
+      "title": "Graph of Removable Discontinuity",
+      "searchQuery": "Grade 12 Mathematics Continuity and Differentiability removable discontinuity hole graph educational diagram",
+      "url": "http://127.0.0.1:8000/concept_cards/continuity_and_differentiability_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Continuity and Differentiability Study Notes",
+      "searchQuery": "Grade 12 Mathematics Continuity and Differentiability revision notes pdf",
+      "url": "https://egyankosh.ac.in/bitstream/123456789/28503/1/Unit-2.pdf"
+    },
+    "webResource": {
+      "title": "Understanding Continuity in Calculus",
+      "searchQuery": "Mathematics Continuity and Differentiability concept guide",
+      "url": "https://www.cuemath.com/calculus/continuity-and-differentiability/"
+    }
+  }
+}

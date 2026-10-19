@@ -53,12 +53,14 @@ def generate_vtfr_question(subject: str, chapter: str, topic: str, grade: str, e
 
 
 def _enrich_related_content(data: dict):
+    if not isinstance(data, dict):
+        return
     
-    grade = data.get("grade", "")
-    subject = data.get("subject", "")
-    chapter = data.get("chapter", "")
-    topic = data.get("topic", "")
-    question_text = data.get("questionText", "")
+    grade = data.get("grade") or ""
+    subject = data.get("subject") or ""
+    chapter = data.get("chapter") or ""
+    topic = data.get("topic") or ""
+    question_text = data.get("questionText") or ""
 
     if "relatedContent" not in data or not isinstance(data["relatedContent"], dict):
         data["relatedContent"] = {}
@@ -66,12 +68,12 @@ def _enrich_related_content(data: dict):
     rel = data["relatedContent"]
 
     # 1. Concept Summary Fallback
-    if "conceptSummary" not in rel or not rel["conceptSummary"]:
+    if not rel.get("conceptSummary"):
         rel["conceptSummary"] = f"Review the foundational principles of {topic} in {subject} to understand step-by-step problem solving."
     concept_summary = rel["conceptSummary"]
 
     # 2. YouTube Resource (Exact direct video link)
-    yt = rel.get("youtubeResource", {})
+    yt = rel.get("youtubeResource") if isinstance(rel.get("youtubeResource"), dict) else {}
     yt_query = yt.get("searchQuery") or f"{grade} {subject} {topic} concept explanation tutorial"
     yt_url = resource_resolver.get_exact_youtube_url(yt_query, topic)
     rel["youtubeResource"] = {
@@ -81,7 +83,7 @@ def _enrich_related_content(data: dict):
     }
 
     # 3. Image Resource (5-Panel Educational Concept Card Image / Diagram)
-    img = rel.get("imageResource", {})
+    img = rel.get("imageResource") if isinstance(rel.get("imageResource"), dict) else {}
     img_query = img.get("searchQuery")
     if not img_query or len(img_query.split()) < 4:
         img_query = resource_resolver.build_structured_image_query(
@@ -110,7 +112,7 @@ def _enrich_related_content(data: dict):
     }
 
     # 4. PDF Resource (Exact direct PDF notes / study sheet link)
-    pdf = rel.get("pdfResource", {})
+    pdf = rel.get("pdfResource") if isinstance(rel.get("pdfResource"), dict) else {}
     pdf_query = pdf.get("searchQuery") or f"{grade} {subject} {topic} study notes revision pdf"
     pdf_url = resource_resolver.get_exact_pdf_url(pdf_query, topic, subject)
     rel["pdfResource"] = {
@@ -120,7 +122,7 @@ def _enrich_related_content(data: dict):
     }
 
     # 5. Web Resource (Exact direct educational article link)
-    web = rel.get("webResource", {})
+    web = rel.get("webResource") if isinstance(rel.get("webResource"), dict) else {}
     web_query = web.get("searchQuery") or f"{grade} {subject} {topic} explained examples"
     web_url = resource_resolver.get_exact_web_url(web_query, topic, subject)
     rel["webResource"] = {
@@ -131,40 +133,52 @@ def _enrich_related_content(data: dict):
 
 
 def _enforce_uuids(data: dict):
+    if not isinstance(data, dict):
+        return
     # Always assign fresh unique UUID4s to avoid collisions with example template UUIDs
     data["questionId"] = str(uuid.uuid4())
-    for alt in data.get("alternateQuestions", []):
-        alt["questionId"] = str(uuid.uuid4())
+    for alt in data.get("alternateQuestions") or []:
+        if isinstance(alt, dict):
+            alt["questionId"] = str(uuid.uuid4())
 
 
 def _shuffle_options(data: dict):
+    if not isinstance(data, dict):
+        return
     
     def _shuffle_list(options: list):
-        if not options:
+        if not options or not isinstance(options, list):
             return
         random.shuffle(options)
         for idx, opt in enumerate(options, 1):
-            opt["optionSequenceNo"] = idx
+            if isinstance(opt, dict):
+                opt["optionSequenceNo"] = idx
 
     # Main question options
-    _shuffle_list(data.get("optionsList", []))
+    _shuffle_list(data.get("optionsList") or [])
 
     # Main question solution steps
-    for step in data.get("solutionSteps", []):
-        _shuffle_list(step.get("optionsList", []))
+    for step in data.get("solutionSteps") or []:
+        if isinstance(step, dict):
+            _shuffle_list(step.get("optionsList") or [])
 
     # Alternate questions and their steps
-    for alt in data.get("alternateQuestions", []):
-        _shuffle_list(alt.get("optionsList", []))
-        for step in alt.get("solutionSteps", []):
-            _shuffle_list(step.get("optionsList", []))
+    for alt in data.get("alternateQuestions") or []:
+        if isinstance(alt, dict):
+            _shuffle_list(alt.get("optionsList") or [])
+            for step in alt.get("solutionSteps") or []:
+                if isinstance(step, dict):
+                    _shuffle_list(step.get("optionsList") or [])
 
 
 def _warn_if_insufficient_alt_steps(data: dict):
-    
-    alt_questions = data.get("alternateQuestions", [])
+    if not isinstance(data, dict):
+        return
+    alt_questions = data.get("alternateQuestions") or []
     for i, alt in enumerate(alt_questions):
-        steps = alt.get("solutionSteps", [])
+        if not isinstance(alt, dict):
+            continue
+        steps = alt.get("solutionSteps") or []
         if len(steps) < 2:
             print(
                 f"[WARNING] alternateQuestions[{i}] has only {len(steps)} solutionStep(s). "
