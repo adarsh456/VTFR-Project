@@ -16,6 +16,9 @@ class GenerateQuestionRequest(BaseModel):
     exclude_questions: Optional[List[str]] = None
     num_alternate_questions: Optional[int] = 3
 
+class SaveQuestionRequest(BaseModel):
+    question: dict
+
 @router.get("/syllabus")
 def get_syllabus():
     """Returns available grade, subject, chapter, and topic hierarchy."""
@@ -82,6 +85,83 @@ def generate_question_endpoint(
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Question generation failed: {str(e)}")
+
+@router.get("/check/{question_id}")
+def check_question_saved(question_id: str, db: Session = Depends(get_db)):
+    """
+    Checks if a question exists in the database by ID.
+    Returns boolean exists status.
+    """
+    exists = db.query(Question.id).filter(Question.id == question_id).first() is not None
+    return {
+        "status": "success",
+        "questionId": question_id,
+        "exists": exists
+    }
+
+@router.post("/save")
+def save_question_endpoint(
+    req: SaveQuestionRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Saves a VTFR Question payload directly into the database, or updates if already exists.
+    """
+    vtfr_json = req.question
+    if not vtfr_json or not isinstance(vtfr_json, dict):
+        raise HTTPException(status_code=400, detail="Invalid question payload")
+
+    import uuid
+    question_id = vtfr_json.get("questionId") or str(uuid.uuid4())
+    vtfr_json["questionId"] = question_id
+
+    subject = vtfr_json.get("subject", "Mathematics")
+    chapter = vtfr_json.get("chapter", "General")
+    topic = vtfr_json.get("topic", "General")
+    grade = vtfr_json.get("grade", "Grade 10")
+    blooms_level = vtfr_json.get("bloomsLevel", "Apply")
+    difficulty_tag = vtfr_json.get("difficultyTag", "Medium")
+    question_text = vtfr_json.get("questionText", "")
+
+    existing = db.query(Question).filter(Question.id == question_id).first()
+    if existing:
+        existing.subject = subject
+        existing.chapter = chapter
+        existing.topic = topic
+        existing.grade = grade
+        existing.blooms_level = blooms_level
+        existing.difficulty = difficulty_tag
+        existing.question_text = question_text
+        existing.json_payload = vtfr_json
+        db.commit()
+        db.refresh(existing)
+        return {
+            "status": "success",
+            "message": "Question updated in database successfully",
+            "questionId": question_id,
+            "exists": True
+        }
+    else:
+        db_question = Question(
+            id=question_id,
+            subject=subject,
+            chapter=chapter,
+            topic=topic,
+            grade=grade,
+            blooms_level=blooms_level,
+            difficulty=difficulty_tag,
+            question_text=question_text,
+            json_payload=vtfr_json
+        )
+        db.add(db_question)
+        db.commit()
+        db.refresh(db_question)
+        return {
+            "status": "success",
+            "message": "Question saved to database successfully",
+            "questionId": question_id,
+            "exists": True
+        }
 
 @router.get("")
 def list_questions(

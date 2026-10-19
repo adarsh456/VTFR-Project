@@ -71,6 +71,36 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState(null);
   const [successMsg, setSuccessMsg] = useState(null);
+  const [generationElapsed, setGenerationElapsed] = useState(0);
+
+  useEffect(() => {
+    let timer;
+    if (isGenerating) {
+      setGenerationElapsed(0);
+      timer = setInterval(() => {
+        setGenerationElapsed((prev) => prev + 1);
+      }, 1000);
+    } else {
+      setGenerationElapsed(0);
+    }
+    return () => clearInterval(timer);
+  }, [isGenerating]);
+
+  const GENERATION_STAGES = [
+    { title: "Analyzing Curriculum & Cognitive Model", subtitle: "Extracting pedagogical standards & core formulas..." },
+    { title: "Synthesizing Core VTFR Question", subtitle: "Generating question text, 4 options & mathematical derivation..." },
+    { title: "Constructing Adaptive Scaffolding", subtitle: "Decomposing guiding steps & alternate questions..." },
+    { title: "Resolving Educational Learning Resources", subtitle: "Generating 5-panel concept card, video & revision notes..." },
+    { title: "Validating Mathematical Rigor & Schemas", subtitle: "Verifying single-correct rule, unique distractors & JSON format..." }
+  ];
+
+  const generationStageIndex = useMemo(() => {
+    if (generationElapsed < 3) return 0;
+    if (generationElapsed < 7) return 1;
+    if (generationElapsed < 13) return 2;
+    if (generationElapsed < 19) return 3;
+    return 4;
+  }, [generationElapsed]);
 
   useEffect(() => {
     fetchSyllabus();
@@ -196,7 +226,58 @@ export default function QuestionGeneratorForm({ onQuestionGenerated }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+    <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm relative">
+      {/* Full-Screen Buffering Overlay during Question Generation */}
+      {isGenerating && (
+        <div className="vtfr-generating-overlay" role="dialog" aria-modal="true" aria-label="Generating VTFR Question">
+          <div className="vtfr-generating-card">
+            {/* Central Dual-Ring Buffering Spinner */}
+            <div className="vtfr-spinner-container">
+              <div className="vtfr-outer-spinner-ring" />
+              <div className="vtfr-inner-spinner-ring" />
+              <div className="vtfr-spinner-core-icon">
+                <Sparkles style={{ width: 17, height: 17 }} />
+              </div>
+            </div>
+
+            <h3 className="vtfr-generating-title">
+              {GENERATION_STAGES[generationStageIndex]?.title || "Generating VTFR Question..."}
+            </h3>
+            
+            <p className="vtfr-generating-subtitle">
+              <Loader2 className="animate-spin" style={{ width: 13, height: 13 }} />
+              <span>{GENERATION_STAGES[generationStageIndex]?.subtitle}</span>
+            </p>
+
+            {/* Parameter Badges */}
+            <div className="vtfr-generating-badge-row">
+              <span className="vtfr-generating-badge badge-primary">
+                {effectiveGrade}
+              </span>
+              <span className="vtfr-generating-badge">
+                {effectiveSubject}
+              </span>
+              <span className="vtfr-generating-badge">
+                {effectiveTopic}
+              </span>
+            </div>
+
+            {/* Progress Shimmer Bar */}
+            <div className="vtfr-generating-progress-bar-wrap">
+              <div className="vtfr-generating-progress-shimmer" />
+            </div>
+
+            {/* Footer Info */}
+            <div className="vtfr-generating-footer-note">
+              <span>Deep multi-step reasoning & distractor derivation in progress</span>
+              <span className="vtfr-generating-timer">
+                ⏱ {Math.floor(generationElapsed / 60)}:{String(generationElapsed % 60).padStart(2, '0')}s
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       <h2 className="text-lg font-bold text-[#0B1E36] mb-5">
         AI Question Generator
       </h2>

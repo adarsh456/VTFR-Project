@@ -33,7 +33,7 @@ import {
   CheckCheck,
   Calculator
 } from 'lucide-react';
-import { getSyllabus, generateQuestion, getSampleQuestions, getSampleQuestionByFilename } from '../../services/questionService';
+import { getSyllabus, generateQuestion, getSampleQuestions, getSampleQuestionByFilename, checkQuestionSaved, saveQuestion } from '../../services/questionService';
 import { 
   DEFAULT_GRADE_SYLLABUS, 
   getGrades, 
@@ -357,13 +357,47 @@ export default function AIQuestionStudio() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationError, setGenerationError] = useState(null);
   const [pipelineStep, setPipelineStep] = useState(1);
+  const [generationElapsed, setGenerationElapsed] = useState(0);
+
+  // Live Timer for Buffering Overlay
+  useEffect(() => {
+    let timer;
+    if (isGenerating) {
+      setGenerationElapsed(0);
+      timer = setInterval(() => {
+        setGenerationElapsed((prev) => prev + 1);
+      }, 1000);
+    } else {
+      setGenerationElapsed(0);
+    }
+    return () => clearInterval(timer);
+  }, [isGenerating]);
+
+  // Generation Stage Descriptions (cycles gracefully while processing)
+  const GENERATION_STAGES = [
+    { title: "Analyzing Curriculum & Cognitive Model", subtitle: "Extracting pedagogical standards & core formulas..." },
+    { title: "Synthesizing Core VTFR Question", subtitle: "Generating question text, 4 options & mathematical derivation..." },
+    { title: "Constructing Adaptive Scaffolding", subtitle: `Decomposing guiding steps & ${numQuestions} alternate questions...` },
+    { title: "Resolving Educational Learning Resources", subtitle: "Generating 5-panel concept card, video & revision notes..." },
+    { title: "Validating Mathematical Rigor & Schemas", subtitle: "Verifying single-correct rule, unique distractors & JSON format..." }
+  ];
+
+  const generationStageIndex = useMemo(() => {
+    if (generationElapsed < 3) return 0;
+    if (generationElapsed < 7) return 1;
+    if (generationElapsed < 13) return 2;
+    if (generationElapsed < 19) return 3;
+    return 4;
+  }, [generationElapsed]);
 
   // Preview Card State
   const [selectedOption, setSelectedOption] = useState('A');
   const [isSolutionOpen, setIsSolutionOpen] = useState(true);
   const [isCalculationDraftOpen, setIsCalculationDraftOpen] = useState(false);
   const [isAlternativesOpen, setIsAlternativesOpen] = useState(true);
-  const [savedNotification, setSavedNotification] = useState(false);
+  const [isSavedInDb, setIsSavedInDb] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [currentVTFRJson, setCurrentVTFRJson] = useState(INITIAL_VTFR_QUESTION);
 
   // Active Main Question State
   const [activeQuestion, setActiveQuestion] = useState(() => {
@@ -418,9 +452,32 @@ export default function AIQuestionStudio() {
   // Resource Modal State
   const [activeResourceModal, setActiveResourceModal] = useState(null);
 
+  // Check if current active question is already saved in database
+  useEffect(() => {
+    let isMounted = true;
+    async function verifySavedStatus() {
+      if (!activeQuestion?.id) return;
+      try {
+        const res = await checkQuestionSaved(activeQuestion.id);
+        if (isMounted) {
+          setIsSavedInDb(Boolean(res?.exists));
+        }
+      } catch (err) {
+        if (isMounted) {
+          setIsSavedInDb(false);
+        }
+      }
+    }
+    verifySavedStatus();
+    return () => {
+      isMounted = false;
+    };
+  }, [activeQuestion?.id]);
+
   // Helper to load any raw JSON structure into UI state
   const loadVTFRJsonIntoState = (q) => {
     if (!q) return;
+    setCurrentVTFRJson(q);
 
     // Update left panel controls if metadata is present
     if (q.grade) {
@@ -608,13 +665,14 @@ export default function AIQuestionStudio() {
         subject: effectiveSubject,
         chapter: effectiveChapter,
         topic: effectiveTopic,
-        num_alternate_questions: 3
+        num_alternate_questions: numQuestions || 3
       });
 
       setPipelineStep(3); // Validation
 
       if (res && res.question) {
         loadVTFRJsonIntoState(res.question);
+        setIsSavedInDb(true);
         setPipelineStep(4); // Database
       }
     } catch (e) {
@@ -632,14 +690,116 @@ export default function AIQuestionStudio() {
     }
   };
 
-  const handleSaveToDatabase = () => {
-    setSavedNotification(true);
-    setPipelineStep(5); // Delivery
-    setTimeout(() => setSavedNotification(false), 3000);
+  const handleSaveToDatabase = async () => {
+    if (isSavedInDb || isSaving) return;
+    setIsSaving(true);
+    try {
+      const payloadToSave = {
+        ...(currentVTFRJson || {}),
+        questionId: activeQuestion.id,
+        questionText: activeQuestion.text,
+        grade: activeQuestion.metadata?.grade || effectiveGrade,
+        subject: activeQuestion.metadata?.subject || effectiveSubject,
+        chapter: activeQuestion.metadata?.chapter || effectiveChapter,
+        topic: activeQuestion.metadata?.topic || effectiveTopic,
+        difficultyTag: activeQuestion.metadata?.difficulty || difficulty,
+        bloomsLevel: activeQuestion.metadata?.type || 'Apply',
+        calculationDraft: activeQuestion.calculationDraft,
+        solutionSteps: activeQuestion.solutionSteps,
+        optionsList: (activeQuestion.options || []).map((opt, i) => ({
+          optionSequenceNo: opt.sequenceNo || (i + 1),
+          optionText: opt.text,
+          isCorrect: opt.isCorrect,
+          explanation: opt.explanation || ''
+        })),
+        alternateQuestions: (alternativeQuestions || []).map(alt => ({
+          questionId: alt.id,
+          questionText: alt.text,
+          difficultyTag: alt.difficulty,
+          calculationDraft: alt.calculationDraft,
+          solutionSteps: alt.solutionSteps,
+          optionsList: (alt.options || []).map((o, idx) => ({
+            optionSequenceNo: o.sequenceNo || (idx + 1),
+            optionText: o.text,
+            isCorrect: o.isCorrect,
+            explanation: o.explanation || ''
+          }))
+        })),
+        relatedContent: relatedContent
+      };
+
+      const res = await saveQuestion(payloadToSave);
+      if (res && (res.status === 'success' || res.exists)) {
+        setIsSavedInDb(true);
+        setPipelineStep(4);
+      }
+    } catch (err) {
+      console.error('Failed to save question to DB:', err);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
     <div className="workspace-canvas">
+      {/* Full-Screen Buffering Overlay during Question Generation (createquestionpaper.in style) */}
+      {isGenerating && (
+        <div className="vtfr-generating-overlay" role="dialog" aria-modal="true" aria-label="Generating VTFR Question">
+          <div className="vtfr-generating-card">
+            {/* Central Dual-Ring Buffering Spinner */}
+            <div className="vtfr-spinner-container">
+              <div className="vtfr-outer-spinner-ring" />
+              <div className="vtfr-inner-spinner-ring" />
+              <div className="vtfr-spinner-core-icon">
+                <Sparkles style={{ width: 17, height: 17 }} />
+              </div>
+            </div>
+
+            <h3 className="vtfr-generating-title">
+              {GENERATION_STAGES[generationStageIndex]?.title || "Generating VTFR Question..."}
+            </h3>
+            
+            <p className="vtfr-generating-subtitle">
+              <RotateCw className="animate-spin" style={{ width: 13, height: 13 }} />
+              <span>{GENERATION_STAGES[generationStageIndex]?.subtitle}</span>
+            </p>
+
+            {/* Parameter Badges */}
+            <div className="vtfr-generating-badge-row">
+              <span className="vtfr-generating-badge badge-primary">
+                <GraduationCap style={{ width: 12, height: 12 }} />
+                {effectiveGrade}
+              </span>
+              <span className="vtfr-generating-badge">
+                <BookOpen style={{ width: 12, height: 12 }} />
+                {effectiveSubject}
+              </span>
+              <span className="vtfr-generating-badge">
+                <Target style={{ width: 12, height: 12 }} />
+                {effectiveTopic}
+              </span>
+              <span className="vtfr-generating-badge">
+                <FileText style={{ width: 12, height: 12 }} />
+                {numQuestions} {numQuestions === 1 ? 'Question' : 'Questions'}
+              </span>
+            </div>
+
+            {/* Progress Shimmer Bar */}
+            <div className="vtfr-generating-progress-bar-wrap">
+              <div className="vtfr-generating-progress-shimmer" />
+            </div>
+
+            {/* Footer Info */}
+            <div className="vtfr-generating-footer-note">
+              <span>Deep multi-step reasoning & distractor derivation in progress</span>
+              <span className="vtfr-generating-timer">
+                ⏱ {Math.floor(generationElapsed / 60)}:{String(generationElapsed % 60).padStart(2, '0')}s
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Two-Column Studio Layout */}
       <div className="studio-grid">
         
@@ -1172,10 +1332,16 @@ export default function AIQuestionStudio() {
                 <button 
                   type="button" 
                   onClick={handleSaveToDatabase}
-                  className="pill-ready-save"
+                  disabled={isSavedInDb || isSaving}
+                  className={`pill-ready-save ${isSavedInDb ? 'is-saved' : ''}`}
+                  title={isSavedInDb ? 'Question is already saved in the database' : 'Save question to database'}
                 >
-                  <Check style={{ width: 14, height: 14 }} />
-                  <span>{savedNotification ? 'Saved to DB!' : 'Ready to Save'}</span>
+                  {isSaving ? (
+                    <RotateCw className="animate-spin" style={{ width: 14, height: 14 }} />
+                  ) : (
+                    <Check style={{ width: 14, height: 14 }} />
+                  )}
+                  <span>{isSaving ? 'Saving...' : isSavedInDb ? 'Saved in DB' : 'Ready to Save'}</span>
                 </button>
 
                 <button 

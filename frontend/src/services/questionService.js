@@ -53,3 +53,14 @@ export const deleteQuestion = async (questionId) => {
   return response.data;
 };
 
+export const checkQuestionSaved = async (questionId) => {
+  if (!questionId) return { exists: false };
+  const response = await api.get(`/questions/check/${encodeURIComponent(questionId)}`);
+  return response.data;
+};
+
+export const saveQuestion = async (questionData) => {
+  const response = await api.post('/questions/save', { question: questionData });
+  return response.data;
+};
+
