@@ -7,6 +7,7 @@ import QuestionLibrary from './components/library/QuestionLibrary';
 
 export default function App() {
   const [activeNav, setActiveNav] = useState('studio');
+  const [selectedStudioQuestion, setSelectedStudioQuestion] = useState(null);
 
   return (
     <div className="app-container">
@@ -19,9 +20,12 @@ export default function App() {
 
         <main style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
           {activeNav === 'studio' ? (
-            <AIQuestionStudio />
+            <AIQuestionStudio initialQuestion={selectedStudioQuestion} />
           ) : activeNav === 'library' ? (
-            <QuestionLibrary onNavigateToStudio={() => setActiveNav('studio')} />
+            <QuestionLibrary onNavigateToStudio={(q) => {
+              if (q) setSelectedStudioQuestion(q);
+              setActiveNav('studio');
+            }} />
           ) : activeNav === 'tree' ? (
             <StudentQuizPage />
           ) : (

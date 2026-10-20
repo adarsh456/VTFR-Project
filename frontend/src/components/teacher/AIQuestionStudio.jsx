@@ -33,7 +33,16 @@ import {
   CheckCheck,
   Calculator
 } from 'lucide-react';
-import { getSyllabus, generateQuestion, getSampleQuestions, getSampleQuestionByFilename, checkQuestionSaved, saveQuestion } from '../../services/questionService';
+import { 
+  getSyllabus, 
+  generateQuestion, 
+  getSampleQuestions, 
+  getSampleQuestionByFilename, 
+  checkQuestionSaved, 
+  saveQuestion,
+  listQuestions,
+  getQuestionById
+} from '../../services/questionService';
 import { 
   DEFAULT_GRADE_SYLLABUS, 
   getGrades, 
@@ -228,10 +237,12 @@ const INITIAL_VTFR_QUESTION = {
   }
 };
 
-export default function AIQuestionStudio() {
-  // Available Sample JSON files from generated_question folder
+export default function AIQuestionStudio({ initialQuestion = null }) {
+  // Available Reference VTFR items (both database questions & pre-generated JSON files)
+  const [referenceQuestions, setReferenceQuestions] = useState([]);
+  const [selectedReferenceKey, setSelectedReferenceKey] = useState('');
   const [sampleList, setSampleList] = useState([]);
-  const [selectedSampleFile, setSelectedSampleFile] = useState('grade_10_mathematics_measures_of_dispersion_(statistics)_2.json');
+  const [selectedSampleFile, setSelectedSampleFile] = useState('');
 
   // Form State & Hierarchical Curriculum
   const [gradeSyllabus, setGradeSyllabus] = useState(DEFAULT_GRADE_SYLLABUS);
@@ -580,17 +591,85 @@ export default function AIQuestionStudio() {
     setSelectedOption(correctOpt ? correctOpt.id : 'A');
   };
 
-  // Load sample list & backend curriculum on mount
+  // Handle initialQuestion passed from QuestionLibrary or external props
+  useEffect(() => {
+    if (initialQuestion) {
+      const payload = initialQuestion.rawPayload || initialQuestion.payload || initialQuestion;
+      loadVTFRJsonIntoState(payload);
+      if (initialQuestion.id) {
+        setSelectedReferenceKey(initialQuestion.id.startsWith('sample-') ? initialQuestion.id : `db-${initialQuestion.id}`);
+      }
+    }
+  }, [initialQuestion]);
+
+  // Fetch all reference questions (both database questions and pre-generated sample files)
+  const fetchAllReferenceQuestions = async () => {
+    try {
+      const [dbRes, sampleRes] = await Promise.allSettled([
+        listQuestions(),
+        getSampleQuestions()
+      ]);
+
+      let combined = [];
+
+      // 1. Process Database Questions
+      if (dbRes.status === 'fulfilled' && dbRes.value?.questions && Array.isArray(dbRes.value.questions)) {
+        const dbItems = dbRes.value.questions.map((q) => {
+          const payload = q.json_payload || null;
+          return {
+            key: `db-${q.id}`,
+            id: q.id,
+            type: 'db',
+            filename: null,
+            grade: q.grade || payload?.grade || 'Grade 10',
+            subject: q.subject || payload?.subject || 'Mathematics',
+            chapter: q.chapter || payload?.chapter || 'Core Curriculum',
+            topic: q.topic || payload?.topic || 'General Topic',
+            difficulty: q.difficulty || payload?.difficultyTag || 'Medium',
+            bloomsLevel: q.bloomsLevel || q.blooms_level || payload?.bloomsLevel || 'Apply',
+            questionText: q.questionText || q.question_text || payload?.questionText || '',
+            payload: payload
+          };
+        });
+        combined = [...combined, ...dbItems];
+      }
+
+      // 2. Process Pre-Generated Sample JSON Files
+      if (sampleRes.status === 'fulfilled' && sampleRes.value?.samples && Array.isArray(sampleRes.value.samples)) {
+        setSampleList(sampleRes.value.samples);
+        const sampleItems = sampleRes.value.samples.map((s) => ({
+          key: s.filename,
+          id: s.questionId || `sample-${s.filename}`,
+          type: 'sample',
+          filename: s.filename,
+          grade: s.grade || 'Grade 10',
+          subject: s.subject || 'Mathematics',
+          chapter: s.chapter || 'Core Curriculum',
+          topic: s.topic || s.filename,
+          difficulty: s.difficulty || 'Medium',
+          bloomsLevel: s.bloomsLevel || 'Apply',
+          questionText: s.questionText || '',
+          payload: s.payload || null
+        }));
+        combined = [...combined, ...sampleItems];
+      }
+
+      setReferenceQuestions(combined);
+      return combined;
+    } catch (err) {
+      console.warn('Could not load reference questions:', err);
+      return [];
+    }
+  };
+
+  // Load all reference questions & backend curriculum on mount
   useEffect(() => {
     async function initStudioData() {
       try {
-        const [sampleRes, syllabusRes] = await Promise.allSettled([
-          getSampleQuestions(),
+        const [refs, syllabusRes] = await Promise.allSettled([
+          fetchAllReferenceQuestions(),
           getSyllabus()
         ]);
-        if (sampleRes.status === 'fulfilled' && sampleRes.value?.samples?.length > 0) {
-          setSampleList(sampleRes.value.samples);
-        }
         if (syllabusRes.status === 'fulfilled' && syllabusRes.value?.grade_syllabus) {
           setGradeSyllabus((prev) => ({ ...prev, ...syllabusRes.value.grade_syllabus }));
         }
@@ -601,18 +680,49 @@ export default function AIQuestionStudio() {
     initStudioData();
   }, []);
 
-  // Handle selecting a pre-generated sample question file
-  const handleSelectSampleFile = async (filename) => {
-    setSelectedSampleFile(filename);
+  // Handle selecting a preloaded reference question (from DB or sample file)
+  const handleSelectReference = async (key) => {
+    setSelectedReferenceKey(key);
+    setSelectedSampleFile(key);
+    const target = referenceQuestions.find((r) => r.key === key || r.filename === key || r.id === key);
+    if (!target) return;
+
     try {
-      const res = await getSampleQuestionByFilename(filename);
-      if (res && res.question) {
-        loadVTFRJsonIntoState(res.question);
+      if (target.type === 'db') {
+        let payload = target.payload;
+        if (!payload) {
+          const res = await getQuestionById(target.id);
+          payload = res?.payload || res;
+        }
+        if (payload) {
+          loadVTFRJsonIntoState(payload);
+          setIsSavedInDb(true);
+        }
+      } else {
+        // Sample file
+        let payload = target.payload;
+        if (!payload && target.filename) {
+          const res = await getSampleQuestionByFilename(target.filename);
+          payload = res?.question || res?.data;
+        }
+        if (payload) {
+          loadVTFRJsonIntoState(payload);
+          if (payload.questionId) {
+            checkQuestionSaved(payload.questionId)
+              .then(res => setIsSavedInDb(Boolean(res?.exists)))
+              .catch(() => setIsSavedInDb(false));
+          } else {
+            setIsSavedInDb(false);
+          }
+        }
       }
     } catch (err) {
-      console.error('Failed to load sample question JSON:', err);
+      console.error('Failed to load reference question JSON:', err);
     }
   };
+
+  // Backwards compatibility alias
+  const handleSelectSampleFile = handleSelectReference;
 
   // Handle Promoting Alternative Question to Main Question
   const handleUseAlternative = (alt) => {
@@ -674,6 +784,7 @@ export default function AIQuestionStudio() {
         loadVTFRJsonIntoState(res.question);
         setIsSavedInDb(true);
         setPipelineStep(4); // Database
+        fetchAllReferenceQuestions();
       }
     } catch (e) {
       console.error('VTFR Generation Error:', e);
@@ -732,6 +843,7 @@ export default function AIQuestionStudio() {
       if (res && (res.status === 'success' || res.exists)) {
         setIsSavedInDb(true);
         setPipelineStep(4);
+        fetchAllReferenceQuestions();
       }
     } catch (err) {
       console.error('Failed to save question to DB:', err);
@@ -815,24 +927,43 @@ export default function AIQuestionStudio() {
             </div>
           </div>
 
-          {/* Quick Pre-Generated JSON Reference Selector */}
-          {sampleList.length > 0 && (
+          {/* Quick Pre-Generated JSON & DB Reference Selector */}
+          {referenceQuestions.length > 0 && (
             <div className="reference-json-selector" style={{ padding: '8px 10px', backgroundColor: '#F8FAFC', borderRadius: 8, border: '1px solid #E2E8F0', display: 'flex', flexDirection: 'column', gap: 4 }}>
-              <label style={{ fontSize: 11, fontWeight: 700, color: '#2563EB', display: 'flex', alignItems: 'center', gap: 5 }}>
-                <FolderOpen style={{ width: 13, height: 13 }} /> Load Reference VTFR JSON File:
-              </label>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <label style={{ fontSize: 11, fontWeight: 700, color: '#2563EB', display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <FolderOpen style={{ width: 13, height: 13 }} /> Load Reference VTFR JSON File:
+                </label>
+                <span style={{ fontSize: 10, color: '#64748B', fontWeight: 600 }}>
+                  {referenceQuestions.length} Available
+                </span>
+              </div>
               <div className="select-wrapper">
                 <select 
-                  value={selectedSampleFile} 
-                  onChange={(e) => handleSelectSampleFile(e.target.value)}
+                  value={selectedReferenceKey} 
+                  onChange={(e) => handleSelectReference(e.target.value)}
                   className="select-input"
                   style={{ fontSize: 11, padding: '5px 20px 5px 8px', height: 'auto' }}
                 >
-                  {sampleList.map((s) => (
-                    <option key={s.filename} value={s.filename}>
-                      {s.subject} ({s.grade}): {s.topic}
-                    </option>
-                  ))}
+                  <option value="" disabled>-- Select a preloaded reference question ({referenceQuestions.length} available) --</option>
+                  {referenceQuestions.some(q => q.type === 'db') && (
+                    <optgroup label={`Stored in Database (${referenceQuestions.filter(q => q.type === 'db').length})`}>
+                      {referenceQuestions.filter(q => q.type === 'db').map((q) => (
+                        <option key={q.key} value={q.key}>
+                          {q.subject} ({q.grade}): {q.topic || (q.questionText ? q.questionText.slice(0, 45) + '...' : 'Question ' + q.id.slice(0, 8))}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+                  {referenceQuestions.some(s => s.type === 'sample') && (
+                    <optgroup label={`Pre-Generated Sample Files (${referenceQuestions.filter(s => s.type === 'sample').length})`}>
+                      {referenceQuestions.filter(s => s.type === 'sample').map((s) => (
+                        <option key={s.key} value={s.key}>
+                          {s.subject} ({s.grade}): {s.topic || s.filename}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
                 </select>
                 <ChevronDown className="select-chevron" style={{ width: 12, height: 12 }} />
               </div>

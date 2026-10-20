@@ -109,19 +109,19 @@ export default function StudentQuizPage({ initialQuestionId = null }) {
 
     // 1. Fetch from Backend Database
     try {
-      const dbRes = await listQuestions({ limit: 100 });
+      const dbRes = await listQuestions();
       if (dbRes?.questions && Array.isArray(dbRes.questions)) {
         const dbItems = dbRes.questions.map((q) => {
           const payload = q.json_payload || {};
           return {
             id: q.id || payload.questionId,
-            questionText: q.question_text || payload.questionText || 'Question prompt text',
+            questionText: q.question_text || q.questionText || payload.questionText || 'Question prompt text',
             grade: q.grade || payload.grade || 'Grade 10',
             subject: q.subject || payload.subject || 'Mathematics',
             chapter: q.chapter || payload.chapter || 'Core Curriculum',
             topic: q.topic || payload.topic || 'General Topic',
             difficulty: q.difficulty || payload.difficultyTag || 'Medium',
-            bloomsLevel: q.blooms_level || payload.bloomsLevel || 'Apply',
+            bloomsLevel: q.blooms_level || q.bloomsLevel || payload.bloomsLevel || 'Apply',
             optionsList: payload.optionsList || [],
             solutionSteps: payload.solutionSteps || [],
             calculationDraft: payload.calculationDraft || '',
@@ -140,10 +140,14 @@ export default function StudentQuizPage({ initialQuestionId = null }) {
       if (sampleRes?.samples && Array.isArray(sampleRes.samples)) {
         const samplePromises = sampleRes.samples.map(async (s) => {
           try {
-            const detail = await getSampleQuestionByFilename(s.filename);
-            const p = detail?.question || detail?.data || {};
+            let p = s.payload;
+            if (!p) {
+              const detail = await getSampleQuestionByFilename(s.filename);
+              p = detail?.question || detail?.data || {};
+            }
             return {
-              id: p.questionId || `sample-${s.filename}`,
+              id: s.filename ? `sample-${s.filename}` : (p.questionId || `sample-${Math.random().toString(36).substr(2, 9)}`),
+              filename: s.filename,
               questionText: p.questionText || s.questionText || s.topic,
               grade: p.grade || s.grade || 'Grade 10',
               subject: p.subject || s.subject || 'Mathematics',

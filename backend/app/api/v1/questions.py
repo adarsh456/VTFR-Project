@@ -169,7 +169,7 @@ def list_questions(
     subject: Optional[str] = Query(None),
     chapter: Optional[str] = Query(None),
     topic: Optional[str] = Query(None),
-    limit: int = Query(20, ge=1, le=100),
+    limit: Optional[int] = Query(None, ge=1),
     db: Session = Depends(get_db)
 ):
     """Lists saved questions with optional category filtering."""
@@ -183,7 +183,11 @@ def list_questions(
     if topic:
         query = query.filter(Question.topic == topic)
 
-    questions = query.order_by(Question.created_at.desc()).limit(limit).all()
+    query = query.order_by(Question.created_at.desc())
+    if limit is not None and limit > 0:
+        query = query.limit(limit)
+
+    questions = query.all()
 
     return {
         "count": len(questions),
@@ -195,9 +199,13 @@ def list_questions(
                 "chapter": q.chapter,
                 "topic": q.topic,
                 "bloomsLevel": q.blooms_level,
+                "blooms_level": q.blooms_level,
                 "difficulty": q.difficulty,
                 "questionText": q.question_text,
-                "createdAt": q.created_at.isoformat() if q.created_at else None
+                "question_text": q.question_text,
+                "createdAt": q.created_at.isoformat() if q.created_at else None,
+                "created_at": q.created_at.isoformat() if q.created_at else None,
+                "json_payload": q.json_payload
             }
             for q in questions
         ]
@@ -230,7 +238,8 @@ def list_sample_generated_questions():
                             "topic": data.get("topic", ""),
                             "difficulty": data.get("difficultyTag", "Medium"),
                             "bloomsLevel": data.get("bloomsLevel", "Apply"),
-                            "questionText": data.get("questionText", "")[:120] + "..." if len(data.get("questionText", "")) > 120 else data.get("questionText", "")
+                            "questionText": data.get("questionText", "")[:120] + "..." if len(data.get("questionText", "")) > 120 else data.get("questionText", ""),
+                            "payload": data
                         })
                 except Exception:
                     pass
@@ -252,7 +261,7 @@ def get_sample_generated_question(filename: str):
     try:
         with open(fpath, "r", encoding="utf-8") as f:
             data = json.load(f)
-            return {"status": "success", "filename": filename, "question": data}
+            return {"status": "success", "filename": filename, "question": data, "data": data}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read sample file: {str(e)}")
 

@@ -29,7 +29,7 @@ import {
   Trash2,
   AlertTriangle
 } from 'lucide-react';
-import { listQuestions, getSampleQuestions, getSampleQuestionByFilename, deleteQuestion } from '../../services/questionService';
+import { listQuestions, getSampleQuestions, getSampleQuestionByFilename, getQuestionById, deleteQuestion } from '../../services/questionService';
 
 import { 
   DEFAULT_GRADE_SYLLABUS, 
@@ -119,21 +119,21 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
 
     // 1. Try fetching from Backend Database
     try {
-      const dbRes = await listQuestions({ limit: 100 });
+      const dbRes = await listQuestions();
       if (dbRes?.questions && Array.isArray(dbRes.questions)) {
         const dbItems = dbRes.questions.map((q) => {
           const payload = q.json_payload || {};
           return {
             id: q.id || payload.questionId || `q-${Math.random().toString(36).substr(2, 9)}`,
-            questionText: q.question_text || payload.questionText || 'Question prompt text',
+            questionText: q.question_text || q.questionText || payload.questionText || 'Question prompt text',
             grade: q.grade || payload.grade || 'Grade 10',
             subject: q.subject || payload.subject || 'Mathematics',
-            chapter: q.chapter || payload.chapter || 'Probability & Statistics',
-            topic: q.topic || payload.topic || 'Measures of Dispersion',
+            chapter: q.chapter || payload.chapter || 'Core Curriculum',
+            topic: q.topic || payload.topic || 'General Topic',
             difficulty: q.difficulty || payload.difficultyTag || 'Medium',
-            type: q.blooms_level ? 'Adaptive VTFR' : 'MCQ',
+            type: (q.blooms_level || q.bloomsLevel) ? 'Adaptive VTFR' : 'MCQ',
             status: 'Approved',
-            updatedAt: q.created_at ? new Date(q.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Oct 17, 2026',
+            updatedAt: (q.created_at || q.createdAt) ? new Date(q.created_at || q.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Oct 17, 2026',
             options: (payload.optionsList || []).map((opt, i) => ({
               id: String.fromCharCode(65 + i),
               text: opt.optionText,
@@ -155,18 +155,22 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
     try {
       const sampleRes = await getSampleQuestions();
       if (sampleRes?.samples && Array.isArray(sampleRes.samples)) {
-        const samplePromises = sampleRes.samples.slice(0, 12).map(async (s) => {
+        const samplePromises = sampleRes.samples.map(async (s) => {
           try {
-            const detail = await getSampleQuestionByFilename(s.filename);
-            const p = detail?.data || {};
+            let p = s.payload;
+            if (!p) {
+              const detail = await getSampleQuestionByFilename(s.filename);
+              p = detail?.question || detail?.data || {};
+            }
             return {
-              id: p.questionId || `sample-${s.filename}`,
-              questionText: p.questionText || s.topic,
+              id: s.filename ? `sample-${s.filename}` : (p.questionId || `sample-${Math.random().toString(36).substr(2, 9)}`),
+              filename: s.filename,
+              questionText: p.questionText || s.questionText || s.topic,
               grade: p.grade || s.grade || 'Grade 10',
               subject: p.subject || s.subject || 'Mathematics',
-              chapter: p.chapter || 'Core Curriculum',
+              chapter: p.chapter || s.chapter || 'Core Curriculum',
               topic: p.topic || s.topic,
-              difficulty: p.difficultyTag || 'Medium',
+              difficulty: p.difficultyTag || s.difficulty || 'Medium',
               type: 'Adaptive VTFR',
               status: 'Approved',
               updatedAt: 'Oct 17, 2026',
@@ -424,14 +428,97 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  const handleExportJSON = (question) => {
-    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(question.rawPayload || question, null, 2));
-    const downloadAnchor = document.createElement('a');
-    downloadAnchor.setAttribute('href', dataStr);
-    downloadAnchor.setAttribute('download', `${(question.topic || 'question').toLowerCase().replace(/\s+/g, '_')}_vtfr.json`);
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
+  const handleExportJSON = async (question, e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    if (!question) return;
+
+    try {
+      let payload = question.rawPayload;
+
+      // If rawPayload is missing or incomplete, attempt to fetch from backend
+      if (!payload || !payload.questionText || !payload.optionsList || payload.optionsList.length === 0) {
+        if (question.id && !String(question.id).startsWith('sample-')) {
+          try {
+            const res = await getQuestionById(question.id);
+            if (res?.payload) payload = res.payload;
+          } catch (err) {
+            console.warn('Could not fetch question payload by ID:', err);
+          }
+        } else if (question.filename) {
+          try {
+            const detail = await getSampleQuestionByFilename(question.filename);
+            payload = detail?.question || detail?.data;
+          } catch (err) {
+            console.warn('Could not fetch sample question payload:', err);
+          }
+        }
+      }
+
+      // If still not available, construct standard valid VTFR JSON structure from current question record
+      if (!payload || typeof payload !== 'object' || Object.keys(payload).length === 0) {
+        payload = {
+          questionId: question.id,
+          questionType: 'vtfr_adaptive',
+          bloomsLevel: question.type === 'Adaptive VTFR' ? 'Apply' : 'Remember',
+          difficultyTag: question.difficulty || 'Medium',
+          grade: question.grade || 'Grade 10',
+          subject: question.subject || 'Mathematics',
+          chapter: question.chapter || 'Core Curriculum',
+          topic: question.topic || 'General Topic',
+          questionText: question.questionText || '',
+          calculationDraft: question.calculationDraft || '',
+          optionsList: (question.options || []).map((opt, idx) => ({
+            optionSequenceNo: idx + 1,
+            optionText: opt.text || '',
+            isCorrect: Boolean(opt.isCorrect),
+            explanation: opt.explanation || ''
+          })),
+          solutionSteps: question.solutionSteps || [],
+          alternateQuestions: [],
+          relatedContent: null
+        };
+      }
+
+      // Build safe filename: e.g. grade_10_mathematics_measures_of_dispersion_vtfr.json
+      const parts = [
+        question.grade,
+        question.subject,
+        question.topic || 'question'
+      ]
+        .filter(Boolean)
+        .map((p) => String(p).toLowerCase().replace(/[^a-z0-9_-]/gi, '_').replace(/_+/g, '_').replace(/^_+|_+$/g, ''));
+
+      const filename = `${parts.join('_')}_vtfr.json`;
+
+      // Download smoothly via Blob + createObjectURL
+      const jsonStr = JSON.stringify(payload, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+      const blobUrl = URL.createObjectURL(blob);
+
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.href = blobUrl;
+      downloadAnchor.download = filename;
+      downloadAnchor.style.display = 'none';
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+
+      setTimeout(() => {
+        if (downloadAnchor.parentNode) {
+          downloadAnchor.parentNode.removeChild(downloadAnchor);
+        }
+        URL.revokeObjectURL(blobUrl);
+      }, 150);
+
+      // Toast feedback
+      setToastMessage(`Exported JSON for "${question.topic || question.questionText?.slice(0, 30) || 'Question'}"`);
+      setTimeout(() => {
+        setToastMessage((prev) => (prev ? null : prev));
+      }, 3000);
+    } catch (err) {
+      console.error('Failed to export question JSON:', err);
+      setToastMessage('Failed to export question JSON.');
+      setTimeout(() => setToastMessage(null), 3000);
+    }
   };
 
   const handleConfirmDelete = async () => {
@@ -957,8 +1044,9 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
                                 </button>
                                 <button 
                                   type="button" 
-                                  onClick={() => {
-                                    handleExportJSON(q);
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleExportJSON(q, e);
                                     setOpenMenuId(null);
                                   }}
                                   className="ql-dropdown-item"
@@ -1301,7 +1389,7 @@ export default function QuestionLibrary({ onNavigateToStudio }) {
               <button 
                 type="button" 
                 className="ql-footer-btn-export"
-                onClick={() => handleExportJSON(selectedQuestion)}
+                onClick={(e) => handleExportJSON(selectedQuestion, e)}
                 title="Download JSON Payload"
               >
                 <Download style={{ width: 14, height: 14 }} />
