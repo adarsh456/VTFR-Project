@@ -8,9 +8,7 @@ import prompts
 import llm_factory
 from schemas import VTFRQuestion
 
-# Initialize LLMs
-model = llm_factory.get_llm()
-suggestions_llm = llm_factory.get_suggestions_llm()
+# LLMs are resolved dynamically per invocation to allow runtime API key updates
 
 def make_vtfr_prompt(inputs: dict):
     grade = inputs["grade"]
@@ -84,17 +82,30 @@ def robust_json_parser(response) -> dict:
 
     return json.loads(content)
 
-# Define the LangChain chains using LCEL
-generate_vtfr_chain = RunnableLambda(make_vtfr_prompt) | model
+def get_generate_chain():
+    return RunnableLambda(make_vtfr_prompt) | llm_factory.get_llm()
 
-suggest_topics_chain = RunnableLambda(make_suggestions_prompt) | suggestions_llm
+def get_suggest_topics_chain():
+    return RunnableLambda(make_suggestions_prompt) | llm_factory.get_suggestions_llm()
+
+def __getattr__(name):
+    if name == "model":
+        return llm_factory.get_llm()
+    if name == "suggestions_llm":
+        return llm_factory.get_suggestions_llm()
+    if name == "generate_vtfr_chain":
+        return get_generate_chain()
+    if name == "suggest_topics_chain":
+        return get_suggest_topics_chain()
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
 
 def run_generate_vtfr_question(inputs: dict) -> dict:
     """
     Executes the generation chain, auto-heals any missing metadata or resources,
     and validates the output structure against VTFRQuestion schema.
     """
-    raw_response = generate_vtfr_chain.invoke(inputs)
+    chain = get_generate_chain()
+    raw_response = chain.invoke(inputs)
     raw_result = robust_json_parser(raw_response)
 
     # Pre-validation auto-healing for syllabus metadata and relatedContent
@@ -122,7 +133,8 @@ def run_suggest_topics(inputs: dict) -> dict:
     Executes the suggestion chain and extracts JSON robustly.
     """
     try:
-        response = suggest_topics_chain.invoke(inputs)
+        chain = get_suggest_topics_chain()
+        response = chain.invoke(inputs)
         content = response.content.strip()
         # Look for the first JSON object using a regex pattern
         json_match = re.search(r"(\{.*\})", content, re.DOTALL)

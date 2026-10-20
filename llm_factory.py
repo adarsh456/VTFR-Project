@@ -78,8 +78,12 @@ def get_llm():
         )
 
     if not llms:
-        print("Error: Neither GROQ_API_KEY nor HUGGINGFACEHUB_API_TOKEN is set in .env file.")
-        sys.exit(1)
+        load_dotenv(override=True)
+        groq_key = (os.environ.get("GROQ_API_KEY") or "").strip().strip('"\'')
+        hf_key = (os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY") or "").strip().strip('"\'')
+        if groq_key:
+            return get_llm()
+        raise RuntimeError("Neither GROQ_API_KEY nor HUGGINGFACEHUB_API_TOKEN is configured. Please update your API key in settings.")
 
     primary = llms[0]
     fallbacks = llms[1:]
@@ -147,8 +151,12 @@ def get_suggestions_llm():
         )
 
     if not llms:
-        print("Error: Neither GROQ_API_KEY nor HUGGINGFACEHUB_API_TOKEN is set in .env file.")
-        sys.exit(1)
+        load_dotenv(override=True)
+        groq_key = (os.environ.get("GROQ_API_KEY") or "").strip().strip('"\'')
+        hf_key = (os.environ.get("HUGGINGFACEHUB_API_TOKEN") or os.environ.get("huggingface_API_KEY") or "").strip().strip('"\'')
+        if groq_key:
+            return get_suggestions_llm()
+        raise RuntimeError("Neither GROQ_API_KEY nor HUGGINGFACEHUB_API_TOKEN is configured. Please update your API key in settings.")
 
     primary = llms[0]
     fallbacks = llms[1:]

@@ -77,10 +77,68 @@ def read_key_from_env_or_os(key_names: List[str]) -> str:
                                 return parts[1].strip().strip("'\"")
     return ""
 
+import urllib.request
+import urllib.error
+import json
+from dotenv import load_dotenv
+
+def verify_groq_api_key(key: str) -> tuple[bool, Optional[str]]:
+    """Validates Groq API key against Groq models endpoint."""
+    url = "https://api.groq.com/openai/v1/models"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Authorization": f"Bearer {key}",
+            "User-Agent": "VTFR-App/1.0"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=6) as response:
+            if response.status == 200:
+                return True, None
+    except urllib.error.HTTPError as e:
+        try:
+            err_data = json.loads(e.read().decode("utf-8"))
+            err_msg = err_data.get("error", {}).get("message") or err_data.get("error", {}).get("code") or str(e)
+            return False, f"{err_msg}"
+        except Exception:
+            return False, f"HTTP Error {e.code}"
+    except Exception as e:
+        print(f"Warning: Could not connect to Groq to verify key: {e}")
+        return True, None
+    return True, None
+
+def verify_huggingface_api_key(key: str) -> tuple[bool, Optional[str]]:
+    """Validates Hugging Face API key against whoami endpoint."""
+    url = "https://huggingface.co/api/whoami-v2"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Authorization": f"Bearer {key}",
+            "User-Agent": "VTFR-App/1.0"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=6) as response:
+            if response.status == 200:
+                return True, None
+    except urllib.error.HTTPError as e:
+        try:
+            err_data = json.loads(e.read().decode("utf-8"))
+            err_msg = err_data.get("error") or str(e)
+            return False, f"{err_msg}"
+        except Exception:
+            return False, f"HTTP Error {e.code}"
+    except Exception as e:
+        print(f"Warning: Could not connect to Hugging Face to verify key: {e}")
+        return True, None
+    return True, None
+
 class UpdateApiKeysRequest(BaseModel):
     provider: Optional[str] = "all"  # 'groq', 'huggingface', or 'all'
     groq_api_key: Optional[str] = None
     huggingface_api_key: Optional[str] = None
+    validate_key: Optional[bool] = True
 
 @router.get("/api-keys")
 def get_api_keys_status():
@@ -116,6 +174,7 @@ def get_api_keys_status():
 def update_api_keys(req: UpdateApiKeysRequest):
     """
     Updates the Groq and/or Hugging Face API keys in all .env files and current os.environ.
+    Performs live verification before persisting.
     """
     env_paths = get_env_paths()
     updated = {}
@@ -123,18 +182,36 @@ def update_api_keys(req: UpdateApiKeysRequest):
     if req.groq_api_key is not None:
         clean_groq = req.groq_api_key.strip().strip("'\"")
         if clean_groq:
+            if req.validate_key:
+                is_valid, err_msg = verify_groq_api_key(clean_groq)
+                if not is_valid:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"Groq API key verification failed: {err_msg}. Please check the key in console.groq.com."
+                    )
+
             os.environ["GROQ_API_KEY"] = clean_groq
             for path in env_paths:
                 update_env_file(path, "GROQ_API_KEY", clean_groq)
+            load_dotenv(override=True)
             updated["groq"] = True
 
     if req.huggingface_api_key is not None:
         clean_hf = req.huggingface_api_key.strip().strip("'\"")
         if clean_hf:
+            if req.validate_key:
+                is_valid, err_msg = verify_huggingface_api_key(clean_hf)
+                if not is_valid:
+                    raise HTTPException(
+                        status_code=400,
+                        detail=f"Hugging Face token verification failed: {err_msg}. Please check your token in huggingface.co/settings/tokens."
+                    )
+
             os.environ["HUGGINGFACEHUB_API_TOKEN"] = clean_hf
             os.environ["HUGGINGFACE_API_KEY"] = clean_hf
             for path in env_paths:
                 update_env_file(path, "HUGGINGFACEHUB_API_TOKEN", clean_hf)
+            load_dotenv(override=True)
             updated["huggingface"] = True
 
     if not updated and req.groq_api_key is None and req.huggingface_api_key is None:
@@ -142,7 +219,7 @@ def update_api_keys(req: UpdateApiKeysRequest):
 
     return {
         "status": "success",
-        "message": f"Successfully updated API key(s) in {len(env_paths)} .env file(s) and runtime environment.",
+        "message": f"Successfully verified and updated API key(s) in {len(env_paths)} .env file(s) and runtime environment.",
         "updated": updated,
         "envFiles": env_paths,
         "currentStatus": get_api_keys_status()
