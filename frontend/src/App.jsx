@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import TopHeader from './components/common/TopHeader';
 import Sidebar from './components/common/Sidebar';
+import TeacherDashboardOverview from './components/dashboard/TeacherDashboardOverview';
 import AIQuestionStudio from './components/teacher/AIQuestionStudio';
 import StudentQuizPage from './pages/StudentQuizPage';
 import QuestionLibrary from './components/library/QuestionLibrary';
 
 export default function App() {
-  const [activeNav, setActiveNav] = useState('studio');
+  const [activeNav, setActiveNav] = useState('dashboard');
   const [selectedStudioQuestion, setSelectedStudioQuestion] = useState(null);
 
   return (
@@ -19,7 +20,14 @@ export default function App() {
         <Sidebar activeNav={activeNav} onNavChange={(id) => setActiveNav(id)} />
 
         <main style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
-          {activeNav === 'studio' ? (
+          {activeNav === 'dashboard' ? (
+            <TeacherDashboardOverview 
+              onNavigate={(navId, payload) => {
+                if (payload) setSelectedStudioQuestion(payload);
+                setActiveNav(navId);
+              }}
+            />
+          ) : activeNav === 'studio' ? (
             <AIQuestionStudio initialQuestion={selectedStudioQuestion} />
           ) : activeNav === 'library' ? (
             <QuestionLibrary onNavigateToStudio={(q) => {
