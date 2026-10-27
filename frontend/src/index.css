@@ -5315,3 +5315,469 @@ html.dark .vtfr-generating-timer {
   background-color: #1E293B;
   color: #F8FAFC;
 }
+
+/* ========================================================================= */
+/* STUDENT RESULT & SCORECARD SECTION                                       */
+/* ========================================================================= */
+.student-result-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.student-result-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  padding: 36px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-result-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.student-result-icon-wrapper.tier-mastery {
+  background-color: #ECFDF5;
+  border: 1.5px solid #A7F3D0;
+  color: #059669;
+}
+
+.student-result-icon-wrapper.tier-proficient {
+  background-color: #EFF6FF;
+  border: 1.5px solid #BFDBFE;
+  color: #2563EB;
+}
+
+.student-result-icon-wrapper.tier-partial {
+  background-color: #FFFBEB;
+  border: 1.5px solid #FDE68A;
+  color: #D97706;
+}
+
+.student-result-icon-wrapper.tier-remedial {
+  background-color: #FEF2F2;
+  border: 1.5px solid #FECACA;
+  color: #DC2626;
+}
+
+.student-result-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.student-result-tier-badge.tier-mastery {
+  background-color: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.student-result-tier-badge.tier-proficient {
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+}
+
+.student-result-tier-badge.tier-partial {
+  background-color: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+.student-result-tier-badge.tier-remedial {
+  background-color: #FEF2F2;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+}
+
+.student-result-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0B2545;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.student-result-subtitle {
+  font-size: 14px;
+  color: #475569;
+  margin: 0 0 28px 0;
+  line-height: 1.55;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Metric Stats Grid */
+.student-result-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 640px) {
+  .student-result-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.student-result-stat-tile {
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+  border: 1px solid #E2E8F0;
+  background-color: #F8FAFC;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-result-stat-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.student-result-stat-tile .stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.student-result-stat-tile .stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748B;
+}
+
+/* Itemized Breakdown Card */
+.student-result-breakdown-card {
+  text-align: left;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  background-color: #F8FAFC;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.result-breakdown-header {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result-breakdown-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.result-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.result-breakdown-item {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-left-width: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-breakdown-item.correct {
+  border-left-color: #10B981;
+}
+
+.result-breakdown-item.incorrect {
+  border-left-color: #EF4444;
+}
+
+.result-breakdown-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.result-breakdown-item-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1E293B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.result-breakdown-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.result-breakdown-status-pill.correct {
+  background-color: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.result-breakdown-status-pill.incorrect {
+  background-color: #FEF2F2;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+}
+
+.result-breakdown-prompt {
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.result-breakdown-choices-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #F8FAFC;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+}
+
+.result-user-choice {
+  color: #1E293B;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.result-correct-choice {
+  color: #047857;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.result-breakdown-explanation {
+  font-size: 12px;
+  color: #991B1B;
+  background-color: #FEF2F2;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #EF4444;
+  line-height: 1.45;
+}
+
+/* Result Actions Footer */
+.student-result-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-result-primary {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-result-primary:hover {
+  background: linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+}
+
+.btn-result-secondary {
+  background-color: #FFFFFF;
+  color: #334155;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  border: 1px solid #CBD5E1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-result-secondary:hover {
+  background-color: #F1F5F9;
+  border-color: #94A3B8;
+  color: #0F172A;
+}
+
+/* ========================================================================= */
+/* DARK MODE OVERRIDES FOR STUDENT RESULT                                    */
+/* ========================================================================= */
+html.dark .student-result-card {
+  background-color: #1E293B;
+  border-color: #334155;
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .student-result-title {
+  color: #F8FAFC;
+}
+
+html.dark .student-result-subtitle {
+  color: #94A3B8;
+}
+
+html.dark .student-result-stat-tile {
+  background-color: #0F172A;
+  border-color: #334155;
+}
+
+html.dark .student-result-stat-tile .stat-label {
+  color: #94A3B8;
+}
+
+html.dark .student-result-breakdown-card {
+  background-color: #0F172A;
+  border-color: #334155;
+}
+
+html.dark .result-breakdown-header {
+  color: #F8FAFC;
+}
+
+html.dark .result-breakdown-count {
+  color: #94A3B8;
+}
+
+html.dark .result-breakdown-item {
+  background-color: #1E293B;
+  border-color: #334155;
+}
+
+html.dark .result-breakdown-item-title {
+  color: #F8FAFC;
+}
+
+html.dark .result-breakdown-prompt {
+  color: #CBD5E1;
+}
+
+html.dark .result-breakdown-choices-row {
+  background-color: #0F172A;
+}
+
+html.dark .result-user-choice {
+  color: #F1F5F9;
+}
+
+html.dark .result-correct-choice {
+  color: #34D399;
+}
+
+html.dark .result-breakdown-explanation {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-left-color: #EF4444;
+  color: #FCA5A5;
+}
+
+html.dark .btn-result-secondary {
+  background-color: #0F172A;
+  border-color: #334155;
+  color: #CBD5E1;
+}
+
+html.dark .btn-result-secondary:hover {
+  background-color: #1E293B;
+  border-color: #475569;
+  color: #F8FAFC;
+}
+
+html.dark .student-result-icon-wrapper.tier-mastery {
+  background-color: rgba(16, 185, 129, 0.15);
+  border-color: #059669;
+  color: #34D399;
+}
+
+html.dark .student-result-icon-wrapper.tier-proficient {
+  background-color: rgba(37, 99, 235, 0.15);
+  border-color: #2563EB;
+  color: #60A5FA;
+}
+
+html.dark .student-result-icon-wrapper.tier-partial {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: #D97706;
+  color: #FBBF24;
+}
+
+html.dark .student-result-icon-wrapper.tier-remedial {
+  background-color: rgba(239, 68, 68, 0.15);
+  border-color: #DC2626;
+  color: #F87171;
+}
+
+html.dark .student-result-tier-badge.tier-mastery {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border-color: #059669;
+}
+
+html.dark .student-result-tier-badge.tier-proficient {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: #60A5FA;
+  border-color: #2563EB;
+}
+
+html.dark .student-result-tier-badge.tier-partial {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #FBBF24;
+  border-color: #D97706;
+}
+
+html.dark .student-result-tier-badge.tier-remedial {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #F87171;
+  border-color: #DC2626;
+}

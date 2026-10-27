@@ -27,7 +27,16 @@ export default function ReasoningTreeFlow({
     (o) => o.optionSequenceNo === selectedMainOption
   );
   const correctMainOpt = mainOptions.find((o) => o.isCorrect);
-  const isMainCorrect = chosenMainOpt?.isCorrect;
+  const isMainCorrect = Boolean(chosenMainOpt?.isCorrect);
+
+  const totalSteps = solutionSteps.length;
+  const correctStepsCount = solutionSteps.filter((s, idx) => {
+    const sNum = s.stepSequenceNo || idx + 1;
+    const chosenSeq = stepSelections[sNum];
+    const chosenOpt = (s.optionsList || []).find((o) => o.optionSequenceNo === chosenSeq);
+    return Boolean(chosenOpt?.isCorrect);
+  }).length;
+  const allMastered = isMainCorrect && (totalSteps === 0 || correctStepsCount === totalSteps);
 
   return (
     <div className="flow-tree-container animate-fade-in-up">
@@ -78,6 +87,16 @@ export default function ReasoningTreeFlow({
               </div>
             </div>
 
+            {!isMainCorrect && correctMainOpt && (
+              <div className="flow-choice-box" style={{ marginTop: 6, borderColor: '#A7F3D0', backgroundColor: '#F0FDF4' }}>
+                <span className="flow-choice-label" style={{ color: '#047857' }}>Correct Option:</span>
+                <div className="flow-choice-val" style={{ color: '#065F46' }}>
+                  <strong>Option {String.fromCharCode(64 + correctMainOpt.optionSequenceNo)}:</strong>&nbsp;
+                  <LatexRenderer content={correctMainOpt.optionText} />
+                </div>
+              </div>
+            )}
+
             {chosenMainOpt?.explanation && (
               <div className="flow-node-explanation">
                 <strong>Diagnostic Note:</strong> {chosenMainOpt.explanation}
@@ -101,16 +120,26 @@ export default function ReasoningTreeFlow({
           const chosenStepOpt = (step.optionsList || []).find(
             (o) => o.optionSequenceNo === chosenOptSeq
           );
-          const isStepCorrect = chosenStepOpt ? chosenStepOpt.isCorrect : true;
+          const correctStepOpt = (step.optionsList || []).find((o) => o.isCorrect);
+          const isStepCorrect = Boolean(chosenStepOpt?.isCorrect);
 
           return (
             <React.Fragment key={stepNum}>
-              <div className={`flow-node ${isStepCorrect ? 'node-correct' : 'node-neutral'}`}>
+              <div className={`flow-node ${isStepCorrect ? 'node-correct' : 'node-warning'}`}>
                 <div className="flow-node-badge">
                   <span>Stage {idx + 2} • Solution Step {stepNum} Reasoning</span>
-                  <span className={`flow-status-pill ${isStepCorrect ? 'green' : 'blue'}`}>
-                    <Check style={{ width: 12, height: 12 }} />
-                    <span>Step Verified</span>
+                  <span className={`flow-status-pill ${isStepCorrect ? 'green' : 'amber'}`}>
+                    {isStepCorrect ? (
+                      <>
+                        <CheckCircle2 style={{ width: 12, height: 12 }} />
+                        <span>Step Verified</span>
+                      </>
+                    ) : (
+                      <>
+                        <AlertTriangle style={{ width: 12, height: 12 }} />
+                        <span>Misconception in Step</span>
+                      </>
+                    )}
                   </span>
                 </div>
 
@@ -126,6 +155,22 @@ export default function ReasoningTreeFlow({
                       <LatexRenderer content={chosenStepOpt?.optionText || 'Selected'} />
                     </div>
                   </div>
+
+                  {!isStepCorrect && correctStepOpt && (
+                    <div className="flow-choice-box" style={{ marginTop: 6, borderColor: '#A7F3D0', backgroundColor: '#F0FDF4' }}>
+                      <span className="flow-choice-label" style={{ color: '#047857' }}>Correct Step Option:</span>
+                      <div className="flow-choice-val" style={{ color: '#065F46' }}>
+                        <strong>Option {String.fromCharCode(64 + correctStepOpt.optionSequenceNo)}:</strong>&nbsp;
+                        <LatexRenderer content={correctStepOpt.optionText} />
+                      </div>
+                    </div>
+                  )}
+
+                  {chosenStepOpt?.explanation && (
+                    <div className="flow-node-explanation">
+                      <strong>Diagnostic Note:</strong> {chosenStepOpt.explanation}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -140,13 +185,15 @@ export default function ReasoningTreeFlow({
           );
         })}
 
-        {/* FINAL NODE: Synthesis & Mastery */}
-        <div className="flow-node node-mastery">
+        {/* FINAL NODE: Synthesis & Derivation */}
+        <div className={`flow-node ${allMastered ? 'node-mastery' : 'node-correct'}`}>
           <div className="flow-node-badge">
-            <span style={{ color: '#047857' }}>Final Stage • Concept Mastery & Synthesis</span>
-            <span className="flow-status-pill green">
+            <span style={{ color: allMastered ? '#047857' : '#2563EB' }}>
+              Final Stage • Mathematical Synthesis & Solution
+            </span>
+            <span className={`flow-status-pill ${allMastered ? 'green' : 'blue'}`}>
               <Sparkles style={{ width: 12, height: 12 }} />
-              <span>Full Path Completed</span>
+              <span>{allMastered ? 'Full Path Mastered' : 'Reasoning Flow Completed'}</span>
             </span>
           </div>
 
@@ -154,7 +201,7 @@ export default function ReasoningTreeFlow({
             <div className="flex items-center gap-2 mb-2">
               <Award style={{ width: 18, height: 18, color: '#059669' }} />
               <h4 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#065F46' }}>
-                Mathematical Derivation & Correct Answer: {correctMainOpt?.optionText || 'Verified'}
+                Mathematical Derivation & Verified Answer: {correctMainOpt?.optionText || 'Verified'}
               </h4>
             </div>
 
@@ -170,7 +217,9 @@ export default function ReasoningTreeFlow({
       {/* Bottom Action Footer */}
       <div className="flow-tree-footer">
         <div className="flow-tree-stats">
-          <span>Question Progress: Completed 100%</span>
+          <span>
+            Scaffolded Steps: {correctStepsCount} of {totalSteps} Correct
+          </span>
         </div>
 
         <button
@@ -178,7 +227,7 @@ export default function ReasoningTreeFlow({
           onClick={onSubmitAll}
           className="flow-submit-all-btn"
         >
-          <span>{isLastQuestion ? 'Submit All Answers' : 'Proceed to Next Question'}</span>
+          <span>{isLastQuestion ? 'View Assessment Results' : 'Proceed to Next Question'}</span>
           <ArrowRight style={{ width: 16, height: 16 }} />
         </button>
       </div>

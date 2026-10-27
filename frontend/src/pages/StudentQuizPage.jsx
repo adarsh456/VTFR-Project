@@ -405,16 +405,23 @@ export default function StudentQuizPage({ initialQuestionId = null }) {
   // Completed Session Screen
   if (session?.status === 'completed') {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-10">
-        <ScoreCard
-          questionTopic={questionPayload?.topic || selectedTopic || 'VTFR Assessment'}
-          totalSteps={(questionPayload?.solutionSteps || []).length}
-          onRestart={() => {
-            setSession(null);
-            setViewMode('setup');
-          }}
-        />
-      </div>
+      <ScoreCard
+        question={questionPayload}
+        questionTopic={questionPayload?.topic || selectedTopic || 'VTFR Assessment'}
+        selectedMainOption={selectedMainOption}
+        stepSelections={stepSelections}
+        timerSeconds={timerSeconds}
+        onRestart={() => {
+          setSession(null);
+          setViewMode('setup');
+          setSelectedMainOption(null);
+          setStepSelections({});
+        }}
+        onReviewFlow={() => {
+          setSession((prev) => ({ ...prev, status: 'in_progress' }));
+          setActiveStage('flow_tree');
+        }}
+      />
     );
   }
 
