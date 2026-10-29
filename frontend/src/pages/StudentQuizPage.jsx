@@ -63,7 +63,30 @@ const FALLBACK_STORED_QUESTIONS = [
           { optionSequenceNo: 4, optionText: '25, 16, 9, 4, 1', isCorrect: false }
         ]
       }
-    ]
+    ],
+    relatedContent: {
+      conceptSummary: 'Measures of dispersion quantify the spread of data points around the central value. Variance calculates the average of squared deviations from the arithmetic mean, while standard deviation is its positive square root.',
+      youtubeResource: {
+        title: 'Measures of Dispersion – Variance & Standard Deviation',
+        searchQuery: 'variance and standard deviation statistics tutorial',
+        url: 'https://www.youtube.com/watch?v=E4HAYdU0p2c'
+      },
+      imageResource: {
+        title: 'Measures of Dispersion 5-Panel Concept Card',
+        searchQuery: 'measures of dispersion statistics concept card',
+        url: 'http://127.0.0.1:8000/concept_cards/measures_of_dispersion_(statistics)_concept_card.png'
+      },
+      pdfResource: {
+        title: 'Statistics Revision Notes & Formula Cheat Sheet',
+        searchQuery: 'statistics variance formulas notes pdf',
+        url: 'https://davidmorin.physics.fas.harvard.edu/sites/g/files/omnuum12331/files/2025-10/AlgebraChap8d090924.pdf'
+      },
+      webResource: {
+        title: 'Khan Academy – Variance and Standard Deviation Guide',
+        searchQuery: 'Khan Academy variance standard deviation',
+        url: 'https://www.khanacademy.org/math/statistics-probability'
+      }
+    }
   }
 ];
 
@@ -125,6 +148,7 @@ export default function StudentQuizPage({ initialQuestionId = null }) {
             optionsList: payload.optionsList || [],
             solutionSteps: payload.solutionSteps || [],
             calculationDraft: payload.calculationDraft || '',
+            relatedContent: payload.relatedContent || null,
             rawPayload: payload
           };
         });
@@ -158,6 +182,7 @@ export default function StudentQuizPage({ initialQuestionId = null }) {
               optionsList: p.optionsList || [],
               solutionSteps: p.solutionSteps || [],
               calculationDraft: p.calculationDraft || '',
+              relatedContent: p.relatedContent || null,
               rawPayload: p
             };
           } catch {

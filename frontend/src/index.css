@@ -5781,3 +5781,139 @@ html.dark .student-result-tier-badge.tier-remedial {
   color: #F87171;
   border-color: #DC2626;
 }
+
+/* ========================================================================= */
+/* STUDENT SCORECARD REMEDIAL LEARNING HUB                                  */
+/* ========================================================================= */
+.student-remedial-hub-card {
+  text-align: left;
+  border-radius: 16px;
+  border: 1px solid #FED7AA;
+  background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%);
+  padding: 22px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.08);
+}
+
+.remedial-hub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.remedial-hub-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.remedial-hub-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #FEF3C7;
+  border: 1px solid #FCD34D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.remedial-hub-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #92400E;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.remedial-hub-subtitle {
+  font-size: 12.5px;
+  color: #78350F;
+  margin: 2px 0 0 0;
+  line-height: 1.4;
+}
+
+.remedial-hub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: #FEF3C7;
+  border: 1px solid #FCD34D;
+  font-size: 11px;
+  font-weight: 700;
+  color: #B45309;
+}
+
+.remedial-concept-refresher {
+  background-color: #FFFFFF;
+  border: 1px solid #FDE68A;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.remedial-concept-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #B45309;
+  margin-bottom: 5px;
+}
+
+.remedial-concept-text {
+  font-size: 13px;
+  color: #451A03;
+  line-height: 1.55;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Dark Mode Overrides for Remedial Hub */
+html.dark .student-remedial-hub-card {
+  border-color: #78350F;
+  background: linear-gradient(180deg, #1E1B18 0%, #171412 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .remedial-hub-icon-box {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: #B45309;
+}
+
+html.dark .remedial-hub-title {
+  color: #FDE68A;
+}
+
+html.dark .remedial-hub-subtitle {
+  color: #FCD34D;
+}
+
+html.dark .remedial-hub-badge {
+  background-color: rgba(245, 158, 11, 0.2);
+  border-color: #B45309;
+  color: #FDE68A;
+}
+
+html.dark .remedial-concept-refresher {
+  background-color: #1E293B;
+  border-color: #78350F;
+}
+
+html.dark .remedial-concept-label {
+  color: #FCD34D;
+}
+
+html.dark .remedial-concept-text {
+  color: #F8FAFC;
+}
