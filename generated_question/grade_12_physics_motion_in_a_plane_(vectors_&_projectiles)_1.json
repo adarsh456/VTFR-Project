@@ -1,0 +1,329 @@
+{
+  "questionId": "e3b2c9a1-7f4d-4a2b-9c1e-5d6f8a2b3c4d",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Analyze",
+  "difficultyTag": "Hard",
+  "grade": "Grade 12",
+  "subject": "Physics",
+  "chapter": "Mechanics",
+  "topic": "Motion in a Plane (Vectors & Projectiles)",
+  "questionText": "A projectile is launched from the edge of a cliff 80 m above the ground with an initial speed of 30 m/s at an angle \u03b8 above the horizontal. It lands on the ground 150 m horizontally from the launch point. Assuming g = 9.8 m/s\u00b2, what is the launch angle \u03b8 (to the nearest degree)?",
+  "calculationDraft": "Correct solution: Use horizontal motion x = v0 cos\u03b8 * t => t = 150/(30 cos\u03b8) = 5/ cos\u03b8 s. Vertical motion: y = v0 sin\u03b8 * t - (1/2) g t^2 = -80. Substitute t: 30 sin\u03b8*(5/ cos\u03b8) - 0.5*9.8*(5/ cos\u03b8)^2 = -80 \u2192 150 tan\u03b8 - 122.5 sec^2\u03b8 = -80. Using sec^2\u03b8 = 1+tan^2\u03b8, let T = tan\u03b8: 150 T - 122.5(1+T^2) = -80 \u2192 -122.5 T^2 + 150 T - 42.5 = 0 \u2192 122.5 T^2 - 150 T + 42.5 = 0 \u2192 divide by 2.5 \u2192 49 T^2 - 60 T + 17 = 0. Solve quadratic: Discriminant D = 60^2 - 4*49*17 = 268, \u221aD \u2248 16.37. T = [60 \u00b1 16.37]/(2*49) \u2192 T1\u22480.779, T2\u22480.445. Angles: \u03b81\u224838\u00b0, \u03b82\u224824\u00b0. The smaller angle (\u224824\u00b0) is the usual answer for a projectile launched from a height. \n\nDistractor A (Computational Error): Using g = 10 m/s^2 instead of 9.8 leads to 0.5*10*25 = 125, giving quadratic 49T^2 - 60T + 15 = 0 \u2192 tan\u03b8\u22480.5 \u2192 \u03b8\u224827\u00b0, rounded to 27\u00b0 (not offered). A plausible wrong option is 38\u00b0 (using the larger root). \n\nDistractor B (Conceptual Misconception): Forgetting the vertical drop sign, setting vertical equation to +80 instead of -80, yields 150T - 122.5(1+T^2) = 80 \u2192 49T^2 - 60T - 17 = 0 \u2192 tan\u03b8\u22480.9 \u2192 \u03b8\u224842\u00b0, rounded to 45\u00b0 (off by sign). \n\nDistractor C (Trap): Correct quadratic solved but selecting the larger root (\u22480.779) gives \u03b8\u224838\u00b0, which is a valid angle but not the one asked for (they asked for the smaller angle). Hence 38\u00b0 appears as a plausible but incorrect choice.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "52\u00b0",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "38\u00b0",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "45\u00b0",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "24\u00b0",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the expression for the time of flight t in terms of the launch angle \u03b8?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "t = 150 / (30 sin\u03b8)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "t = 150 / (30 cos\u03b8)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "t = 30 cos\u03b8 / 150",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "t = 5 s",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "Substituting t into the vertical\u2011motion equation, which expression correctly represents the vertical displacement condition?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "30 sin\u03b8\u00b7(150/(30 cos\u03b8)) - 0.5\u00b79.8\u00b7(150/(30 cos\u03b8))\u00b2 = -80",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "30 sin\u03b8\u00b7(150/(30 cos\u03b8)) - 0.5\u00b79.8\u00b7(150/(30 sin\u03b8))\u00b2 = -80",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "30 sin\u03b8\u00b7(150/(30 cos\u03b8)) - 0.5\u00b79.8\u00b7(150/(30 cos\u03b8))\u00b2 = +80",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "30 sin\u03b8\u00b7(150/(30 cos\u03b8)) + 0.5\u00b79.8\u00b7(150/(30 cos\u03b8))\u00b2 = -80",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 3,
+      "stepText": "After simplifying, which quadratic equation in T = tan\u03b8 is obtained?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "49 T\u00b2 - 60 T + 17 = 0",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "49 T\u00b2 + 60 T + 17 = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "49 T\u00b2 - 30 T + 17 = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "49 T\u00b2 - 60 T - 17 = 0",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 4,
+      "stepText": "Which angle (rounded to the nearest degree) satisfies the quadratic and corresponds to the smaller launch angle?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "45\u00b0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "24\u00b0",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "38\u00b0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "52\u00b0",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "a1d4f9c2-3b5e-4d6f-8a9b-2c3d4e5f6a7b",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A ball is thrown from ground level with a speed of 20\u202fm/s at an angle of 30\u00b0 above the horizontal. Ignoring air resistance and using g = 10\u202fm/s\u00b2, what is the horizontal distance it travels before landing?",
+      "calculationDraft": "Correct: Range R = (v\u2080\u00b2 sin2\u03b8)/g. With v\u2080 = 20 m/s, \u03b8 = 30\u00b0, g = 10 m/s\u00b2 \u2192 sin2\u03b8 = sin60\u00b0 = \u221a3/2 \u2248 0.866. R = (400 * 0.866)/10 = 34.64 m \u2248 35 m. \nDistractor A (Computational Error): Using g = 9.8 gives R \u2248 35.3 m, rounded to 36 m (option). \nDistractor B (Conceptual Misconception): Forgetting the sin2\u03b8 factor, using R = v\u2080\u00b2/g \u2192 400/10 = 40 m (option). \nDistractor C (Trap): Using sin\u03b8 instead of sin2\u03b8 \u2192 sin30\u00b0 = 0.5 \u2192 R = (400*0.5)/10 = 20 m (option).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "36\u202fm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "20\u202fm",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "35\u202fm",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "40\u202fm",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "Which formula gives the range R of a projectile launched from ground level?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "R = (v\u2080\u00b2 sin\u03b8)/g",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "R = (v\u2080\u00b2 sin2\u03b8)/g",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "R = (v\u2080 sin\u03b8)\u00b7(2v\u2080 sin\u03b8/g)",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "R = v\u2080\u00b2/g",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Plugging the numbers into the correct formula, what is the computed range (rounded to the nearest metre)?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "36\u202fm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "40\u202fm",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "35\u202fm",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "20\u202fm",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "c9e2b1d4-5f6a-4c3b-9d8e-1a2b3c4d5e6f",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "A projectile\u2019s velocity components at a certain instant are 15\u202fm/s horizontally and 20\u202fm/s vertically upward. What is the magnitude of the resultant velocity (in m/s) and its direction measured above the horizontal (to the nearest degree)?",
+      "calculationDraft": "Correct: Horizontal component v\u2093 = 15\u202fm/s, vertical component v_y = 20\u202fm/s. Magnitude v = \u221a(15\u00b2+20\u00b2) = \u221a(225+400)=\u221a625=25\u202fm/s. Direction \u03b1 = arctan(v_y/v\u2093)=arctan(20/15)=53.13\u00b0 above the horizontal. \nDistractor A (Computational Error): Using 14\u202fm/s for horizontal component (mistake) \u2192 magnitude \u2248 \u221a(14\u00b2+20\u00b2)=\u221a(196+400)=\u221a596\u224824.4\u202fm/s (\u224824\u202fm/s). \nDistractor B (Conceptual Misconception): Swapping components (treating 15 as vertical) \u2192 \u03b1 = arctan(15/20)=36.9\u00b0 (\u224837\u00b0). \nDistractor C (Trap): Correct magnitude 25\u202fm/s but rounding angle to 45\u00b0 (common angle).",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "24\u202fm/s, 53\u00b0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "25\u202fm/s, 53\u00b0",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "25\u202fm/s, 37\u00b0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "25\u202fm/s, 45\u00b0",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How do you calculate the magnitude of the resultant velocity from its components?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "v = \u221a(v\u2093\u00b2 + v_y\u00b2)",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "v = v\u2093 + v_y",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "v = (v\u2093\u00b7v_y)/g",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "v = |v\u2093 - v_y|",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Using the correct magnitude, what is the direction angle \u03b1 (above the horizontal) of the resultant velocity?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "37\u00b0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "53\u00b0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "45\u00b0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "60\u00b0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Projectile motion in a plane is analyzed by separating the motion into independent horizontal (constant velocity) and vertical (uniformly accelerated) components. The launch angle, initial speed, and height determine the range, time of flight, and maximum height.",
+    "youtubeResource": {
+      "title": "Grade 12 Physics \u2013 Projectile Motion \u2013 Vectors & Trajectories",
+      "searchQuery": "Grade 12 Physics projectile motion vectors tutorial",
+      "url": "https://www.youtube.com/watch?v=layV0wd-6sE"
+    },
+    "imageResource": {
+      "title": "Projectile Motion Vector Decomposition Diagram",
+      "searchQuery": "projectile motion vector diagram physics",
+      "url": "C:/Users/sahil/OneDrive/Desktop/VTFR-Project/generated_question/concept_cards/motion_in_a_plane_vectors_projectiles_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Mechanics \u2013 Motion in a Plane (Vectors & Projectiles) Revision Notes",
+      "searchQuery": "Grade 12 physics motion in a plane pdf",
+      "url": "https://chapternotes.in/wp-content/uploads/2026/06/motion-in-a-plane-class-11-notes-chapternotes.pdf"
+    },
+    "webResource": {
+      "title": "Khan Academy \u2013 Projectile Motion",
+      "searchQuery": "projectile motion vectors site:khanacademy.org",
+      "url": "https://openstax.org/books/physics/pages/5-3-projectile-motion"
+    }
+  }
+}

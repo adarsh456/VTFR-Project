@@ -1,0 +1,277 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "Grade 12",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Complex Numbers and Quadratic Equations",
+  "questionText": "Solve the equation (x^2 + 4x + 4) / (x^2 - 4) = 3 for x.",
+  "calculationDraft": "Correct: To find the value of x, we first need to simplify the expression (x^2 + 4x + 4) / (x^2 - 4). Factoring both numerator and denominator gives us ((x+2)^2) / ((x+2)(x-2)). Cancelling (x+2) from both numerator and denominator (assuming x \u2260 -2), we get 1 / (x-2). Now, to solve 1 / (x-2) = 3, we multiply both sides by (x-2) to get 1 = 3(x-2). Expanding gives 1 = 3x - 6. Adding 6 to both sides gives 7 = 3x. Dividing by 3 gives x = 7/3. Distractor A (Computational Error): Incorrectly cancelling (x-2) instead of (x+2) would lead to 1 / (x+2) = 3, resulting in x = -11/3. Distractor B (Conceptual Misconception): Failing to factor the expressions would lead to attempting to solve (x^2 + 4x + 4) / (x^2 - 4) = 3 directly, which could result in a mistaken equation like x^2 + 4x + 4 = 3(x^2 - 4), simplifying incorrectly to x^2 + 4x + 4 = 3x^2 - 12, leading to a wrong equation 2x^2 - 4x - 16 = 0. Distractor C (Partially Correct / Trap): Correctly simplifying to 1 / (x-2) = 3 but then incorrectly solving for x by multiplying both sides by (x+2) instead of (x-2), leading to 1 = 3(x+2), which simplifies to 1 = 3x + 6, and then to -5 = 3x, resulting in x = -5/3.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "-11/3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "-5/3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "-2",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "7/3",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the factored form of the expression (x^2 + 4x + 4) / (x^2 - 4)?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "1 / (x^2 - 4)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "(x+2) / (x-2)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(x-2) / (x+2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "(x+2)^2 / (x-2)^2",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "After simplifying the equation to 1 / (x-2) = 3, what is the next step to solve for x?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "Subtract 2 from both sides",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "Multiply both sides by (x+2)",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "Multiply both sides by (x-2)",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "Add 2 to both sides",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "e1ef7f2a-21b8-4b55-929f-bd45c696ca3d",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the equation x^2 - 9 = 0 for x.",
+      "calculationDraft": "Correct: The equation x^2 - 9 = 0 can be solved by recognizing it as a difference of squares, which factors into (x-3)(x+3) = 0. Setting each factor equal to zero gives the solutions x = 3 and x = -3. Distractor A (Computational Error): Incorrectly factoring the equation as (x-3)^2 = 0, leading to the repeated root x = 3. Distractor B (Conceptual Misconception): Attempting to solve the equation by adding 9 to both sides, resulting in x^2 = 9, and then incorrectly taking the square root of both sides without considering the negative root, leading to x = 3 only. Distractor C (Partially Correct / Trap): Correctly factoring the equation but then solving for x by setting only one of the factors equal to zero, for example, x - 3 = 0, which gives x = 3, but missing the second solution x = -3.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 3 or x = -3",
+          "isCorrect": true
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How can the equation x^2 - 9 = 0 be factored?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x^2 = 9",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x+3)(x-3)^2 = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x-3)(x+3) = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x-3)^2 = 0",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After factoring the equation into (x-3)(x+3) = 0, what are the solutions for x?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x = 9",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "x = 3",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x = -3 or x = 3",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x = 0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "9b44b62b-9dc7-4ed4-acb6-1bd2218ec1f1",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the equation 4x^2 + 12x + 9 = 0 for x.",
+      "calculationDraft": "Correct: The equation 4x^2 + 12x + 9 = 0 can be solved by first dividing every term by 4 to simplify, getting x^2 + 3x + 9/4 = 0. Then, recognizing this as a perfect square trinomial, it factors into (x + 3/2)^2 = 0. Setting the factor equal to zero gives x + 3/2 = 0, and solving for x gives x = -3/2. Distractor A (Computational Error): Incorrectly simplifying the equation to x^2 + 3x + 9 = 0 and then attempting to factor it, which would not yield a perfect square. Distractor B (Conceptual Misconception): Failing to recognize the equation as a quadratic in standard form and attempting to solve it using the wrong formula. Distractor C (Partially Correct / Trap): Correctly simplifying and factoring but then incorrectly solving for x by forgetting to divide by 4 initially, leading to an incorrect equation x^2 + 3x + 9 = 0, which does not factor neatly.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -3/2",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = 9/4",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "How can the equation 4x^2 + 12x + 9 = 0 be simplified?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "Divide every term by 4",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "Multiply every term by 4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "Add 4 to both sides",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "Subtract 9 from both sides",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "After simplifying to x^2 + 3x + 9/4 = 0, what is the factored form of this equation?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x + 3/2)^2 = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x - 3/2)^2 = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x^2 + 3x + 9 = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x + 3)^2 = 0",
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Complex numbers and quadratic equations are fundamental concepts in algebra, used to solve equations that cannot be expressed as linear equations. Quadratic equations have the form ax^2 + bx + c = 0, where a, b, and c are constants, and a cannot be zero. These equations can be solved through factoring, completing the square, or using the quadratic formula.",
+    "youtubeResource": {
+      "title": "Solving Quadratic Equations",
+      "searchQuery": "Grade 12 Mathematics Solving Quadratic Equations step by step tutorial",
+      "url": "https://www.youtube.com/watch?v=N2XDRtLrK_E"
+    },
+    "imageResource": {
+      "title": "Quadratic Formula Diagram",
+      "searchQuery": "Quadratic Formula visual explanation diagram",
+      "url": "C:/Users/sahil/OneDrive/Desktop/VTFR-Project/generated_question/concept_cards/complex_numbers_and_quadratic_equations_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Complex Numbers and Quadratic Equations Notes",
+      "searchQuery": "Grade 12 Mathematics Complex Numbers and Quadratic Equations revision notes pdf",
+      "url": "https://chapternotes.in/wp-content/uploads/2026/06/complex-numbers-and-quadratic-equations-class-11-notes-chapternotes.pdf"
+    },
+    "webResource": {
+      "title": "Algebra Guide",
+      "searchQuery": "Mathematics Complex Numbers and Quadratic Equations concept guide",
+      "url": "https://math.libretexts.org/Bookshelves/Algebra/Elementary_Algebra_(LibreTexts)/09%3A_Solving_Quadratic_Equations_and_Graphing_Parabolas/9.06%3A_Introduction_to_Complex_Numbers_and_Complex_Solutions"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "questionId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+  "questionType": "vtfr_adaptive",
+  "bloomsLevel": "Apply",
+  "difficultyTag": "Medium",
+  "grade": "College / University",
+  "subject": "Mathematics",
+  "chapter": "Algebra",
+  "topic": "Complex Numbers and Quadratic Equations",
+  "questionText": "What are the roots of the quadratic equation x^2 + 5x + 6 = 0?",
+  "calculationDraft": "Correct: To find the roots of the quadratic equation x^2 + 5x + 6 = 0, we can factor it as (x + 3)(x + 2) = 0. Thus, the roots are x = -3 and x = -2. Distractor A (Computational Error): Student incorrectly factors the equation as (x + 4)(x + 1) = 0, leading to roots x = -4 and x = -1. Distractor B (Conceptual Misconception): Student attempts to solve the equation using the quadratic formula but forgets to include the coefficient of x^2, leading to an incorrect calculation. Distractor C (Partially Correct): Student correctly identifies one root as x = -3 but fails to find the second root.",
+  "optionsList": [
+    {
+      "optionSequenceNo": 1,
+      "optionText": "x = 1 and x = 4",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 2,
+      "optionText": "x = -1 and x = -4",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 3,
+      "optionText": "x = 2 and x = 3",
+      "isCorrect": false
+    },
+    {
+      "optionSequenceNo": 4,
+      "optionText": "x = -2 and x = -3",
+      "isCorrect": true
+    }
+  ],
+  "solutionSteps": [
+    {
+      "stepSequenceNo": 1,
+      "stepText": "What is the factored form of the quadratic equation x^2 + 5x + 6 = 0?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "(x + 1)(x - 4) = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "(x - 2)(x - 3) = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "(x + 1)(x + 4) = 0",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "(x + 2)(x + 3) = 0",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "stepSequenceNo": 2,
+      "stepText": "If the factored form of the equation is (x + 3)(x + 2) = 0, what are the roots of the equation?",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = -1 and x = -2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 1 and x = 2",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = -4 and x = -1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = -3 and x = -2",
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "alternateQuestions": [
+    {
+      "questionId": "6b0a2771-e664-4a64-9eac-473a8162126c",
+      "questionType": "vtfr_adaptive_alternate",
+      "questionText": "Solve the quadratic equation x^2 - 4x - 3 = 0 for x.",
+      "calculationDraft": "Correct: The quadratic equation x^2 - 4x - 3 = 0 can be solved by factoring as (x - 3)(x + 1) = 0, giving roots x = 3 and x = -1. Distractor A: Incorrectly factors as (x - 2)(x - 1) = 0. Distractor B: Attempts to use the quadratic formula without the coefficient of x^2. Distractor C: Correctly identifies one root but not the other.",
+      "optionsList": [
+        {
+          "optionSequenceNo": 1,
+          "optionText": "x = 3 and x = -1",
+          "isCorrect": true
+        },
+        {
+          "optionSequenceNo": 2,
+          "optionText": "x = 2 and x = 1",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 3,
+          "optionText": "x = 4 and x = -3",
+          "isCorrect": false
+        },
+        {
+          "optionSequenceNo": 4,
+          "optionText": "x = -2 and x = -1",
+          "isCorrect": false
+        }
+      ],
+      "solutionSteps": [
+        {
+          "stepSequenceNo": 1,
+          "stepText": "What is the factored form of the equation x^2 - 4x - 3 = 0?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "(x - 2)(x - 1) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "(x + 2)(x - 1) = 0",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "(x - 3)(x + 1) = 0",
+              "isCorrect": true
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "(x - 4)(x + 3) = 0",
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "stepSequenceNo": 2,
+          "stepText": "Given the factored form (x - 3)(x + 1) = 0, what are the roots of the equation?",
+          "optionsList": [
+            {
+              "optionSequenceNo": 1,
+              "optionText": "x = 3 and x = 1",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 2,
+              "optionText": "x = 2 and x = -2",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 3,
+              "optionText": "x = 4 and x = -4",
+              "isCorrect": false
+            },
+            {
+              "optionSequenceNo": 4,
+              "optionText": "x = -3 and x = -1",
+              "isCorrect": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relatedContent": {
+    "conceptSummary": "Quadratic equations are polynomial equations of degree two, which means the highest power of the variable is two. They have the general form of ax^2 + bx + c = 0, where a, b, and c are constants. Solving these equations involves finding the values of the variable that make the equation true, which can be done through factoring, the quadratic formula, or other methods.",
+    "youtubeResource": {
+      "title": "Solving Quadratic Equations",
+      "searchQuery": "quadratic equations solutions step by step",
+      "url": "https://www.youtube.com/watch?v=7tu6_GH5qAw"
+    },
+    "imageResource": {
+      "title": "Quadratic Formula Diagram",
+      "searchQuery": "quadratic formula chart",
+      "url": "C:/Users/sahil/OneDrive/Desktop/VTFR-Project/generated_question/concept_cards/complex_numbers_and_quadratic_equations_concept_card.png"
+    },
+    "pdfResource": {
+      "title": "Quadratic Equations Study Guide",
+      "searchQuery": "quadratic equations study guide pdf",
+      "url": "https://chapternotes.in/wp-content/uploads/2026/06/complex-numbers-and-quadratic-equations-class-11-notes-chapternotes.pdf"
+    },
+    "webResource": {
+      "title": "Quadratic Equations Tutorial",
+      "searchQuery": "quadratic equations tutorial",
+      "url": "https://math.libretexts.org/Bookshelves/Algebra/Elementary_Algebra_(LibreTexts)/09%3A_Solving_Quadratic_Equations_and_Graphing_Parabolas/9.06%3A_Introduction_to_Complex_Numbers_and_Complex_Solutions"
+    }
+  }
+}
